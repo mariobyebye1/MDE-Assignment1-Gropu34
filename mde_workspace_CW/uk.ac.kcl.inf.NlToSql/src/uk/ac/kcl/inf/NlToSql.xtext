@@ -9,64 +9,56 @@ AccountingSpeech:
 
 // Define the Statement rule
 Statement:
-    (SelectStatement) 
-//    	InsertStatement | UpdateStatement | DeleteStatement
+    (CreateTableStatement | SelectStatement ) 
+//    	 | InsertStatement | UpdateStatement | DeleteStatement
     '.'
 ;
 
+
+// Define the table creation rule
+CreateTableStatement:
+  'create' ('the' | 'a')? 'table' 'called' table=Table
+  ('with' 'columns' columns=ColumnList)?
+  ;
+
+// Define the ColumnList rule
+ColumnList:
+    columnItem+=Column (',' columnItem+=Column)*
+;
+
+Table:
+	name=ID 
+;
+
+Column:
+  name=ID 'of' 'type' type=Datatype;
+
+Datatype:
+  'int' | 'string' | 'date';
+
+
 // Define the SelectStatement rule
 SelectStatement:
+	'from' 'the' 'table' SelectTablesList
     ('can' 'you')? 'show' 
-    (('the' 'columns:' SelectList | 'all' 'columns') 'from') 
-    entity=EntityName 
+    ('the' 'columns:' columns = SelectColumnsList | 'all' 'columns') 
     ('where' condition=Condition)? 
-    ('group' 'by' groupByList+=PropertyReference (',' groupByList+=PropertyReference)*)?
+    ('group' 'by' groupByList+=Column (',' groupByList+=Column)*)?
 ;
 
-//// Define the InsertStatement rule
-//InsertStatement:
-//    ('can' 'you')? 'insert' 'into' entity=EntityName 
-//    '(' propertyList+=PropertyName (',' propertyList+=PropertyName)* ')' 
-//    'values' '(' valueList+=Value (',' valueList+=Value)* ')'
-//;
-//
-//// Define the UpdateStatement rule
-//UpdateStatement:
-//    ('can' 'you' 'please')? 'update' entity=EntityName 
-//    'set' (updateItem+=UpdateItem (',' updateItem+=UpdateItem)*) 
-//    ('where' condition=Condition)?
-//;
-//
-//// Define the DeleteStatement rule
-//DeleteStatement:
-//    ('can' 'you' 'please')? 'delete' 'from' entity=EntityName 
-//    ('where' condition=Condition)?
-//;
 
-
-// Define the EntityName rule
-EntityName:
-    ('the' 'table')? name=ID
+SelectTablesList:
+	selectTable+=[Table] (',' selectTable+=[Table])*
 ;
-
 
 // Define the SelectList rule
-SelectList:
-    selectItem+=Property (',' selectItem+=Property)*
+SelectColumnsList:
+    selectColumn+=ColumnReference (',' selectColumn+=ColumnReference)*
 ;
 
-
-// Define the PropertyReference rule
-PropertyReference:
-    property=[Property]
+ColumnReference:
+    column=[Column] ('in' table=[Table])?
 ;
-
-
-// Define the Property rule
-Property:
-    ('the' | 'a')? name=ID
-;
-
 
 // Define the Condition rule
 Condition returns LogicExpressions:
@@ -80,7 +72,7 @@ LogicOperator:
 
 // Define the Comparison rule
 Comparison returns LogicExpressions:
-    ('the' | 'a')? leftHandSide=[Property] operator=ComparisonOperator rightHandSide=Value
+    ('the' | 'a')? leftHandSide=[Column] operator=ComparisonOperator rightHandSide=Value
 ;
 
 
@@ -90,11 +82,60 @@ ComparisonOperator:
 ;
 
 
-
 // Define the Value rule
 Value:
     INT | STRING
 ;
+
+
+
+
+
+
+
+
+
+
+
+
+//// Define the UpdateItem rule
+//UpdateItem:
+//    ('the' | 'a')? property=[Property] '=' value=Value
+//;
+//
+//
+//// Define the PropertyName rule
+//PropertyName:
+//    ('the' | 'a')? name=ID
+//    
+//;
+//
+//
+//// Define the InsertStatement rule
+//InsertStatement:
+//    ('can' 'you')? 'insert' 'into' entity=EntityName 
+//    'columns''(' propertyList+=PropertyName (',' propertyList+=PropertyName)* ')' 
+//    'insert''values' '(' valueList+=Value (',' valueList+=Value)* ')'
+//;
+
+//// Define the UpdateStatement rule
+//UpdateStatement:
+//    ('can' 'you')? 'update' 'table' entity=EntityName 
+//    'to''set' (updateItem+=UpdateItem (',' updateItem+=UpdateItem)*) 
+//    ('where' condition=Condition)?
+//;
+//
+//// Define the DeleteStatement rule
+//DeleteStatement:
+//    ('can' 'you' 'please')? 'delete' 'from' entity=EntityName 
+//    ('where' condition=Condition)?
+//;
+
+
+
+
+
+
 
 
 

@@ -10,22 +10,33 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference NlToSql.ecore#//AccountingSpeech/statements"/>
     </genClasses>
     <genClasses ecoreClass="NlToSql.ecore#//Statement"/>
-    <genClasses ecoreClass="NlToSql.ecore#//SelectStatement">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference NlToSql.ecore#//SelectStatement/entity"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference NlToSql.ecore#//SelectStatement/condition"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference NlToSql.ecore#//SelectStatement/groupByList"/>
+    <genClasses ecoreClass="NlToSql.ecore#//CreateTableStatement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference NlToSql.ecore#//CreateTableStatement/table"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference NlToSql.ecore#//CreateTableStatement/columns"/>
     </genClasses>
-    <genClasses ecoreClass="NlToSql.ecore#//EntityName">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NlToSql.ecore#//EntityName/name"/>
+    <genClasses ecoreClass="NlToSql.ecore#//ColumnList">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference NlToSql.ecore#//ColumnList/columnItem"/>
     </genClasses>
-    <genClasses ecoreClass="NlToSql.ecore#//SelectList">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference NlToSql.ecore#//SelectList/selectItem"/>
+    <genClasses ecoreClass="NlToSql.ecore#//Table">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NlToSql.ecore#//Table/name"/>
     </genClasses>
-    <genClasses ecoreClass="NlToSql.ecore#//PropertyReference">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference NlToSql.ecore#//PropertyReference/property"/>
+    <genClasses ecoreClass="NlToSql.ecore#//Column">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NlToSql.ecore#//Column/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NlToSql.ecore#//Column/type"/>
     </genClasses>
-    <genClasses ecoreClass="NlToSql.ecore#//Property">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NlToSql.ecore#//Property/name"/>
+    <genClasses ecoreClass="NlToSql.ecore#//SelectStatement"/>
+    <genClasses ecoreClass="NlToSql.ecore#//SelectTablesList">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference NlToSql.ecore#//SelectTablesList/columns"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference NlToSql.ecore#//SelectTablesList/condition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference NlToSql.ecore#//SelectTablesList/groupByList"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference NlToSql.ecore#//SelectTablesList/selectTable"/>
+    </genClasses>
+    <genClasses ecoreClass="NlToSql.ecore#//SelectColumnsList">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference NlToSql.ecore#//SelectColumnsList/selectColumn"/>
+    </genClasses>
+    <genClasses ecoreClass="NlToSql.ecore#//ColumnReference">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference NlToSql.ecore#//ColumnReference/column"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference NlToSql.ecore#//ColumnReference/table"/>
     </genClasses>
     <genClasses ecoreClass="NlToSql.ecore#//LogicExpressions">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference NlToSql.ecore#//LogicExpressions/leftHandSide"/>

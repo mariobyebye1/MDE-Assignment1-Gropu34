@@ -3,21 +3,12 @@
  */
 package uk.ac.kcl.inf.nlToSql;
 
-import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Select Statement</b></em>'.
  * <!-- end-user-doc -->
  *
- * <p>
- * The following features are supported:
- * </p>
- * <ul>
- *   <li>{@link uk.ac.kcl.inf.nlToSql.SelectStatement#getEntity <em>Entity</em>}</li>
- *   <li>{@link uk.ac.kcl.inf.nlToSql.SelectStatement#getCondition <em>Condition</em>}</li>
- *   <li>{@link uk.ac.kcl.inf.nlToSql.SelectStatement#getGroupByList <em>Group By List</em>}</li>
- * </ul>
  *
  * @see uk.ac.kcl.inf.nlToSql.NlToSqlPackage#getSelectStatement()
  * @model
@@ -25,60 +16,4 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface SelectStatement extends Statement
 {
-  /**
-   * Returns the value of the '<em><b>Entity</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Entity</em>' containment reference.
-   * @see #setEntity(EntityName)
-   * @see uk.ac.kcl.inf.nlToSql.NlToSqlPackage#getSelectStatement_Entity()
-   * @model containment="true"
-   * @generated
-   */
-  EntityName getEntity();
-
-  /**
-   * Sets the value of the '{@link uk.ac.kcl.inf.nlToSql.SelectStatement#getEntity <em>Entity</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Entity</em>' containment reference.
-   * @see #getEntity()
-   * @generated
-   */
-  void setEntity(EntityName value);
-
-  /**
-   * Returns the value of the '<em><b>Condition</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Condition</em>' containment reference.
-   * @see #setCondition(LogicExpressions)
-   * @see uk.ac.kcl.inf.nlToSql.NlToSqlPackage#getSelectStatement_Condition()
-   * @model containment="true"
-   * @generated
-   */
-  LogicExpressions getCondition();
-
-  /**
-   * Sets the value of the '{@link uk.ac.kcl.inf.nlToSql.SelectStatement#getCondition <em>Condition</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Condition</em>' containment reference.
-   * @see #getCondition()
-   * @generated
-   */
-  void setCondition(LogicExpressions value);
-
-  /**
-   * Returns the value of the '<em><b>Group By List</b></em>' containment reference list.
-   * The list contents are of type {@link uk.ac.kcl.inf.nlToSql.PropertyReference}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Group By List</em>' containment reference list.
-   * @see uk.ac.kcl.inf.nlToSql.NlToSqlPackage#getSelectStatement_GroupByList()
-   * @model containment="true"
-   * @generated
-   */
-  EList<PropertyReference> getGroupByList();
-
 } // SelectStatement

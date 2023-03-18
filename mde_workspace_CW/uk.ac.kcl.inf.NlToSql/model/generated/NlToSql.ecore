@@ -6,29 +6,44 @@
         eType="#//Statement" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Statement"/>
-  <eClassifiers xsi:type="ecore:EClass" name="SelectStatement" eSuperTypes="#//Statement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="entity" eType="#//EntityName"
+  <eClassifiers xsi:type="ecore:EClass" name="CreateTableStatement" eSuperTypes="#//Statement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="table" eType="#//Table"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="columns" eType="#//ColumnList"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ColumnList">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="columnItem" upperBound="-1"
+        eType="#//Column" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Table">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Column">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SelectStatement" eSuperTypes="#//Statement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SelectTablesList" eSuperTypes="#//SelectStatement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="columns" eType="#//SelectColumnsList"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="condition" eType="#//LogicExpressions"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="groupByList" upperBound="-1"
-        eType="#//PropertyReference" containment="true"/>
+        eType="#//Column" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="selectTable" unique="false"
+        upperBound="-1" eType="#//Table"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="EntityName">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SelectColumnsList">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="selectColumn" upperBound="-1"
+        eType="#//ColumnReference" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SelectList" eSuperTypes="#//SelectStatement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="selectItem" upperBound="-1"
-        eType="#//Property" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="PropertyReference">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="property" eType="#//Property"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Property">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ColumnReference">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="column" eType="#//Column"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="table" eType="#//Table"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LogicExpressions">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="leftHandSide" eType="#//Property"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="leftHandSide" eType="#//Column"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="rightHandSide" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>

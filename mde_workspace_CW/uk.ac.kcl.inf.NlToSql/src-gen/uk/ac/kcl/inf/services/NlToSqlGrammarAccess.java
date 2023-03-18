@@ -44,308 +44,480 @@ public class NlToSqlGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 	public class StatementElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.NlToSql.Statement");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final RuleCall cSelectStatementParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Alternatives cAlternatives_0 = (Alternatives)cGroup.eContents().get(0);
+		private final RuleCall cCreateTableStatementParserRuleCall_0_0 = (RuleCall)cAlternatives_0.eContents().get(0);
+		private final RuleCall cSelectStatementParserRuleCall_0_1 = (RuleCall)cAlternatives_0.eContents().get(1);
 		private final Keyword cFullStopKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		
 		//// Define the Statement rule
 		//Statement:
-		//    (SelectStatement)
-		////        InsertStatement | UpdateStatement | DeleteStatement
+		//    (CreateTableStatement | SelectStatement )
+		////         | InsertStatement | UpdateStatement | DeleteStatement
 		//    '.'
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//    (SelectStatement)
-		////        InsertStatement | UpdateStatement | DeleteStatement
+		//    (CreateTableStatement | SelectStatement )
+		////         | InsertStatement | UpdateStatement | DeleteStatement
 		//    '.'
 		public Group getGroup() { return cGroup; }
 		
-		//(SelectStatement)
-		public RuleCall getSelectStatementParserRuleCall_0() { return cSelectStatementParserRuleCall_0; }
+		//(CreateTableStatement | SelectStatement )
+		public Alternatives getAlternatives_0() { return cAlternatives_0; }
 		
-		////        InsertStatement | UpdateStatement | DeleteStatement
+		//CreateTableStatement
+		public RuleCall getCreateTableStatementParserRuleCall_0_0() { return cCreateTableStatementParserRuleCall_0_0; }
+		
+		//SelectStatement
+		public RuleCall getSelectStatementParserRuleCall_0_1() { return cSelectStatementParserRuleCall_0_1; }
+		
+		////         | InsertStatement | UpdateStatement | DeleteStatement
 		//    '.'
 		public Keyword getFullStopKeyword_1() { return cFullStopKeyword_1; }
 	}
-	public class SelectStatementElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.NlToSql.SelectStatement");
+	public class CreateTableStatementElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.NlToSql.CreateTableStatement");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Group cGroup_0 = (Group)cGroup.eContents().get(0);
-		private final Keyword cCanKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
-		private final Keyword cYouKeyword_0_1 = (Keyword)cGroup_0.eContents().get(1);
-		private final Keyword cShowKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Alternatives cAlternatives_2_0 = (Alternatives)cGroup_2.eContents().get(0);
-		private final Group cGroup_2_0_0 = (Group)cAlternatives_2_0.eContents().get(0);
-		private final Keyword cTheKeyword_2_0_0_0 = (Keyword)cGroup_2_0_0.eContents().get(0);
-		private final Keyword cColumnsKeyword_2_0_0_1 = (Keyword)cGroup_2_0_0.eContents().get(1);
-		private final RuleCall cSelectListParserRuleCall_2_0_0_2 = (RuleCall)cGroup_2_0_0.eContents().get(2);
-		private final Group cGroup_2_0_1 = (Group)cAlternatives_2_0.eContents().get(1);
-		private final Keyword cAllKeyword_2_0_1_0 = (Keyword)cGroup_2_0_1.eContents().get(0);
-		private final Keyword cColumnsKeyword_2_0_1_1 = (Keyword)cGroup_2_0_1.eContents().get(1);
-		private final Keyword cFromKeyword_2_1 = (Keyword)cGroup_2.eContents().get(1);
-		private final Assignment cEntityAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cEntityEntityNameParserRuleCall_3_0 = (RuleCall)cEntityAssignment_3.eContents().get(0);
-		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final Keyword cWhereKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
-		private final Assignment cConditionAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cConditionConditionParserRuleCall_4_1_0 = (RuleCall)cConditionAssignment_4_1.eContents().get(0);
+		private final Keyword cCreateKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
+		private final Keyword cTheKeyword_1_0 = (Keyword)cAlternatives_1.eContents().get(0);
+		private final Keyword cAKeyword_1_1 = (Keyword)cAlternatives_1.eContents().get(1);
+		private final Keyword cTableKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Keyword cCalledKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cTableAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cTableTableParserRuleCall_4_0 = (RuleCall)cTableAssignment_4.eContents().get(0);
 		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
-		private final Keyword cGroupKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
-		private final Keyword cByKeyword_5_1 = (Keyword)cGroup_5.eContents().get(1);
-		private final Assignment cGroupByListAssignment_5_2 = (Assignment)cGroup_5.eContents().get(2);
-		private final RuleCall cGroupByListPropertyReferenceParserRuleCall_5_2_0 = (RuleCall)cGroupByListAssignment_5_2.eContents().get(0);
-		private final Group cGroup_5_3 = (Group)cGroup_5.eContents().get(3);
-		private final Keyword cCommaKeyword_5_3_0 = (Keyword)cGroup_5_3.eContents().get(0);
-		private final Assignment cGroupByListAssignment_5_3_1 = (Assignment)cGroup_5_3.eContents().get(1);
-		private final RuleCall cGroupByListPropertyReferenceParserRuleCall_5_3_1_0 = (RuleCall)cGroupByListAssignment_5_3_1.eContents().get(0);
+		private final Keyword cWithKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final Keyword cColumnsKeyword_5_1 = (Keyword)cGroup_5.eContents().get(1);
+		private final Assignment cColumnsAssignment_5_2 = (Assignment)cGroup_5.eContents().get(2);
+		private final RuleCall cColumnsColumnListParserRuleCall_5_2_0 = (RuleCall)cColumnsAssignment_5_2.eContents().get(0);
 		
-		//// Define the SelectStatement rule
-		//SelectStatement:
-		//    ('can' 'you')? 'show'
-		//    (('the' 'columns:' SelectList | 'all' 'columns') 'from')
-		//    entity=EntityName
-		//    ('where' condition=Condition)?
-		//    ('group' 'by' groupByList+=PropertyReference (',' groupByList+=PropertyReference)*)?
-		//;
+		//// Define the table creation rule
+		//CreateTableStatement:
+		//  'create' ('the' | 'a')? 'table' 'called' table=Table
+		//  ('with' 'columns' columns=ColumnList)?
+		//  ;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//('can' 'you')? 'show'
-		//(('the' 'columns:' SelectList | 'all' 'columns') 'from')
-		//entity=EntityName
-		//('where' condition=Condition)?
-		//('group' 'by' groupByList+=PropertyReference (',' groupByList+=PropertyReference)*)?
+		//'create' ('the' | 'a')? 'table' 'called' table=Table
+		//('with' 'columns' columns=ColumnList)?
 		public Group getGroup() { return cGroup; }
 		
-		//('can' 'you')?
-		public Group getGroup_0() { return cGroup_0; }
+		//'create'
+		public Keyword getCreateKeyword_0() { return cCreateKeyword_0; }
 		
-		//'can'
-		public Keyword getCanKeyword_0_0() { return cCanKeyword_0_0; }
-		
-		//'you'
-		public Keyword getYouKeyword_0_1() { return cYouKeyword_0_1; }
-		
-		//'show'
-		public Keyword getShowKeyword_1() { return cShowKeyword_1; }
-		
-		//(('the' 'columns:' SelectList | 'all' 'columns') 'from')
-		public Group getGroup_2() { return cGroup_2; }
-		
-		//('the' 'columns:' SelectList | 'all' 'columns')
-		public Alternatives getAlternatives_2_0() { return cAlternatives_2_0; }
-		
-		//'the' 'columns:' SelectList
-		public Group getGroup_2_0_0() { return cGroup_2_0_0; }
+		//('the' | 'a')?
+		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
 		//'the'
-		public Keyword getTheKeyword_2_0_0_0() { return cTheKeyword_2_0_0_0; }
+		public Keyword getTheKeyword_1_0() { return cTheKeyword_1_0; }
 		
-		//'columns:'
-		public Keyword getColumnsKeyword_2_0_0_1() { return cColumnsKeyword_2_0_0_1; }
-		
-		//SelectList
-		public RuleCall getSelectListParserRuleCall_2_0_0_2() { return cSelectListParserRuleCall_2_0_0_2; }
-		
-		//'all' 'columns'
-		public Group getGroup_2_0_1() { return cGroup_2_0_1; }
-		
-		//'all'
-		public Keyword getAllKeyword_2_0_1_0() { return cAllKeyword_2_0_1_0; }
-		
-		//'columns'
-		public Keyword getColumnsKeyword_2_0_1_1() { return cColumnsKeyword_2_0_1_1; }
-		
-		//'from'
-		public Keyword getFromKeyword_2_1() { return cFromKeyword_2_1; }
-		
-		//entity=EntityName
-		public Assignment getEntityAssignment_3() { return cEntityAssignment_3; }
-		
-		//EntityName
-		public RuleCall getEntityEntityNameParserRuleCall_3_0() { return cEntityEntityNameParserRuleCall_3_0; }
-		
-		//('where' condition=Condition)?
-		public Group getGroup_4() { return cGroup_4; }
-		
-		//'where'
-		public Keyword getWhereKeyword_4_0() { return cWhereKeyword_4_0; }
-		
-		//condition=Condition
-		public Assignment getConditionAssignment_4_1() { return cConditionAssignment_4_1; }
-		
-		//Condition
-		public RuleCall getConditionConditionParserRuleCall_4_1_0() { return cConditionConditionParserRuleCall_4_1_0; }
-		
-		//('group' 'by' groupByList+=PropertyReference (',' groupByList+=PropertyReference)*)?
-		public Group getGroup_5() { return cGroup_5; }
-		
-		//'group'
-		public Keyword getGroupKeyword_5_0() { return cGroupKeyword_5_0; }
-		
-		//'by'
-		public Keyword getByKeyword_5_1() { return cByKeyword_5_1; }
-		
-		//groupByList+=PropertyReference
-		public Assignment getGroupByListAssignment_5_2() { return cGroupByListAssignment_5_2; }
-		
-		//PropertyReference
-		public RuleCall getGroupByListPropertyReferenceParserRuleCall_5_2_0() { return cGroupByListPropertyReferenceParserRuleCall_5_2_0; }
-		
-		//(',' groupByList+=PropertyReference)*
-		public Group getGroup_5_3() { return cGroup_5_3; }
-		
-		//','
-		public Keyword getCommaKeyword_5_3_0() { return cCommaKeyword_5_3_0; }
-		
-		//groupByList+=PropertyReference
-		public Assignment getGroupByListAssignment_5_3_1() { return cGroupByListAssignment_5_3_1; }
-		
-		//PropertyReference
-		public RuleCall getGroupByListPropertyReferenceParserRuleCall_5_3_1_0() { return cGroupByListPropertyReferenceParserRuleCall_5_3_1_0; }
-	}
-	public class EntityNameElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.NlToSql.EntityName");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Group cGroup_0 = (Group)cGroup.eContents().get(0);
-		private final Keyword cTheKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
-		private final Keyword cTableKeyword_0_1 = (Keyword)cGroup_0.eContents().get(1);
-		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		
-		////// Define the InsertStatement rule
-		////InsertStatement:
-		////    ('can' 'you' 'please')? 'insert' 'into' entity=EntityName
-		////    '(' propertyList+=PropertyName (',' propertyList+=PropertyName)* ')'
-		////    'values' '(' valueList+=Value (',' valueList+=Value)* ')'
-		////;
-		////
-		////// Define the UpdateStatement rule
-		////UpdateStatement:
-		////    ('can' 'you' 'please')? 'update' entity=EntityName
-		////    'set' (updateItem+=UpdateItem (',' updateItem+=UpdateItem)*)
-		////    ('where' condition=Condition)?
-		////;
-		////
-		////// Define the DeleteStatement rule
-		////DeleteStatement:
-		////    ('can' 'you' 'please')? 'delete' 'from' entity=EntityName
-		////    ('where' condition=Condition)?
-		////;
-		//// Define the EntityName rule
-		//EntityName:
-		//    ('the' 'table')? name=ID
-		//;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//('the' 'table')? name=ID
-		public Group getGroup() { return cGroup; }
-		
-		//('the' 'table')?
-		public Group getGroup_0() { return cGroup_0; }
-		
-		//'the'
-		public Keyword getTheKeyword_0_0() { return cTheKeyword_0_0; }
+		//'a'
+		public Keyword getAKeyword_1_1() { return cAKeyword_1_1; }
 		
 		//'table'
-		public Keyword getTableKeyword_0_1() { return cTableKeyword_0_1; }
+		public Keyword getTableKeyword_2() { return cTableKeyword_2; }
 		
-		//name=ID
-		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		//'called'
+		public Keyword getCalledKeyword_3() { return cCalledKeyword_3; }
 		
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		//table=Table
+		public Assignment getTableAssignment_4() { return cTableAssignment_4; }
+		
+		//Table
+		public RuleCall getTableTableParserRuleCall_4_0() { return cTableTableParserRuleCall_4_0; }
+		
+		//('with' 'columns' columns=ColumnList)?
+		public Group getGroup_5() { return cGroup_5; }
+		
+		//'with'
+		public Keyword getWithKeyword_5_0() { return cWithKeyword_5_0; }
+		
+		//'columns'
+		public Keyword getColumnsKeyword_5_1() { return cColumnsKeyword_5_1; }
+		
+		//columns=ColumnList
+		public Assignment getColumnsAssignment_5_2() { return cColumnsAssignment_5_2; }
+		
+		//ColumnList
+		public RuleCall getColumnsColumnListParserRuleCall_5_2_0() { return cColumnsColumnListParserRuleCall_5_2_0; }
 	}
-	public class SelectListElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.NlToSql.SelectList");
+	public class ColumnListElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.NlToSql.ColumnList");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cSelectItemAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cSelectItemPropertyParserRuleCall_0_0 = (RuleCall)cSelectItemAssignment_0.eContents().get(0);
+		private final Assignment cColumnItemAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cColumnItemColumnParserRuleCall_0_0 = (RuleCall)cColumnItemAssignment_0.eContents().get(0);
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
 		private final Keyword cCommaKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
-		private final Assignment cSelectItemAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
-		private final RuleCall cSelectItemPropertyParserRuleCall_1_1_0 = (RuleCall)cSelectItemAssignment_1_1.eContents().get(0);
+		private final Assignment cColumnItemAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cColumnItemColumnParserRuleCall_1_1_0 = (RuleCall)cColumnItemAssignment_1_1.eContents().get(0);
 		
-		//// Define the SelectList rule
-		//SelectList:
-		//    selectItem+=Property (',' selectItem+=Property)*
+		//// Define the ColumnList rule
+		//ColumnList:
+		//    columnItem+=Column (',' columnItem+=Column)*
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//selectItem+=Property (',' selectItem+=Property)*
+		//columnItem+=Column (',' columnItem+=Column)*
 		public Group getGroup() { return cGroup; }
 		
-		//selectItem+=Property
-		public Assignment getSelectItemAssignment_0() { return cSelectItemAssignment_0; }
+		//columnItem+=Column
+		public Assignment getColumnItemAssignment_0() { return cColumnItemAssignment_0; }
 		
-		//Property
-		public RuleCall getSelectItemPropertyParserRuleCall_0_0() { return cSelectItemPropertyParserRuleCall_0_0; }
+		//Column
+		public RuleCall getColumnItemColumnParserRuleCall_0_0() { return cColumnItemColumnParserRuleCall_0_0; }
 		
-		//(',' selectItem+=Property)*
+		//(',' columnItem+=Column)*
 		public Group getGroup_1() { return cGroup_1; }
 		
 		//','
 		public Keyword getCommaKeyword_1_0() { return cCommaKeyword_1_0; }
 		
-		//selectItem+=Property
-		public Assignment getSelectItemAssignment_1_1() { return cSelectItemAssignment_1_1; }
+		//columnItem+=Column
+		public Assignment getColumnItemAssignment_1_1() { return cColumnItemAssignment_1_1; }
 		
-		//Property
-		public RuleCall getSelectItemPropertyParserRuleCall_1_1_0() { return cSelectItemPropertyParserRuleCall_1_1_0; }
+		//Column
+		public RuleCall getColumnItemColumnParserRuleCall_1_1_0() { return cColumnItemColumnParserRuleCall_1_1_0; }
 	}
-	public class PropertyReferenceElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.NlToSql.PropertyReference");
-		private final Assignment cPropertyAssignment = (Assignment)rule.eContents().get(1);
-		private final CrossReference cPropertyPropertyCrossReference_0 = (CrossReference)cPropertyAssignment.eContents().get(0);
-		private final RuleCall cPropertyPropertyIDTerminalRuleCall_0_1 = (RuleCall)cPropertyPropertyCrossReference_0.eContents().get(1);
+	public class TableElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.NlToSql.Table");
+		private final Assignment cNameAssignment = (Assignment)rule.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_0 = (RuleCall)cNameAssignment.eContents().get(0);
 		
-		//// Define the PropertyReference rule
-		//PropertyReference:
-		//    property=[Property]
+		//Table:
+		//    name=ID
 		//;
 		@Override public ParserRule getRule() { return rule; }
-		
-		//property=[Property]
-		public Assignment getPropertyAssignment() { return cPropertyAssignment; }
-		
-		//[Property]
-		public CrossReference getPropertyPropertyCrossReference_0() { return cPropertyPropertyCrossReference_0; }
-		
-		//ID
-		public RuleCall getPropertyPropertyIDTerminalRuleCall_0_1() { return cPropertyPropertyIDTerminalRuleCall_0_1; }
-	}
-	public class PropertyElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.NlToSql.Property");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Alternatives cAlternatives_0 = (Alternatives)cGroup.eContents().get(0);
-		private final Keyword cTheKeyword_0_0 = (Keyword)cAlternatives_0.eContents().get(0);
-		private final Keyword cAKeyword_0_1 = (Keyword)cAlternatives_0.eContents().get(1);
-		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		
-		//// Define the Property rule
-		//Property:
-		//    ('the' | 'a')? name=ID
-		//;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//('the' | 'a')? name=ID
-		public Group getGroup() { return cGroup; }
-		
-		//('the' | 'a')?
-		public Alternatives getAlternatives_0() { return cAlternatives_0; }
-		
-		//'the'
-		public Keyword getTheKeyword_0_0() { return cTheKeyword_0_0; }
-		
-		//'a'
-		public Keyword getAKeyword_0_1() { return cAKeyword_0_1; }
 		
 		//name=ID
-		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		public Assignment getNameAssignment() { return cNameAssignment; }
 		
 		//ID
-		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		public RuleCall getNameIDTerminalRuleCall_0() { return cNameIDTerminalRuleCall_0; }
+	}
+	public class ColumnElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.NlToSql.Column");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cNameIDTerminalRuleCall_0_0 = (RuleCall)cNameAssignment_0.eContents().get(0);
+		private final Keyword cOfKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cTypeKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cTypeAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cTypeDatatypeParserRuleCall_3_0 = (RuleCall)cTypeAssignment_3.eContents().get(0);
+		
+		//Column:
+		//  name=ID 'of' 'type' type=Datatype;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//name=ID 'of' 'type' type=Datatype
+		public Group getGroup() { return cGroup; }
+		
+		//name=ID
+		public Assignment getNameAssignment_0() { return cNameAssignment_0; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_0_0() { return cNameIDTerminalRuleCall_0_0; }
+		
+		//'of'
+		public Keyword getOfKeyword_1() { return cOfKeyword_1; }
+		
+		//'type'
+		public Keyword getTypeKeyword_2() { return cTypeKeyword_2; }
+		
+		//type=Datatype
+		public Assignment getTypeAssignment_3() { return cTypeAssignment_3; }
+		
+		//Datatype
+		public RuleCall getTypeDatatypeParserRuleCall_3_0() { return cTypeDatatypeParserRuleCall_3_0; }
+	}
+	public class DatatypeElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.NlToSql.Datatype");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Keyword cIntKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
+		private final Keyword cStringKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
+		private final Keyword cDateKeyword_2 = (Keyword)cAlternatives.eContents().get(2);
+		
+		//Datatype:
+		//  'int' | 'string' | 'date';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'int' | 'string' | 'date'
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//'int'
+		public Keyword getIntKeyword_0() { return cIntKeyword_0; }
+		
+		//'string'
+		public Keyword getStringKeyword_1() { return cStringKeyword_1; }
+		
+		//'date'
+		public Keyword getDateKeyword_2() { return cDateKeyword_2; }
+	}
+	public class SelectStatementElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.NlToSql.SelectStatement");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cFromKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cTheKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cTableKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final RuleCall cSelectTablesListParserRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cCanKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Keyword cYouKeyword_4_1 = (Keyword)cGroup_4.eContents().get(1);
+		private final Keyword cShowKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Alternatives cAlternatives_6 = (Alternatives)cGroup.eContents().get(6);
+		private final Group cGroup_6_0 = (Group)cAlternatives_6.eContents().get(0);
+		private final Keyword cTheKeyword_6_0_0 = (Keyword)cGroup_6_0.eContents().get(0);
+		private final Keyword cColumnsKeyword_6_0_1 = (Keyword)cGroup_6_0.eContents().get(1);
+		private final Assignment cColumnsAssignment_6_0_2 = (Assignment)cGroup_6_0.eContents().get(2);
+		private final RuleCall cColumnsSelectColumnsListParserRuleCall_6_0_2_0 = (RuleCall)cColumnsAssignment_6_0_2.eContents().get(0);
+		private final Group cGroup_6_1 = (Group)cAlternatives_6.eContents().get(1);
+		private final Keyword cAllKeyword_6_1_0 = (Keyword)cGroup_6_1.eContents().get(0);
+		private final Keyword cColumnsKeyword_6_1_1 = (Keyword)cGroup_6_1.eContents().get(1);
+		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
+		private final Keyword cWhereKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
+		private final Assignment cConditionAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
+		private final RuleCall cConditionConditionParserRuleCall_7_1_0 = (RuleCall)cConditionAssignment_7_1.eContents().get(0);
+		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
+		private final Keyword cGroupKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
+		private final Keyword cByKeyword_8_1 = (Keyword)cGroup_8.eContents().get(1);
+		private final Assignment cGroupByListAssignment_8_2 = (Assignment)cGroup_8.eContents().get(2);
+		private final RuleCall cGroupByListColumnParserRuleCall_8_2_0 = (RuleCall)cGroupByListAssignment_8_2.eContents().get(0);
+		private final Group cGroup_8_3 = (Group)cGroup_8.eContents().get(3);
+		private final Keyword cCommaKeyword_8_3_0 = (Keyword)cGroup_8_3.eContents().get(0);
+		private final Assignment cGroupByListAssignment_8_3_1 = (Assignment)cGroup_8_3.eContents().get(1);
+		private final RuleCall cGroupByListColumnParserRuleCall_8_3_1_0 = (RuleCall)cGroupByListAssignment_8_3_1.eContents().get(0);
+		
+		//// Define the SelectStatement rule
+		//SelectStatement:
+		//    'from' 'the' 'table' SelectTablesList
+		//    ('can' 'you')? 'show'
+		//    ('the' 'columns:' columns = SelectColumnsList | 'all' 'columns')
+		//    ('where' condition=Condition)?
+		//    ('group' 'by' groupByList+=Column (',' groupByList+=Column)*)?
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'from' 'the' 'table' SelectTablesList
+		//('can' 'you')? 'show'
+		//('the' 'columns:' columns = SelectColumnsList | 'all' 'columns')
+		//('where' condition=Condition)?
+		//('group' 'by' groupByList+=Column (',' groupByList+=Column)*)?
+		public Group getGroup() { return cGroup; }
+		
+		//'from'
+		public Keyword getFromKeyword_0() { return cFromKeyword_0; }
+		
+		//'the'
+		public Keyword getTheKeyword_1() { return cTheKeyword_1; }
+		
+		//'table'
+		public Keyword getTableKeyword_2() { return cTableKeyword_2; }
+		
+		//SelectTablesList
+		public RuleCall getSelectTablesListParserRuleCall_3() { return cSelectTablesListParserRuleCall_3; }
+		
+		//('can' 'you')?
+		public Group getGroup_4() { return cGroup_4; }
+		
+		//'can'
+		public Keyword getCanKeyword_4_0() { return cCanKeyword_4_0; }
+		
+		//'you'
+		public Keyword getYouKeyword_4_1() { return cYouKeyword_4_1; }
+		
+		//'show'
+		public Keyword getShowKeyword_5() { return cShowKeyword_5; }
+		
+		//('the' 'columns:' columns = SelectColumnsList | 'all' 'columns')
+		public Alternatives getAlternatives_6() { return cAlternatives_6; }
+		
+		//'the' 'columns:' columns = SelectColumnsList
+		public Group getGroup_6_0() { return cGroup_6_0; }
+		
+		//'the'
+		public Keyword getTheKeyword_6_0_0() { return cTheKeyword_6_0_0; }
+		
+		//'columns:'
+		public Keyword getColumnsKeyword_6_0_1() { return cColumnsKeyword_6_0_1; }
+		
+		//columns = SelectColumnsList
+		public Assignment getColumnsAssignment_6_0_2() { return cColumnsAssignment_6_0_2; }
+		
+		//SelectColumnsList
+		public RuleCall getColumnsSelectColumnsListParserRuleCall_6_0_2_0() { return cColumnsSelectColumnsListParserRuleCall_6_0_2_0; }
+		
+		//'all' 'columns'
+		public Group getGroup_6_1() { return cGroup_6_1; }
+		
+		//'all'
+		public Keyword getAllKeyword_6_1_0() { return cAllKeyword_6_1_0; }
+		
+		//'columns'
+		public Keyword getColumnsKeyword_6_1_1() { return cColumnsKeyword_6_1_1; }
+		
+		//('where' condition=Condition)?
+		public Group getGroup_7() { return cGroup_7; }
+		
+		//'where'
+		public Keyword getWhereKeyword_7_0() { return cWhereKeyword_7_0; }
+		
+		//condition=Condition
+		public Assignment getConditionAssignment_7_1() { return cConditionAssignment_7_1; }
+		
+		//Condition
+		public RuleCall getConditionConditionParserRuleCall_7_1_0() { return cConditionConditionParserRuleCall_7_1_0; }
+		
+		//('group' 'by' groupByList+=Column (',' groupByList+=Column)*)?
+		public Group getGroup_8() { return cGroup_8; }
+		
+		//'group'
+		public Keyword getGroupKeyword_8_0() { return cGroupKeyword_8_0; }
+		
+		//'by'
+		public Keyword getByKeyword_8_1() { return cByKeyword_8_1; }
+		
+		//groupByList+=Column
+		public Assignment getGroupByListAssignment_8_2() { return cGroupByListAssignment_8_2; }
+		
+		//Column
+		public RuleCall getGroupByListColumnParserRuleCall_8_2_0() { return cGroupByListColumnParserRuleCall_8_2_0; }
+		
+		//(',' groupByList+=Column)*
+		public Group getGroup_8_3() { return cGroup_8_3; }
+		
+		//','
+		public Keyword getCommaKeyword_8_3_0() { return cCommaKeyword_8_3_0; }
+		
+		//groupByList+=Column
+		public Assignment getGroupByListAssignment_8_3_1() { return cGroupByListAssignment_8_3_1; }
+		
+		//Column
+		public RuleCall getGroupByListColumnParserRuleCall_8_3_1_0() { return cGroupByListColumnParserRuleCall_8_3_1_0; }
+	}
+	public class SelectTablesListElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.NlToSql.SelectTablesList");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cSelectTableAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final CrossReference cSelectTableTableCrossReference_0_0 = (CrossReference)cSelectTableAssignment_0.eContents().get(0);
+		private final RuleCall cSelectTableTableIDTerminalRuleCall_0_0_1 = (RuleCall)cSelectTableTableCrossReference_0_0.eContents().get(1);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Keyword cCommaKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final Assignment cSelectTableAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final CrossReference cSelectTableTableCrossReference_1_1_0 = (CrossReference)cSelectTableAssignment_1_1.eContents().get(0);
+		private final RuleCall cSelectTableTableIDTerminalRuleCall_1_1_0_1 = (RuleCall)cSelectTableTableCrossReference_1_1_0.eContents().get(1);
+		
+		//SelectTablesList:
+		//    selectTable+=[Table] (',' selectTable+=[Table])*
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//selectTable+=[Table] (',' selectTable+=[Table])*
+		public Group getGroup() { return cGroup; }
+		
+		//selectTable+=[Table]
+		public Assignment getSelectTableAssignment_0() { return cSelectTableAssignment_0; }
+		
+		//[Table]
+		public CrossReference getSelectTableTableCrossReference_0_0() { return cSelectTableTableCrossReference_0_0; }
+		
+		//ID
+		public RuleCall getSelectTableTableIDTerminalRuleCall_0_0_1() { return cSelectTableTableIDTerminalRuleCall_0_0_1; }
+		
+		//(',' selectTable+=[Table])*
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//','
+		public Keyword getCommaKeyword_1_0() { return cCommaKeyword_1_0; }
+		
+		//selectTable+=[Table]
+		public Assignment getSelectTableAssignment_1_1() { return cSelectTableAssignment_1_1; }
+		
+		//[Table]
+		public CrossReference getSelectTableTableCrossReference_1_1_0() { return cSelectTableTableCrossReference_1_1_0; }
+		
+		//ID
+		public RuleCall getSelectTableTableIDTerminalRuleCall_1_1_0_1() { return cSelectTableTableIDTerminalRuleCall_1_1_0_1; }
+	}
+	public class SelectColumnsListElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.NlToSql.SelectColumnsList");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cSelectColumnAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cSelectColumnColumnReferenceParserRuleCall_0_0 = (RuleCall)cSelectColumnAssignment_0.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Keyword cCommaKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final Assignment cSelectColumnAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cSelectColumnColumnReferenceParserRuleCall_1_1_0 = (RuleCall)cSelectColumnAssignment_1_1.eContents().get(0);
+		
+		//// Define the SelectList rule
+		//SelectColumnsList:
+		//    selectColumn+=ColumnReference (',' selectColumn+=ColumnReference)*
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//selectColumn+=ColumnReference (',' selectColumn+=ColumnReference)*
+		public Group getGroup() { return cGroup; }
+		
+		//selectColumn+=ColumnReference
+		public Assignment getSelectColumnAssignment_0() { return cSelectColumnAssignment_0; }
+		
+		//ColumnReference
+		public RuleCall getSelectColumnColumnReferenceParserRuleCall_0_0() { return cSelectColumnColumnReferenceParserRuleCall_0_0; }
+		
+		//(',' selectColumn+=ColumnReference)*
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//','
+		public Keyword getCommaKeyword_1_0() { return cCommaKeyword_1_0; }
+		
+		//selectColumn+=ColumnReference
+		public Assignment getSelectColumnAssignment_1_1() { return cSelectColumnAssignment_1_1; }
+		
+		//ColumnReference
+		public RuleCall getSelectColumnColumnReferenceParserRuleCall_1_1_0() { return cSelectColumnColumnReferenceParserRuleCall_1_1_0; }
+	}
+	public class ColumnReferenceElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.NlToSql.ColumnReference");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cColumnAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final CrossReference cColumnColumnCrossReference_0_0 = (CrossReference)cColumnAssignment_0.eContents().get(0);
+		private final RuleCall cColumnColumnIDTerminalRuleCall_0_0_1 = (RuleCall)cColumnColumnCrossReference_0_0.eContents().get(1);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Keyword cInKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final Assignment cTableAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final CrossReference cTableTableCrossReference_1_1_0 = (CrossReference)cTableAssignment_1_1.eContents().get(0);
+		private final RuleCall cTableTableIDTerminalRuleCall_1_1_0_1 = (RuleCall)cTableTableCrossReference_1_1_0.eContents().get(1);
+		
+		//ColumnReference:
+		//    column=[Column] ('in' table=[Table])?
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//column=[Column] ('in' table=[Table])?
+		public Group getGroup() { return cGroup; }
+		
+		//column=[Column]
+		public Assignment getColumnAssignment_0() { return cColumnAssignment_0; }
+		
+		//[Column]
+		public CrossReference getColumnColumnCrossReference_0_0() { return cColumnColumnCrossReference_0_0; }
+		
+		//ID
+		public RuleCall getColumnColumnIDTerminalRuleCall_0_0_1() { return cColumnColumnIDTerminalRuleCall_0_0_1; }
+		
+		//('in' table=[Table])?
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//'in'
+		public Keyword getInKeyword_1_0() { return cInKeyword_1_0; }
+		
+		//table=[Table]
+		public Assignment getTableAssignment_1_1() { return cTableAssignment_1_1; }
+		
+		//[Table]
+		public CrossReference getTableTableCrossReference_1_1_0() { return cTableTableCrossReference_1_1_0; }
+		
+		//ID
+		public RuleCall getTableTableIDTerminalRuleCall_1_1_0_1() { return cTableTableIDTerminalRuleCall_1_1_0_1; }
 	}
 	public class ConditionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.NlToSql.Condition");
@@ -412,8 +584,8 @@ public class NlToSqlGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 		private final Keyword cTheKeyword_0_0 = (Keyword)cAlternatives_0.eContents().get(0);
 		private final Keyword cAKeyword_0_1 = (Keyword)cAlternatives_0.eContents().get(1);
 		private final Assignment cLeftHandSideAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final CrossReference cLeftHandSidePropertyCrossReference_1_0 = (CrossReference)cLeftHandSideAssignment_1.eContents().get(0);
-		private final RuleCall cLeftHandSidePropertyIDTerminalRuleCall_1_0_1 = (RuleCall)cLeftHandSidePropertyCrossReference_1_0.eContents().get(1);
+		private final CrossReference cLeftHandSideColumnCrossReference_1_0 = (CrossReference)cLeftHandSideAssignment_1.eContents().get(0);
+		private final RuleCall cLeftHandSideColumnIDTerminalRuleCall_1_0_1 = (RuleCall)cLeftHandSideColumnCrossReference_1_0.eContents().get(1);
 		private final Assignment cOperatorAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cOperatorComparisonOperatorParserRuleCall_2_0 = (RuleCall)cOperatorAssignment_2.eContents().get(0);
 		private final Assignment cRightHandSideAssignment_3 = (Assignment)cGroup.eContents().get(3);
@@ -421,11 +593,11 @@ public class NlToSqlGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 		
 		//// Define the Comparison rule
 		//Comparison returns LogicExpressions:
-		//    ('the' | 'a')? leftHandSide=[Property] operator=ComparisonOperator rightHandSide=Value
+		//    ('the' | 'a')? leftHandSide=[Column] operator=ComparisonOperator rightHandSide=Value
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//('the' | 'a')? leftHandSide=[Property] operator=ComparisonOperator rightHandSide=Value
+		//('the' | 'a')? leftHandSide=[Column] operator=ComparisonOperator rightHandSide=Value
 		public Group getGroup() { return cGroup; }
 		
 		//('the' | 'a')?
@@ -437,14 +609,14 @@ public class NlToSqlGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 		//'a'
 		public Keyword getAKeyword_0_1() { return cAKeyword_0_1; }
 		
-		//leftHandSide=[Property]
+		//leftHandSide=[Column]
 		public Assignment getLeftHandSideAssignment_1() { return cLeftHandSideAssignment_1; }
 		
-		//[Property]
-		public CrossReference getLeftHandSidePropertyCrossReference_1_0() { return cLeftHandSidePropertyCrossReference_1_0; }
+		//[Column]
+		public CrossReference getLeftHandSideColumnCrossReference_1_0() { return cLeftHandSideColumnCrossReference_1_0; }
 		
 		//ID
-		public RuleCall getLeftHandSidePropertyIDTerminalRuleCall_1_0_1() { return cLeftHandSidePropertyIDTerminalRuleCall_1_0_1; }
+		public RuleCall getLeftHandSideColumnIDTerminalRuleCall_1_0_1() { return cLeftHandSideColumnIDTerminalRuleCall_1_0_1; }
 		
 		//operator=ComparisonOperator
 		public Assignment getOperatorAssignment_2() { return cOperatorAssignment_2; }
@@ -608,11 +780,15 @@ public class NlToSqlGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 	
 	private final AccountingSpeechElements pAccountingSpeech;
 	private final StatementElements pStatement;
+	private final CreateTableStatementElements pCreateTableStatement;
+	private final ColumnListElements pColumnList;
+	private final TableElements pTable;
+	private final ColumnElements pColumn;
+	private final DatatypeElements pDatatype;
 	private final SelectStatementElements pSelectStatement;
-	private final EntityNameElements pEntityName;
-	private final SelectListElements pSelectList;
-	private final PropertyReferenceElements pPropertyReference;
-	private final PropertyElements pProperty;
+	private final SelectTablesListElements pSelectTablesList;
+	private final SelectColumnsListElements pSelectColumnsList;
+	private final ColumnReferenceElements pColumnReference;
 	private final ConditionElements pCondition;
 	private final LogicOperatorElements pLogicOperator;
 	private final ComparisonElements pComparison;
@@ -630,11 +806,15 @@ public class NlToSqlGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 		this.gaTerminals = gaTerminals;
 		this.pAccountingSpeech = new AccountingSpeechElements();
 		this.pStatement = new StatementElements();
+		this.pCreateTableStatement = new CreateTableStatementElements();
+		this.pColumnList = new ColumnListElements();
+		this.pTable = new TableElements();
+		this.pColumn = new ColumnElements();
+		this.pDatatype = new DatatypeElements();
 		this.pSelectStatement = new SelectStatementElements();
-		this.pEntityName = new EntityNameElements();
-		this.pSelectList = new SelectListElements();
-		this.pPropertyReference = new PropertyReferenceElements();
-		this.pProperty = new PropertyElements();
+		this.pSelectTablesList = new SelectTablesListElements();
+		this.pSelectColumnsList = new SelectColumnsListElements();
+		this.pColumnReference = new ColumnReferenceElements();
 		this.pCondition = new ConditionElements();
 		this.pLogicOperator = new LogicOperatorElements();
 		this.pComparison = new ComparisonElements();
@@ -683,8 +863,8 @@ public class NlToSqlGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 	
 	//// Define the Statement rule
 	//Statement:
-	//    (SelectStatement)
-	////        InsertStatement | UpdateStatement | DeleteStatement
+	//    (CreateTableStatement | SelectStatement )
+	////         | InsertStatement | UpdateStatement | DeleteStatement
 	//    '.'
 	//;
 	public StatementElements getStatementAccess() {
@@ -695,13 +875,69 @@ public class NlToSqlGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 		return getStatementAccess().getRule();
 	}
 	
+	//// Define the table creation rule
+	//CreateTableStatement:
+	//  'create' ('the' | 'a')? 'table' 'called' table=Table
+	//  ('with' 'columns' columns=ColumnList)?
+	//  ;
+	public CreateTableStatementElements getCreateTableStatementAccess() {
+		return pCreateTableStatement;
+	}
+	
+	public ParserRule getCreateTableStatementRule() {
+		return getCreateTableStatementAccess().getRule();
+	}
+	
+	//// Define the ColumnList rule
+	//ColumnList:
+	//    columnItem+=Column (',' columnItem+=Column)*
+	//;
+	public ColumnListElements getColumnListAccess() {
+		return pColumnList;
+	}
+	
+	public ParserRule getColumnListRule() {
+		return getColumnListAccess().getRule();
+	}
+	
+	//Table:
+	//    name=ID
+	//;
+	public TableElements getTableAccess() {
+		return pTable;
+	}
+	
+	public ParserRule getTableRule() {
+		return getTableAccess().getRule();
+	}
+	
+	//Column:
+	//  name=ID 'of' 'type' type=Datatype;
+	public ColumnElements getColumnAccess() {
+		return pColumn;
+	}
+	
+	public ParserRule getColumnRule() {
+		return getColumnAccess().getRule();
+	}
+	
+	//Datatype:
+	//  'int' | 'string' | 'date';
+	public DatatypeElements getDatatypeAccess() {
+		return pDatatype;
+	}
+	
+	public ParserRule getDatatypeRule() {
+		return getDatatypeAccess().getRule();
+	}
+	
 	//// Define the SelectStatement rule
 	//SelectStatement:
+	//    'from' 'the' 'table' SelectTablesList
 	//    ('can' 'you')? 'show'
-	//    (('the' 'columns:' SelectList | 'all' 'columns') 'from')
-	//    entity=EntityName
+	//    ('the' 'columns:' columns = SelectColumnsList | 'all' 'columns')
 	//    ('where' condition=Condition)?
-	//    ('group' 'by' groupByList+=PropertyReference (',' groupByList+=PropertyReference)*)?
+	//    ('group' 'by' groupByList+=Column (',' groupByList+=Column)*)?
 	//;
 	public SelectStatementElements getSelectStatementAccess() {
 		return pSelectStatement;
@@ -711,71 +947,38 @@ public class NlToSqlGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 		return getSelectStatementAccess().getRule();
 	}
 	
-	////// Define the InsertStatement rule
-	////InsertStatement:
-	////    ('can' 'you' 'please')? 'insert' 'into' entity=EntityName
-	////    '(' propertyList+=PropertyName (',' propertyList+=PropertyName)* ')'
-	////    'values' '(' valueList+=Value (',' valueList+=Value)* ')'
-	////;
-	////
-	////// Define the UpdateStatement rule
-	////UpdateStatement:
-	////    ('can' 'you' 'please')? 'update' entity=EntityName
-	////    'set' (updateItem+=UpdateItem (',' updateItem+=UpdateItem)*)
-	////    ('where' condition=Condition)?
-	////;
-	////
-	////// Define the DeleteStatement rule
-	////DeleteStatement:
-	////    ('can' 'you' 'please')? 'delete' 'from' entity=EntityName
-	////    ('where' condition=Condition)?
-	////;
-	//// Define the EntityName rule
-	//EntityName:
-	//    ('the' 'table')? name=ID
+	//SelectTablesList:
+	//    selectTable+=[Table] (',' selectTable+=[Table])*
 	//;
-	public EntityNameElements getEntityNameAccess() {
-		return pEntityName;
+	public SelectTablesListElements getSelectTablesListAccess() {
+		return pSelectTablesList;
 	}
 	
-	public ParserRule getEntityNameRule() {
-		return getEntityNameAccess().getRule();
+	public ParserRule getSelectTablesListRule() {
+		return getSelectTablesListAccess().getRule();
 	}
 	
 	//// Define the SelectList rule
-	//SelectList:
-	//    selectItem+=Property (',' selectItem+=Property)*
+	//SelectColumnsList:
+	//    selectColumn+=ColumnReference (',' selectColumn+=ColumnReference)*
 	//;
-	public SelectListElements getSelectListAccess() {
-		return pSelectList;
+	public SelectColumnsListElements getSelectColumnsListAccess() {
+		return pSelectColumnsList;
 	}
 	
-	public ParserRule getSelectListRule() {
-		return getSelectListAccess().getRule();
+	public ParserRule getSelectColumnsListRule() {
+		return getSelectColumnsListAccess().getRule();
 	}
 	
-	//// Define the PropertyReference rule
-	//PropertyReference:
-	//    property=[Property]
+	//ColumnReference:
+	//    column=[Column] ('in' table=[Table])?
 	//;
-	public PropertyReferenceElements getPropertyReferenceAccess() {
-		return pPropertyReference;
+	public ColumnReferenceElements getColumnReferenceAccess() {
+		return pColumnReference;
 	}
 	
-	public ParserRule getPropertyReferenceRule() {
-		return getPropertyReferenceAccess().getRule();
-	}
-	
-	//// Define the Property rule
-	//Property:
-	//    ('the' | 'a')? name=ID
-	//;
-	public PropertyElements getPropertyAccess() {
-		return pProperty;
-	}
-	
-	public ParserRule getPropertyRule() {
-		return getPropertyAccess().getRule();
+	public ParserRule getColumnReferenceRule() {
+		return getColumnReferenceAccess().getRule();
 	}
 	
 	//// Define the Condition rule
@@ -804,7 +1007,7 @@ public class NlToSqlGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 	
 	//// Define the Comparison rule
 	//Comparison returns LogicExpressions:
-	//    ('the' | 'a')? leftHandSide=[Property] operator=ComparisonOperator rightHandSide=Value
+	//    ('the' | 'a')? leftHandSide=[Column] operator=ComparisonOperator rightHandSide=Value
 	//;
 	public ComparisonElements getComparisonAccess() {
 		return pComparison;

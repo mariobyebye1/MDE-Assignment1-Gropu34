@@ -105,6 +105,136 @@ public interface NlToSqlPackage extends EPackage
   int STATEMENT_FEATURE_COUNT = 0;
 
   /**
+   * The meta object id for the '{@link uk.ac.kcl.inf.nlToSql.impl.CreateTableStatementImpl <em>Create Table Statement</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see uk.ac.kcl.inf.nlToSql.impl.CreateTableStatementImpl
+   * @see uk.ac.kcl.inf.nlToSql.impl.NlToSqlPackageImpl#getCreateTableStatement()
+   * @generated
+   */
+  int CREATE_TABLE_STATEMENT = 2;
+
+  /**
+   * The feature id for the '<em><b>Table</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CREATE_TABLE_STATEMENT__TABLE = STATEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Columns</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CREATE_TABLE_STATEMENT__COLUMNS = STATEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Create Table Statement</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CREATE_TABLE_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link uk.ac.kcl.inf.nlToSql.impl.ColumnListImpl <em>Column List</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see uk.ac.kcl.inf.nlToSql.impl.ColumnListImpl
+   * @see uk.ac.kcl.inf.nlToSql.impl.NlToSqlPackageImpl#getColumnList()
+   * @generated
+   */
+  int COLUMN_LIST = 3;
+
+  /**
+   * The feature id for the '<em><b>Column Item</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COLUMN_LIST__COLUMN_ITEM = 0;
+
+  /**
+   * The number of structural features of the '<em>Column List</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COLUMN_LIST_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link uk.ac.kcl.inf.nlToSql.impl.TableImpl <em>Table</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see uk.ac.kcl.inf.nlToSql.impl.TableImpl
+   * @see uk.ac.kcl.inf.nlToSql.impl.NlToSqlPackageImpl#getTable()
+   * @generated
+   */
+  int TABLE = 4;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TABLE__NAME = 0;
+
+  /**
+   * The number of structural features of the '<em>Table</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TABLE_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link uk.ac.kcl.inf.nlToSql.impl.ColumnImpl <em>Column</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see uk.ac.kcl.inf.nlToSql.impl.ColumnImpl
+   * @see uk.ac.kcl.inf.nlToSql.impl.NlToSqlPackageImpl#getColumn()
+   * @generated
+   */
+  int COLUMN = 5;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COLUMN__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COLUMN__TYPE = 1;
+
+  /**
+   * The number of structural features of the '<em>Column</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COLUMN_FEATURE_COUNT = 2;
+
+  /**
    * The meta object id for the '{@link uk.ac.kcl.inf.nlToSql.impl.SelectStatementImpl <em>Select Statement</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -112,34 +242,7 @@ public interface NlToSqlPackage extends EPackage
    * @see uk.ac.kcl.inf.nlToSql.impl.NlToSqlPackageImpl#getSelectStatement()
    * @generated
    */
-  int SELECT_STATEMENT = 2;
-
-  /**
-   * The feature id for the '<em><b>Entity</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SELECT_STATEMENT__ENTITY = STATEMENT_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Condition</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SELECT_STATEMENT__CONDITION = STATEMENT_FEATURE_COUNT + 1;
-
-  /**
-   * The feature id for the '<em><b>Group By List</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SELECT_STATEMENT__GROUP_BY_LIST = STATEMENT_FEATURE_COUNT + 2;
+  int SELECT_STATEMENT = 6;
 
   /**
    * The number of structural features of the '<em>Select Statement</em>' class.
@@ -148,54 +251,26 @@ public interface NlToSqlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SELECT_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 3;
+  int SELECT_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 0;
 
   /**
-   * The meta object id for the '{@link uk.ac.kcl.inf.nlToSql.impl.EntityNameImpl <em>Entity Name</em>}' class.
+   * The meta object id for the '{@link uk.ac.kcl.inf.nlToSql.impl.SelectTablesListImpl <em>Select Tables List</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see uk.ac.kcl.inf.nlToSql.impl.EntityNameImpl
-   * @see uk.ac.kcl.inf.nlToSql.impl.NlToSqlPackageImpl#getEntityName()
+   * @see uk.ac.kcl.inf.nlToSql.impl.SelectTablesListImpl
+   * @see uk.ac.kcl.inf.nlToSql.impl.NlToSqlPackageImpl#getSelectTablesList()
    * @generated
    */
-  int ENTITY_NAME = 3;
+  int SELECT_TABLES_LIST = 7;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ENTITY_NAME__NAME = 0;
-
-  /**
-   * The number of structural features of the '<em>Entity Name</em>' class.
+   * The feature id for the '<em><b>Columns</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ENTITY_NAME_FEATURE_COUNT = 1;
-
-  /**
-   * The meta object id for the '{@link uk.ac.kcl.inf.nlToSql.impl.SelectListImpl <em>Select List</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see uk.ac.kcl.inf.nlToSql.impl.SelectListImpl
-   * @see uk.ac.kcl.inf.nlToSql.impl.NlToSqlPackageImpl#getSelectList()
-   * @generated
-   */
-  int SELECT_LIST = 4;
-
-  /**
-   * The feature id for the '<em><b>Entity</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SELECT_LIST__ENTITY = SELECT_STATEMENT__ENTITY;
+  int SELECT_TABLES_LIST__COLUMNS = SELECT_STATEMENT_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Condition</b></em>' containment reference.
@@ -204,7 +279,7 @@ public interface NlToSqlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SELECT_LIST__CONDITION = SELECT_STATEMENT__CONDITION;
+  int SELECT_TABLES_LIST__CONDITION = SELECT_STATEMENT_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Group By List</b></em>' containment reference list.
@@ -213,81 +288,90 @@ public interface NlToSqlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SELECT_LIST__GROUP_BY_LIST = SELECT_STATEMENT__GROUP_BY_LIST;
+  int SELECT_TABLES_LIST__GROUP_BY_LIST = SELECT_STATEMENT_FEATURE_COUNT + 2;
 
   /**
-   * The feature id for the '<em><b>Select Item</b></em>' containment reference list.
+   * The feature id for the '<em><b>Select Table</b></em>' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SELECT_LIST__SELECT_ITEM = SELECT_STATEMENT_FEATURE_COUNT + 0;
+  int SELECT_TABLES_LIST__SELECT_TABLE = SELECT_STATEMENT_FEATURE_COUNT + 3;
 
   /**
-   * The number of structural features of the '<em>Select List</em>' class.
+   * The number of structural features of the '<em>Select Tables List</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SELECT_LIST_FEATURE_COUNT = SELECT_STATEMENT_FEATURE_COUNT + 1;
+  int SELECT_TABLES_LIST_FEATURE_COUNT = SELECT_STATEMENT_FEATURE_COUNT + 4;
 
   /**
-   * The meta object id for the '{@link uk.ac.kcl.inf.nlToSql.impl.PropertyReferenceImpl <em>Property Reference</em>}' class.
+   * The meta object id for the '{@link uk.ac.kcl.inf.nlToSql.impl.SelectColumnsListImpl <em>Select Columns List</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see uk.ac.kcl.inf.nlToSql.impl.PropertyReferenceImpl
-   * @see uk.ac.kcl.inf.nlToSql.impl.NlToSqlPackageImpl#getPropertyReference()
+   * @see uk.ac.kcl.inf.nlToSql.impl.SelectColumnsListImpl
+   * @see uk.ac.kcl.inf.nlToSql.impl.NlToSqlPackageImpl#getSelectColumnsList()
    * @generated
    */
-  int PROPERTY_REFERENCE = 5;
+  int SELECT_COLUMNS_LIST = 8;
 
   /**
-   * The feature id for the '<em><b>Property</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PROPERTY_REFERENCE__PROPERTY = 0;
-
-  /**
-   * The number of structural features of the '<em>Property Reference</em>' class.
+   * The feature id for the '<em><b>Select Column</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PROPERTY_REFERENCE_FEATURE_COUNT = 1;
+  int SELECT_COLUMNS_LIST__SELECT_COLUMN = 0;
 
   /**
-   * The meta object id for the '{@link uk.ac.kcl.inf.nlToSql.impl.PropertyImpl <em>Property</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see uk.ac.kcl.inf.nlToSql.impl.PropertyImpl
-   * @see uk.ac.kcl.inf.nlToSql.impl.NlToSqlPackageImpl#getProperty()
-   * @generated
-   */
-  int PROPERTY = 6;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * The number of structural features of the '<em>Select Columns List</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PROPERTY__NAME = 0;
+  int SELECT_COLUMNS_LIST_FEATURE_COUNT = 1;
 
   /**
-   * The number of structural features of the '<em>Property</em>' class.
+   * The meta object id for the '{@link uk.ac.kcl.inf.nlToSql.impl.ColumnReferenceImpl <em>Column Reference</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see uk.ac.kcl.inf.nlToSql.impl.ColumnReferenceImpl
+   * @see uk.ac.kcl.inf.nlToSql.impl.NlToSqlPackageImpl#getColumnReference()
+   * @generated
+   */
+  int COLUMN_REFERENCE = 9;
+
+  /**
+   * The feature id for the '<em><b>Column</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PROPERTY_FEATURE_COUNT = 1;
+  int COLUMN_REFERENCE__COLUMN = 0;
+
+  /**
+   * The feature id for the '<em><b>Table</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COLUMN_REFERENCE__TABLE = 1;
+
+  /**
+   * The number of structural features of the '<em>Column Reference</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COLUMN_REFERENCE_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link uk.ac.kcl.inf.nlToSql.impl.LogicExpressionsImpl <em>Logic Expressions</em>}' class.
@@ -297,7 +381,7 @@ public interface NlToSqlPackage extends EPackage
    * @see uk.ac.kcl.inf.nlToSql.impl.NlToSqlPackageImpl#getLogicExpressions()
    * @generated
    */
-  int LOGIC_EXPRESSIONS = 7;
+  int LOGIC_EXPRESSIONS = 10;
 
   /**
    * The feature id for the '<em><b>Left Hand Side</b></em>' reference.
@@ -343,7 +427,7 @@ public interface NlToSqlPackage extends EPackage
    * @see uk.ac.kcl.inf.nlToSql.impl.NlToSqlPackageImpl#getComparison()
    * @generated
    */
-  int COMPARISON = 8;
+  int COMPARISON = 11;
 
   /**
    * The feature id for the '<em><b>Left Hand Side</b></em>' reference.
@@ -432,6 +516,112 @@ public interface NlToSqlPackage extends EPackage
   EClass getStatement();
 
   /**
+   * Returns the meta object for class '{@link uk.ac.kcl.inf.nlToSql.CreateTableStatement <em>Create Table Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Create Table Statement</em>'.
+   * @see uk.ac.kcl.inf.nlToSql.CreateTableStatement
+   * @generated
+   */
+  EClass getCreateTableStatement();
+
+  /**
+   * Returns the meta object for the containment reference '{@link uk.ac.kcl.inf.nlToSql.CreateTableStatement#getTable <em>Table</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Table</em>'.
+   * @see uk.ac.kcl.inf.nlToSql.CreateTableStatement#getTable()
+   * @see #getCreateTableStatement()
+   * @generated
+   */
+  EReference getCreateTableStatement_Table();
+
+  /**
+   * Returns the meta object for the containment reference '{@link uk.ac.kcl.inf.nlToSql.CreateTableStatement#getColumns <em>Columns</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Columns</em>'.
+   * @see uk.ac.kcl.inf.nlToSql.CreateTableStatement#getColumns()
+   * @see #getCreateTableStatement()
+   * @generated
+   */
+  EReference getCreateTableStatement_Columns();
+
+  /**
+   * Returns the meta object for class '{@link uk.ac.kcl.inf.nlToSql.ColumnList <em>Column List</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Column List</em>'.
+   * @see uk.ac.kcl.inf.nlToSql.ColumnList
+   * @generated
+   */
+  EClass getColumnList();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link uk.ac.kcl.inf.nlToSql.ColumnList#getColumnItem <em>Column Item</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Column Item</em>'.
+   * @see uk.ac.kcl.inf.nlToSql.ColumnList#getColumnItem()
+   * @see #getColumnList()
+   * @generated
+   */
+  EReference getColumnList_ColumnItem();
+
+  /**
+   * Returns the meta object for class '{@link uk.ac.kcl.inf.nlToSql.Table <em>Table</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Table</em>'.
+   * @see uk.ac.kcl.inf.nlToSql.Table
+   * @generated
+   */
+  EClass getTable();
+
+  /**
+   * Returns the meta object for the attribute '{@link uk.ac.kcl.inf.nlToSql.Table#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see uk.ac.kcl.inf.nlToSql.Table#getName()
+   * @see #getTable()
+   * @generated
+   */
+  EAttribute getTable_Name();
+
+  /**
+   * Returns the meta object for class '{@link uk.ac.kcl.inf.nlToSql.Column <em>Column</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Column</em>'.
+   * @see uk.ac.kcl.inf.nlToSql.Column
+   * @generated
+   */
+  EClass getColumn();
+
+  /**
+   * Returns the meta object for the attribute '{@link uk.ac.kcl.inf.nlToSql.Column#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see uk.ac.kcl.inf.nlToSql.Column#getName()
+   * @see #getColumn()
+   * @generated
+   */
+  EAttribute getColumn_Name();
+
+  /**
+   * Returns the meta object for the attribute '{@link uk.ac.kcl.inf.nlToSql.Column#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Type</em>'.
+   * @see uk.ac.kcl.inf.nlToSql.Column#getType()
+   * @see #getColumn()
+   * @generated
+   */
+  EAttribute getColumn_Type();
+
+  /**
    * Returns the meta object for class '{@link uk.ac.kcl.inf.nlToSql.SelectStatement <em>Select Statement</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -442,121 +632,111 @@ public interface NlToSqlPackage extends EPackage
   EClass getSelectStatement();
 
   /**
-   * Returns the meta object for the containment reference '{@link uk.ac.kcl.inf.nlToSql.SelectStatement#getEntity <em>Entity</em>}'.
+   * Returns the meta object for class '{@link uk.ac.kcl.inf.nlToSql.SelectTablesList <em>Select Tables List</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Entity</em>'.
-   * @see uk.ac.kcl.inf.nlToSql.SelectStatement#getEntity()
-   * @see #getSelectStatement()
+   * @return the meta object for class '<em>Select Tables List</em>'.
+   * @see uk.ac.kcl.inf.nlToSql.SelectTablesList
    * @generated
    */
-  EReference getSelectStatement_Entity();
+  EClass getSelectTablesList();
 
   /**
-   * Returns the meta object for the containment reference '{@link uk.ac.kcl.inf.nlToSql.SelectStatement#getCondition <em>Condition</em>}'.
+   * Returns the meta object for the containment reference '{@link uk.ac.kcl.inf.nlToSql.SelectTablesList#getColumns <em>Columns</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Columns</em>'.
+   * @see uk.ac.kcl.inf.nlToSql.SelectTablesList#getColumns()
+   * @see #getSelectTablesList()
+   * @generated
+   */
+  EReference getSelectTablesList_Columns();
+
+  /**
+   * Returns the meta object for the containment reference '{@link uk.ac.kcl.inf.nlToSql.SelectTablesList#getCondition <em>Condition</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Condition</em>'.
-   * @see uk.ac.kcl.inf.nlToSql.SelectStatement#getCondition()
-   * @see #getSelectStatement()
+   * @see uk.ac.kcl.inf.nlToSql.SelectTablesList#getCondition()
+   * @see #getSelectTablesList()
    * @generated
    */
-  EReference getSelectStatement_Condition();
+  EReference getSelectTablesList_Condition();
 
   /**
-   * Returns the meta object for the containment reference list '{@link uk.ac.kcl.inf.nlToSql.SelectStatement#getGroupByList <em>Group By List</em>}'.
+   * Returns the meta object for the containment reference list '{@link uk.ac.kcl.inf.nlToSql.SelectTablesList#getGroupByList <em>Group By List</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference list '<em>Group By List</em>'.
-   * @see uk.ac.kcl.inf.nlToSql.SelectStatement#getGroupByList()
-   * @see #getSelectStatement()
+   * @see uk.ac.kcl.inf.nlToSql.SelectTablesList#getGroupByList()
+   * @see #getSelectTablesList()
    * @generated
    */
-  EReference getSelectStatement_GroupByList();
+  EReference getSelectTablesList_GroupByList();
 
   /**
-   * Returns the meta object for class '{@link uk.ac.kcl.inf.nlToSql.EntityName <em>Entity Name</em>}'.
+   * Returns the meta object for the reference list '{@link uk.ac.kcl.inf.nlToSql.SelectTablesList#getSelectTable <em>Select Table</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Entity Name</em>'.
-   * @see uk.ac.kcl.inf.nlToSql.EntityName
+   * @return the meta object for the reference list '<em>Select Table</em>'.
+   * @see uk.ac.kcl.inf.nlToSql.SelectTablesList#getSelectTable()
+   * @see #getSelectTablesList()
    * @generated
    */
-  EClass getEntityName();
+  EReference getSelectTablesList_SelectTable();
 
   /**
-   * Returns the meta object for the attribute '{@link uk.ac.kcl.inf.nlToSql.EntityName#getName <em>Name</em>}'.
+   * Returns the meta object for class '{@link uk.ac.kcl.inf.nlToSql.SelectColumnsList <em>Select Columns List</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see uk.ac.kcl.inf.nlToSql.EntityName#getName()
-   * @see #getEntityName()
+   * @return the meta object for class '<em>Select Columns List</em>'.
+   * @see uk.ac.kcl.inf.nlToSql.SelectColumnsList
    * @generated
    */
-  EAttribute getEntityName_Name();
+  EClass getSelectColumnsList();
 
   /**
-   * Returns the meta object for class '{@link uk.ac.kcl.inf.nlToSql.SelectList <em>Select List</em>}'.
+   * Returns the meta object for the containment reference list '{@link uk.ac.kcl.inf.nlToSql.SelectColumnsList#getSelectColumn <em>Select Column</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Select List</em>'.
-   * @see uk.ac.kcl.inf.nlToSql.SelectList
+   * @return the meta object for the containment reference list '<em>Select Column</em>'.
+   * @see uk.ac.kcl.inf.nlToSql.SelectColumnsList#getSelectColumn()
+   * @see #getSelectColumnsList()
    * @generated
    */
-  EClass getSelectList();
+  EReference getSelectColumnsList_SelectColumn();
 
   /**
-   * Returns the meta object for the containment reference list '{@link uk.ac.kcl.inf.nlToSql.SelectList#getSelectItem <em>Select Item</em>}'.
+   * Returns the meta object for class '{@link uk.ac.kcl.inf.nlToSql.ColumnReference <em>Column Reference</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Select Item</em>'.
-   * @see uk.ac.kcl.inf.nlToSql.SelectList#getSelectItem()
-   * @see #getSelectList()
+   * @return the meta object for class '<em>Column Reference</em>'.
+   * @see uk.ac.kcl.inf.nlToSql.ColumnReference
    * @generated
    */
-  EReference getSelectList_SelectItem();
+  EClass getColumnReference();
 
   /**
-   * Returns the meta object for class '{@link uk.ac.kcl.inf.nlToSql.PropertyReference <em>Property Reference</em>}'.
+   * Returns the meta object for the reference '{@link uk.ac.kcl.inf.nlToSql.ColumnReference#getColumn <em>Column</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Property Reference</em>'.
-   * @see uk.ac.kcl.inf.nlToSql.PropertyReference
+   * @return the meta object for the reference '<em>Column</em>'.
+   * @see uk.ac.kcl.inf.nlToSql.ColumnReference#getColumn()
+   * @see #getColumnReference()
    * @generated
    */
-  EClass getPropertyReference();
+  EReference getColumnReference_Column();
 
   /**
-   * Returns the meta object for the reference '{@link uk.ac.kcl.inf.nlToSql.PropertyReference#getProperty <em>Property</em>}'.
+   * Returns the meta object for the reference '{@link uk.ac.kcl.inf.nlToSql.ColumnReference#getTable <em>Table</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Property</em>'.
-   * @see uk.ac.kcl.inf.nlToSql.PropertyReference#getProperty()
-   * @see #getPropertyReference()
+   * @return the meta object for the reference '<em>Table</em>'.
+   * @see uk.ac.kcl.inf.nlToSql.ColumnReference#getTable()
+   * @see #getColumnReference()
    * @generated
    */
-  EReference getPropertyReference_Property();
-
-  /**
-   * Returns the meta object for class '{@link uk.ac.kcl.inf.nlToSql.Property <em>Property</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Property</em>'.
-   * @see uk.ac.kcl.inf.nlToSql.Property
-   * @generated
-   */
-  EClass getProperty();
-
-  /**
-   * Returns the meta object for the attribute '{@link uk.ac.kcl.inf.nlToSql.Property#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see uk.ac.kcl.inf.nlToSql.Property#getName()
-   * @see #getProperty()
-   * @generated
-   */
-  EAttribute getProperty_Name();
+  EReference getColumnReference_Table();
 
   /**
    * Returns the meta object for class '{@link uk.ac.kcl.inf.nlToSql.LogicExpressions <em>Logic Expressions</em>}'.
@@ -685,6 +865,94 @@ public interface NlToSqlPackage extends EPackage
     EClass STATEMENT = eINSTANCE.getStatement();
 
     /**
+     * The meta object literal for the '{@link uk.ac.kcl.inf.nlToSql.impl.CreateTableStatementImpl <em>Create Table Statement</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see uk.ac.kcl.inf.nlToSql.impl.CreateTableStatementImpl
+     * @see uk.ac.kcl.inf.nlToSql.impl.NlToSqlPackageImpl#getCreateTableStatement()
+     * @generated
+     */
+    EClass CREATE_TABLE_STATEMENT = eINSTANCE.getCreateTableStatement();
+
+    /**
+     * The meta object literal for the '<em><b>Table</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CREATE_TABLE_STATEMENT__TABLE = eINSTANCE.getCreateTableStatement_Table();
+
+    /**
+     * The meta object literal for the '<em><b>Columns</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CREATE_TABLE_STATEMENT__COLUMNS = eINSTANCE.getCreateTableStatement_Columns();
+
+    /**
+     * The meta object literal for the '{@link uk.ac.kcl.inf.nlToSql.impl.ColumnListImpl <em>Column List</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see uk.ac.kcl.inf.nlToSql.impl.ColumnListImpl
+     * @see uk.ac.kcl.inf.nlToSql.impl.NlToSqlPackageImpl#getColumnList()
+     * @generated
+     */
+    EClass COLUMN_LIST = eINSTANCE.getColumnList();
+
+    /**
+     * The meta object literal for the '<em><b>Column Item</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference COLUMN_LIST__COLUMN_ITEM = eINSTANCE.getColumnList_ColumnItem();
+
+    /**
+     * The meta object literal for the '{@link uk.ac.kcl.inf.nlToSql.impl.TableImpl <em>Table</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see uk.ac.kcl.inf.nlToSql.impl.TableImpl
+     * @see uk.ac.kcl.inf.nlToSql.impl.NlToSqlPackageImpl#getTable()
+     * @generated
+     */
+    EClass TABLE = eINSTANCE.getTable();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute TABLE__NAME = eINSTANCE.getTable_Name();
+
+    /**
+     * The meta object literal for the '{@link uk.ac.kcl.inf.nlToSql.impl.ColumnImpl <em>Column</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see uk.ac.kcl.inf.nlToSql.impl.ColumnImpl
+     * @see uk.ac.kcl.inf.nlToSql.impl.NlToSqlPackageImpl#getColumn()
+     * @generated
+     */
+    EClass COLUMN = eINSTANCE.getColumn();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute COLUMN__NAME = eINSTANCE.getColumn_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute COLUMN__TYPE = eINSTANCE.getColumn_Type();
+
+    /**
      * The meta object literal for the '{@link uk.ac.kcl.inf.nlToSql.impl.SelectStatementImpl <em>Select Statement</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -695,12 +963,22 @@ public interface NlToSqlPackage extends EPackage
     EClass SELECT_STATEMENT = eINSTANCE.getSelectStatement();
 
     /**
-     * The meta object literal for the '<em><b>Entity</b></em>' containment reference feature.
+     * The meta object literal for the '{@link uk.ac.kcl.inf.nlToSql.impl.SelectTablesListImpl <em>Select Tables List</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see uk.ac.kcl.inf.nlToSql.impl.SelectTablesListImpl
+     * @see uk.ac.kcl.inf.nlToSql.impl.NlToSqlPackageImpl#getSelectTablesList()
+     * @generated
+     */
+    EClass SELECT_TABLES_LIST = eINSTANCE.getSelectTablesList();
+
+    /**
+     * The meta object literal for the '<em><b>Columns</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference SELECT_STATEMENT__ENTITY = eINSTANCE.getSelectStatement_Entity();
+    EReference SELECT_TABLES_LIST__COLUMNS = eINSTANCE.getSelectTablesList_Columns();
 
     /**
      * The meta object literal for the '<em><b>Condition</b></em>' containment reference feature.
@@ -708,7 +986,7 @@ public interface NlToSqlPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference SELECT_STATEMENT__CONDITION = eINSTANCE.getSelectStatement_Condition();
+    EReference SELECT_TABLES_LIST__CONDITION = eINSTANCE.getSelectTablesList_Condition();
 
     /**
      * The meta object literal for the '<em><b>Group By List</b></em>' containment reference list feature.
@@ -716,79 +994,59 @@ public interface NlToSqlPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference SELECT_STATEMENT__GROUP_BY_LIST = eINSTANCE.getSelectStatement_GroupByList();
+    EReference SELECT_TABLES_LIST__GROUP_BY_LIST = eINSTANCE.getSelectTablesList_GroupByList();
 
     /**
-     * The meta object literal for the '{@link uk.ac.kcl.inf.nlToSql.impl.EntityNameImpl <em>Entity Name</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see uk.ac.kcl.inf.nlToSql.impl.EntityNameImpl
-     * @see uk.ac.kcl.inf.nlToSql.impl.NlToSqlPackageImpl#getEntityName()
-     * @generated
-     */
-    EClass ENTITY_NAME = eINSTANCE.getEntityName();
-
-    /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Select Table</b></em>' reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute ENTITY_NAME__NAME = eINSTANCE.getEntityName_Name();
+    EReference SELECT_TABLES_LIST__SELECT_TABLE = eINSTANCE.getSelectTablesList_SelectTable();
 
     /**
-     * The meta object literal for the '{@link uk.ac.kcl.inf.nlToSql.impl.SelectListImpl <em>Select List</em>}' class.
+     * The meta object literal for the '{@link uk.ac.kcl.inf.nlToSql.impl.SelectColumnsListImpl <em>Select Columns List</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see uk.ac.kcl.inf.nlToSql.impl.SelectListImpl
-     * @see uk.ac.kcl.inf.nlToSql.impl.NlToSqlPackageImpl#getSelectList()
+     * @see uk.ac.kcl.inf.nlToSql.impl.SelectColumnsListImpl
+     * @see uk.ac.kcl.inf.nlToSql.impl.NlToSqlPackageImpl#getSelectColumnsList()
      * @generated
      */
-    EClass SELECT_LIST = eINSTANCE.getSelectList();
+    EClass SELECT_COLUMNS_LIST = eINSTANCE.getSelectColumnsList();
 
     /**
-     * The meta object literal for the '<em><b>Select Item</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference SELECT_LIST__SELECT_ITEM = eINSTANCE.getSelectList_SelectItem();
-
-    /**
-     * The meta object literal for the '{@link uk.ac.kcl.inf.nlToSql.impl.PropertyReferenceImpl <em>Property Reference</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see uk.ac.kcl.inf.nlToSql.impl.PropertyReferenceImpl
-     * @see uk.ac.kcl.inf.nlToSql.impl.NlToSqlPackageImpl#getPropertyReference()
-     * @generated
-     */
-    EClass PROPERTY_REFERENCE = eINSTANCE.getPropertyReference();
-
-    /**
-     * The meta object literal for the '<em><b>Property</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Select Column</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference PROPERTY_REFERENCE__PROPERTY = eINSTANCE.getPropertyReference_Property();
+    EReference SELECT_COLUMNS_LIST__SELECT_COLUMN = eINSTANCE.getSelectColumnsList_SelectColumn();
 
     /**
-     * The meta object literal for the '{@link uk.ac.kcl.inf.nlToSql.impl.PropertyImpl <em>Property</em>}' class.
+     * The meta object literal for the '{@link uk.ac.kcl.inf.nlToSql.impl.ColumnReferenceImpl <em>Column Reference</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see uk.ac.kcl.inf.nlToSql.impl.PropertyImpl
-     * @see uk.ac.kcl.inf.nlToSql.impl.NlToSqlPackageImpl#getProperty()
+     * @see uk.ac.kcl.inf.nlToSql.impl.ColumnReferenceImpl
+     * @see uk.ac.kcl.inf.nlToSql.impl.NlToSqlPackageImpl#getColumnReference()
      * @generated
      */
-    EClass PROPERTY = eINSTANCE.getProperty();
+    EClass COLUMN_REFERENCE = eINSTANCE.getColumnReference();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Column</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute PROPERTY__NAME = eINSTANCE.getProperty_Name();
+    EReference COLUMN_REFERENCE__COLUMN = eINSTANCE.getColumnReference_Column();
+
+    /**
+     * The meta object literal for the '<em><b>Table</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference COLUMN_REFERENCE__TABLE = eINSTANCE.getColumnReference_Table();
 
     /**
      * The meta object literal for the '{@link uk.ac.kcl.inf.nlToSql.impl.LogicExpressionsImpl <em>Logic Expressions</em>}' class.

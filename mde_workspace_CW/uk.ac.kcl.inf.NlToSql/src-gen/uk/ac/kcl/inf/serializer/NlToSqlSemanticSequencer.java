@@ -15,14 +15,16 @@ import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
 import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 import uk.ac.kcl.inf.nlToSql.AccountingSpeech;
+import uk.ac.kcl.inf.nlToSql.Column;
+import uk.ac.kcl.inf.nlToSql.ColumnList;
+import uk.ac.kcl.inf.nlToSql.ColumnReference;
 import uk.ac.kcl.inf.nlToSql.Comparison;
-import uk.ac.kcl.inf.nlToSql.EntityName;
+import uk.ac.kcl.inf.nlToSql.CreateTableStatement;
 import uk.ac.kcl.inf.nlToSql.LogicExpressions;
 import uk.ac.kcl.inf.nlToSql.NlToSqlPackage;
-import uk.ac.kcl.inf.nlToSql.Property;
-import uk.ac.kcl.inf.nlToSql.PropertyReference;
-import uk.ac.kcl.inf.nlToSql.SelectList;
-import uk.ac.kcl.inf.nlToSql.SelectStatement;
+import uk.ac.kcl.inf.nlToSql.SelectColumnsList;
+import uk.ac.kcl.inf.nlToSql.SelectTablesList;
+import uk.ac.kcl.inf.nlToSql.Table;
 import uk.ac.kcl.inf.services.NlToSqlGrammarAccess;
 
 @SuppressWarnings("all")
@@ -42,34 +44,40 @@ public class NlToSqlSemanticSequencer extends AbstractDelegatingSemanticSequence
 			case NlToSqlPackage.ACCOUNTING_SPEECH:
 				sequence_AccountingSpeech(context, (AccountingSpeech) semanticObject); 
 				return; 
+			case NlToSqlPackage.COLUMN:
+				sequence_Column(context, (Column) semanticObject); 
+				return; 
+			case NlToSqlPackage.COLUMN_LIST:
+				sequence_ColumnList(context, (ColumnList) semanticObject); 
+				return; 
+			case NlToSqlPackage.COLUMN_REFERENCE:
+				sequence_ColumnReference(context, (ColumnReference) semanticObject); 
+				return; 
 			case NlToSqlPackage.COMPARISON:
 				sequence_Condition(context, (Comparison) semanticObject); 
 				return; 
-			case NlToSqlPackage.ENTITY_NAME:
-				sequence_EntityName(context, (EntityName) semanticObject); 
+			case NlToSqlPackage.CREATE_TABLE_STATEMENT:
+				sequence_CreateTableStatement(context, (CreateTableStatement) semanticObject); 
 				return; 
 			case NlToSqlPackage.LOGIC_EXPRESSIONS:
 				sequence_Comparison(context, (LogicExpressions) semanticObject); 
 				return; 
-			case NlToSqlPackage.PROPERTY:
-				sequence_Property(context, (Property) semanticObject); 
+			case NlToSqlPackage.SELECT_COLUMNS_LIST:
+				sequence_SelectColumnsList(context, (SelectColumnsList) semanticObject); 
 				return; 
-			case NlToSqlPackage.PROPERTY_REFERENCE:
-				sequence_PropertyReference(context, (PropertyReference) semanticObject); 
-				return; 
-			case NlToSqlPackage.SELECT_LIST:
-				if (rule == grammarAccess.getSelectListRule()) {
-					sequence_SelectList(context, (SelectList) semanticObject); 
+			case NlToSqlPackage.SELECT_TABLES_LIST:
+				if (rule == grammarAccess.getStatementRule()
+						|| rule == grammarAccess.getSelectStatementRule()) {
+					sequence_SelectStatement_SelectTablesList(context, (SelectTablesList) semanticObject); 
 					return; 
 				}
-				else if (rule == grammarAccess.getStatementRule()
-						|| rule == grammarAccess.getSelectStatementRule()) {
-					sequence_SelectList_SelectStatement(context, (SelectList) semanticObject); 
+				else if (rule == grammarAccess.getSelectTablesListRule()) {
+					sequence_SelectTablesList(context, (SelectTablesList) semanticObject); 
 					return; 
 				}
 				else break;
-			case NlToSqlPackage.SELECT_STATEMENT:
-				sequence_SelectStatement(context, (SelectStatement) semanticObject); 
+			case NlToSqlPackage.TABLE:
+				sequence_Table(context, (Table) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
@@ -90,12 +98,57 @@ public class NlToSqlSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Contexts:
+	 *     ColumnList returns ColumnList
+	 *
+	 * Constraint:
+	 *     (columnItem+=Column columnItem+=Column*)
+	 */
+	protected void sequence_ColumnList(ISerializationContext context, ColumnList semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     ColumnReference returns ColumnReference
+	 *
+	 * Constraint:
+	 *     (column=[Column|ID] table=[Table|ID]?)
+	 */
+	protected void sequence_ColumnReference(ISerializationContext context, ColumnReference semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Column returns Column
+	 *
+	 * Constraint:
+	 *     (name=ID type=Datatype)
+	 */
+	protected void sequence_Column(ISerializationContext context, Column semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, NlToSqlPackage.Literals.COLUMN__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, NlToSqlPackage.Literals.COLUMN__NAME));
+			if (transientValues.isValueTransient(semanticObject, NlToSqlPackage.Literals.COLUMN__TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, NlToSqlPackage.Literals.COLUMN__TYPE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getColumnAccess().getNameIDTerminalRuleCall_0_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getColumnAccess().getTypeDatatypeParserRuleCall_3_0(), semanticObject.getType());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Condition returns LogicExpressions
 	 *     Condition.Comparison_1_0 returns LogicExpressions
 	 *     Comparison returns LogicExpressions
 	 *
 	 * Constraint:
-	 *     (leftHandSide=[Property|ID] operator=ComparisonOperator rightHandSide=Value)
+	 *     (leftHandSide=[Column|ID] operator=ComparisonOperator rightHandSide=Value)
 	 */
 	protected void sequence_Comparison(ISerializationContext context, LogicExpressions semanticObject) {
 		if (errorAcceptor != null) {
@@ -107,7 +160,7 @@ public class NlToSqlSemanticSequencer extends AbstractDelegatingSemanticSequence
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, NlToSqlPackage.Literals.LOGIC_EXPRESSIONS__RIGHT_HAND_SIDE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getComparisonAccess().getLeftHandSidePropertyIDTerminalRuleCall_1_0_1(), semanticObject.eGet(NlToSqlPackage.Literals.LOGIC_EXPRESSIONS__LEFT_HAND_SIDE, false));
+		feeder.accept(grammarAccess.getComparisonAccess().getLeftHandSideColumnIDTerminalRuleCall_1_0_1(), semanticObject.eGet(NlToSqlPackage.Literals.LOGIC_EXPRESSIONS__LEFT_HAND_SIDE, false));
 		feeder.accept(grammarAccess.getComparisonAccess().getOperatorComparisonOperatorParserRuleCall_2_0(), semanticObject.getOperator());
 		feeder.accept(grammarAccess.getComparisonAccess().getRightHandSideValueParserRuleCall_3_0(), semanticObject.getRightHandSide());
 		feeder.finish();
@@ -129,99 +182,69 @@ public class NlToSqlSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Contexts:
-	 *     EntityName returns EntityName
+	 *     Statement returns CreateTableStatement
+	 *     CreateTableStatement returns CreateTableStatement
+	 *
+	 * Constraint:
+	 *     (table=Table columns=ColumnList?)
+	 */
+	protected void sequence_CreateTableStatement(ISerializationContext context, CreateTableStatement semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     SelectColumnsList returns SelectColumnsList
+	 *
+	 * Constraint:
+	 *     (selectColumn+=ColumnReference selectColumn+=ColumnReference*)
+	 */
+	protected void sequence_SelectColumnsList(ISerializationContext context, SelectColumnsList semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Statement returns SelectTablesList
+	 *     SelectStatement returns SelectTablesList
+	 *
+	 * Constraint:
+	 *     (selectTable+=[Table|ID] selectTable+=[Table|ID]* columns=SelectColumnsList? condition=Condition? (groupByList+=Column groupByList+=Column*)?)
+	 */
+	protected void sequence_SelectStatement_SelectTablesList(ISerializationContext context, SelectTablesList semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     SelectTablesList returns SelectTablesList
+	 *
+	 * Constraint:
+	 *     (selectTable+=[Table|ID] selectTable+=[Table|ID]*)
+	 */
+	protected void sequence_SelectTablesList(ISerializationContext context, SelectTablesList semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Table returns Table
 	 *
 	 * Constraint:
 	 *     name=ID
 	 */
-	protected void sequence_EntityName(ISerializationContext context, EntityName semanticObject) {
+	protected void sequence_Table(ISerializationContext context, Table semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, NlToSqlPackage.Literals.ENTITY_NAME__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, NlToSqlPackage.Literals.ENTITY_NAME__NAME));
+			if (transientValues.isValueTransient(semanticObject, NlToSqlPackage.Literals.TABLE__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, NlToSqlPackage.Literals.TABLE__NAME));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getEntityNameAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getTableAccess().getNameIDTerminalRuleCall_0(), semanticObject.getName());
 		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     PropertyReference returns PropertyReference
-	 *
-	 * Constraint:
-	 *     property=[Property|ID]
-	 */
-	protected void sequence_PropertyReference(ISerializationContext context, PropertyReference semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, NlToSqlPackage.Literals.PROPERTY_REFERENCE__PROPERTY) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, NlToSqlPackage.Literals.PROPERTY_REFERENCE__PROPERTY));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getPropertyReferenceAccess().getPropertyPropertyIDTerminalRuleCall_0_1(), semanticObject.eGet(NlToSqlPackage.Literals.PROPERTY_REFERENCE__PROPERTY, false));
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Property returns Property
-	 *
-	 * Constraint:
-	 *     name=ID
-	 */
-	protected void sequence_Property(ISerializationContext context, Property semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, NlToSqlPackage.Literals.PROPERTY__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, NlToSqlPackage.Literals.PROPERTY__NAME));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getPropertyAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     SelectList returns SelectList
-	 *
-	 * Constraint:
-	 *     (selectItem+=Property selectItem+=Property*)
-	 */
-	protected void sequence_SelectList(ISerializationContext context, SelectList semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Statement returns SelectList
-	 *     SelectStatement returns SelectList
-	 *
-	 * Constraint:
-	 *     (
-	 *         selectItem+=Property 
-	 *         selectItem+=Property* 
-	 *         entity=EntityName 
-	 *         condition=Condition? 
-	 *         (groupByList+=PropertyReference groupByList+=PropertyReference*)?
-	 *     )
-	 */
-	protected void sequence_SelectList_SelectStatement(ISerializationContext context, SelectList semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Statement returns SelectStatement
-	 *     SelectStatement returns SelectStatement
-	 *
-	 * Constraint:
-	 *     (entity=EntityName condition=Condition? (groupByList+=PropertyReference groupByList+=PropertyReference*)?)
-	 */
-	protected void sequence_SelectStatement(ISerializationContext context, SelectStatement semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

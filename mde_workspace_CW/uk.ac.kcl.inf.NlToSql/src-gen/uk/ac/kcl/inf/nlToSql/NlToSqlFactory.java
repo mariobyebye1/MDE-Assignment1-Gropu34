@@ -42,6 +42,42 @@ public interface NlToSqlFactory extends EFactory
   Statement createStatement();
 
   /**
+   * Returns a new object of class '<em>Create Table Statement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Create Table Statement</em>'.
+   * @generated
+   */
+  CreateTableStatement createCreateTableStatement();
+
+  /**
+   * Returns a new object of class '<em>Column List</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Column List</em>'.
+   * @generated
+   */
+  ColumnList createColumnList();
+
+  /**
+   * Returns a new object of class '<em>Table</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Table</em>'.
+   * @generated
+   */
+  Table createTable();
+
+  /**
+   * Returns a new object of class '<em>Column</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Column</em>'.
+   * @generated
+   */
+  Column createColumn();
+
+  /**
    * Returns a new object of class '<em>Select Statement</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -51,40 +87,31 @@ public interface NlToSqlFactory extends EFactory
   SelectStatement createSelectStatement();
 
   /**
-   * Returns a new object of class '<em>Entity Name</em>'.
+   * Returns a new object of class '<em>Select Tables List</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Entity Name</em>'.
+   * @return a new object of class '<em>Select Tables List</em>'.
    * @generated
    */
-  EntityName createEntityName();
+  SelectTablesList createSelectTablesList();
 
   /**
-   * Returns a new object of class '<em>Select List</em>'.
+   * Returns a new object of class '<em>Select Columns List</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Select List</em>'.
+   * @return a new object of class '<em>Select Columns List</em>'.
    * @generated
    */
-  SelectList createSelectList();
+  SelectColumnsList createSelectColumnsList();
 
   /**
-   * Returns a new object of class '<em>Property Reference</em>'.
+   * Returns a new object of class '<em>Column Reference</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Property Reference</em>'.
+   * @return a new object of class '<em>Column Reference</em>'.
    * @generated
    */
-  PropertyReference createPropertyReference();
-
-  /**
-   * Returns a new object of class '<em>Property</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Property</em>'.
-   * @generated
-   */
-  Property createProperty();
+  ColumnReference createColumnReference();
 
   /**
    * Returns a new object of class '<em>Logic Expressions</em>'.

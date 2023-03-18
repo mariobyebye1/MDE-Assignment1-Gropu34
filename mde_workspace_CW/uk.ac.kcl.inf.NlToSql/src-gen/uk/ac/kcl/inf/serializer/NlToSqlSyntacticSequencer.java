@@ -23,17 +23,15 @@ public class NlToSqlSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected NlToSqlGrammarAccess grammarAccess;
 	protected AbstractElementAlias match_Comparison___AKeyword_0_1_or_TheKeyword_0_0__q;
-	protected AbstractElementAlias match_EntityName___TheKeyword_0_0_TableKeyword_0_1__q;
-	protected AbstractElementAlias match_Property___AKeyword_0_1_or_TheKeyword_0_0__q;
-	protected AbstractElementAlias match_SelectStatement___CanKeyword_0_0_YouKeyword_0_1__q;
+	protected AbstractElementAlias match_CreateTableStatement___AKeyword_1_1_or_TheKeyword_1_0__q;
+	protected AbstractElementAlias match_SelectStatement___CanKeyword_4_0_YouKeyword_4_1__q;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (NlToSqlGrammarAccess) access;
 		match_Comparison___AKeyword_0_1_or_TheKeyword_0_0__q = new AlternativeAlias(false, true, new TokenAlias(false, false, grammarAccess.getComparisonAccess().getAKeyword_0_1()), new TokenAlias(false, false, grammarAccess.getComparisonAccess().getTheKeyword_0_0()));
-		match_EntityName___TheKeyword_0_0_TableKeyword_0_1__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getEntityNameAccess().getTheKeyword_0_0()), new TokenAlias(false, false, grammarAccess.getEntityNameAccess().getTableKeyword_0_1()));
-		match_Property___AKeyword_0_1_or_TheKeyword_0_0__q = new AlternativeAlias(false, true, new TokenAlias(false, false, grammarAccess.getPropertyAccess().getAKeyword_0_1()), new TokenAlias(false, false, grammarAccess.getPropertyAccess().getTheKeyword_0_0()));
-		match_SelectStatement___CanKeyword_0_0_YouKeyword_0_1__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getSelectStatementAccess().getCanKeyword_0_0()), new TokenAlias(false, false, grammarAccess.getSelectStatementAccess().getYouKeyword_0_1()));
+		match_CreateTableStatement___AKeyword_1_1_or_TheKeyword_1_0__q = new AlternativeAlias(false, true, new TokenAlias(false, false, grammarAccess.getCreateTableStatementAccess().getAKeyword_1_1()), new TokenAlias(false, false, grammarAccess.getCreateTableStatementAccess().getTheKeyword_1_0()));
+		match_SelectStatement___CanKeyword_4_0_YouKeyword_4_1__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getSelectStatementAccess().getCanKeyword_4_0()), new TokenAlias(false, false, grammarAccess.getSelectStatementAccess().getYouKeyword_4_1()));
 	}
 	
 	@Override
@@ -62,12 +60,10 @@ public class NlToSqlSyntacticSequencer extends AbstractSyntacticSequencer {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
 			if (match_Comparison___AKeyword_0_1_or_TheKeyword_0_0__q.equals(syntax))
 				emit_Comparison___AKeyword_0_1_or_TheKeyword_0_0__q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_EntityName___TheKeyword_0_0_TableKeyword_0_1__q.equals(syntax))
-				emit_EntityName___TheKeyword_0_0_TableKeyword_0_1__q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_Property___AKeyword_0_1_or_TheKeyword_0_0__q.equals(syntax))
-				emit_Property___AKeyword_0_1_or_TheKeyword_0_0__q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_SelectStatement___CanKeyword_0_0_YouKeyword_0_1__q.equals(syntax))
-				emit_SelectStatement___CanKeyword_0_0_YouKeyword_0_1__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_CreateTableStatement___AKeyword_1_1_or_TheKeyword_1_0__q.equals(syntax))
+				emit_CreateTableStatement___AKeyword_1_1_or_TheKeyword_1_0__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_SelectStatement___CanKeyword_4_0_YouKeyword_4_1__q.equals(syntax))
+				emit_SelectStatement___CanKeyword_4_0_YouKeyword_4_1__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
@@ -77,20 +73,9 @@ public class NlToSqlSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     ('the' | 'a')?
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     (rule start) (ambiguity) leftHandSide=[Property|ID]
+	 *     (rule start) (ambiguity) leftHandSide=[Column|ID]
 	 */
 	protected void emit_Comparison___AKeyword_0_1_or_TheKeyword_0_0__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     ('the' 'table')?
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     (rule start) (ambiguity) name=ID
-	 */
-	protected void emit_EntityName___TheKeyword_0_0_TableKeyword_0_1__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
@@ -99,9 +84,9 @@ public class NlToSqlSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     ('the' | 'a')?
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     (rule start) (ambiguity) name=ID
+	 *     (rule start) 'create' (ambiguity) 'table' 'called' table=Table
 	 */
-	protected void emit_Property___AKeyword_0_1_or_TheKeyword_0_0__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_CreateTableStatement___AKeyword_1_1_or_TheKeyword_1_0__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
@@ -110,10 +95,13 @@ public class NlToSqlSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     ('can' 'you')?
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     (rule start) (ambiguity) 'show' 'all' 'columns' 'from' entity=EntityName
-	 *     (rule start) (ambiguity) 'show' 'the' 'columns:' selectItem+=Property
+	 *     selectTable+=[Table|ID] (ambiguity) 'show' 'all' 'columns' '.' (rule end)
+	 *     selectTable+=[Table|ID] (ambiguity) 'show' 'all' 'columns' 'group' 'by' groupByList+=Column
+	 *     selectTable+=[Table|ID] (ambiguity) 'show' 'all' 'columns' 'where' condition=Condition
+	 *     selectTable+=[Table|ID] (ambiguity) 'show' 'all' 'columns' (rule end)
+	 *     selectTable+=[Table|ID] (ambiguity) 'show' 'the' 'columns:' columns=SelectColumnsList
 	 */
-	protected void emit_SelectStatement___CanKeyword_0_0_YouKeyword_0_1__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_SelectStatement___CanKeyword_4_0_YouKeyword_4_1__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

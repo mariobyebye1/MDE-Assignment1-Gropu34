@@ -67,11 +67,14 @@ public class NlToSqlFactoryImpl extends EFactoryImpl implements NlToSqlFactory
     {
       case NlToSqlPackage.ACCOUNTING_SPEECH: return createAccountingSpeech();
       case NlToSqlPackage.STATEMENT: return createStatement();
+      case NlToSqlPackage.CREATE_TABLE_STATEMENT: return createCreateTableStatement();
+      case NlToSqlPackage.COLUMN_LIST: return createColumnList();
+      case NlToSqlPackage.TABLE: return createTable();
+      case NlToSqlPackage.COLUMN: return createColumn();
       case NlToSqlPackage.SELECT_STATEMENT: return createSelectStatement();
-      case NlToSqlPackage.ENTITY_NAME: return createEntityName();
-      case NlToSqlPackage.SELECT_LIST: return createSelectList();
-      case NlToSqlPackage.PROPERTY_REFERENCE: return createPropertyReference();
-      case NlToSqlPackage.PROPERTY: return createProperty();
+      case NlToSqlPackage.SELECT_TABLES_LIST: return createSelectTablesList();
+      case NlToSqlPackage.SELECT_COLUMNS_LIST: return createSelectColumnsList();
+      case NlToSqlPackage.COLUMN_REFERENCE: return createColumnReference();
       case NlToSqlPackage.LOGIC_EXPRESSIONS: return createLogicExpressions();
       case NlToSqlPackage.COMPARISON: return createComparison();
       default:
@@ -109,6 +112,54 @@ public class NlToSqlFactoryImpl extends EFactoryImpl implements NlToSqlFactory
    * @generated
    */
   @Override
+  public CreateTableStatement createCreateTableStatement()
+  {
+    CreateTableStatementImpl createTableStatement = new CreateTableStatementImpl();
+    return createTableStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ColumnList createColumnList()
+  {
+    ColumnListImpl columnList = new ColumnListImpl();
+    return columnList;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Table createTable()
+  {
+    TableImpl table = new TableImpl();
+    return table;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Column createColumn()
+  {
+    ColumnImpl column = new ColumnImpl();
+    return column;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public SelectStatement createSelectStatement()
   {
     SelectStatementImpl selectStatement = new SelectStatementImpl();
@@ -121,10 +172,10 @@ public class NlToSqlFactoryImpl extends EFactoryImpl implements NlToSqlFactory
    * @generated
    */
   @Override
-  public EntityName createEntityName()
+  public SelectTablesList createSelectTablesList()
   {
-    EntityNameImpl entityName = new EntityNameImpl();
-    return entityName;
+    SelectTablesListImpl selectTablesList = new SelectTablesListImpl();
+    return selectTablesList;
   }
 
   /**
@@ -133,10 +184,10 @@ public class NlToSqlFactoryImpl extends EFactoryImpl implements NlToSqlFactory
    * @generated
    */
   @Override
-  public SelectList createSelectList()
+  public SelectColumnsList createSelectColumnsList()
   {
-    SelectListImpl selectList = new SelectListImpl();
-    return selectList;
+    SelectColumnsListImpl selectColumnsList = new SelectColumnsListImpl();
+    return selectColumnsList;
   }
 
   /**
@@ -145,22 +196,10 @@ public class NlToSqlFactoryImpl extends EFactoryImpl implements NlToSqlFactory
    * @generated
    */
   @Override
-  public PropertyReference createPropertyReference()
+  public ColumnReference createColumnReference()
   {
-    PropertyReferenceImpl propertyReference = new PropertyReferenceImpl();
-    return propertyReference;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Property createProperty()
-  {
-    PropertyImpl property = new PropertyImpl();
-    return property;
+    ColumnReferenceImpl columnReference = new ColumnReferenceImpl();
+    return columnReference;
   }
 
   /**

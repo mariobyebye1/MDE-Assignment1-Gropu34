@@ -87,6 +87,35 @@ public class NlToSqlSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case NlToSqlPackage.CREATE_TABLE_STATEMENT:
+      {
+        CreateTableStatement createTableStatement = (CreateTableStatement)theEObject;
+        T result = caseCreateTableStatement(createTableStatement);
+        if (result == null) result = caseStatement(createTableStatement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case NlToSqlPackage.COLUMN_LIST:
+      {
+        ColumnList columnList = (ColumnList)theEObject;
+        T result = caseColumnList(columnList);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case NlToSqlPackage.TABLE:
+      {
+        Table table = (Table)theEObject;
+        T result = caseTable(table);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case NlToSqlPackage.COLUMN:
+      {
+        Column column = (Column)theEObject;
+        T result = caseColumn(column);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case NlToSqlPackage.SELECT_STATEMENT:
       {
         SelectStatement selectStatement = (SelectStatement)theEObject;
@@ -95,33 +124,26 @@ public class NlToSqlSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case NlToSqlPackage.ENTITY_NAME:
+      case NlToSqlPackage.SELECT_TABLES_LIST:
       {
-        EntityName entityName = (EntityName)theEObject;
-        T result = caseEntityName(entityName);
+        SelectTablesList selectTablesList = (SelectTablesList)theEObject;
+        T result = caseSelectTablesList(selectTablesList);
+        if (result == null) result = caseSelectStatement(selectTablesList);
+        if (result == null) result = caseStatement(selectTablesList);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case NlToSqlPackage.SELECT_LIST:
+      case NlToSqlPackage.SELECT_COLUMNS_LIST:
       {
-        SelectList selectList = (SelectList)theEObject;
-        T result = caseSelectList(selectList);
-        if (result == null) result = caseSelectStatement(selectList);
-        if (result == null) result = caseStatement(selectList);
+        SelectColumnsList selectColumnsList = (SelectColumnsList)theEObject;
+        T result = caseSelectColumnsList(selectColumnsList);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case NlToSqlPackage.PROPERTY_REFERENCE:
+      case NlToSqlPackage.COLUMN_REFERENCE:
       {
-        PropertyReference propertyReference = (PropertyReference)theEObject;
-        T result = casePropertyReference(propertyReference);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case NlToSqlPackage.PROPERTY:
-      {
-        Property property = (Property)theEObject;
-        T result = caseProperty(property);
+        ColumnReference columnReference = (ColumnReference)theEObject;
+        T result = caseColumnReference(columnReference);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -177,6 +199,70 @@ public class NlToSqlSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Create Table Statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Create Table Statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseCreateTableStatement(CreateTableStatement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Column List</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Column List</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseColumnList(ColumnList object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Table</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Table</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseTable(Table object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Column</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Column</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseColumn(Column object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Select Statement</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -193,65 +279,49 @@ public class NlToSqlSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Entity Name</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Select Tables List</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Entity Name</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Select Tables List</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseEntityName(EntityName object)
+  public T caseSelectTablesList(SelectTablesList object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Select List</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Select Columns List</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Select List</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Select Columns List</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseSelectList(SelectList object)
+  public T caseSelectColumnsList(SelectColumnsList object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Property Reference</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Column Reference</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Property Reference</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Column Reference</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T casePropertyReference(PropertyReference object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Property</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Property</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseProperty(Property object)
+  public T caseColumnReference(ColumnReference object)
   {
     return null;
   }
