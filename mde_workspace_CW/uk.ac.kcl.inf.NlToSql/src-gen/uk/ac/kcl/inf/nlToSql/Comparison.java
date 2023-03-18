@@ -3,7 +3,7 @@
  */
 package uk.ac.kcl.inf.nlToSql;
 
-import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,81 +14,48 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link uk.ac.kcl.inf.nlToSql.Comparison#getLeftHandSide <em>Left Hand Side</em>}</li>
- *   <li>{@link uk.ac.kcl.inf.nlToSql.Comparison#getOperator <em>Operator</em>}</li>
- *   <li>{@link uk.ac.kcl.inf.nlToSql.Comparison#getRightHandSide <em>Right Hand Side</em>}</li>
+ *   <li>{@link uk.ac.kcl.inf.nlToSql.Comparison#getLeft <em>Left</em>}</li>
+ *   <li>{@link uk.ac.kcl.inf.nlToSql.Comparison#getRight <em>Right</em>}</li>
  * </ul>
  *
  * @see uk.ac.kcl.inf.nlToSql.NlToSqlPackage#getComparison()
  * @model
  * @generated
  */
-public interface Comparison extends EObject
+public interface Comparison extends LogicExpressions
 {
   /**
-   * Returns the value of the '<em><b>Left Hand Side</b></em>' reference.
+   * Returns the value of the '<em><b>Left</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Left Hand Side</em>' reference.
-   * @see #setLeftHandSide(Property)
-   * @see uk.ac.kcl.inf.nlToSql.NlToSqlPackage#getComparison_LeftHandSide()
-   * @model
+   * @return the value of the '<em>Left</em>' containment reference.
+   * @see #setLeft(LogicExpressions)
+   * @see uk.ac.kcl.inf.nlToSql.NlToSqlPackage#getComparison_Left()
+   * @model containment="true"
    * @generated
    */
-  Property getLeftHandSide();
+  LogicExpressions getLeft();
 
   /**
-   * Sets the value of the '{@link uk.ac.kcl.inf.nlToSql.Comparison#getLeftHandSide <em>Left Hand Side</em>}' reference.
+   * Sets the value of the '{@link uk.ac.kcl.inf.nlToSql.Comparison#getLeft <em>Left</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Left Hand Side</em>' reference.
-   * @see #getLeftHandSide()
+   * @param value the new value of the '<em>Left</em>' containment reference.
+   * @see #getLeft()
    * @generated
    */
-  void setLeftHandSide(Property value);
+  void setLeft(LogicExpressions value);
 
   /**
-   * Returns the value of the '<em><b>Operator</b></em>' attribute.
+   * Returns the value of the '<em><b>Right</b></em>' containment reference list.
+   * The list contents are of type {@link uk.ac.kcl.inf.nlToSql.LogicExpressions}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Operator</em>' attribute.
-   * @see #setOperator(String)
-   * @see uk.ac.kcl.inf.nlToSql.NlToSqlPackage#getComparison_Operator()
-   * @model
+   * @return the value of the '<em>Right</em>' containment reference list.
+   * @see uk.ac.kcl.inf.nlToSql.NlToSqlPackage#getComparison_Right()
+   * @model containment="true"
    * @generated
    */
-  String getOperator();
-
-  /**
-   * Sets the value of the '{@link uk.ac.kcl.inf.nlToSql.Comparison#getOperator <em>Operator</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Operator</em>' attribute.
-   * @see #getOperator()
-   * @generated
-   */
-  void setOperator(String value);
-
-  /**
-   * Returns the value of the '<em><b>Right Hand Side</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Right Hand Side</em>' attribute.
-   * @see #setRightHandSide(String)
-   * @see uk.ac.kcl.inf.nlToSql.NlToSqlPackage#getComparison_RightHandSide()
-   * @model
-   * @generated
-   */
-  String getRightHandSide();
-
-  /**
-   * Sets the value of the '{@link uk.ac.kcl.inf.nlToSql.Comparison#getRightHandSide <em>Right Hand Side</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Right Hand Side</em>' attribute.
-   * @see #getRightHandSide()
-   * @generated
-   */
-  void setRightHandSide(String value);
+  EList<LogicExpressions> getRight();
 
 } // Comparison

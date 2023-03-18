@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import uk.ac.kcl.inf.nlToSql.NlToSqlPackage;
-import uk.ac.kcl.inf.nlToSql.PropertyReference;
+import uk.ac.kcl.inf.nlToSql.Property;
 import uk.ac.kcl.inf.nlToSql.SelectList;
 
 /**
@@ -42,7 +42,7 @@ public class SelectListImpl extends SelectStatementImpl implements SelectList
    * @generated
    * @ordered
    */
-  protected EList<PropertyReference> selectItem;
+  protected EList<Property> selectItem;
 
   /**
    * <!-- begin-user-doc -->
@@ -71,11 +71,11 @@ public class SelectListImpl extends SelectStatementImpl implements SelectList
    * @generated
    */
   @Override
-  public EList<PropertyReference> getSelectItem()
+  public EList<Property> getSelectItem()
   {
     if (selectItem == null)
     {
-      selectItem = new EObjectContainmentEList<PropertyReference>(PropertyReference.class, this, NlToSqlPackage.SELECT_LIST__SELECT_ITEM);
+      selectItem = new EObjectContainmentEList<Property>(Property.class, this, NlToSqlPackage.SELECT_LIST__SELECT_ITEM);
     }
     return selectItem;
   }
@@ -125,7 +125,7 @@ public class SelectListImpl extends SelectStatementImpl implements SelectList
     {
       case NlToSqlPackage.SELECT_LIST__SELECT_ITEM:
         getSelectItem().clear();
-        getSelectItem().addAll((Collection<? extends PropertyReference>)newValue);
+        getSelectItem().addAll((Collection<? extends Property>)newValue);
         return;
     }
     super.eSet(featureID, newValue);

@@ -5,63 +5,37 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="statements" upperBound="-1"
         eType="#//Statement" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Statement">
+  <eClassifiers xsi:type="ecore:EClass" name="Statement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SelectStatement" eSuperTypes="#//Statement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="entity" eType="#//EntityName"
         containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SelectStatement" eSuperTypes="#//Statement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="condition" eType="#//Condition"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="condition" eType="#//LogicExpressions"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="groupByList" upperBound="-1"
         eType="#//PropertyReference" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="InsertStatement" eSuperTypes="#//Statement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="propertyList" upperBound="-1"
-        eType="#//PropertyName" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="valueList" unique="false"
-        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="UpdateStatement" eSuperTypes="#//Statement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="updateItem" upperBound="-1"
-        eType="#//UpdateItem" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="condition" eType="#//Condition"
-        containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DeleteStatement" eSuperTypes="#//Statement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="condition" eType="#//Condition"
-        containment="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="EntityName">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SelectList" eSuperTypes="#//SelectStatement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="selectItem" upperBound="-1"
-        eType="#//PropertyReference" containment="true"/>
+        eType="#//Property" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PropertyReference">
     <eStructuralFeatures xsi:type="ecore:EReference" name="property" eType="#//Property"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="EntityName">
+  <eClassifiers xsi:type="ecore:EClass" name="Property">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="PropertyName">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="UpdateItem">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="property" eType="#//Property"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Condition">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="#//Comparison"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="logicOperator" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Comparison">
+  <eClassifiers xsi:type="ecore:EClass" name="LogicExpressions">
     <eStructuralFeatures xsi:type="ecore:EReference" name="leftHandSide" eType="#//Property"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="rightHandSide" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Entity">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Property">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Comparison" eSuperTypes="#//LogicExpressions">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//LogicExpressions"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="right" upperBound="-1"
+        eType="#//LogicExpressions" containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

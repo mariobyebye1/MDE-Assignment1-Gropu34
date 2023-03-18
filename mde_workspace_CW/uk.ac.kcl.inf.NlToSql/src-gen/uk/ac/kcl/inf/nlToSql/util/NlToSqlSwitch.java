@@ -95,27 +95,10 @@ public class NlToSqlSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case NlToSqlPackage.INSERT_STATEMENT:
+      case NlToSqlPackage.ENTITY_NAME:
       {
-        InsertStatement insertStatement = (InsertStatement)theEObject;
-        T result = caseInsertStatement(insertStatement);
-        if (result == null) result = caseStatement(insertStatement);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case NlToSqlPackage.UPDATE_STATEMENT:
-      {
-        UpdateStatement updateStatement = (UpdateStatement)theEObject;
-        T result = caseUpdateStatement(updateStatement);
-        if (result == null) result = caseStatement(updateStatement);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case NlToSqlPackage.DELETE_STATEMENT:
-      {
-        DeleteStatement deleteStatement = (DeleteStatement)theEObject;
-        T result = caseDeleteStatement(deleteStatement);
-        if (result == null) result = caseStatement(deleteStatement);
+        EntityName entityName = (EntityName)theEObject;
+        T result = caseEntityName(entityName);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -135,31 +118,17 @@ public class NlToSqlSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case NlToSqlPackage.ENTITY_NAME:
+      case NlToSqlPackage.PROPERTY:
       {
-        EntityName entityName = (EntityName)theEObject;
-        T result = caseEntityName(entityName);
+        Property property = (Property)theEObject;
+        T result = caseProperty(property);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case NlToSqlPackage.PROPERTY_NAME:
+      case NlToSqlPackage.LOGIC_EXPRESSIONS:
       {
-        PropertyName propertyName = (PropertyName)theEObject;
-        T result = casePropertyName(propertyName);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case NlToSqlPackage.UPDATE_ITEM:
-      {
-        UpdateItem updateItem = (UpdateItem)theEObject;
-        T result = caseUpdateItem(updateItem);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case NlToSqlPackage.CONDITION:
-      {
-        Condition condition = (Condition)theEObject;
-        T result = caseCondition(condition);
+        LogicExpressions logicExpressions = (LogicExpressions)theEObject;
+        T result = caseLogicExpressions(logicExpressions);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -167,20 +136,7 @@ public class NlToSqlSwitch<T> extends Switch<T>
       {
         Comparison comparison = (Comparison)theEObject;
         T result = caseComparison(comparison);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case NlToSqlPackage.ENTITY:
-      {
-        Entity entity = (Entity)theEObject;
-        T result = caseEntity(entity);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case NlToSqlPackage.PROPERTY:
-      {
-        Property property = (Property)theEObject;
-        T result = caseProperty(property);
+        if (result == null) result = caseLogicExpressions(comparison);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -237,49 +193,17 @@ public class NlToSqlSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Insert Statement</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Entity Name</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Insert Statement</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Entity Name</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseInsertStatement(InsertStatement object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Update Statement</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Update Statement</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseUpdateStatement(UpdateStatement object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Delete Statement</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Delete Statement</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseDeleteStatement(DeleteStatement object)
+  public T caseEntityName(EntityName object)
   {
     return null;
   }
@@ -317,65 +241,33 @@ public class NlToSqlSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Entity Name</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Property</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Entity Name</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Property</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseEntityName(EntityName object)
+  public T caseProperty(Property object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Property Name</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Logic Expressions</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Property Name</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Logic Expressions</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T casePropertyName(PropertyName object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Update Item</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Update Item</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseUpdateItem(UpdateItem object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Condition</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Condition</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseCondition(Condition object)
+  public T caseLogicExpressions(LogicExpressions object)
   {
     return null;
   }
@@ -392,38 +284,6 @@ public class NlToSqlSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseComparison(Comparison object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Entity</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Entity</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseEntity(Entity object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Property</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Property</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseProperty(Property object)
   {
     return null;
   }

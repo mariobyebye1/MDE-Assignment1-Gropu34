@@ -16,19 +16,13 @@ import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequence
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 import uk.ac.kcl.inf.nlToSql.AccountingSpeech;
 import uk.ac.kcl.inf.nlToSql.Comparison;
-import uk.ac.kcl.inf.nlToSql.Condition;
-import uk.ac.kcl.inf.nlToSql.DeleteStatement;
-import uk.ac.kcl.inf.nlToSql.Entity;
 import uk.ac.kcl.inf.nlToSql.EntityName;
-import uk.ac.kcl.inf.nlToSql.InsertStatement;
+import uk.ac.kcl.inf.nlToSql.LogicExpressions;
 import uk.ac.kcl.inf.nlToSql.NlToSqlPackage;
 import uk.ac.kcl.inf.nlToSql.Property;
-import uk.ac.kcl.inf.nlToSql.PropertyName;
 import uk.ac.kcl.inf.nlToSql.PropertyReference;
 import uk.ac.kcl.inf.nlToSql.SelectList;
 import uk.ac.kcl.inf.nlToSql.SelectStatement;
-import uk.ac.kcl.inf.nlToSql.UpdateItem;
-import uk.ac.kcl.inf.nlToSql.UpdateStatement;
 import uk.ac.kcl.inf.services.NlToSqlGrammarAccess;
 
 @SuppressWarnings("all")
@@ -49,28 +43,16 @@ public class NlToSqlSemanticSequencer extends AbstractDelegatingSemanticSequence
 				sequence_AccountingSpeech(context, (AccountingSpeech) semanticObject); 
 				return; 
 			case NlToSqlPackage.COMPARISON:
-				sequence_Comparison(context, (Comparison) semanticObject); 
-				return; 
-			case NlToSqlPackage.CONDITION:
-				sequence_Condition(context, (Condition) semanticObject); 
-				return; 
-			case NlToSqlPackage.DELETE_STATEMENT:
-				sequence_DeleteStatement(context, (DeleteStatement) semanticObject); 
-				return; 
-			case NlToSqlPackage.ENTITY:
-				sequence_Entity(context, (Entity) semanticObject); 
+				sequence_Condition(context, (Comparison) semanticObject); 
 				return; 
 			case NlToSqlPackage.ENTITY_NAME:
 				sequence_EntityName(context, (EntityName) semanticObject); 
 				return; 
-			case NlToSqlPackage.INSERT_STATEMENT:
-				sequence_InsertStatement(context, (InsertStatement) semanticObject); 
+			case NlToSqlPackage.LOGIC_EXPRESSIONS:
+				sequence_Comparison(context, (LogicExpressions) semanticObject); 
 				return; 
 			case NlToSqlPackage.PROPERTY:
 				sequence_Property(context, (Property) semanticObject); 
-				return; 
-			case NlToSqlPackage.PROPERTY_NAME:
-				sequence_PropertyName(context, (PropertyName) semanticObject); 
 				return; 
 			case NlToSqlPackage.PROPERTY_REFERENCE:
 				sequence_PropertyReference(context, (PropertyReference) semanticObject); 
@@ -88,12 +70,6 @@ public class NlToSqlSemanticSequencer extends AbstractDelegatingSemanticSequence
 				else break;
 			case NlToSqlPackage.SELECT_STATEMENT:
 				sequence_SelectStatement(context, (SelectStatement) semanticObject); 
-				return; 
-			case NlToSqlPackage.UPDATE_ITEM:
-				sequence_UpdateItem(context, (UpdateItem) semanticObject); 
-				return; 
-			case NlToSqlPackage.UPDATE_STATEMENT:
-				sequence_UpdateStatement(context, (UpdateStatement) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
@@ -114,22 +90,24 @@ public class NlToSqlSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Contexts:
-	 *     Comparison returns Comparison
+	 *     Condition returns LogicExpressions
+	 *     Condition.Comparison_1_0 returns LogicExpressions
+	 *     Comparison returns LogicExpressions
 	 *
 	 * Constraint:
 	 *     (leftHandSide=[Property|ID] operator=ComparisonOperator rightHandSide=Value)
 	 */
-	protected void sequence_Comparison(ISerializationContext context, Comparison semanticObject) {
+	protected void sequence_Comparison(ISerializationContext context, LogicExpressions semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, NlToSqlPackage.Literals.COMPARISON__LEFT_HAND_SIDE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, NlToSqlPackage.Literals.COMPARISON__LEFT_HAND_SIDE));
-			if (transientValues.isValueTransient(semanticObject, NlToSqlPackage.Literals.COMPARISON__OPERATOR) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, NlToSqlPackage.Literals.COMPARISON__OPERATOR));
-			if (transientValues.isValueTransient(semanticObject, NlToSqlPackage.Literals.COMPARISON__RIGHT_HAND_SIDE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, NlToSqlPackage.Literals.COMPARISON__RIGHT_HAND_SIDE));
+			if (transientValues.isValueTransient(semanticObject, NlToSqlPackage.Literals.LOGIC_EXPRESSIONS__LEFT_HAND_SIDE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, NlToSqlPackage.Literals.LOGIC_EXPRESSIONS__LEFT_HAND_SIDE));
+			if (transientValues.isValueTransient(semanticObject, NlToSqlPackage.Literals.LOGIC_EXPRESSIONS__OPERATOR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, NlToSqlPackage.Literals.LOGIC_EXPRESSIONS__OPERATOR));
+			if (transientValues.isValueTransient(semanticObject, NlToSqlPackage.Literals.LOGIC_EXPRESSIONS__RIGHT_HAND_SIDE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, NlToSqlPackage.Literals.LOGIC_EXPRESSIONS__RIGHT_HAND_SIDE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getComparisonAccess().getLeftHandSidePropertyIDTerminalRuleCall_1_0_1(), semanticObject.eGet(NlToSqlPackage.Literals.COMPARISON__LEFT_HAND_SIDE, false));
+		feeder.accept(grammarAccess.getComparisonAccess().getLeftHandSidePropertyIDTerminalRuleCall_1_0_1(), semanticObject.eGet(NlToSqlPackage.Literals.LOGIC_EXPRESSIONS__LEFT_HAND_SIDE, false));
 		feeder.accept(grammarAccess.getComparisonAccess().getOperatorComparisonOperatorParserRuleCall_2_0(), semanticObject.getOperator());
 		feeder.accept(grammarAccess.getComparisonAccess().getRightHandSideValueParserRuleCall_3_0(), semanticObject.getRightHandSide());
 		feeder.finish();
@@ -138,25 +116,13 @@ public class NlToSqlSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Contexts:
-	 *     Condition returns Condition
+	 *     Condition returns Comparison
+	 *     Condition.Comparison_1_0 returns Comparison
 	 *
 	 * Constraint:
-	 *     (expression=Comparison (logicOperator=LogicOperator expression=Comparison)*)
+	 *     (left=Condition_Comparison_1_0 right+=Comparison)
 	 */
-	protected void sequence_Condition(ISerializationContext context, Condition semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Statement returns DeleteStatement
-	 *     DeleteStatement returns DeleteStatement
-	 *
-	 * Constraint:
-	 *     (entity=EntityName condition=Condition?)
-	 */
-	protected void sequence_DeleteStatement(ISerializationContext context, DeleteStatement semanticObject) {
+	protected void sequence_Condition(ISerializationContext context, Comparison semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -181,55 +147,6 @@ public class NlToSqlSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Contexts:
-	 *     Entity returns Entity
-	 *
-	 * Constraint:
-	 *     name=ID
-	 */
-	protected void sequence_Entity(ISerializationContext context, Entity semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, NlToSqlPackage.Literals.ENTITY__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, NlToSqlPackage.Literals.ENTITY__NAME));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getEntityAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Statement returns InsertStatement
-	 *     InsertStatement returns InsertStatement
-	 *
-	 * Constraint:
-	 *     (entity=EntityName propertyList+=PropertyName propertyList+=PropertyName* valueList+=Value valueList+=Value*)
-	 */
-	protected void sequence_InsertStatement(ISerializationContext context, InsertStatement semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     PropertyName returns PropertyName
-	 *
-	 * Constraint:
-	 *     name=ID
-	 */
-	protected void sequence_PropertyName(ISerializationContext context, PropertyName semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, NlToSqlPackage.Literals.PROPERTY_NAME__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, NlToSqlPackage.Literals.PROPERTY_NAME__NAME));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getPropertyNameAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     PropertyReference returns PropertyReference
 	 *
 	 * Constraint:
@@ -241,7 +158,7 @@ public class NlToSqlSemanticSequencer extends AbstractDelegatingSemanticSequence
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, NlToSqlPackage.Literals.PROPERTY_REFERENCE__PROPERTY));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getPropertyReferenceAccess().getPropertyPropertyIDTerminalRuleCall_1_0_1(), semanticObject.eGet(NlToSqlPackage.Literals.PROPERTY_REFERENCE__PROPERTY, false));
+		feeder.accept(grammarAccess.getPropertyReferenceAccess().getPropertyPropertyIDTerminalRuleCall_0_1(), semanticObject.eGet(NlToSqlPackage.Literals.PROPERTY_REFERENCE__PROPERTY, false));
 		feeder.finish();
 	}
 	
@@ -269,7 +186,7 @@ public class NlToSqlSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *     SelectList returns SelectList
 	 *
 	 * Constraint:
-	 *     (selectItem+=PropertyReference selectItem+=PropertyReference*)
+	 *     (selectItem+=Property selectItem+=Property*)
 	 */
 	protected void sequence_SelectList(ISerializationContext context, SelectList semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -283,8 +200,8 @@ public class NlToSqlSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *
 	 * Constraint:
 	 *     (
-	 *         selectItem+=PropertyReference 
-	 *         selectItem+=PropertyReference* 
+	 *         selectItem+=Property 
+	 *         selectItem+=Property* 
 	 *         entity=EntityName 
 	 *         condition=Condition? 
 	 *         (groupByList+=PropertyReference groupByList+=PropertyReference*)?
@@ -304,40 +221,6 @@ public class NlToSqlSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *     (entity=EntityName condition=Condition? (groupByList+=PropertyReference groupByList+=PropertyReference*)?)
 	 */
 	protected void sequence_SelectStatement(ISerializationContext context, SelectStatement semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     UpdateItem returns UpdateItem
-	 *
-	 * Constraint:
-	 *     (property=[Property|ID] value=Value)
-	 */
-	protected void sequence_UpdateItem(ISerializationContext context, UpdateItem semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, NlToSqlPackage.Literals.UPDATE_ITEM__PROPERTY) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, NlToSqlPackage.Literals.UPDATE_ITEM__PROPERTY));
-			if (transientValues.isValueTransient(semanticObject, NlToSqlPackage.Literals.UPDATE_ITEM__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, NlToSqlPackage.Literals.UPDATE_ITEM__VALUE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getUpdateItemAccess().getPropertyPropertyIDTerminalRuleCall_1_0_1(), semanticObject.eGet(NlToSqlPackage.Literals.UPDATE_ITEM__PROPERTY, false));
-		feeder.accept(grammarAccess.getUpdateItemAccess().getValueValueParserRuleCall_3_0(), semanticObject.getValue());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Statement returns UpdateStatement
-	 *     UpdateStatement returns UpdateStatement
-	 *
-	 * Constraint:
-	 *     (entity=EntityName updateItem+=UpdateItem updateItem+=UpdateItem* condition=Condition?)
-	 */
-	protected void sequence_UpdateStatement(ISerializationContext context, UpdateStatement semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

@@ -91,19 +91,9 @@ public class NlToSqlAdapterFactory extends AdapterFactoryImpl
         return createSelectStatementAdapter();
       }
       @Override
-      public Adapter caseInsertStatement(InsertStatement object)
+      public Adapter caseEntityName(EntityName object)
       {
-        return createInsertStatementAdapter();
-      }
-      @Override
-      public Adapter caseUpdateStatement(UpdateStatement object)
-      {
-        return createUpdateStatementAdapter();
-      }
-      @Override
-      public Adapter caseDeleteStatement(DeleteStatement object)
-      {
-        return createDeleteStatementAdapter();
+        return createEntityNameAdapter();
       }
       @Override
       public Adapter caseSelectList(SelectList object)
@@ -116,39 +106,19 @@ public class NlToSqlAdapterFactory extends AdapterFactoryImpl
         return createPropertyReferenceAdapter();
       }
       @Override
-      public Adapter caseEntityName(EntityName object)
+      public Adapter caseProperty(Property object)
       {
-        return createEntityNameAdapter();
+        return createPropertyAdapter();
       }
       @Override
-      public Adapter casePropertyName(PropertyName object)
+      public Adapter caseLogicExpressions(LogicExpressions object)
       {
-        return createPropertyNameAdapter();
-      }
-      @Override
-      public Adapter caseUpdateItem(UpdateItem object)
-      {
-        return createUpdateItemAdapter();
-      }
-      @Override
-      public Adapter caseCondition(Condition object)
-      {
-        return createConditionAdapter();
+        return createLogicExpressionsAdapter();
       }
       @Override
       public Adapter caseComparison(Comparison object)
       {
         return createComparisonAdapter();
-      }
-      @Override
-      public Adapter caseEntity(Entity object)
-      {
-        return createEntityAdapter();
-      }
-      @Override
-      public Adapter caseProperty(Property object)
-      {
-        return createPropertyAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -218,46 +188,16 @@ public class NlToSqlAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link uk.ac.kcl.inf.nlToSql.InsertStatement <em>Insert Statement</em>}'.
+   * Creates a new adapter for an object of class '{@link uk.ac.kcl.inf.nlToSql.EntityName <em>Entity Name</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see uk.ac.kcl.inf.nlToSql.InsertStatement
+   * @see uk.ac.kcl.inf.nlToSql.EntityName
    * @generated
    */
-  public Adapter createInsertStatementAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link uk.ac.kcl.inf.nlToSql.UpdateStatement <em>Update Statement</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see uk.ac.kcl.inf.nlToSql.UpdateStatement
-   * @generated
-   */
-  public Adapter createUpdateStatementAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link uk.ac.kcl.inf.nlToSql.DeleteStatement <em>Delete Statement</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see uk.ac.kcl.inf.nlToSql.DeleteStatement
-   * @generated
-   */
-  public Adapter createDeleteStatementAdapter()
+  public Adapter createEntityNameAdapter()
   {
     return null;
   }
@@ -293,61 +233,31 @@ public class NlToSqlAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link uk.ac.kcl.inf.nlToSql.EntityName <em>Entity Name</em>}'.
+   * Creates a new adapter for an object of class '{@link uk.ac.kcl.inf.nlToSql.Property <em>Property</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see uk.ac.kcl.inf.nlToSql.EntityName
+   * @see uk.ac.kcl.inf.nlToSql.Property
    * @generated
    */
-  public Adapter createEntityNameAdapter()
+  public Adapter createPropertyAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link uk.ac.kcl.inf.nlToSql.PropertyName <em>Property Name</em>}'.
+   * Creates a new adapter for an object of class '{@link uk.ac.kcl.inf.nlToSql.LogicExpressions <em>Logic Expressions</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see uk.ac.kcl.inf.nlToSql.PropertyName
+   * @see uk.ac.kcl.inf.nlToSql.LogicExpressions
    * @generated
    */
-  public Adapter createPropertyNameAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link uk.ac.kcl.inf.nlToSql.UpdateItem <em>Update Item</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see uk.ac.kcl.inf.nlToSql.UpdateItem
-   * @generated
-   */
-  public Adapter createUpdateItemAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link uk.ac.kcl.inf.nlToSql.Condition <em>Condition</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see uk.ac.kcl.inf.nlToSql.Condition
-   * @generated
-   */
-  public Adapter createConditionAdapter()
+  public Adapter createLogicExpressionsAdapter()
   {
     return null;
   }
@@ -363,36 +273,6 @@ public class NlToSqlAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createComparisonAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link uk.ac.kcl.inf.nlToSql.Entity <em>Entity</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see uk.ac.kcl.inf.nlToSql.Entity
-   * @generated
-   */
-  public Adapter createEntityAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link uk.ac.kcl.inf.nlToSql.Property <em>Property</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see uk.ac.kcl.inf.nlToSql.Property
-   * @generated
-   */
-  public Adapter createPropertyAdapter()
   {
     return null;
   }

@@ -68,18 +68,12 @@ public class NlToSqlFactoryImpl extends EFactoryImpl implements NlToSqlFactory
       case NlToSqlPackage.ACCOUNTING_SPEECH: return createAccountingSpeech();
       case NlToSqlPackage.STATEMENT: return createStatement();
       case NlToSqlPackage.SELECT_STATEMENT: return createSelectStatement();
-      case NlToSqlPackage.INSERT_STATEMENT: return createInsertStatement();
-      case NlToSqlPackage.UPDATE_STATEMENT: return createUpdateStatement();
-      case NlToSqlPackage.DELETE_STATEMENT: return createDeleteStatement();
+      case NlToSqlPackage.ENTITY_NAME: return createEntityName();
       case NlToSqlPackage.SELECT_LIST: return createSelectList();
       case NlToSqlPackage.PROPERTY_REFERENCE: return createPropertyReference();
-      case NlToSqlPackage.ENTITY_NAME: return createEntityName();
-      case NlToSqlPackage.PROPERTY_NAME: return createPropertyName();
-      case NlToSqlPackage.UPDATE_ITEM: return createUpdateItem();
-      case NlToSqlPackage.CONDITION: return createCondition();
-      case NlToSqlPackage.COMPARISON: return createComparison();
-      case NlToSqlPackage.ENTITY: return createEntity();
       case NlToSqlPackage.PROPERTY: return createProperty();
+      case NlToSqlPackage.LOGIC_EXPRESSIONS: return createLogicExpressions();
+      case NlToSqlPackage.COMPARISON: return createComparison();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -127,34 +121,10 @@ public class NlToSqlFactoryImpl extends EFactoryImpl implements NlToSqlFactory
    * @generated
    */
   @Override
-  public InsertStatement createInsertStatement()
+  public EntityName createEntityName()
   {
-    InsertStatementImpl insertStatement = new InsertStatementImpl();
-    return insertStatement;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public UpdateStatement createUpdateStatement()
-  {
-    UpdateStatementImpl updateStatement = new UpdateStatementImpl();
-    return updateStatement;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public DeleteStatement createDeleteStatement()
-  {
-    DeleteStatementImpl deleteStatement = new DeleteStatementImpl();
-    return deleteStatement;
+    EntityNameImpl entityName = new EntityNameImpl();
+    return entityName;
   }
 
   /**
@@ -187,10 +157,10 @@ public class NlToSqlFactoryImpl extends EFactoryImpl implements NlToSqlFactory
    * @generated
    */
   @Override
-  public EntityName createEntityName()
+  public Property createProperty()
   {
-    EntityNameImpl entityName = new EntityNameImpl();
-    return entityName;
+    PropertyImpl property = new PropertyImpl();
+    return property;
   }
 
   /**
@@ -199,34 +169,10 @@ public class NlToSqlFactoryImpl extends EFactoryImpl implements NlToSqlFactory
    * @generated
    */
   @Override
-  public PropertyName createPropertyName()
+  public LogicExpressions createLogicExpressions()
   {
-    PropertyNameImpl propertyName = new PropertyNameImpl();
-    return propertyName;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public UpdateItem createUpdateItem()
-  {
-    UpdateItemImpl updateItem = new UpdateItemImpl();
-    return updateItem;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Condition createCondition()
-  {
-    ConditionImpl condition = new ConditionImpl();
-    return condition;
+    LogicExpressionsImpl logicExpressions = new LogicExpressionsImpl();
+    return logicExpressions;
   }
 
   /**
@@ -239,30 +185,6 @@ public class NlToSqlFactoryImpl extends EFactoryImpl implements NlToSqlFactory
   {
     ComparisonImpl comparison = new ComparisonImpl();
     return comparison;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Entity createEntity()
-  {
-    EntityImpl entity = new EntityImpl();
-    return entity;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Property createProperty()
-  {
-    PropertyImpl property = new PropertyImpl();
-    return property;
   }
 
   /**

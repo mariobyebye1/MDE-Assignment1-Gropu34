@@ -96,22 +96,13 @@ public interface NlToSqlPackage extends EPackage
   int STATEMENT = 1;
 
   /**
-   * The feature id for the '<em><b>Entity</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STATEMENT__ENTITY = 0;
-
-  /**
    * The number of structural features of the '<em>Statement</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STATEMENT_FEATURE_COUNT = 1;
+  int STATEMENT_FEATURE_COUNT = 0;
 
   /**
    * The meta object id for the '{@link uk.ac.kcl.inf.nlToSql.impl.SelectStatementImpl <em>Select Statement</em>}' class.
@@ -130,7 +121,7 @@ public interface NlToSqlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SELECT_STATEMENT__ENTITY = STATEMENT__ENTITY;
+  int SELECT_STATEMENT__ENTITY = STATEMENT_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Condition</b></em>' containment reference.
@@ -139,7 +130,7 @@ public interface NlToSqlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SELECT_STATEMENT__CONDITION = STATEMENT_FEATURE_COUNT + 0;
+  int SELECT_STATEMENT__CONDITION = STATEMENT_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Group By List</b></em>' containment reference list.
@@ -148,7 +139,7 @@ public interface NlToSqlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SELECT_STATEMENT__GROUP_BY_LIST = STATEMENT_FEATURE_COUNT + 1;
+  int SELECT_STATEMENT__GROUP_BY_LIST = STATEMENT_FEATURE_COUNT + 2;
 
   /**
    * The number of structural features of the '<em>Select Statement</em>' class.
@@ -157,136 +148,35 @@ public interface NlToSqlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SELECT_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 2;
+  int SELECT_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 3;
 
   /**
-   * The meta object id for the '{@link uk.ac.kcl.inf.nlToSql.impl.InsertStatementImpl <em>Insert Statement</em>}' class.
+   * The meta object id for the '{@link uk.ac.kcl.inf.nlToSql.impl.EntityNameImpl <em>Entity Name</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see uk.ac.kcl.inf.nlToSql.impl.InsertStatementImpl
-   * @see uk.ac.kcl.inf.nlToSql.impl.NlToSqlPackageImpl#getInsertStatement()
+   * @see uk.ac.kcl.inf.nlToSql.impl.EntityNameImpl
+   * @see uk.ac.kcl.inf.nlToSql.impl.NlToSqlPackageImpl#getEntityName()
    * @generated
    */
-  int INSERT_STATEMENT = 3;
+  int ENTITY_NAME = 3;
 
   /**
-   * The feature id for the '<em><b>Entity</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int INSERT_STATEMENT__ENTITY = STATEMENT__ENTITY;
-
-  /**
-   * The feature id for the '<em><b>Property List</b></em>' containment reference list.
+   * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int INSERT_STATEMENT__PROPERTY_LIST = STATEMENT_FEATURE_COUNT + 0;
+  int ENTITY_NAME__NAME = 0;
 
   /**
-   * The feature id for the '<em><b>Value List</b></em>' attribute list.
+   * The number of structural features of the '<em>Entity Name</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int INSERT_STATEMENT__VALUE_LIST = STATEMENT_FEATURE_COUNT + 1;
-
-  /**
-   * The number of structural features of the '<em>Insert Statement</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int INSERT_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 2;
-
-  /**
-   * The meta object id for the '{@link uk.ac.kcl.inf.nlToSql.impl.UpdateStatementImpl <em>Update Statement</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see uk.ac.kcl.inf.nlToSql.impl.UpdateStatementImpl
-   * @see uk.ac.kcl.inf.nlToSql.impl.NlToSqlPackageImpl#getUpdateStatement()
-   * @generated
-   */
-  int UPDATE_STATEMENT = 4;
-
-  /**
-   * The feature id for the '<em><b>Entity</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int UPDATE_STATEMENT__ENTITY = STATEMENT__ENTITY;
-
-  /**
-   * The feature id for the '<em><b>Update Item</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int UPDATE_STATEMENT__UPDATE_ITEM = STATEMENT_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Condition</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int UPDATE_STATEMENT__CONDITION = STATEMENT_FEATURE_COUNT + 1;
-
-  /**
-   * The number of structural features of the '<em>Update Statement</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int UPDATE_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 2;
-
-  /**
-   * The meta object id for the '{@link uk.ac.kcl.inf.nlToSql.impl.DeleteStatementImpl <em>Delete Statement</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see uk.ac.kcl.inf.nlToSql.impl.DeleteStatementImpl
-   * @see uk.ac.kcl.inf.nlToSql.impl.NlToSqlPackageImpl#getDeleteStatement()
-   * @generated
-   */
-  int DELETE_STATEMENT = 5;
-
-  /**
-   * The feature id for the '<em><b>Entity</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DELETE_STATEMENT__ENTITY = STATEMENT__ENTITY;
-
-  /**
-   * The feature id for the '<em><b>Condition</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DELETE_STATEMENT__CONDITION = STATEMENT_FEATURE_COUNT + 0;
-
-  /**
-   * The number of structural features of the '<em>Delete Statement</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DELETE_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 1;
+  int ENTITY_NAME_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link uk.ac.kcl.inf.nlToSql.impl.SelectListImpl <em>Select List</em>}' class.
@@ -296,7 +186,7 @@ public interface NlToSqlPackage extends EPackage
    * @see uk.ac.kcl.inf.nlToSql.impl.NlToSqlPackageImpl#getSelectList()
    * @generated
    */
-  int SELECT_LIST = 6;
+  int SELECT_LIST = 4;
 
   /**
    * The feature id for the '<em><b>Entity</b></em>' containment reference.
@@ -351,7 +241,7 @@ public interface NlToSqlPackage extends EPackage
    * @see uk.ac.kcl.inf.nlToSql.impl.NlToSqlPackageImpl#getPropertyReference()
    * @generated
    */
-  int PROPERTY_REFERENCE = 7;
+  int PROPERTY_REFERENCE = 5;
 
   /**
    * The feature id for the '<em><b>Property</b></em>' reference.
@@ -372,210 +262,6 @@ public interface NlToSqlPackage extends EPackage
   int PROPERTY_REFERENCE_FEATURE_COUNT = 1;
 
   /**
-   * The meta object id for the '{@link uk.ac.kcl.inf.nlToSql.impl.EntityNameImpl <em>Entity Name</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see uk.ac.kcl.inf.nlToSql.impl.EntityNameImpl
-   * @see uk.ac.kcl.inf.nlToSql.impl.NlToSqlPackageImpl#getEntityName()
-   * @generated
-   */
-  int ENTITY_NAME = 8;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ENTITY_NAME__NAME = 0;
-
-  /**
-   * The number of structural features of the '<em>Entity Name</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ENTITY_NAME_FEATURE_COUNT = 1;
-
-  /**
-   * The meta object id for the '{@link uk.ac.kcl.inf.nlToSql.impl.PropertyNameImpl <em>Property Name</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see uk.ac.kcl.inf.nlToSql.impl.PropertyNameImpl
-   * @see uk.ac.kcl.inf.nlToSql.impl.NlToSqlPackageImpl#getPropertyName()
-   * @generated
-   */
-  int PROPERTY_NAME = 9;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PROPERTY_NAME__NAME = 0;
-
-  /**
-   * The number of structural features of the '<em>Property Name</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PROPERTY_NAME_FEATURE_COUNT = 1;
-
-  /**
-   * The meta object id for the '{@link uk.ac.kcl.inf.nlToSql.impl.UpdateItemImpl <em>Update Item</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see uk.ac.kcl.inf.nlToSql.impl.UpdateItemImpl
-   * @see uk.ac.kcl.inf.nlToSql.impl.NlToSqlPackageImpl#getUpdateItem()
-   * @generated
-   */
-  int UPDATE_ITEM = 10;
-
-  /**
-   * The feature id for the '<em><b>Property</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int UPDATE_ITEM__PROPERTY = 0;
-
-  /**
-   * The feature id for the '<em><b>Value</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int UPDATE_ITEM__VALUE = 1;
-
-  /**
-   * The number of structural features of the '<em>Update Item</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int UPDATE_ITEM_FEATURE_COUNT = 2;
-
-  /**
-   * The meta object id for the '{@link uk.ac.kcl.inf.nlToSql.impl.ConditionImpl <em>Condition</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see uk.ac.kcl.inf.nlToSql.impl.ConditionImpl
-   * @see uk.ac.kcl.inf.nlToSql.impl.NlToSqlPackageImpl#getCondition()
-   * @generated
-   */
-  int CONDITION = 11;
-
-  /**
-   * The feature id for the '<em><b>Expression</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONDITION__EXPRESSION = 0;
-
-  /**
-   * The feature id for the '<em><b>Logic Operator</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONDITION__LOGIC_OPERATOR = 1;
-
-  /**
-   * The number of structural features of the '<em>Condition</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONDITION_FEATURE_COUNT = 2;
-
-  /**
-   * The meta object id for the '{@link uk.ac.kcl.inf.nlToSql.impl.ComparisonImpl <em>Comparison</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see uk.ac.kcl.inf.nlToSql.impl.ComparisonImpl
-   * @see uk.ac.kcl.inf.nlToSql.impl.NlToSqlPackageImpl#getComparison()
-   * @generated
-   */
-  int COMPARISON = 12;
-
-  /**
-   * The feature id for the '<em><b>Left Hand Side</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int COMPARISON__LEFT_HAND_SIDE = 0;
-
-  /**
-   * The feature id for the '<em><b>Operator</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int COMPARISON__OPERATOR = 1;
-
-  /**
-   * The feature id for the '<em><b>Right Hand Side</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int COMPARISON__RIGHT_HAND_SIDE = 2;
-
-  /**
-   * The number of structural features of the '<em>Comparison</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int COMPARISON_FEATURE_COUNT = 3;
-
-  /**
-   * The meta object id for the '{@link uk.ac.kcl.inf.nlToSql.impl.EntityImpl <em>Entity</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see uk.ac.kcl.inf.nlToSql.impl.EntityImpl
-   * @see uk.ac.kcl.inf.nlToSql.impl.NlToSqlPackageImpl#getEntity()
-   * @generated
-   */
-  int ENTITY = 13;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ENTITY__NAME = 0;
-
-  /**
-   * The number of structural features of the '<em>Entity</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ENTITY_FEATURE_COUNT = 1;
-
-  /**
    * The meta object id for the '{@link uk.ac.kcl.inf.nlToSql.impl.PropertyImpl <em>Property</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -583,7 +269,7 @@ public interface NlToSqlPackage extends EPackage
    * @see uk.ac.kcl.inf.nlToSql.impl.NlToSqlPackageImpl#getProperty()
    * @generated
    */
-  int PROPERTY = 14;
+  int PROPERTY = 6;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -602,6 +288,116 @@ public interface NlToSqlPackage extends EPackage
    * @ordered
    */
   int PROPERTY_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link uk.ac.kcl.inf.nlToSql.impl.LogicExpressionsImpl <em>Logic Expressions</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see uk.ac.kcl.inf.nlToSql.impl.LogicExpressionsImpl
+   * @see uk.ac.kcl.inf.nlToSql.impl.NlToSqlPackageImpl#getLogicExpressions()
+   * @generated
+   */
+  int LOGIC_EXPRESSIONS = 7;
+
+  /**
+   * The feature id for the '<em><b>Left Hand Side</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LOGIC_EXPRESSIONS__LEFT_HAND_SIDE = 0;
+
+  /**
+   * The feature id for the '<em><b>Operator</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LOGIC_EXPRESSIONS__OPERATOR = 1;
+
+  /**
+   * The feature id for the '<em><b>Right Hand Side</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LOGIC_EXPRESSIONS__RIGHT_HAND_SIDE = 2;
+
+  /**
+   * The number of structural features of the '<em>Logic Expressions</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LOGIC_EXPRESSIONS_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link uk.ac.kcl.inf.nlToSql.impl.ComparisonImpl <em>Comparison</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see uk.ac.kcl.inf.nlToSql.impl.ComparisonImpl
+   * @see uk.ac.kcl.inf.nlToSql.impl.NlToSqlPackageImpl#getComparison()
+   * @generated
+   */
+  int COMPARISON = 8;
+
+  /**
+   * The feature id for the '<em><b>Left Hand Side</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPARISON__LEFT_HAND_SIDE = LOGIC_EXPRESSIONS__LEFT_HAND_SIDE;
+
+  /**
+   * The feature id for the '<em><b>Operator</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPARISON__OPERATOR = LOGIC_EXPRESSIONS__OPERATOR;
+
+  /**
+   * The feature id for the '<em><b>Right Hand Side</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPARISON__RIGHT_HAND_SIDE = LOGIC_EXPRESSIONS__RIGHT_HAND_SIDE;
+
+  /**
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPARISON__LEFT = LOGIC_EXPRESSIONS_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Right</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPARISON__RIGHT = LOGIC_EXPRESSIONS_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Comparison</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPARISON_FEATURE_COUNT = LOGIC_EXPRESSIONS_FEATURE_COUNT + 2;
 
 
   /**
@@ -636,17 +432,6 @@ public interface NlToSqlPackage extends EPackage
   EClass getStatement();
 
   /**
-   * Returns the meta object for the containment reference '{@link uk.ac.kcl.inf.nlToSql.Statement#getEntity <em>Entity</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Entity</em>'.
-   * @see uk.ac.kcl.inf.nlToSql.Statement#getEntity()
-   * @see #getStatement()
-   * @generated
-   */
-  EReference getStatement_Entity();
-
-  /**
    * Returns the meta object for class '{@link uk.ac.kcl.inf.nlToSql.SelectStatement <em>Select Statement</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -655,6 +440,17 @@ public interface NlToSqlPackage extends EPackage
    * @generated
    */
   EClass getSelectStatement();
+
+  /**
+   * Returns the meta object for the containment reference '{@link uk.ac.kcl.inf.nlToSql.SelectStatement#getEntity <em>Entity</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Entity</em>'.
+   * @see uk.ac.kcl.inf.nlToSql.SelectStatement#getEntity()
+   * @see #getSelectStatement()
+   * @generated
+   */
+  EReference getSelectStatement_Entity();
 
   /**
    * Returns the meta object for the containment reference '{@link uk.ac.kcl.inf.nlToSql.SelectStatement#getCondition <em>Condition</em>}'.
@@ -679,89 +475,25 @@ public interface NlToSqlPackage extends EPackage
   EReference getSelectStatement_GroupByList();
 
   /**
-   * Returns the meta object for class '{@link uk.ac.kcl.inf.nlToSql.InsertStatement <em>Insert Statement</em>}'.
+   * Returns the meta object for class '{@link uk.ac.kcl.inf.nlToSql.EntityName <em>Entity Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Insert Statement</em>'.
-   * @see uk.ac.kcl.inf.nlToSql.InsertStatement
+   * @return the meta object for class '<em>Entity Name</em>'.
+   * @see uk.ac.kcl.inf.nlToSql.EntityName
    * @generated
    */
-  EClass getInsertStatement();
+  EClass getEntityName();
 
   /**
-   * Returns the meta object for the containment reference list '{@link uk.ac.kcl.inf.nlToSql.InsertStatement#getPropertyList <em>Property List</em>}'.
+   * Returns the meta object for the attribute '{@link uk.ac.kcl.inf.nlToSql.EntityName#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Property List</em>'.
-   * @see uk.ac.kcl.inf.nlToSql.InsertStatement#getPropertyList()
-   * @see #getInsertStatement()
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see uk.ac.kcl.inf.nlToSql.EntityName#getName()
+   * @see #getEntityName()
    * @generated
    */
-  EReference getInsertStatement_PropertyList();
-
-  /**
-   * Returns the meta object for the attribute list '{@link uk.ac.kcl.inf.nlToSql.InsertStatement#getValueList <em>Value List</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute list '<em>Value List</em>'.
-   * @see uk.ac.kcl.inf.nlToSql.InsertStatement#getValueList()
-   * @see #getInsertStatement()
-   * @generated
-   */
-  EAttribute getInsertStatement_ValueList();
-
-  /**
-   * Returns the meta object for class '{@link uk.ac.kcl.inf.nlToSql.UpdateStatement <em>Update Statement</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Update Statement</em>'.
-   * @see uk.ac.kcl.inf.nlToSql.UpdateStatement
-   * @generated
-   */
-  EClass getUpdateStatement();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link uk.ac.kcl.inf.nlToSql.UpdateStatement#getUpdateItem <em>Update Item</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Update Item</em>'.
-   * @see uk.ac.kcl.inf.nlToSql.UpdateStatement#getUpdateItem()
-   * @see #getUpdateStatement()
-   * @generated
-   */
-  EReference getUpdateStatement_UpdateItem();
-
-  /**
-   * Returns the meta object for the containment reference '{@link uk.ac.kcl.inf.nlToSql.UpdateStatement#getCondition <em>Condition</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Condition</em>'.
-   * @see uk.ac.kcl.inf.nlToSql.UpdateStatement#getCondition()
-   * @see #getUpdateStatement()
-   * @generated
-   */
-  EReference getUpdateStatement_Condition();
-
-  /**
-   * Returns the meta object for class '{@link uk.ac.kcl.inf.nlToSql.DeleteStatement <em>Delete Statement</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Delete Statement</em>'.
-   * @see uk.ac.kcl.inf.nlToSql.DeleteStatement
-   * @generated
-   */
-  EClass getDeleteStatement();
-
-  /**
-   * Returns the meta object for the containment reference '{@link uk.ac.kcl.inf.nlToSql.DeleteStatement#getCondition <em>Condition</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Condition</em>'.
-   * @see uk.ac.kcl.inf.nlToSql.DeleteStatement#getCondition()
-   * @see #getDeleteStatement()
-   * @generated
-   */
-  EReference getDeleteStatement_Condition();
+  EAttribute getEntityName_Name();
 
   /**
    * Returns the meta object for class '{@link uk.ac.kcl.inf.nlToSql.SelectList <em>Select List</em>}'.
@@ -806,176 +538,6 @@ public interface NlToSqlPackage extends EPackage
   EReference getPropertyReference_Property();
 
   /**
-   * Returns the meta object for class '{@link uk.ac.kcl.inf.nlToSql.EntityName <em>Entity Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Entity Name</em>'.
-   * @see uk.ac.kcl.inf.nlToSql.EntityName
-   * @generated
-   */
-  EClass getEntityName();
-
-  /**
-   * Returns the meta object for the attribute '{@link uk.ac.kcl.inf.nlToSql.EntityName#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see uk.ac.kcl.inf.nlToSql.EntityName#getName()
-   * @see #getEntityName()
-   * @generated
-   */
-  EAttribute getEntityName_Name();
-
-  /**
-   * Returns the meta object for class '{@link uk.ac.kcl.inf.nlToSql.PropertyName <em>Property Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Property Name</em>'.
-   * @see uk.ac.kcl.inf.nlToSql.PropertyName
-   * @generated
-   */
-  EClass getPropertyName();
-
-  /**
-   * Returns the meta object for the attribute '{@link uk.ac.kcl.inf.nlToSql.PropertyName#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see uk.ac.kcl.inf.nlToSql.PropertyName#getName()
-   * @see #getPropertyName()
-   * @generated
-   */
-  EAttribute getPropertyName_Name();
-
-  /**
-   * Returns the meta object for class '{@link uk.ac.kcl.inf.nlToSql.UpdateItem <em>Update Item</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Update Item</em>'.
-   * @see uk.ac.kcl.inf.nlToSql.UpdateItem
-   * @generated
-   */
-  EClass getUpdateItem();
-
-  /**
-   * Returns the meta object for the reference '{@link uk.ac.kcl.inf.nlToSql.UpdateItem#getProperty <em>Property</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Property</em>'.
-   * @see uk.ac.kcl.inf.nlToSql.UpdateItem#getProperty()
-   * @see #getUpdateItem()
-   * @generated
-   */
-  EReference getUpdateItem_Property();
-
-  /**
-   * Returns the meta object for the attribute '{@link uk.ac.kcl.inf.nlToSql.UpdateItem#getValue <em>Value</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Value</em>'.
-   * @see uk.ac.kcl.inf.nlToSql.UpdateItem#getValue()
-   * @see #getUpdateItem()
-   * @generated
-   */
-  EAttribute getUpdateItem_Value();
-
-  /**
-   * Returns the meta object for class '{@link uk.ac.kcl.inf.nlToSql.Condition <em>Condition</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Condition</em>'.
-   * @see uk.ac.kcl.inf.nlToSql.Condition
-   * @generated
-   */
-  EClass getCondition();
-
-  /**
-   * Returns the meta object for the containment reference '{@link uk.ac.kcl.inf.nlToSql.Condition#getExpression <em>Expression</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Expression</em>'.
-   * @see uk.ac.kcl.inf.nlToSql.Condition#getExpression()
-   * @see #getCondition()
-   * @generated
-   */
-  EReference getCondition_Expression();
-
-  /**
-   * Returns the meta object for the attribute '{@link uk.ac.kcl.inf.nlToSql.Condition#getLogicOperator <em>Logic Operator</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Logic Operator</em>'.
-   * @see uk.ac.kcl.inf.nlToSql.Condition#getLogicOperator()
-   * @see #getCondition()
-   * @generated
-   */
-  EAttribute getCondition_LogicOperator();
-
-  /**
-   * Returns the meta object for class '{@link uk.ac.kcl.inf.nlToSql.Comparison <em>Comparison</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Comparison</em>'.
-   * @see uk.ac.kcl.inf.nlToSql.Comparison
-   * @generated
-   */
-  EClass getComparison();
-
-  /**
-   * Returns the meta object for the reference '{@link uk.ac.kcl.inf.nlToSql.Comparison#getLeftHandSide <em>Left Hand Side</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Left Hand Side</em>'.
-   * @see uk.ac.kcl.inf.nlToSql.Comparison#getLeftHandSide()
-   * @see #getComparison()
-   * @generated
-   */
-  EReference getComparison_LeftHandSide();
-
-  /**
-   * Returns the meta object for the attribute '{@link uk.ac.kcl.inf.nlToSql.Comparison#getOperator <em>Operator</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Operator</em>'.
-   * @see uk.ac.kcl.inf.nlToSql.Comparison#getOperator()
-   * @see #getComparison()
-   * @generated
-   */
-  EAttribute getComparison_Operator();
-
-  /**
-   * Returns the meta object for the attribute '{@link uk.ac.kcl.inf.nlToSql.Comparison#getRightHandSide <em>Right Hand Side</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Right Hand Side</em>'.
-   * @see uk.ac.kcl.inf.nlToSql.Comparison#getRightHandSide()
-   * @see #getComparison()
-   * @generated
-   */
-  EAttribute getComparison_RightHandSide();
-
-  /**
-   * Returns the meta object for class '{@link uk.ac.kcl.inf.nlToSql.Entity <em>Entity</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Entity</em>'.
-   * @see uk.ac.kcl.inf.nlToSql.Entity
-   * @generated
-   */
-  EClass getEntity();
-
-  /**
-   * Returns the meta object for the attribute '{@link uk.ac.kcl.inf.nlToSql.Entity#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see uk.ac.kcl.inf.nlToSql.Entity#getName()
-   * @see #getEntity()
-   * @generated
-   */
-  EAttribute getEntity_Name();
-
-  /**
    * Returns the meta object for class '{@link uk.ac.kcl.inf.nlToSql.Property <em>Property</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -995,6 +557,81 @@ public interface NlToSqlPackage extends EPackage
    * @generated
    */
   EAttribute getProperty_Name();
+
+  /**
+   * Returns the meta object for class '{@link uk.ac.kcl.inf.nlToSql.LogicExpressions <em>Logic Expressions</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Logic Expressions</em>'.
+   * @see uk.ac.kcl.inf.nlToSql.LogicExpressions
+   * @generated
+   */
+  EClass getLogicExpressions();
+
+  /**
+   * Returns the meta object for the reference '{@link uk.ac.kcl.inf.nlToSql.LogicExpressions#getLeftHandSide <em>Left Hand Side</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Left Hand Side</em>'.
+   * @see uk.ac.kcl.inf.nlToSql.LogicExpressions#getLeftHandSide()
+   * @see #getLogicExpressions()
+   * @generated
+   */
+  EReference getLogicExpressions_LeftHandSide();
+
+  /**
+   * Returns the meta object for the attribute '{@link uk.ac.kcl.inf.nlToSql.LogicExpressions#getOperator <em>Operator</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Operator</em>'.
+   * @see uk.ac.kcl.inf.nlToSql.LogicExpressions#getOperator()
+   * @see #getLogicExpressions()
+   * @generated
+   */
+  EAttribute getLogicExpressions_Operator();
+
+  /**
+   * Returns the meta object for the attribute '{@link uk.ac.kcl.inf.nlToSql.LogicExpressions#getRightHandSide <em>Right Hand Side</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Right Hand Side</em>'.
+   * @see uk.ac.kcl.inf.nlToSql.LogicExpressions#getRightHandSide()
+   * @see #getLogicExpressions()
+   * @generated
+   */
+  EAttribute getLogicExpressions_RightHandSide();
+
+  /**
+   * Returns the meta object for class '{@link uk.ac.kcl.inf.nlToSql.Comparison <em>Comparison</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Comparison</em>'.
+   * @see uk.ac.kcl.inf.nlToSql.Comparison
+   * @generated
+   */
+  EClass getComparison();
+
+  /**
+   * Returns the meta object for the containment reference '{@link uk.ac.kcl.inf.nlToSql.Comparison#getLeft <em>Left</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Left</em>'.
+   * @see uk.ac.kcl.inf.nlToSql.Comparison#getLeft()
+   * @see #getComparison()
+   * @generated
+   */
+  EReference getComparison_Left();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link uk.ac.kcl.inf.nlToSql.Comparison#getRight <em>Right</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Right</em>'.
+   * @see uk.ac.kcl.inf.nlToSql.Comparison#getRight()
+   * @see #getComparison()
+   * @generated
+   */
+  EReference getComparison_Right();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -1048,14 +685,6 @@ public interface NlToSqlPackage extends EPackage
     EClass STATEMENT = eINSTANCE.getStatement();
 
     /**
-     * The meta object literal for the '<em><b>Entity</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference STATEMENT__ENTITY = eINSTANCE.getStatement_Entity();
-
-    /**
      * The meta object literal for the '{@link uk.ac.kcl.inf.nlToSql.impl.SelectStatementImpl <em>Select Statement</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1064,6 +693,14 @@ public interface NlToSqlPackage extends EPackage
      * @generated
      */
     EClass SELECT_STATEMENT = eINSTANCE.getSelectStatement();
+
+    /**
+     * The meta object literal for the '<em><b>Entity</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SELECT_STATEMENT__ENTITY = eINSTANCE.getSelectStatement_Entity();
 
     /**
      * The meta object literal for the '<em><b>Condition</b></em>' containment reference feature.
@@ -1082,74 +719,22 @@ public interface NlToSqlPackage extends EPackage
     EReference SELECT_STATEMENT__GROUP_BY_LIST = eINSTANCE.getSelectStatement_GroupByList();
 
     /**
-     * The meta object literal for the '{@link uk.ac.kcl.inf.nlToSql.impl.InsertStatementImpl <em>Insert Statement</em>}' class.
+     * The meta object literal for the '{@link uk.ac.kcl.inf.nlToSql.impl.EntityNameImpl <em>Entity Name</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see uk.ac.kcl.inf.nlToSql.impl.InsertStatementImpl
-     * @see uk.ac.kcl.inf.nlToSql.impl.NlToSqlPackageImpl#getInsertStatement()
+     * @see uk.ac.kcl.inf.nlToSql.impl.EntityNameImpl
+     * @see uk.ac.kcl.inf.nlToSql.impl.NlToSqlPackageImpl#getEntityName()
      * @generated
      */
-    EClass INSERT_STATEMENT = eINSTANCE.getInsertStatement();
+    EClass ENTITY_NAME = eINSTANCE.getEntityName();
 
     /**
-     * The meta object literal for the '<em><b>Property List</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference INSERT_STATEMENT__PROPERTY_LIST = eINSTANCE.getInsertStatement_PropertyList();
-
-    /**
-     * The meta object literal for the '<em><b>Value List</b></em>' attribute list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute INSERT_STATEMENT__VALUE_LIST = eINSTANCE.getInsertStatement_ValueList();
-
-    /**
-     * The meta object literal for the '{@link uk.ac.kcl.inf.nlToSql.impl.UpdateStatementImpl <em>Update Statement</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see uk.ac.kcl.inf.nlToSql.impl.UpdateStatementImpl
-     * @see uk.ac.kcl.inf.nlToSql.impl.NlToSqlPackageImpl#getUpdateStatement()
-     * @generated
-     */
-    EClass UPDATE_STATEMENT = eINSTANCE.getUpdateStatement();
-
-    /**
-     * The meta object literal for the '<em><b>Update Item</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference UPDATE_STATEMENT__UPDATE_ITEM = eINSTANCE.getUpdateStatement_UpdateItem();
-
-    /**
-     * The meta object literal for the '<em><b>Condition</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference UPDATE_STATEMENT__CONDITION = eINSTANCE.getUpdateStatement_Condition();
-
-    /**
-     * The meta object literal for the '{@link uk.ac.kcl.inf.nlToSql.impl.DeleteStatementImpl <em>Delete Statement</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see uk.ac.kcl.inf.nlToSql.impl.DeleteStatementImpl
-     * @see uk.ac.kcl.inf.nlToSql.impl.NlToSqlPackageImpl#getDeleteStatement()
-     * @generated
-     */
-    EClass DELETE_STATEMENT = eINSTANCE.getDeleteStatement();
-
-    /**
-     * The meta object literal for the '<em><b>Condition</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference DELETE_STATEMENT__CONDITION = eINSTANCE.getDeleteStatement_Condition();
+    EAttribute ENTITY_NAME__NAME = eINSTANCE.getEntityName_Name();
 
     /**
      * The meta object literal for the '{@link uk.ac.kcl.inf.nlToSql.impl.SelectListImpl <em>Select List</em>}' class.
@@ -1188,146 +773,6 @@ public interface NlToSqlPackage extends EPackage
     EReference PROPERTY_REFERENCE__PROPERTY = eINSTANCE.getPropertyReference_Property();
 
     /**
-     * The meta object literal for the '{@link uk.ac.kcl.inf.nlToSql.impl.EntityNameImpl <em>Entity Name</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see uk.ac.kcl.inf.nlToSql.impl.EntityNameImpl
-     * @see uk.ac.kcl.inf.nlToSql.impl.NlToSqlPackageImpl#getEntityName()
-     * @generated
-     */
-    EClass ENTITY_NAME = eINSTANCE.getEntityName();
-
-    /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute ENTITY_NAME__NAME = eINSTANCE.getEntityName_Name();
-
-    /**
-     * The meta object literal for the '{@link uk.ac.kcl.inf.nlToSql.impl.PropertyNameImpl <em>Property Name</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see uk.ac.kcl.inf.nlToSql.impl.PropertyNameImpl
-     * @see uk.ac.kcl.inf.nlToSql.impl.NlToSqlPackageImpl#getPropertyName()
-     * @generated
-     */
-    EClass PROPERTY_NAME = eINSTANCE.getPropertyName();
-
-    /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute PROPERTY_NAME__NAME = eINSTANCE.getPropertyName_Name();
-
-    /**
-     * The meta object literal for the '{@link uk.ac.kcl.inf.nlToSql.impl.UpdateItemImpl <em>Update Item</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see uk.ac.kcl.inf.nlToSql.impl.UpdateItemImpl
-     * @see uk.ac.kcl.inf.nlToSql.impl.NlToSqlPackageImpl#getUpdateItem()
-     * @generated
-     */
-    EClass UPDATE_ITEM = eINSTANCE.getUpdateItem();
-
-    /**
-     * The meta object literal for the '<em><b>Property</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference UPDATE_ITEM__PROPERTY = eINSTANCE.getUpdateItem_Property();
-
-    /**
-     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute UPDATE_ITEM__VALUE = eINSTANCE.getUpdateItem_Value();
-
-    /**
-     * The meta object literal for the '{@link uk.ac.kcl.inf.nlToSql.impl.ConditionImpl <em>Condition</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see uk.ac.kcl.inf.nlToSql.impl.ConditionImpl
-     * @see uk.ac.kcl.inf.nlToSql.impl.NlToSqlPackageImpl#getCondition()
-     * @generated
-     */
-    EClass CONDITION = eINSTANCE.getCondition();
-
-    /**
-     * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference CONDITION__EXPRESSION = eINSTANCE.getCondition_Expression();
-
-    /**
-     * The meta object literal for the '<em><b>Logic Operator</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute CONDITION__LOGIC_OPERATOR = eINSTANCE.getCondition_LogicOperator();
-
-    /**
-     * The meta object literal for the '{@link uk.ac.kcl.inf.nlToSql.impl.ComparisonImpl <em>Comparison</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see uk.ac.kcl.inf.nlToSql.impl.ComparisonImpl
-     * @see uk.ac.kcl.inf.nlToSql.impl.NlToSqlPackageImpl#getComparison()
-     * @generated
-     */
-    EClass COMPARISON = eINSTANCE.getComparison();
-
-    /**
-     * The meta object literal for the '<em><b>Left Hand Side</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference COMPARISON__LEFT_HAND_SIDE = eINSTANCE.getComparison_LeftHandSide();
-
-    /**
-     * The meta object literal for the '<em><b>Operator</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute COMPARISON__OPERATOR = eINSTANCE.getComparison_Operator();
-
-    /**
-     * The meta object literal for the '<em><b>Right Hand Side</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute COMPARISON__RIGHT_HAND_SIDE = eINSTANCE.getComparison_RightHandSide();
-
-    /**
-     * The meta object literal for the '{@link uk.ac.kcl.inf.nlToSql.impl.EntityImpl <em>Entity</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see uk.ac.kcl.inf.nlToSql.impl.EntityImpl
-     * @see uk.ac.kcl.inf.nlToSql.impl.NlToSqlPackageImpl#getEntity()
-     * @generated
-     */
-    EClass ENTITY = eINSTANCE.getEntity();
-
-    /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute ENTITY__NAME = eINSTANCE.getEntity_Name();
-
-    /**
      * The meta object literal for the '{@link uk.ac.kcl.inf.nlToSql.impl.PropertyImpl <em>Property</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1344,6 +789,66 @@ public interface NlToSqlPackage extends EPackage
      * @generated
      */
     EAttribute PROPERTY__NAME = eINSTANCE.getProperty_Name();
+
+    /**
+     * The meta object literal for the '{@link uk.ac.kcl.inf.nlToSql.impl.LogicExpressionsImpl <em>Logic Expressions</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see uk.ac.kcl.inf.nlToSql.impl.LogicExpressionsImpl
+     * @see uk.ac.kcl.inf.nlToSql.impl.NlToSqlPackageImpl#getLogicExpressions()
+     * @generated
+     */
+    EClass LOGIC_EXPRESSIONS = eINSTANCE.getLogicExpressions();
+
+    /**
+     * The meta object literal for the '<em><b>Left Hand Side</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LOGIC_EXPRESSIONS__LEFT_HAND_SIDE = eINSTANCE.getLogicExpressions_LeftHandSide();
+
+    /**
+     * The meta object literal for the '<em><b>Operator</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute LOGIC_EXPRESSIONS__OPERATOR = eINSTANCE.getLogicExpressions_Operator();
+
+    /**
+     * The meta object literal for the '<em><b>Right Hand Side</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute LOGIC_EXPRESSIONS__RIGHT_HAND_SIDE = eINSTANCE.getLogicExpressions_RightHandSide();
+
+    /**
+     * The meta object literal for the '{@link uk.ac.kcl.inf.nlToSql.impl.ComparisonImpl <em>Comparison</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see uk.ac.kcl.inf.nlToSql.impl.ComparisonImpl
+     * @see uk.ac.kcl.inf.nlToSql.impl.NlToSqlPackageImpl#getComparison()
+     * @generated
+     */
+    EClass COMPARISON = eINSTANCE.getComparison();
+
+    /**
+     * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference COMPARISON__LEFT = eINSTANCE.getComparison_Left();
+
+    /**
+     * The meta object literal for the '<em><b>Right</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference COMPARISON__RIGHT = eINSTANCE.getComparison_Right();
 
   }
 

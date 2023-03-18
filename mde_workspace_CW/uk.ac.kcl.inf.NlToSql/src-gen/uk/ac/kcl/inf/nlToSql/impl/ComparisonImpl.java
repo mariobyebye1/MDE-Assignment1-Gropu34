@@ -3,17 +3,24 @@
  */
 package uk.ac.kcl.inf.nlToSql.impl;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 import uk.ac.kcl.inf.nlToSql.Comparison;
+import uk.ac.kcl.inf.nlToSql.LogicExpressions;
 import uk.ac.kcl.inf.nlToSql.NlToSqlPackage;
-import uk.ac.kcl.inf.nlToSql.Property;
 
 /**
  * <!-- begin-user-doc -->
@@ -23,64 +30,33 @@ import uk.ac.kcl.inf.nlToSql.Property;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link uk.ac.kcl.inf.nlToSql.impl.ComparisonImpl#getLeftHandSide <em>Left Hand Side</em>}</li>
- *   <li>{@link uk.ac.kcl.inf.nlToSql.impl.ComparisonImpl#getOperator <em>Operator</em>}</li>
- *   <li>{@link uk.ac.kcl.inf.nlToSql.impl.ComparisonImpl#getRightHandSide <em>Right Hand Side</em>}</li>
+ *   <li>{@link uk.ac.kcl.inf.nlToSql.impl.ComparisonImpl#getLeft <em>Left</em>}</li>
+ *   <li>{@link uk.ac.kcl.inf.nlToSql.impl.ComparisonImpl#getRight <em>Right</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ComparisonImpl extends MinimalEObjectImpl.Container implements Comparison
+public class ComparisonImpl extends LogicExpressionsImpl implements Comparison
 {
   /**
-   * The cached value of the '{@link #getLeftHandSide() <em>Left Hand Side</em>}' reference.
+   * The cached value of the '{@link #getLeft() <em>Left</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getLeftHandSide()
+   * @see #getLeft()
    * @generated
    * @ordered
    */
-  protected Property leftHandSide;
+  protected LogicExpressions left;
 
   /**
-   * The default value of the '{@link #getOperator() <em>Operator</em>}' attribute.
+   * The cached value of the '{@link #getRight() <em>Right</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getOperator()
+   * @see #getRight()
    * @generated
    * @ordered
    */
-  protected static final String OPERATOR_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getOperator() <em>Operator</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getOperator()
-   * @generated
-   * @ordered
-   */
-  protected String operator = OPERATOR_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getRightHandSide() <em>Right Hand Side</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getRightHandSide()
-   * @generated
-   * @ordered
-   */
-  protected static final String RIGHT_HAND_SIDE_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getRightHandSide() <em>Right Hand Side</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getRightHandSide()
-   * @generated
-   * @ordered
-   */
-  protected String rightHandSide = RIGHT_HAND_SIDE_EDEFAULT;
+  protected EList<LogicExpressions> right;
 
   /**
    * <!-- begin-user-doc -->
@@ -109,29 +85,26 @@ public class ComparisonImpl extends MinimalEObjectImpl.Container implements Comp
    * @generated
    */
   @Override
-  public Property getLeftHandSide()
+  public LogicExpressions getLeft()
   {
-    if (leftHandSide != null && leftHandSide.eIsProxy())
+    return left;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetLeft(LogicExpressions newLeft, NotificationChain msgs)
+  {
+    LogicExpressions oldLeft = left;
+    left = newLeft;
+    if (eNotificationRequired())
     {
-      InternalEObject oldLeftHandSide = (InternalEObject)leftHandSide;
-      leftHandSide = (Property)eResolveProxy(oldLeftHandSide);
-      if (leftHandSide != oldLeftHandSide)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, NlToSqlPackage.COMPARISON__LEFT_HAND_SIDE, oldLeftHandSide, leftHandSide));
-      }
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, NlToSqlPackage.COMPARISON__LEFT, oldLeft, newLeft);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
     }
-    return leftHandSide;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Property basicGetLeftHandSide()
-  {
-    return leftHandSide;
+    return msgs;
   }
 
   /**
@@ -140,12 +113,20 @@ public class ComparisonImpl extends MinimalEObjectImpl.Container implements Comp
    * @generated
    */
   @Override
-  public void setLeftHandSide(Property newLeftHandSide)
+  public void setLeft(LogicExpressions newLeft)
   {
-    Property oldLeftHandSide = leftHandSide;
-    leftHandSide = newLeftHandSide;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, NlToSqlPackage.COMPARISON__LEFT_HAND_SIDE, oldLeftHandSide, leftHandSide));
+    if (newLeft != left)
+    {
+      NotificationChain msgs = null;
+      if (left != null)
+        msgs = ((InternalEObject)left).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - NlToSqlPackage.COMPARISON__LEFT, null, msgs);
+      if (newLeft != null)
+        msgs = ((InternalEObject)newLeft).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - NlToSqlPackage.COMPARISON__LEFT, null, msgs);
+      msgs = basicSetLeft(newLeft, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, NlToSqlPackage.COMPARISON__LEFT, newLeft, newLeft));
   }
 
   /**
@@ -154,9 +135,13 @@ public class ComparisonImpl extends MinimalEObjectImpl.Container implements Comp
    * @generated
    */
   @Override
-  public String getOperator()
+  public EList<LogicExpressions> getRight()
   {
-    return operator;
+    if (right == null)
+    {
+      right = new EObjectContainmentEList<LogicExpressions>(LogicExpressions.class, this, NlToSqlPackage.COMPARISON__RIGHT);
+    }
+    return right;
   }
 
   /**
@@ -165,37 +150,16 @@ public class ComparisonImpl extends MinimalEObjectImpl.Container implements Comp
    * @generated
    */
   @Override
-  public void setOperator(String newOperator)
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
-    String oldOperator = operator;
-    operator = newOperator;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, NlToSqlPackage.COMPARISON__OPERATOR, oldOperator, operator));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String getRightHandSide()
-  {
-    return rightHandSide;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setRightHandSide(String newRightHandSide)
-  {
-    String oldRightHandSide = rightHandSide;
-    rightHandSide = newRightHandSide;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, NlToSqlPackage.COMPARISON__RIGHT_HAND_SIDE, oldRightHandSide, rightHandSide));
+    switch (featureID)
+    {
+      case NlToSqlPackage.COMPARISON__LEFT:
+        return basicSetLeft(null, msgs);
+      case NlToSqlPackage.COMPARISON__RIGHT:
+        return ((InternalEList<?>)getRight()).basicRemove(otherEnd, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -208,13 +172,10 @@ public class ComparisonImpl extends MinimalEObjectImpl.Container implements Comp
   {
     switch (featureID)
     {
-      case NlToSqlPackage.COMPARISON__LEFT_HAND_SIDE:
-        if (resolve) return getLeftHandSide();
-        return basicGetLeftHandSide();
-      case NlToSqlPackage.COMPARISON__OPERATOR:
-        return getOperator();
-      case NlToSqlPackage.COMPARISON__RIGHT_HAND_SIDE:
-        return getRightHandSide();
+      case NlToSqlPackage.COMPARISON__LEFT:
+        return getLeft();
+      case NlToSqlPackage.COMPARISON__RIGHT:
+        return getRight();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -224,19 +185,18 @@ public class ComparisonImpl extends MinimalEObjectImpl.Container implements Comp
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case NlToSqlPackage.COMPARISON__LEFT_HAND_SIDE:
-        setLeftHandSide((Property)newValue);
+      case NlToSqlPackage.COMPARISON__LEFT:
+        setLeft((LogicExpressions)newValue);
         return;
-      case NlToSqlPackage.COMPARISON__OPERATOR:
-        setOperator((String)newValue);
-        return;
-      case NlToSqlPackage.COMPARISON__RIGHT_HAND_SIDE:
-        setRightHandSide((String)newValue);
+      case NlToSqlPackage.COMPARISON__RIGHT:
+        getRight().clear();
+        getRight().addAll((Collection<? extends LogicExpressions>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -252,14 +212,11 @@ public class ComparisonImpl extends MinimalEObjectImpl.Container implements Comp
   {
     switch (featureID)
     {
-      case NlToSqlPackage.COMPARISON__LEFT_HAND_SIDE:
-        setLeftHandSide((Property)null);
+      case NlToSqlPackage.COMPARISON__LEFT:
+        setLeft((LogicExpressions)null);
         return;
-      case NlToSqlPackage.COMPARISON__OPERATOR:
-        setOperator(OPERATOR_EDEFAULT);
-        return;
-      case NlToSqlPackage.COMPARISON__RIGHT_HAND_SIDE:
-        setRightHandSide(RIGHT_HAND_SIDE_EDEFAULT);
+      case NlToSqlPackage.COMPARISON__RIGHT:
+        getRight().clear();
         return;
     }
     super.eUnset(featureID);
@@ -275,33 +232,12 @@ public class ComparisonImpl extends MinimalEObjectImpl.Container implements Comp
   {
     switch (featureID)
     {
-      case NlToSqlPackage.COMPARISON__LEFT_HAND_SIDE:
-        return leftHandSide != null;
-      case NlToSqlPackage.COMPARISON__OPERATOR:
-        return OPERATOR_EDEFAULT == null ? operator != null : !OPERATOR_EDEFAULT.equals(operator);
-      case NlToSqlPackage.COMPARISON__RIGHT_HAND_SIDE:
-        return RIGHT_HAND_SIDE_EDEFAULT == null ? rightHandSide != null : !RIGHT_HAND_SIDE_EDEFAULT.equals(rightHandSide);
+      case NlToSqlPackage.COMPARISON__LEFT:
+        return left != null;
+      case NlToSqlPackage.COMPARISON__RIGHT:
+        return right != null && !right.isEmpty();
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (operator: ");
-    result.append(operator);
-    result.append(", rightHandSide: ");
-    result.append(rightHandSide);
-    result.append(')');
-    return result.toString();
   }
 
 } //ComparisonImpl

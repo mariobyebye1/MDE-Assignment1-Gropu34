@@ -23,40 +23,36 @@ public class NlToSqlSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected NlToSqlGrammarAccess grammarAccess;
 	protected AbstractElementAlias match_Comparison___AKeyword_0_1_or_TheKeyword_0_0__q;
-	protected AbstractElementAlias match_DeleteStatement___CanKeyword_0_0_YouKeyword_0_1_PleaseKeyword_0_2__q;
-	protected AbstractElementAlias match_EntityName___AKeyword_0_1_or_TheKeyword_0_0__q;
-	protected AbstractElementAlias match_Entity___AKeyword_0_1_or_TheKeyword_0_0__q;
-	protected AbstractElementAlias match_InsertStatement___CanKeyword_0_0_YouKeyword_0_1_PleaseKeyword_0_2__q;
-	protected AbstractElementAlias match_PropertyName___AKeyword_0_1_or_TheKeyword_0_0__q;
-	protected AbstractElementAlias match_PropertyReference___AKeyword_0_1_or_TheKeyword_0_0__q;
+	protected AbstractElementAlias match_EntityName___TheKeyword_0_0_TableKeyword_0_1__q;
 	protected AbstractElementAlias match_Property___AKeyword_0_1_or_TheKeyword_0_0__q;
-	protected AbstractElementAlias match_SelectList___AKeyword_0_1_or_TheKeyword_0_0__q;
-	protected AbstractElementAlias match_SelectStatement___CanKeyword_0_0_YouKeyword_0_1_PleaseKeyword_0_2__q;
-	protected AbstractElementAlias match_UpdateItem___AKeyword_0_1_or_TheKeyword_0_0__q;
-	protected AbstractElementAlias match_UpdateStatement___CanKeyword_0_0_YouKeyword_0_1_PleaseKeyword_0_2__q;
+	protected AbstractElementAlias match_SelectStatement___CanKeyword_0_0_YouKeyword_0_1__q;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (NlToSqlGrammarAccess) access;
 		match_Comparison___AKeyword_0_1_or_TheKeyword_0_0__q = new AlternativeAlias(false, true, new TokenAlias(false, false, grammarAccess.getComparisonAccess().getAKeyword_0_1()), new TokenAlias(false, false, grammarAccess.getComparisonAccess().getTheKeyword_0_0()));
-		match_DeleteStatement___CanKeyword_0_0_YouKeyword_0_1_PleaseKeyword_0_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getDeleteStatementAccess().getCanKeyword_0_0()), new TokenAlias(false, false, grammarAccess.getDeleteStatementAccess().getYouKeyword_0_1()), new TokenAlias(false, false, grammarAccess.getDeleteStatementAccess().getPleaseKeyword_0_2()));
-		match_EntityName___AKeyword_0_1_or_TheKeyword_0_0__q = new AlternativeAlias(false, true, new TokenAlias(false, false, grammarAccess.getEntityNameAccess().getAKeyword_0_1()), new TokenAlias(false, false, grammarAccess.getEntityNameAccess().getTheKeyword_0_0()));
-		match_Entity___AKeyword_0_1_or_TheKeyword_0_0__q = new AlternativeAlias(false, true, new TokenAlias(false, false, grammarAccess.getEntityAccess().getAKeyword_0_1()), new TokenAlias(false, false, grammarAccess.getEntityAccess().getTheKeyword_0_0()));
-		match_InsertStatement___CanKeyword_0_0_YouKeyword_0_1_PleaseKeyword_0_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getInsertStatementAccess().getCanKeyword_0_0()), new TokenAlias(false, false, grammarAccess.getInsertStatementAccess().getYouKeyword_0_1()), new TokenAlias(false, false, grammarAccess.getInsertStatementAccess().getPleaseKeyword_0_2()));
-		match_PropertyName___AKeyword_0_1_or_TheKeyword_0_0__q = new AlternativeAlias(false, true, new TokenAlias(false, false, grammarAccess.getPropertyNameAccess().getAKeyword_0_1()), new TokenAlias(false, false, grammarAccess.getPropertyNameAccess().getTheKeyword_0_0()));
-		match_PropertyReference___AKeyword_0_1_or_TheKeyword_0_0__q = new AlternativeAlias(false, true, new TokenAlias(false, false, grammarAccess.getPropertyReferenceAccess().getAKeyword_0_1()), new TokenAlias(false, false, grammarAccess.getPropertyReferenceAccess().getTheKeyword_0_0()));
+		match_EntityName___TheKeyword_0_0_TableKeyword_0_1__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getEntityNameAccess().getTheKeyword_0_0()), new TokenAlias(false, false, grammarAccess.getEntityNameAccess().getTableKeyword_0_1()));
 		match_Property___AKeyword_0_1_or_TheKeyword_0_0__q = new AlternativeAlias(false, true, new TokenAlias(false, false, grammarAccess.getPropertyAccess().getAKeyword_0_1()), new TokenAlias(false, false, grammarAccess.getPropertyAccess().getTheKeyword_0_0()));
-		match_SelectList___AKeyword_0_1_or_TheKeyword_0_0__q = new AlternativeAlias(false, true, new TokenAlias(false, false, grammarAccess.getSelectListAccess().getAKeyword_0_1()), new TokenAlias(false, false, grammarAccess.getSelectListAccess().getTheKeyword_0_0()));
-		match_SelectStatement___CanKeyword_0_0_YouKeyword_0_1_PleaseKeyword_0_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getSelectStatementAccess().getCanKeyword_0_0()), new TokenAlias(false, false, grammarAccess.getSelectStatementAccess().getYouKeyword_0_1()), new TokenAlias(false, false, grammarAccess.getSelectStatementAccess().getPleaseKeyword_0_2()));
-		match_UpdateItem___AKeyword_0_1_or_TheKeyword_0_0__q = new AlternativeAlias(false, true, new TokenAlias(false, false, grammarAccess.getUpdateItemAccess().getAKeyword_0_1()), new TokenAlias(false, false, grammarAccess.getUpdateItemAccess().getTheKeyword_0_0()));
-		match_UpdateStatement___CanKeyword_0_0_YouKeyword_0_1_PleaseKeyword_0_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getUpdateStatementAccess().getCanKeyword_0_0()), new TokenAlias(false, false, grammarAccess.getUpdateStatementAccess().getYouKeyword_0_1()), new TokenAlias(false, false, grammarAccess.getUpdateStatementAccess().getPleaseKeyword_0_2()));
+		match_SelectStatement___CanKeyword_0_0_YouKeyword_0_1__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getSelectStatementAccess().getCanKeyword_0_0()), new TokenAlias(false, false, grammarAccess.getSelectStatementAccess().getYouKeyword_0_1()));
 	}
 	
 	@Override
 	protected String getUnassignedRuleCallToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (ruleCall.getRule() == grammarAccess.getLogicOperatorRule())
+			return getLogicOperatorToken(semanticObject, ruleCall, node);
 		return "";
 	}
 	
+	/**
+	 * LogicOperator:
+	 *     'and' | 'or'
+	 * ;
+	 */
+	protected String getLogicOperatorToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "and";
+	}
 	
 	@Override
 	protected void emitUnassignedTokens(EObject semanticObject, ISynTransition transition, INode fromNode, INode toNode) {
@@ -66,28 +62,12 @@ public class NlToSqlSyntacticSequencer extends AbstractSyntacticSequencer {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
 			if (match_Comparison___AKeyword_0_1_or_TheKeyword_0_0__q.equals(syntax))
 				emit_Comparison___AKeyword_0_1_or_TheKeyword_0_0__q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_DeleteStatement___CanKeyword_0_0_YouKeyword_0_1_PleaseKeyword_0_2__q.equals(syntax))
-				emit_DeleteStatement___CanKeyword_0_0_YouKeyword_0_1_PleaseKeyword_0_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_EntityName___AKeyword_0_1_or_TheKeyword_0_0__q.equals(syntax))
-				emit_EntityName___AKeyword_0_1_or_TheKeyword_0_0__q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_Entity___AKeyword_0_1_or_TheKeyword_0_0__q.equals(syntax))
-				emit_Entity___AKeyword_0_1_or_TheKeyword_0_0__q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_InsertStatement___CanKeyword_0_0_YouKeyword_0_1_PleaseKeyword_0_2__q.equals(syntax))
-				emit_InsertStatement___CanKeyword_0_0_YouKeyword_0_1_PleaseKeyword_0_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_PropertyName___AKeyword_0_1_or_TheKeyword_0_0__q.equals(syntax))
-				emit_PropertyName___AKeyword_0_1_or_TheKeyword_0_0__q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_PropertyReference___AKeyword_0_1_or_TheKeyword_0_0__q.equals(syntax))
-				emit_PropertyReference___AKeyword_0_1_or_TheKeyword_0_0__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_EntityName___TheKeyword_0_0_TableKeyword_0_1__q.equals(syntax))
+				emit_EntityName___TheKeyword_0_0_TableKeyword_0_1__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_Property___AKeyword_0_1_or_TheKeyword_0_0__q.equals(syntax))
 				emit_Property___AKeyword_0_1_or_TheKeyword_0_0__q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_SelectList___AKeyword_0_1_or_TheKeyword_0_0__q.equals(syntax))
-				emit_SelectList___AKeyword_0_1_or_TheKeyword_0_0__q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_SelectStatement___CanKeyword_0_0_YouKeyword_0_1_PleaseKeyword_0_2__q.equals(syntax))
-				emit_SelectStatement___CanKeyword_0_0_YouKeyword_0_1_PleaseKeyword_0_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_UpdateItem___AKeyword_0_1_or_TheKeyword_0_0__q.equals(syntax))
-				emit_UpdateItem___AKeyword_0_1_or_TheKeyword_0_0__q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_UpdateStatement___CanKeyword_0_0_YouKeyword_0_1_PleaseKeyword_0_2__q.equals(syntax))
-				emit_UpdateStatement___CanKeyword_0_0_YouKeyword_0_1_PleaseKeyword_0_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_SelectStatement___CanKeyword_0_0_YouKeyword_0_1__q.equals(syntax))
+				emit_SelectStatement___CanKeyword_0_0_YouKeyword_0_1__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
@@ -105,67 +85,12 @@ public class NlToSqlSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Ambiguous syntax:
-	 *     ('can' 'you' 'please')?
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     (rule start) (ambiguity) 'delete' 'from' entity=EntityName
-	 */
-	protected void emit_DeleteStatement___CanKeyword_0_0_YouKeyword_0_1_PleaseKeyword_0_2__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     ('the' | 'a')?
+	 *     ('the' 'table')?
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     (rule start) (ambiguity) name=ID
 	 */
-	protected void emit_EntityName___AKeyword_0_1_or_TheKeyword_0_0__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     ('the' | 'a')?
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     (rule start) (ambiguity) name=ID
-	 */
-	protected void emit_Entity___AKeyword_0_1_or_TheKeyword_0_0__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     ('can' 'you' 'please')?
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     (rule start) (ambiguity) 'insert' 'into' entity=EntityName
-	 */
-	protected void emit_InsertStatement___CanKeyword_0_0_YouKeyword_0_1_PleaseKeyword_0_2__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     ('the' | 'a')?
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     (rule start) (ambiguity) name=ID
-	 */
-	protected void emit_PropertyName___AKeyword_0_1_or_TheKeyword_0_0__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     ('the' | 'a')?
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     (rule start) (ambiguity) property=[Property|ID]
-	 */
-	protected void emit_PropertyReference___AKeyword_0_1_or_TheKeyword_0_0__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_EntityName___TheKeyword_0_0_TableKeyword_0_1__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
@@ -182,47 +107,13 @@ public class NlToSqlSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Ambiguous syntax:
-	 *     ('the' | 'a')?
+	 *     ('can' 'you')?
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     (rule start) ('can' 'you' 'please')? 'show' (ambiguity) selectItem+=PropertyReference
-	 *     (rule start) (ambiguity) selectItem+=PropertyReference
+	 *     (rule start) (ambiguity) 'show' 'all' 'columns' 'from' entity=EntityName
+	 *     (rule start) (ambiguity) 'show' 'the' 'columns:' selectItem+=Property
 	 */
-	protected void emit_SelectList___AKeyword_0_1_or_TheKeyword_0_0__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     ('can' 'you' 'please')?
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     (rule start) (ambiguity) 'show' 'all' 'from' entity=EntityName
-	 *     (rule start) (ambiguity) 'show' ('the' | 'a')? selectItem+=PropertyReference
-	 */
-	protected void emit_SelectStatement___CanKeyword_0_0_YouKeyword_0_1_PleaseKeyword_0_2__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     ('the' | 'a')?
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     (rule start) (ambiguity) property=[Property|ID]
-	 */
-	protected void emit_UpdateItem___AKeyword_0_1_or_TheKeyword_0_0__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     ('can' 'you' 'please')?
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     (rule start) (ambiguity) 'update' entity=EntityName
-	 */
-	protected void emit_UpdateStatement___CanKeyword_0_0_YouKeyword_0_1_PleaseKeyword_0_2__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_SelectStatement___CanKeyword_0_0_YouKeyword_0_1__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

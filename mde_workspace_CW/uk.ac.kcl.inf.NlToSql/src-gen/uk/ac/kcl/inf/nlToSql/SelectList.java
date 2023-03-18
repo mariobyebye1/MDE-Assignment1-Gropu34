@@ -25,7 +25,7 @@ public interface SelectList extends SelectStatement
 {
   /**
    * Returns the value of the '<em><b>Select Item</b></em>' containment reference list.
-   * The list contents are of type {@link uk.ac.kcl.inf.nlToSql.PropertyReference}.
+   * The list contents are of type {@link uk.ac.kcl.inf.nlToSql.Property}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Select Item</em>' containment reference list.
@@ -33,6 +33,6 @@ public interface SelectList extends SelectStatement
    * @model containment="true"
    * @generated
    */
-  EList<PropertyReference> getSelectItem();
+  EList<Property> getSelectItem();
 
 } // SelectList

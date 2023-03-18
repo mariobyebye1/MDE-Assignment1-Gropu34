@@ -51,31 +51,13 @@ public interface NlToSqlFactory extends EFactory
   SelectStatement createSelectStatement();
 
   /**
-   * Returns a new object of class '<em>Insert Statement</em>'.
+   * Returns a new object of class '<em>Entity Name</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Insert Statement</em>'.
+   * @return a new object of class '<em>Entity Name</em>'.
    * @generated
    */
-  InsertStatement createInsertStatement();
-
-  /**
-   * Returns a new object of class '<em>Update Statement</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Update Statement</em>'.
-   * @generated
-   */
-  UpdateStatement createUpdateStatement();
-
-  /**
-   * Returns a new object of class '<em>Delete Statement</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Delete Statement</em>'.
-   * @generated
-   */
-  DeleteStatement createDeleteStatement();
+  EntityName createEntityName();
 
   /**
    * Returns a new object of class '<em>Select List</em>'.
@@ -96,40 +78,22 @@ public interface NlToSqlFactory extends EFactory
   PropertyReference createPropertyReference();
 
   /**
-   * Returns a new object of class '<em>Entity Name</em>'.
+   * Returns a new object of class '<em>Property</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Entity Name</em>'.
+   * @return a new object of class '<em>Property</em>'.
    * @generated
    */
-  EntityName createEntityName();
+  Property createProperty();
 
   /**
-   * Returns a new object of class '<em>Property Name</em>'.
+   * Returns a new object of class '<em>Logic Expressions</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Property Name</em>'.
+   * @return a new object of class '<em>Logic Expressions</em>'.
    * @generated
    */
-  PropertyName createPropertyName();
-
-  /**
-   * Returns a new object of class '<em>Update Item</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Update Item</em>'.
-   * @generated
-   */
-  UpdateItem createUpdateItem();
-
-  /**
-   * Returns a new object of class '<em>Condition</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Condition</em>'.
-   * @generated
-   */
-  Condition createCondition();
+  LogicExpressions createLogicExpressions();
 
   /**
    * Returns a new object of class '<em>Comparison</em>'.
@@ -139,24 +103,6 @@ public interface NlToSqlFactory extends EFactory
    * @generated
    */
   Comparison createComparison();
-
-  /**
-   * Returns a new object of class '<em>Entity</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Entity</em>'.
-   * @generated
-   */
-  Entity createEntity();
-
-  /**
-   * Returns a new object of class '<em>Property</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Property</em>'.
-   * @generated
-   */
-  Property createProperty();
 
   /**
    * Returns the package supported by this factory.

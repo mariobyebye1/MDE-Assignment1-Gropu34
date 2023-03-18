@@ -12,21 +12,15 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import uk.ac.kcl.inf.nlToSql.AccountingSpeech;
 import uk.ac.kcl.inf.nlToSql.Comparison;
-import uk.ac.kcl.inf.nlToSql.Condition;
-import uk.ac.kcl.inf.nlToSql.DeleteStatement;
-import uk.ac.kcl.inf.nlToSql.Entity;
 import uk.ac.kcl.inf.nlToSql.EntityName;
-import uk.ac.kcl.inf.nlToSql.InsertStatement;
+import uk.ac.kcl.inf.nlToSql.LogicExpressions;
 import uk.ac.kcl.inf.nlToSql.NlToSqlFactory;
 import uk.ac.kcl.inf.nlToSql.NlToSqlPackage;
 import uk.ac.kcl.inf.nlToSql.Property;
-import uk.ac.kcl.inf.nlToSql.PropertyName;
 import uk.ac.kcl.inf.nlToSql.PropertyReference;
 import uk.ac.kcl.inf.nlToSql.SelectList;
 import uk.ac.kcl.inf.nlToSql.SelectStatement;
 import uk.ac.kcl.inf.nlToSql.Statement;
-import uk.ac.kcl.inf.nlToSql.UpdateItem;
-import uk.ac.kcl.inf.nlToSql.UpdateStatement;
 
 /**
  * <!-- begin-user-doc -->
@@ -62,21 +56,7 @@ public class NlToSqlPackageImpl extends EPackageImpl implements NlToSqlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass insertStatementEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass updateStatementEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass deleteStatementEClass = null;
+  private EClass entityNameEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -97,28 +77,14 @@ public class NlToSqlPackageImpl extends EPackageImpl implements NlToSqlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass entityNameEClass = null;
+  private EClass propertyEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass propertyNameEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass updateItemEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass conditionEClass = null;
+  private EClass logicExpressionsEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -126,20 +92,6 @@ public class NlToSqlPackageImpl extends EPackageImpl implements NlToSqlPackage
    * @generated
    */
   private EClass comparisonEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass entityEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass propertyEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -243,17 +195,6 @@ public class NlToSqlPackageImpl extends EPackageImpl implements NlToSqlPackage
    * @generated
    */
   @Override
-  public EReference getStatement_Entity()
-  {
-    return (EReference)statementEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public EClass getSelectStatement()
   {
     return selectStatementEClass;
@@ -265,7 +206,7 @@ public class NlToSqlPackageImpl extends EPackageImpl implements NlToSqlPackage
    * @generated
    */
   @Override
-  public EReference getSelectStatement_Condition()
+  public EReference getSelectStatement_Entity()
   {
     return (EReference)selectStatementEClass.getEStructuralFeatures().get(0);
   }
@@ -276,7 +217,7 @@ public class NlToSqlPackageImpl extends EPackageImpl implements NlToSqlPackage
    * @generated
    */
   @Override
-  public EReference getSelectStatement_GroupByList()
+  public EReference getSelectStatement_Condition()
   {
     return (EReference)selectStatementEClass.getEStructuralFeatures().get(1);
   }
@@ -287,9 +228,9 @@ public class NlToSqlPackageImpl extends EPackageImpl implements NlToSqlPackage
    * @generated
    */
   @Override
-  public EClass getInsertStatement()
+  public EReference getSelectStatement_GroupByList()
   {
-    return insertStatementEClass;
+    return (EReference)selectStatementEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -298,9 +239,9 @@ public class NlToSqlPackageImpl extends EPackageImpl implements NlToSqlPackage
    * @generated
    */
   @Override
-  public EReference getInsertStatement_PropertyList()
+  public EClass getEntityName()
   {
-    return (EReference)insertStatementEClass.getEStructuralFeatures().get(0);
+    return entityNameEClass;
   }
 
   /**
@@ -309,64 +250,9 @@ public class NlToSqlPackageImpl extends EPackageImpl implements NlToSqlPackage
    * @generated
    */
   @Override
-  public EAttribute getInsertStatement_ValueList()
+  public EAttribute getEntityName_Name()
   {
-    return (EAttribute)insertStatementEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EClass getUpdateStatement()
-  {
-    return updateStatementEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getUpdateStatement_UpdateItem()
-  {
-    return (EReference)updateStatementEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getUpdateStatement_Condition()
-  {
-    return (EReference)updateStatementEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EClass getDeleteStatement()
-  {
-    return deleteStatementEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getDeleteStatement_Condition()
-  {
-    return (EReference)deleteStatementEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)entityNameEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -419,9 +305,9 @@ public class NlToSqlPackageImpl extends EPackageImpl implements NlToSqlPackage
    * @generated
    */
   @Override
-  public EClass getEntityName()
+  public EClass getProperty()
   {
-    return entityNameEClass;
+    return propertyEClass;
   }
 
   /**
@@ -430,9 +316,9 @@ public class NlToSqlPackageImpl extends EPackageImpl implements NlToSqlPackage
    * @generated
    */
   @Override
-  public EAttribute getEntityName_Name()
+  public EAttribute getProperty_Name()
   {
-    return (EAttribute)entityNameEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)propertyEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -441,9 +327,9 @@ public class NlToSqlPackageImpl extends EPackageImpl implements NlToSqlPackage
    * @generated
    */
   @Override
-  public EClass getPropertyName()
+  public EClass getLogicExpressions()
   {
-    return propertyNameEClass;
+    return logicExpressionsEClass;
   }
 
   /**
@@ -452,9 +338,9 @@ public class NlToSqlPackageImpl extends EPackageImpl implements NlToSqlPackage
    * @generated
    */
   @Override
-  public EAttribute getPropertyName_Name()
+  public EReference getLogicExpressions_LeftHandSide()
   {
-    return (EAttribute)propertyNameEClass.getEStructuralFeatures().get(0);
+    return (EReference)logicExpressionsEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -463,9 +349,9 @@ public class NlToSqlPackageImpl extends EPackageImpl implements NlToSqlPackage
    * @generated
    */
   @Override
-  public EClass getUpdateItem()
+  public EAttribute getLogicExpressions_Operator()
   {
-    return updateItemEClass;
+    return (EAttribute)logicExpressionsEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -474,53 +360,9 @@ public class NlToSqlPackageImpl extends EPackageImpl implements NlToSqlPackage
    * @generated
    */
   @Override
-  public EReference getUpdateItem_Property()
+  public EAttribute getLogicExpressions_RightHandSide()
   {
-    return (EReference)updateItemEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getUpdateItem_Value()
-  {
-    return (EAttribute)updateItemEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EClass getCondition()
-  {
-    return conditionEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getCondition_Expression()
-  {
-    return (EReference)conditionEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getCondition_LogicOperator()
-  {
-    return (EAttribute)conditionEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)logicExpressionsEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -540,7 +382,7 @@ public class NlToSqlPackageImpl extends EPackageImpl implements NlToSqlPackage
    * @generated
    */
   @Override
-  public EReference getComparison_LeftHandSide()
+  public EReference getComparison_Left()
   {
     return (EReference)comparisonEClass.getEStructuralFeatures().get(0);
   }
@@ -551,64 +393,9 @@ public class NlToSqlPackageImpl extends EPackageImpl implements NlToSqlPackage
    * @generated
    */
   @Override
-  public EAttribute getComparison_Operator()
+  public EReference getComparison_Right()
   {
-    return (EAttribute)comparisonEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getComparison_RightHandSide()
-  {
-    return (EAttribute)comparisonEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EClass getEntity()
-  {
-    return entityEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getEntity_Name()
-  {
-    return (EAttribute)entityEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EClass getProperty()
-  {
-    return propertyEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getProperty_Name()
-  {
-    return (EAttribute)propertyEClass.getEStructuralFeatures().get(0);
+    return (EReference)comparisonEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -646,22 +433,14 @@ public class NlToSqlPackageImpl extends EPackageImpl implements NlToSqlPackage
     createEReference(accountingSpeechEClass, ACCOUNTING_SPEECH__STATEMENTS);
 
     statementEClass = createEClass(STATEMENT);
-    createEReference(statementEClass, STATEMENT__ENTITY);
 
     selectStatementEClass = createEClass(SELECT_STATEMENT);
+    createEReference(selectStatementEClass, SELECT_STATEMENT__ENTITY);
     createEReference(selectStatementEClass, SELECT_STATEMENT__CONDITION);
     createEReference(selectStatementEClass, SELECT_STATEMENT__GROUP_BY_LIST);
 
-    insertStatementEClass = createEClass(INSERT_STATEMENT);
-    createEReference(insertStatementEClass, INSERT_STATEMENT__PROPERTY_LIST);
-    createEAttribute(insertStatementEClass, INSERT_STATEMENT__VALUE_LIST);
-
-    updateStatementEClass = createEClass(UPDATE_STATEMENT);
-    createEReference(updateStatementEClass, UPDATE_STATEMENT__UPDATE_ITEM);
-    createEReference(updateStatementEClass, UPDATE_STATEMENT__CONDITION);
-
-    deleteStatementEClass = createEClass(DELETE_STATEMENT);
-    createEReference(deleteStatementEClass, DELETE_STATEMENT__CONDITION);
+    entityNameEClass = createEClass(ENTITY_NAME);
+    createEAttribute(entityNameEClass, ENTITY_NAME__NAME);
 
     selectListEClass = createEClass(SELECT_LIST);
     createEReference(selectListEClass, SELECT_LIST__SELECT_ITEM);
@@ -669,30 +448,17 @@ public class NlToSqlPackageImpl extends EPackageImpl implements NlToSqlPackage
     propertyReferenceEClass = createEClass(PROPERTY_REFERENCE);
     createEReference(propertyReferenceEClass, PROPERTY_REFERENCE__PROPERTY);
 
-    entityNameEClass = createEClass(ENTITY_NAME);
-    createEAttribute(entityNameEClass, ENTITY_NAME__NAME);
-
-    propertyNameEClass = createEClass(PROPERTY_NAME);
-    createEAttribute(propertyNameEClass, PROPERTY_NAME__NAME);
-
-    updateItemEClass = createEClass(UPDATE_ITEM);
-    createEReference(updateItemEClass, UPDATE_ITEM__PROPERTY);
-    createEAttribute(updateItemEClass, UPDATE_ITEM__VALUE);
-
-    conditionEClass = createEClass(CONDITION);
-    createEReference(conditionEClass, CONDITION__EXPRESSION);
-    createEAttribute(conditionEClass, CONDITION__LOGIC_OPERATOR);
-
-    comparisonEClass = createEClass(COMPARISON);
-    createEReference(comparisonEClass, COMPARISON__LEFT_HAND_SIDE);
-    createEAttribute(comparisonEClass, COMPARISON__OPERATOR);
-    createEAttribute(comparisonEClass, COMPARISON__RIGHT_HAND_SIDE);
-
-    entityEClass = createEClass(ENTITY);
-    createEAttribute(entityEClass, ENTITY__NAME);
-
     propertyEClass = createEClass(PROPERTY);
     createEAttribute(propertyEClass, PROPERTY__NAME);
+
+    logicExpressionsEClass = createEClass(LOGIC_EXPRESSIONS);
+    createEReference(logicExpressionsEClass, LOGIC_EXPRESSIONS__LEFT_HAND_SIDE);
+    createEAttribute(logicExpressionsEClass, LOGIC_EXPRESSIONS__OPERATOR);
+    createEAttribute(logicExpressionsEClass, LOGIC_EXPRESSIONS__RIGHT_HAND_SIDE);
+
+    comparisonEClass = createEClass(COMPARISON);
+    createEReference(comparisonEClass, COMPARISON__LEFT);
+    createEReference(comparisonEClass, COMPARISON__RIGHT);
   }
 
   /**
@@ -725,63 +491,40 @@ public class NlToSqlPackageImpl extends EPackageImpl implements NlToSqlPackage
 
     // Add supertypes to classes
     selectStatementEClass.getESuperTypes().add(this.getStatement());
-    insertStatementEClass.getESuperTypes().add(this.getStatement());
-    updateStatementEClass.getESuperTypes().add(this.getStatement());
-    deleteStatementEClass.getESuperTypes().add(this.getStatement());
     selectListEClass.getESuperTypes().add(this.getSelectStatement());
+    comparisonEClass.getESuperTypes().add(this.getLogicExpressions());
 
     // Initialize classes and features; add operations and parameters
     initEClass(accountingSpeechEClass, AccountingSpeech.class, "AccountingSpeech", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getAccountingSpeech_Statements(), this.getStatement(), null, "statements", null, 0, -1, AccountingSpeech.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(statementEClass, Statement.class, "Statement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getStatement_Entity(), this.getEntityName(), null, "entity", null, 0, 1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(selectStatementEClass, SelectStatement.class, "SelectStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getSelectStatement_Condition(), this.getCondition(), null, "condition", null, 0, 1, SelectStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSelectStatement_Entity(), this.getEntityName(), null, "entity", null, 0, 1, SelectStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSelectStatement_Condition(), this.getLogicExpressions(), null, "condition", null, 0, 1, SelectStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getSelectStatement_GroupByList(), this.getPropertyReference(), null, "groupByList", null, 0, -1, SelectStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(insertStatementEClass, InsertStatement.class, "InsertStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getInsertStatement_PropertyList(), this.getPropertyName(), null, "propertyList", null, 0, -1, InsertStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getInsertStatement_ValueList(), ecorePackage.getEString(), "valueList", null, 0, -1, InsertStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(updateStatementEClass, UpdateStatement.class, "UpdateStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getUpdateStatement_UpdateItem(), this.getUpdateItem(), null, "updateItem", null, 0, -1, UpdateStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getUpdateStatement_Condition(), this.getCondition(), null, "condition", null, 0, 1, UpdateStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(deleteStatementEClass, DeleteStatement.class, "DeleteStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getDeleteStatement_Condition(), this.getCondition(), null, "condition", null, 0, 1, DeleteStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(selectListEClass, SelectList.class, "SelectList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getSelectList_SelectItem(), this.getPropertyReference(), null, "selectItem", null, 0, -1, SelectList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(propertyReferenceEClass, PropertyReference.class, "PropertyReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getPropertyReference_Property(), this.getProperty(), null, "property", null, 0, 1, PropertyReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(entityNameEClass, EntityName.class, "EntityName", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getEntityName_Name(), ecorePackage.getEString(), "name", null, 0, 1, EntityName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(propertyNameEClass, PropertyName.class, "PropertyName", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getPropertyName_Name(), ecorePackage.getEString(), "name", null, 0, 1, PropertyName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(selectListEClass, SelectList.class, "SelectList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getSelectList_SelectItem(), this.getProperty(), null, "selectItem", null, 0, -1, SelectList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(updateItemEClass, UpdateItem.class, "UpdateItem", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getUpdateItem_Property(), this.getProperty(), null, "property", null, 0, 1, UpdateItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getUpdateItem_Value(), ecorePackage.getEString(), "value", null, 0, 1, UpdateItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(conditionEClass, Condition.class, "Condition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getCondition_Expression(), this.getComparison(), null, "expression", null, 0, 1, Condition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getCondition_LogicOperator(), ecorePackage.getEString(), "logicOperator", null, 0, 1, Condition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(comparisonEClass, Comparison.class, "Comparison", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getComparison_LeftHandSide(), this.getProperty(), null, "leftHandSide", null, 0, 1, Comparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getComparison_Operator(), ecorePackage.getEString(), "operator", null, 0, 1, Comparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getComparison_RightHandSide(), ecorePackage.getEString(), "rightHandSide", null, 0, 1, Comparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(entityEClass, Entity.class, "Entity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getEntity_Name(), ecorePackage.getEString(), "name", null, 0, 1, Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(propertyReferenceEClass, PropertyReference.class, "PropertyReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getPropertyReference_Property(), this.getProperty(), null, "property", null, 0, 1, PropertyReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(propertyEClass, Property.class, "Property", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getProperty_Name(), ecorePackage.getEString(), "name", null, 0, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(logicExpressionsEClass, LogicExpressions.class, "LogicExpressions", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getLogicExpressions_LeftHandSide(), this.getProperty(), null, "leftHandSide", null, 0, 1, LogicExpressions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getLogicExpressions_Operator(), ecorePackage.getEString(), "operator", null, 0, 1, LogicExpressions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getLogicExpressions_RightHandSide(), ecorePackage.getEString(), "rightHandSide", null, 0, 1, LogicExpressions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(comparisonEClass, Comparison.class, "Comparison", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getComparison_Left(), this.getLogicExpressions(), null, "left", null, 0, 1, Comparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getComparison_Right(), this.getLogicExpressions(), null, "right", null, 0, -1, Comparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

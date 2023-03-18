@@ -18,7 +18,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import uk.ac.kcl.inf.nlToSql.Condition;
+import uk.ac.kcl.inf.nlToSql.EntityName;
+import uk.ac.kcl.inf.nlToSql.LogicExpressions;
 import uk.ac.kcl.inf.nlToSql.NlToSqlPackage;
 import uk.ac.kcl.inf.nlToSql.PropertyReference;
 import uk.ac.kcl.inf.nlToSql.SelectStatement;
@@ -31,6 +32,7 @@ import uk.ac.kcl.inf.nlToSql.SelectStatement;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link uk.ac.kcl.inf.nlToSql.impl.SelectStatementImpl#getEntity <em>Entity</em>}</li>
  *   <li>{@link uk.ac.kcl.inf.nlToSql.impl.SelectStatementImpl#getCondition <em>Condition</em>}</li>
  *   <li>{@link uk.ac.kcl.inf.nlToSql.impl.SelectStatementImpl#getGroupByList <em>Group By List</em>}</li>
  * </ul>
@@ -40,6 +42,16 @@ import uk.ac.kcl.inf.nlToSql.SelectStatement;
 public class SelectStatementImpl extends StatementImpl implements SelectStatement
 {
   /**
+   * The cached value of the '{@link #getEntity() <em>Entity</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getEntity()
+   * @generated
+   * @ordered
+   */
+  protected EntityName entity;
+
+  /**
    * The cached value of the '{@link #getCondition() <em>Condition</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -47,7 +59,7 @@ public class SelectStatementImpl extends StatementImpl implements SelectStatemen
    * @generated
    * @ordered
    */
-  protected Condition condition;
+  protected LogicExpressions condition;
 
   /**
    * The cached value of the '{@link #getGroupByList() <em>Group By List</em>}' containment reference list.
@@ -86,7 +98,57 @@ public class SelectStatementImpl extends StatementImpl implements SelectStatemen
    * @generated
    */
   @Override
-  public Condition getCondition()
+  public EntityName getEntity()
+  {
+    return entity;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetEntity(EntityName newEntity, NotificationChain msgs)
+  {
+    EntityName oldEntity = entity;
+    entity = newEntity;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, NlToSqlPackage.SELECT_STATEMENT__ENTITY, oldEntity, newEntity);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setEntity(EntityName newEntity)
+  {
+    if (newEntity != entity)
+    {
+      NotificationChain msgs = null;
+      if (entity != null)
+        msgs = ((InternalEObject)entity).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - NlToSqlPackage.SELECT_STATEMENT__ENTITY, null, msgs);
+      if (newEntity != null)
+        msgs = ((InternalEObject)newEntity).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - NlToSqlPackage.SELECT_STATEMENT__ENTITY, null, msgs);
+      msgs = basicSetEntity(newEntity, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, NlToSqlPackage.SELECT_STATEMENT__ENTITY, newEntity, newEntity));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public LogicExpressions getCondition()
   {
     return condition;
   }
@@ -96,9 +158,9 @@ public class SelectStatementImpl extends StatementImpl implements SelectStatemen
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetCondition(Condition newCondition, NotificationChain msgs)
+  public NotificationChain basicSetCondition(LogicExpressions newCondition, NotificationChain msgs)
   {
-    Condition oldCondition = condition;
+    LogicExpressions oldCondition = condition;
     condition = newCondition;
     if (eNotificationRequired())
     {
@@ -114,7 +176,7 @@ public class SelectStatementImpl extends StatementImpl implements SelectStatemen
    * @generated
    */
   @Override
-  public void setCondition(Condition newCondition)
+  public void setCondition(LogicExpressions newCondition)
   {
     if (newCondition != condition)
     {
@@ -155,6 +217,8 @@ public class SelectStatementImpl extends StatementImpl implements SelectStatemen
   {
     switch (featureID)
     {
+      case NlToSqlPackage.SELECT_STATEMENT__ENTITY:
+        return basicSetEntity(null, msgs);
       case NlToSqlPackage.SELECT_STATEMENT__CONDITION:
         return basicSetCondition(null, msgs);
       case NlToSqlPackage.SELECT_STATEMENT__GROUP_BY_LIST:
@@ -173,6 +237,8 @@ public class SelectStatementImpl extends StatementImpl implements SelectStatemen
   {
     switch (featureID)
     {
+      case NlToSqlPackage.SELECT_STATEMENT__ENTITY:
+        return getEntity();
       case NlToSqlPackage.SELECT_STATEMENT__CONDITION:
         return getCondition();
       case NlToSqlPackage.SELECT_STATEMENT__GROUP_BY_LIST:
@@ -192,8 +258,11 @@ public class SelectStatementImpl extends StatementImpl implements SelectStatemen
   {
     switch (featureID)
     {
+      case NlToSqlPackage.SELECT_STATEMENT__ENTITY:
+        setEntity((EntityName)newValue);
+        return;
       case NlToSqlPackage.SELECT_STATEMENT__CONDITION:
-        setCondition((Condition)newValue);
+        setCondition((LogicExpressions)newValue);
         return;
       case NlToSqlPackage.SELECT_STATEMENT__GROUP_BY_LIST:
         getGroupByList().clear();
@@ -213,8 +282,11 @@ public class SelectStatementImpl extends StatementImpl implements SelectStatemen
   {
     switch (featureID)
     {
+      case NlToSqlPackage.SELECT_STATEMENT__ENTITY:
+        setEntity((EntityName)null);
+        return;
       case NlToSqlPackage.SELECT_STATEMENT__CONDITION:
-        setCondition((Condition)null);
+        setCondition((LogicExpressions)null);
         return;
       case NlToSqlPackage.SELECT_STATEMENT__GROUP_BY_LIST:
         getGroupByList().clear();
@@ -233,6 +305,8 @@ public class SelectStatementImpl extends StatementImpl implements SelectStatemen
   {
     switch (featureID)
     {
+      case NlToSqlPackage.SELECT_STATEMENT__ENTITY:
+        return entity != null;
       case NlToSqlPackage.SELECT_STATEMENT__CONDITION:
         return condition != null;
       case NlToSqlPackage.SELECT_STATEMENT__GROUP_BY_LIST:
