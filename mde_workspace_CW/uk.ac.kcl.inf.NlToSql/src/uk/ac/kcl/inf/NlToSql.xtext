@@ -9,17 +9,16 @@ AccountingSpeech:
 
 // Define the Statement rule
 Statement:
-    (CreateTableStatement | SelectStatement ) 
-//    	 | InsertStatement | UpdateStatement | DeleteStatement
-    '.'
+    (CreateTableStatement | SelectStatement | InsertStatement | UpdateStatement)'.'
+//    	   | DeleteStatement
+    
 ;
-
 
 // Define the table creation rule
 CreateTableStatement:
-  'create' ('the' | 'a')? 'table' 'called' table=Table
+  'Create' TheA 'table' 'called' table=Table
   ('with' 'columns' columns=ColumnList)?
-  ;
+ ;
 
 // Define the ColumnList rule
 ColumnList:
@@ -34,21 +33,53 @@ Column:
   name=ID 'of' 'type' type=Datatype;
 
 Datatype:
-  'int' | 'string' | 'date';
+  'integer' | 'string' | 'date'
+ ;
 
 
 // Define the SelectStatement rule
 SelectStatement:
-	'from' 'the' 'table' SelectTablesList
-    ('can' 'you')? 'show' 
+	'From' 'the' 'table' SelectTablesList
+    'show' 
     ('the' 'columns:' columns = SelectColumnsList | 'all' 'columns') 
     ('where' condition=Condition)? 
-    ('group' 'by' groupByList+=Column (',' groupByList+=Column)*)?
+    ('group' 'by' group = SelectColumnsList)?
+;
+
+// Define the InsertStatement rule
+InsertStatement:
+ 	'Insert' 'into' TheTable SelectTable
+    'for' 'the' 'columns' columns = SelectColumnsList
+    'insert' 'the' 'values' '(' values = InserValues ')'
+;
+
+// Define the UpdateStatement rule
+UpdateStatement:
+    'Update' TheTable SelectTable
+    'to''set' updates = SelectUpdateList
+    ('where' condition=Condition)?
+;
+
+SelectUpdateList:
+	updateItem+=UpdateItem (',' updateItem+=UpdateItem)*
+;
+
+// Define the UpdateItem rule
+UpdateItem:
+    (TheA column=ColumnReference '=' value=Value)
 ;
 
 
+InserValues:
+	valueList+=Value (',' valueList+=Value)* 
+;
+
 SelectTablesList:
 	selectTable+=[Table] (',' selectTable+=[Table])*
+;
+
+SelectTable:
+	table = [Table]
 ;
 
 // Define the SelectList rule
@@ -59,6 +90,7 @@ SelectColumnsList:
 ColumnReference:
     column=[Column] ('in' table=[Table])?
 ;
+
 
 // Define the Condition rule
 Condition returns LogicExpressions:
@@ -85,6 +117,14 @@ ComparisonOperator:
 // Define the Value rule
 Value:
     INT | STRING
+;
+
+TheTable:
+	('the' 'table')?
+;
+
+TheA:
+	('the' | 'a')?
 ;
 
 

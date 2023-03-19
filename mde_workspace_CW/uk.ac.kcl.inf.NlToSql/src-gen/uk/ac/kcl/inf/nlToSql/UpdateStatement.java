@@ -3,20 +3,12 @@
  */
 package uk.ac.kcl.inf.nlToSql;
 
-import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Update Statement</b></em>'.
  * <!-- end-user-doc -->
  *
- * <p>
- * The following features are supported:
- * </p>
- * <ul>
- *   <li>{@link uk.ac.kcl.inf.nlToSql.UpdateStatement#getUpdateItem <em>Update Item</em>}</li>
- *   <li>{@link uk.ac.kcl.inf.nlToSql.UpdateStatement#getCondition <em>Condition</em>}</li>
- * </ul>
  *
  * @see uk.ac.kcl.inf.nlToSql.NlToSqlPackage#getUpdateStatement()
  * @model
@@ -24,38 +16,4 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface UpdateStatement extends Statement
 {
-  /**
-   * Returns the value of the '<em><b>Update Item</b></em>' containment reference list.
-   * The list contents are of type {@link uk.ac.kcl.inf.nlToSql.UpdateItem}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Update Item</em>' containment reference list.
-   * @see uk.ac.kcl.inf.nlToSql.NlToSqlPackage#getUpdateStatement_UpdateItem()
-   * @model containment="true"
-   * @generated
-   */
-  EList<UpdateItem> getUpdateItem();
-
-  /**
-   * Returns the value of the '<em><b>Condition</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Condition</em>' containment reference.
-   * @see #setCondition(Condition)
-   * @see uk.ac.kcl.inf.nlToSql.NlToSqlPackage#getUpdateStatement_Condition()
-   * @model containment="true"
-   * @generated
-   */
-  Condition getCondition();
-
-  /**
-   * Sets the value of the '{@link uk.ac.kcl.inf.nlToSql.UpdateStatement#getCondition <em>Condition</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Condition</em>' containment reference.
-   * @see #getCondition()
-   * @generated
-   */
-  void setCondition(Condition value);
-
 } // UpdateStatement

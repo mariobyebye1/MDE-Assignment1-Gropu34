@@ -111,9 +111,39 @@ public class NlToSqlAdapterFactory extends AdapterFactoryImpl
         return createSelectStatementAdapter();
       }
       @Override
+      public Adapter caseInsertStatement(InsertStatement object)
+      {
+        return createInsertStatementAdapter();
+      }
+      @Override
+      public Adapter caseUpdateStatement(UpdateStatement object)
+      {
+        return createUpdateStatementAdapter();
+      }
+      @Override
+      public Adapter caseSelectUpdateList(SelectUpdateList object)
+      {
+        return createSelectUpdateListAdapter();
+      }
+      @Override
+      public Adapter caseUpdateItem(UpdateItem object)
+      {
+        return createUpdateItemAdapter();
+      }
+      @Override
+      public Adapter caseInserValues(InserValues object)
+      {
+        return createInserValuesAdapter();
+      }
+      @Override
       public Adapter caseSelectTablesList(SelectTablesList object)
       {
         return createSelectTablesListAdapter();
+      }
+      @Override
+      public Adapter caseSelectTable(SelectTable object)
+      {
+        return createSelectTableAdapter();
       }
       @Override
       public Adapter caseSelectColumnsList(SelectColumnsList object)
@@ -263,6 +293,81 @@ public class NlToSqlAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link uk.ac.kcl.inf.nlToSql.InsertStatement <em>Insert Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see uk.ac.kcl.inf.nlToSql.InsertStatement
+   * @generated
+   */
+  public Adapter createInsertStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link uk.ac.kcl.inf.nlToSql.UpdateStatement <em>Update Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see uk.ac.kcl.inf.nlToSql.UpdateStatement
+   * @generated
+   */
+  public Adapter createUpdateStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link uk.ac.kcl.inf.nlToSql.SelectUpdateList <em>Select Update List</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see uk.ac.kcl.inf.nlToSql.SelectUpdateList
+   * @generated
+   */
+  public Adapter createSelectUpdateListAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link uk.ac.kcl.inf.nlToSql.UpdateItem <em>Update Item</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see uk.ac.kcl.inf.nlToSql.UpdateItem
+   * @generated
+   */
+  public Adapter createUpdateItemAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link uk.ac.kcl.inf.nlToSql.InserValues <em>Inser Values</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see uk.ac.kcl.inf.nlToSql.InserValues
+   * @generated
+   */
+  public Adapter createInserValuesAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link uk.ac.kcl.inf.nlToSql.SelectTablesList <em>Select Tables List</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -273,6 +378,21 @@ public class NlToSqlAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createSelectTablesListAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link uk.ac.kcl.inf.nlToSql.SelectTable <em>Select Table</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see uk.ac.kcl.inf.nlToSql.SelectTable
+   * @generated
+   */
+  public Adapter createSelectTableAdapter()
   {
     return null;
   }

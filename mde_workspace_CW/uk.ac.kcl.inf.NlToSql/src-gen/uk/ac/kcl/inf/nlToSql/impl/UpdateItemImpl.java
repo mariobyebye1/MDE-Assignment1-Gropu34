@@ -4,6 +4,7 @@
 package uk.ac.kcl.inf.nlToSql.impl;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -11,8 +12,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import uk.ac.kcl.inf.nlToSql.ColumnReference;
 import uk.ac.kcl.inf.nlToSql.NlToSqlPackage;
-import uk.ac.kcl.inf.nlToSql.Property;
 import uk.ac.kcl.inf.nlToSql.UpdateItem;
 
 /**
@@ -23,7 +24,7 @@ import uk.ac.kcl.inf.nlToSql.UpdateItem;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link uk.ac.kcl.inf.nlToSql.impl.UpdateItemImpl#getProperty <em>Property</em>}</li>
+ *   <li>{@link uk.ac.kcl.inf.nlToSql.impl.UpdateItemImpl#getColumn <em>Column</em>}</li>
  *   <li>{@link uk.ac.kcl.inf.nlToSql.impl.UpdateItemImpl#getValue <em>Value</em>}</li>
  * </ul>
  *
@@ -32,14 +33,14 @@ import uk.ac.kcl.inf.nlToSql.UpdateItem;
 public class UpdateItemImpl extends MinimalEObjectImpl.Container implements UpdateItem
 {
   /**
-   * The cached value of the '{@link #getProperty() <em>Property</em>}' reference.
+   * The cached value of the '{@link #getColumn() <em>Column</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getProperty()
+   * @see #getColumn()
    * @generated
    * @ordered
    */
-  protected Property property;
+  protected ColumnReference column;
 
   /**
    * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
@@ -88,19 +89,9 @@ public class UpdateItemImpl extends MinimalEObjectImpl.Container implements Upda
    * @generated
    */
   @Override
-  public Property getProperty()
+  public ColumnReference getColumn()
   {
-    if (property != null && property.eIsProxy())
-    {
-      InternalEObject oldProperty = (InternalEObject)property;
-      property = (Property)eResolveProxy(oldProperty);
-      if (property != oldProperty)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, NlToSqlPackage.UPDATE_ITEM__PROPERTY, oldProperty, property));
-      }
-    }
-    return property;
+    return column;
   }
 
   /**
@@ -108,9 +99,16 @@ public class UpdateItemImpl extends MinimalEObjectImpl.Container implements Upda
    * <!-- end-user-doc -->
    * @generated
    */
-  public Property basicGetProperty()
+  public NotificationChain basicSetColumn(ColumnReference newColumn, NotificationChain msgs)
   {
-    return property;
+    ColumnReference oldColumn = column;
+    column = newColumn;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, NlToSqlPackage.UPDATE_ITEM__COLUMN, oldColumn, newColumn);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
   }
 
   /**
@@ -119,12 +117,20 @@ public class UpdateItemImpl extends MinimalEObjectImpl.Container implements Upda
    * @generated
    */
   @Override
-  public void setProperty(Property newProperty)
+  public void setColumn(ColumnReference newColumn)
   {
-    Property oldProperty = property;
-    property = newProperty;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, NlToSqlPackage.UPDATE_ITEM__PROPERTY, oldProperty, property));
+    if (newColumn != column)
+    {
+      NotificationChain msgs = null;
+      if (column != null)
+        msgs = ((InternalEObject)column).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - NlToSqlPackage.UPDATE_ITEM__COLUMN, null, msgs);
+      if (newColumn != null)
+        msgs = ((InternalEObject)newColumn).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - NlToSqlPackage.UPDATE_ITEM__COLUMN, null, msgs);
+      msgs = basicSetColumn(newColumn, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, NlToSqlPackage.UPDATE_ITEM__COLUMN, newColumn, newColumn));
   }
 
   /**
@@ -158,13 +164,28 @@ public class UpdateItemImpl extends MinimalEObjectImpl.Container implements Upda
    * @generated
    */
   @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case NlToSqlPackage.UPDATE_ITEM__COLUMN:
+        return basicSetColumn(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
     switch (featureID)
     {
-      case NlToSqlPackage.UPDATE_ITEM__PROPERTY:
-        if (resolve) return getProperty();
-        return basicGetProperty();
+      case NlToSqlPackage.UPDATE_ITEM__COLUMN:
+        return getColumn();
       case NlToSqlPackage.UPDATE_ITEM__VALUE:
         return getValue();
     }
@@ -181,8 +202,8 @@ public class UpdateItemImpl extends MinimalEObjectImpl.Container implements Upda
   {
     switch (featureID)
     {
-      case NlToSqlPackage.UPDATE_ITEM__PROPERTY:
-        setProperty((Property)newValue);
+      case NlToSqlPackage.UPDATE_ITEM__COLUMN:
+        setColumn((ColumnReference)newValue);
         return;
       case NlToSqlPackage.UPDATE_ITEM__VALUE:
         setValue((String)newValue);
@@ -201,8 +222,8 @@ public class UpdateItemImpl extends MinimalEObjectImpl.Container implements Upda
   {
     switch (featureID)
     {
-      case NlToSqlPackage.UPDATE_ITEM__PROPERTY:
-        setProperty((Property)null);
+      case NlToSqlPackage.UPDATE_ITEM__COLUMN:
+        setColumn((ColumnReference)null);
         return;
       case NlToSqlPackage.UPDATE_ITEM__VALUE:
         setValue(VALUE_EDEFAULT);
@@ -221,8 +242,8 @@ public class UpdateItemImpl extends MinimalEObjectImpl.Container implements Upda
   {
     switch (featureID)
     {
-      case NlToSqlPackage.UPDATE_ITEM__PROPERTY:
-        return property != null;
+      case NlToSqlPackage.UPDATE_ITEM__COLUMN:
+        return column != null;
       case NlToSqlPackage.UPDATE_ITEM__VALUE:
         return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
     }

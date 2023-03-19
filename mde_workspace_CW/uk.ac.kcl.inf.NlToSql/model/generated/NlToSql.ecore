@@ -24,15 +24,41 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SelectStatement" eSuperTypes="#//Statement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="InsertStatement" eSuperTypes="#//Statement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UpdateStatement" eSuperTypes="#//Statement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SelectUpdateList">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="updateItem" upperBound="-1"
+        eType="#//UpdateItem" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UpdateItem">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="column" eType="#//ColumnReference"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="InserValues">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="valueList" unique="false"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SelectTablesList" eSuperTypes="#//SelectStatement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="columns" eType="#//SelectColumnsList"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="condition" eType="#//LogicExpressions"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="groupByList" upperBound="-1"
-        eType="#//Column" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="group" eType="#//SelectColumnsList"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="selectTable" unique="false"
         upperBound="-1" eType="#//Table"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SelectTable" eSuperTypes="#//InsertStatement #//UpdateStatement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="columns" eType="#//SelectColumnsList"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="values" eType="#//InserValues"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="updates" eType="#//SelectUpdateList"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="condition" eType="#//LogicExpressions"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="table" eType="#//Table"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SelectColumnsList">
     <eStructuralFeatures xsi:type="ecore:EReference" name="selectColumn" upperBound="-1"

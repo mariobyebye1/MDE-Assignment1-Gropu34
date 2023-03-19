@@ -23,21 +23,23 @@ public class NlToSqlSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected NlToSqlGrammarAccess grammarAccess;
 	protected AbstractElementAlias match_Comparison___AKeyword_0_1_or_TheKeyword_0_0__q;
-	protected AbstractElementAlias match_CreateTableStatement___AKeyword_1_1_or_TheKeyword_1_0__q;
-	protected AbstractElementAlias match_SelectStatement___CanKeyword_4_0_YouKeyword_4_1__q;
+	protected AbstractElementAlias match_InsertStatement_UpdateStatement___InsertKeyword_0_IntoKeyword_1_TheTableParserRuleCall_2___or___UpdateKeyword_0_TheTableParserRuleCall_1__;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (NlToSqlGrammarAccess) access;
 		match_Comparison___AKeyword_0_1_or_TheKeyword_0_0__q = new AlternativeAlias(false, true, new TokenAlias(false, false, grammarAccess.getComparisonAccess().getAKeyword_0_1()), new TokenAlias(false, false, grammarAccess.getComparisonAccess().getTheKeyword_0_0()));
-		match_CreateTableStatement___AKeyword_1_1_or_TheKeyword_1_0__q = new AlternativeAlias(false, true, new TokenAlias(false, false, grammarAccess.getCreateTableStatementAccess().getAKeyword_1_1()), new TokenAlias(false, false, grammarAccess.getCreateTableStatementAccess().getTheKeyword_1_0()));
-		match_SelectStatement___CanKeyword_4_0_YouKeyword_4_1__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getSelectStatementAccess().getCanKeyword_4_0()), new TokenAlias(false, false, grammarAccess.getSelectStatementAccess().getYouKeyword_4_1()));
+		match_InsertStatement_UpdateStatement___InsertKeyword_0_IntoKeyword_1_TheTableParserRuleCall_2___or___UpdateKeyword_0_TheTableParserRuleCall_1__ = new AlternativeAlias(false, false, new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getInsertStatementAccess().getInsertKeyword_0()), new TokenAlias(false, false, grammarAccess.getInsertStatementAccess().getIntoKeyword_1()), new TokenAlias(false, false, grammarAccess.getInsertStatementAccess().getTheTableParserRuleCall_2())), new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getUpdateStatementAccess().getUpdateKeyword_0()), new TokenAlias(false, false, grammarAccess.getUpdateStatementAccess().getTheTableParserRuleCall_1())));
 	}
 	
 	@Override
 	protected String getUnassignedRuleCallToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (ruleCall.getRule() == grammarAccess.getLogicOperatorRule())
 			return getLogicOperatorToken(semanticObject, ruleCall, node);
+		else if (ruleCall.getRule() == grammarAccess.getTheARule())
+			return getTheAToken(semanticObject, ruleCall, node);
+		else if (ruleCall.getRule() == grammarAccess.getTheTableRule())
+			return getTheTableToken(semanticObject, ruleCall, node);
 		return "";
 	}
 	
@@ -52,6 +54,28 @@ public class NlToSqlSyntacticSequencer extends AbstractSyntacticSequencer {
 		return "and";
 	}
 	
+	/**
+	 * TheA:
+	 * 	('the' | 'a')?
+	 * ;
+	 */
+	protected String getTheAToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "";
+	}
+	
+	/**
+	 * TheTable:
+	 * 	('the' 'table')?
+	 * ;
+	 */
+	protected String getTheTableToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "";
+	}
+	
 	@Override
 	protected void emitUnassignedTokens(EObject semanticObject, ISynTransition transition, INode fromNode, INode toNode) {
 		if (transition.getAmbiguousSyntaxes().isEmpty()) return;
@@ -60,10 +84,8 @@ public class NlToSqlSyntacticSequencer extends AbstractSyntacticSequencer {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
 			if (match_Comparison___AKeyword_0_1_or_TheKeyword_0_0__q.equals(syntax))
 				emit_Comparison___AKeyword_0_1_or_TheKeyword_0_0__q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_CreateTableStatement___AKeyword_1_1_or_TheKeyword_1_0__q.equals(syntax))
-				emit_CreateTableStatement___AKeyword_1_1_or_TheKeyword_1_0__q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_SelectStatement___CanKeyword_4_0_YouKeyword_4_1__q.equals(syntax))
-				emit_SelectStatement___CanKeyword_4_0_YouKeyword_4_1__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_InsertStatement_UpdateStatement___InsertKeyword_0_IntoKeyword_1_TheTableParserRuleCall_2___or___UpdateKeyword_0_TheTableParserRuleCall_1__.equals(syntax))
+				emit_InsertStatement_UpdateStatement___InsertKeyword_0_IntoKeyword_1_TheTableParserRuleCall_2___or___UpdateKeyword_0_TheTableParserRuleCall_1__(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
@@ -81,27 +103,12 @@ public class NlToSqlSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Ambiguous syntax:
-	 *     ('the' | 'a')?
+	 *     ('Insert' 'into' TheTable) | ('Update' TheTable)
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     (rule start) 'create' (ambiguity) 'table' 'called' table=Table
+	 *     (rule start) (ambiguity) table=[Table|ID]
 	 */
-	protected void emit_CreateTableStatement___AKeyword_1_1_or_TheKeyword_1_0__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     ('can' 'you')?
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     selectTable+=[Table|ID] (ambiguity) 'show' 'all' 'columns' '.' (rule end)
-	 *     selectTable+=[Table|ID] (ambiguity) 'show' 'all' 'columns' 'group' 'by' groupByList+=Column
-	 *     selectTable+=[Table|ID] (ambiguity) 'show' 'all' 'columns' 'where' condition=Condition
-	 *     selectTable+=[Table|ID] (ambiguity) 'show' 'all' 'columns' (rule end)
-	 *     selectTable+=[Table|ID] (ambiguity) 'show' 'the' 'columns:' columns=SelectColumnsList
-	 */
-	protected void emit_SelectStatement___CanKeyword_4_0_YouKeyword_4_1__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_InsertStatement_UpdateStatement___InsertKeyword_0_IntoKeyword_1_TheTableParserRuleCall_2___or___UpdateKeyword_0_TheTableParserRuleCall_1__(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

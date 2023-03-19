@@ -87,6 +87,51 @@ public interface NlToSqlFactory extends EFactory
   SelectStatement createSelectStatement();
 
   /**
+   * Returns a new object of class '<em>Insert Statement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Insert Statement</em>'.
+   * @generated
+   */
+  InsertStatement createInsertStatement();
+
+  /**
+   * Returns a new object of class '<em>Update Statement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Update Statement</em>'.
+   * @generated
+   */
+  UpdateStatement createUpdateStatement();
+
+  /**
+   * Returns a new object of class '<em>Select Update List</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Select Update List</em>'.
+   * @generated
+   */
+  SelectUpdateList createSelectUpdateList();
+
+  /**
+   * Returns a new object of class '<em>Update Item</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Update Item</em>'.
+   * @generated
+   */
+  UpdateItem createUpdateItem();
+
+  /**
+   * Returns a new object of class '<em>Inser Values</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Inser Values</em>'.
+   * @generated
+   */
+  InserValues createInserValues();
+
+  /**
    * Returns a new object of class '<em>Select Tables List</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -94,6 +139,15 @@ public interface NlToSqlFactory extends EFactory
    * @generated
    */
   SelectTablesList createSelectTablesList();
+
+  /**
+   * Returns a new object of class '<em>Select Table</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Select Table</em>'.
+   * @generated
+   */
+  SelectTable createSelectTable();
 
   /**
    * Returns a new object of class '<em>Select Columns List</em>'.

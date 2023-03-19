@@ -16,14 +16,20 @@ import uk.ac.kcl.inf.nlToSql.ColumnList;
 import uk.ac.kcl.inf.nlToSql.ColumnReference;
 import uk.ac.kcl.inf.nlToSql.Comparison;
 import uk.ac.kcl.inf.nlToSql.CreateTableStatement;
+import uk.ac.kcl.inf.nlToSql.InserValues;
+import uk.ac.kcl.inf.nlToSql.InsertStatement;
 import uk.ac.kcl.inf.nlToSql.LogicExpressions;
 import uk.ac.kcl.inf.nlToSql.NlToSqlFactory;
 import uk.ac.kcl.inf.nlToSql.NlToSqlPackage;
 import uk.ac.kcl.inf.nlToSql.SelectColumnsList;
 import uk.ac.kcl.inf.nlToSql.SelectStatement;
+import uk.ac.kcl.inf.nlToSql.SelectTable;
 import uk.ac.kcl.inf.nlToSql.SelectTablesList;
+import uk.ac.kcl.inf.nlToSql.SelectUpdateList;
 import uk.ac.kcl.inf.nlToSql.Statement;
 import uk.ac.kcl.inf.nlToSql.Table;
+import uk.ac.kcl.inf.nlToSql.UpdateItem;
+import uk.ac.kcl.inf.nlToSql.UpdateStatement;
 
 /**
  * <!-- begin-user-doc -->
@@ -87,7 +93,49 @@ public class NlToSqlPackageImpl extends EPackageImpl implements NlToSqlPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass insertStatementEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass updateStatementEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass selectUpdateListEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass updateItemEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass inserValuesEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass selectTablesListEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass selectTableEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -340,6 +388,105 @@ public class NlToSqlPackageImpl extends EPackageImpl implements NlToSqlPackage
    * @generated
    */
   @Override
+  public EClass getInsertStatement()
+  {
+    return insertStatementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getUpdateStatement()
+  {
+    return updateStatementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getSelectUpdateList()
+  {
+    return selectUpdateListEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getSelectUpdateList_UpdateItem()
+  {
+    return (EReference)selectUpdateListEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getUpdateItem()
+  {
+    return updateItemEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getUpdateItem_Column()
+  {
+    return (EReference)updateItemEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getUpdateItem_Value()
+  {
+    return (EAttribute)updateItemEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getInserValues()
+  {
+    return inserValuesEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getInserValues_ValueList()
+  {
+    return (EAttribute)inserValuesEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getSelectTablesList()
   {
     return selectTablesListEClass;
@@ -373,7 +520,7 @@ public class NlToSqlPackageImpl extends EPackageImpl implements NlToSqlPackage
    * @generated
    */
   @Override
-  public EReference getSelectTablesList_GroupByList()
+  public EReference getSelectTablesList_Group()
   {
     return (EReference)selectTablesListEClass.getEStructuralFeatures().get(2);
   }
@@ -387,6 +534,72 @@ public class NlToSqlPackageImpl extends EPackageImpl implements NlToSqlPackage
   public EReference getSelectTablesList_SelectTable()
   {
     return (EReference)selectTablesListEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getSelectTable()
+  {
+    return selectTableEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getSelectTable_Columns()
+  {
+    return (EReference)selectTableEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getSelectTable_Values()
+  {
+    return (EReference)selectTableEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getSelectTable_Updates()
+  {
+    return (EReference)selectTableEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getSelectTable_Condition()
+  {
+    return (EReference)selectTableEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getSelectTable_Table()
+  {
+    return (EReference)selectTableEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -573,11 +786,32 @@ public class NlToSqlPackageImpl extends EPackageImpl implements NlToSqlPackage
 
     selectStatementEClass = createEClass(SELECT_STATEMENT);
 
+    insertStatementEClass = createEClass(INSERT_STATEMENT);
+
+    updateStatementEClass = createEClass(UPDATE_STATEMENT);
+
+    selectUpdateListEClass = createEClass(SELECT_UPDATE_LIST);
+    createEReference(selectUpdateListEClass, SELECT_UPDATE_LIST__UPDATE_ITEM);
+
+    updateItemEClass = createEClass(UPDATE_ITEM);
+    createEReference(updateItemEClass, UPDATE_ITEM__COLUMN);
+    createEAttribute(updateItemEClass, UPDATE_ITEM__VALUE);
+
+    inserValuesEClass = createEClass(INSER_VALUES);
+    createEAttribute(inserValuesEClass, INSER_VALUES__VALUE_LIST);
+
     selectTablesListEClass = createEClass(SELECT_TABLES_LIST);
     createEReference(selectTablesListEClass, SELECT_TABLES_LIST__COLUMNS);
     createEReference(selectTablesListEClass, SELECT_TABLES_LIST__CONDITION);
-    createEReference(selectTablesListEClass, SELECT_TABLES_LIST__GROUP_BY_LIST);
+    createEReference(selectTablesListEClass, SELECT_TABLES_LIST__GROUP);
     createEReference(selectTablesListEClass, SELECT_TABLES_LIST__SELECT_TABLE);
+
+    selectTableEClass = createEClass(SELECT_TABLE);
+    createEReference(selectTableEClass, SELECT_TABLE__COLUMNS);
+    createEReference(selectTableEClass, SELECT_TABLE__VALUES);
+    createEReference(selectTableEClass, SELECT_TABLE__UPDATES);
+    createEReference(selectTableEClass, SELECT_TABLE__CONDITION);
+    createEReference(selectTableEClass, SELECT_TABLE__TABLE);
 
     selectColumnsListEClass = createEClass(SELECT_COLUMNS_LIST);
     createEReference(selectColumnsListEClass, SELECT_COLUMNS_LIST__SELECT_COLUMN);
@@ -627,7 +861,11 @@ public class NlToSqlPackageImpl extends EPackageImpl implements NlToSqlPackage
     // Add supertypes to classes
     createTableStatementEClass.getESuperTypes().add(this.getStatement());
     selectStatementEClass.getESuperTypes().add(this.getStatement());
+    insertStatementEClass.getESuperTypes().add(this.getStatement());
+    updateStatementEClass.getESuperTypes().add(this.getStatement());
     selectTablesListEClass.getESuperTypes().add(this.getSelectStatement());
+    selectTableEClass.getESuperTypes().add(this.getInsertStatement());
+    selectTableEClass.getESuperTypes().add(this.getUpdateStatement());
     comparisonEClass.getESuperTypes().add(this.getLogicExpressions());
 
     // Initialize classes and features; add operations and parameters
@@ -652,11 +890,32 @@ public class NlToSqlPackageImpl extends EPackageImpl implements NlToSqlPackage
 
     initEClass(selectStatementEClass, SelectStatement.class, "SelectStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+    initEClass(insertStatementEClass, InsertStatement.class, "InsertStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(updateStatementEClass, UpdateStatement.class, "UpdateStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(selectUpdateListEClass, SelectUpdateList.class, "SelectUpdateList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getSelectUpdateList_UpdateItem(), this.getUpdateItem(), null, "updateItem", null, 0, -1, SelectUpdateList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(updateItemEClass, UpdateItem.class, "UpdateItem", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getUpdateItem_Column(), this.getColumnReference(), null, "column", null, 0, 1, UpdateItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getUpdateItem_Value(), ecorePackage.getEString(), "value", null, 0, 1, UpdateItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(inserValuesEClass, InserValues.class, "InserValues", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getInserValues_ValueList(), ecorePackage.getEString(), "valueList", null, 0, -1, InserValues.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(selectTablesListEClass, SelectTablesList.class, "SelectTablesList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getSelectTablesList_Columns(), this.getSelectColumnsList(), null, "columns", null, 0, 1, SelectTablesList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getSelectTablesList_Condition(), this.getLogicExpressions(), null, "condition", null, 0, 1, SelectTablesList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getSelectTablesList_GroupByList(), this.getColumn(), null, "groupByList", null, 0, -1, SelectTablesList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSelectTablesList_Group(), this.getSelectColumnsList(), null, "group", null, 0, 1, SelectTablesList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getSelectTablesList_SelectTable(), this.getTable(), null, "selectTable", null, 0, -1, SelectTablesList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(selectTableEClass, SelectTable.class, "SelectTable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getSelectTable_Columns(), this.getSelectColumnsList(), null, "columns", null, 0, 1, SelectTable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSelectTable_Values(), this.getInserValues(), null, "values", null, 0, 1, SelectTable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSelectTable_Updates(), this.getSelectUpdateList(), null, "updates", null, 0, 1, SelectTable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSelectTable_Condition(), this.getLogicExpressions(), null, "condition", null, 0, 1, SelectTable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSelectTable_Table(), this.getTable(), null, "table", null, 0, 1, SelectTable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(selectColumnsListEClass, SelectColumnsList.class, "SelectColumnsList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getSelectColumnsList_SelectColumn(), this.getColumnReference(), null, "selectColumn", null, 0, -1, SelectColumnsList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

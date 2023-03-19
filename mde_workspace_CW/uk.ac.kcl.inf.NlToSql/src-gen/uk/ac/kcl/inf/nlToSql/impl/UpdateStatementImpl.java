@@ -3,62 +3,20 @@
  */
 package uk.ac.kcl.inf.nlToSql.impl;
 
-import java.util.Collection;
-
-import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
-
-import uk.ac.kcl.inf.nlToSql.Condition;
 import uk.ac.kcl.inf.nlToSql.NlToSqlPackage;
-import uk.ac.kcl.inf.nlToSql.UpdateItem;
 import uk.ac.kcl.inf.nlToSql.UpdateStatement;
 
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Update Statement</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * The following features are implemented:
- * </p>
- * <ul>
- *   <li>{@link uk.ac.kcl.inf.nlToSql.impl.UpdateStatementImpl#getUpdateItem <em>Update Item</em>}</li>
- *   <li>{@link uk.ac.kcl.inf.nlToSql.impl.UpdateStatementImpl#getCondition <em>Condition</em>}</li>
- * </ul>
  *
  * @generated
  */
 public class UpdateStatementImpl extends StatementImpl implements UpdateStatement
 {
-  /**
-   * The cached value of the '{@link #getUpdateItem() <em>Update Item</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getUpdateItem()
-   * @generated
-   * @ordered
-   */
-  protected EList<UpdateItem> updateItem;
-
-  /**
-   * The cached value of the '{@link #getCondition() <em>Condition</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getCondition()
-   * @generated
-   * @ordered
-   */
-  protected Condition condition;
-
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -78,167 +36,6 @@ public class UpdateStatementImpl extends StatementImpl implements UpdateStatemen
   protected EClass eStaticClass()
   {
     return NlToSqlPackage.Literals.UPDATE_STATEMENT;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EList<UpdateItem> getUpdateItem()
-  {
-    if (updateItem == null)
-    {
-      updateItem = new EObjectContainmentEList<UpdateItem>(UpdateItem.class, this, NlToSqlPackage.UPDATE_STATEMENT__UPDATE_ITEM);
-    }
-    return updateItem;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Condition getCondition()
-  {
-    return condition;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetCondition(Condition newCondition, NotificationChain msgs)
-  {
-    Condition oldCondition = condition;
-    condition = newCondition;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, NlToSqlPackage.UPDATE_STATEMENT__CONDITION, oldCondition, newCondition);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setCondition(Condition newCondition)
-  {
-    if (newCondition != condition)
-    {
-      NotificationChain msgs = null;
-      if (condition != null)
-        msgs = ((InternalEObject)condition).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - NlToSqlPackage.UPDATE_STATEMENT__CONDITION, null, msgs);
-      if (newCondition != null)
-        msgs = ((InternalEObject)newCondition).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - NlToSqlPackage.UPDATE_STATEMENT__CONDITION, null, msgs);
-      msgs = basicSetCondition(newCondition, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, NlToSqlPackage.UPDATE_STATEMENT__CONDITION, newCondition, newCondition));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
-    switch (featureID)
-    {
-      case NlToSqlPackage.UPDATE_STATEMENT__UPDATE_ITEM:
-        return ((InternalEList<?>)getUpdateItem()).basicRemove(otherEnd, msgs);
-      case NlToSqlPackage.UPDATE_STATEMENT__CONDITION:
-        return basicSetCondition(null, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Object eGet(int featureID, boolean resolve, boolean coreType)
-  {
-    switch (featureID)
-    {
-      case NlToSqlPackage.UPDATE_STATEMENT__UPDATE_ITEM:
-        return getUpdateItem();
-      case NlToSqlPackage.UPDATE_STATEMENT__CONDITION:
-        return getCondition();
-    }
-    return super.eGet(featureID, resolve, coreType);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @SuppressWarnings("unchecked")
-  @Override
-  public void eSet(int featureID, Object newValue)
-  {
-    switch (featureID)
-    {
-      case NlToSqlPackage.UPDATE_STATEMENT__UPDATE_ITEM:
-        getUpdateItem().clear();
-        getUpdateItem().addAll((Collection<? extends UpdateItem>)newValue);
-        return;
-      case NlToSqlPackage.UPDATE_STATEMENT__CONDITION:
-        setCondition((Condition)newValue);
-        return;
-    }
-    super.eSet(featureID, newValue);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void eUnset(int featureID)
-  {
-    switch (featureID)
-    {
-      case NlToSqlPackage.UPDATE_STATEMENT__UPDATE_ITEM:
-        getUpdateItem().clear();
-        return;
-      case NlToSqlPackage.UPDATE_STATEMENT__CONDITION:
-        setCondition((Condition)null);
-        return;
-    }
-    super.eUnset(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public boolean eIsSet(int featureID)
-  {
-    switch (featureID)
-    {
-      case NlToSqlPackage.UPDATE_STATEMENT__UPDATE_ITEM:
-        return updateItem != null && !updateItem.isEmpty();
-      case NlToSqlPackage.UPDATE_STATEMENT__CONDITION:
-        return condition != null;
-    }
-    return super.eIsSet(featureID);
   }
 
 } //UpdateStatementImpl

@@ -72,7 +72,13 @@ public class NlToSqlFactoryImpl extends EFactoryImpl implements NlToSqlFactory
       case NlToSqlPackage.TABLE: return createTable();
       case NlToSqlPackage.COLUMN: return createColumn();
       case NlToSqlPackage.SELECT_STATEMENT: return createSelectStatement();
+      case NlToSqlPackage.INSERT_STATEMENT: return createInsertStatement();
+      case NlToSqlPackage.UPDATE_STATEMENT: return createUpdateStatement();
+      case NlToSqlPackage.SELECT_UPDATE_LIST: return createSelectUpdateList();
+      case NlToSqlPackage.UPDATE_ITEM: return createUpdateItem();
+      case NlToSqlPackage.INSER_VALUES: return createInserValues();
       case NlToSqlPackage.SELECT_TABLES_LIST: return createSelectTablesList();
+      case NlToSqlPackage.SELECT_TABLE: return createSelectTable();
       case NlToSqlPackage.SELECT_COLUMNS_LIST: return createSelectColumnsList();
       case NlToSqlPackage.COLUMN_REFERENCE: return createColumnReference();
       case NlToSqlPackage.LOGIC_EXPRESSIONS: return createLogicExpressions();
@@ -172,10 +178,82 @@ public class NlToSqlFactoryImpl extends EFactoryImpl implements NlToSqlFactory
    * @generated
    */
   @Override
+  public InsertStatement createInsertStatement()
+  {
+    InsertStatementImpl insertStatement = new InsertStatementImpl();
+    return insertStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public UpdateStatement createUpdateStatement()
+  {
+    UpdateStatementImpl updateStatement = new UpdateStatementImpl();
+    return updateStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SelectUpdateList createSelectUpdateList()
+  {
+    SelectUpdateListImpl selectUpdateList = new SelectUpdateListImpl();
+    return selectUpdateList;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public UpdateItem createUpdateItem()
+  {
+    UpdateItemImpl updateItem = new UpdateItemImpl();
+    return updateItem;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public InserValues createInserValues()
+  {
+    InserValuesImpl inserValues = new InserValuesImpl();
+    return inserValues;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public SelectTablesList createSelectTablesList()
   {
     SelectTablesListImpl selectTablesList = new SelectTablesListImpl();
     return selectTablesList;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SelectTable createSelectTable()
+  {
+    SelectTableImpl selectTable = new SelectTableImpl();
+    return selectTable;
   }
 
   /**

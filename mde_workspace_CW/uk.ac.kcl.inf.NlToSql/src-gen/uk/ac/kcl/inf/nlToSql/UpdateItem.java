@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link uk.ac.kcl.inf.nlToSql.UpdateItem#getProperty <em>Property</em>}</li>
+ *   <li>{@link uk.ac.kcl.inf.nlToSql.UpdateItem#getColumn <em>Column</em>}</li>
  *   <li>{@link uk.ac.kcl.inf.nlToSql.UpdateItem#getValue <em>Value</em>}</li>
  * </ul>
  *
@@ -25,26 +25,26 @@ import org.eclipse.emf.ecore.EObject;
 public interface UpdateItem extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Property</b></em>' reference.
+   * Returns the value of the '<em><b>Column</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Property</em>' reference.
-   * @see #setProperty(Property)
-   * @see uk.ac.kcl.inf.nlToSql.NlToSqlPackage#getUpdateItem_Property()
-   * @model
+   * @return the value of the '<em>Column</em>' containment reference.
+   * @see #setColumn(ColumnReference)
+   * @see uk.ac.kcl.inf.nlToSql.NlToSqlPackage#getUpdateItem_Column()
+   * @model containment="true"
    * @generated
    */
-  Property getProperty();
+  ColumnReference getColumn();
 
   /**
-   * Sets the value of the '{@link uk.ac.kcl.inf.nlToSql.UpdateItem#getProperty <em>Property</em>}' reference.
+   * Sets the value of the '{@link uk.ac.kcl.inf.nlToSql.UpdateItem#getColumn <em>Column</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Property</em>' reference.
-   * @see #getProperty()
+   * @param value the new value of the '<em>Column</em>' containment reference.
+   * @see #getColumn()
    * @generated
    */
-  void setProperty(Property value);
+  void setColumn(ColumnReference value);
 
   /**
    * Returns the value of the '<em><b>Value</b></em>' attribute.

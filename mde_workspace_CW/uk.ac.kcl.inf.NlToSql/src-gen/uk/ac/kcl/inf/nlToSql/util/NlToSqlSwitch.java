@@ -124,12 +124,59 @@ public class NlToSqlSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case NlToSqlPackage.INSERT_STATEMENT:
+      {
+        InsertStatement insertStatement = (InsertStatement)theEObject;
+        T result = caseInsertStatement(insertStatement);
+        if (result == null) result = caseStatement(insertStatement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case NlToSqlPackage.UPDATE_STATEMENT:
+      {
+        UpdateStatement updateStatement = (UpdateStatement)theEObject;
+        T result = caseUpdateStatement(updateStatement);
+        if (result == null) result = caseStatement(updateStatement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case NlToSqlPackage.SELECT_UPDATE_LIST:
+      {
+        SelectUpdateList selectUpdateList = (SelectUpdateList)theEObject;
+        T result = caseSelectUpdateList(selectUpdateList);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case NlToSqlPackage.UPDATE_ITEM:
+      {
+        UpdateItem updateItem = (UpdateItem)theEObject;
+        T result = caseUpdateItem(updateItem);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case NlToSqlPackage.INSER_VALUES:
+      {
+        InserValues inserValues = (InserValues)theEObject;
+        T result = caseInserValues(inserValues);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case NlToSqlPackage.SELECT_TABLES_LIST:
       {
         SelectTablesList selectTablesList = (SelectTablesList)theEObject;
         T result = caseSelectTablesList(selectTablesList);
         if (result == null) result = caseSelectStatement(selectTablesList);
         if (result == null) result = caseStatement(selectTablesList);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case NlToSqlPackage.SELECT_TABLE:
+      {
+        SelectTable selectTable = (SelectTable)theEObject;
+        T result = caseSelectTable(selectTable);
+        if (result == null) result = caseInsertStatement(selectTable);
+        if (result == null) result = caseUpdateStatement(selectTable);
+        if (result == null) result = caseStatement(selectTable);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -279,6 +326,86 @@ public class NlToSqlSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Insert Statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Insert Statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseInsertStatement(InsertStatement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Update Statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Update Statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseUpdateStatement(UpdateStatement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Select Update List</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Select Update List</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSelectUpdateList(SelectUpdateList object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Update Item</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Update Item</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseUpdateItem(UpdateItem object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Inser Values</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Inser Values</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseInserValues(InserValues object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Select Tables List</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -290,6 +417,22 @@ public class NlToSqlSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseSelectTablesList(SelectTablesList object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Select Table</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Select Table</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSelectTable(SelectTable object)
   {
     return null;
   }
