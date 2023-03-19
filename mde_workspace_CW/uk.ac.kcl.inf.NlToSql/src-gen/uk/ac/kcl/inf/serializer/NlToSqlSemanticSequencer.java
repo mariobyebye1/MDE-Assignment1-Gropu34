@@ -73,12 +73,16 @@ public class NlToSqlSemanticSequencer extends AbstractDelegatingSemanticSequence
 				sequence_SelectColumnsList(context, (SelectColumnsList) semanticObject); 
 				return; 
 			case NlToSqlPackage.SELECT_TABLE:
-				if (rule == grammarAccess.getInsertStatementRule()) {
-					sequence_InsertStatement_SelectTable(context, (SelectTable) semanticObject); 
+				if (rule == grammarAccess.getStatementRule()) {
+					sequence_DeleteStatement_InsertStatement_SelectTable_UpdateStatement(context, (SelectTable) semanticObject); 
 					return; 
 				}
-				else if (rule == grammarAccess.getStatementRule()) {
-					sequence_InsertStatement_SelectTable_UpdateStatement(context, (SelectTable) semanticObject); 
+				else if (rule == grammarAccess.getDeleteStatementRule()) {
+					sequence_DeleteStatement_SelectTable(context, (SelectTable) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getInsertStatementRule()) {
+					sequence_InsertStatement_SelectTable(context, (SelectTable) semanticObject); 
 					return; 
 				}
 				else if (rule == grammarAccess.getSelectTableRule()) {
@@ -226,6 +230,30 @@ public class NlToSqlSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Contexts:
+	 *     Statement returns SelectTable
+	 *
+	 * Constraint:
+	 *     (table=[Table|ID] ((columns=SelectColumnsList values=InserValues) | (updates=SelectUpdateList condition=Condition?) | condition=Condition)?)
+	 */
+	protected void sequence_DeleteStatement_InsertStatement_SelectTable_UpdateStatement(ISerializationContext context, SelectTable semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     DeleteStatement returns SelectTable
+	 *
+	 * Constraint:
+	 *     (table=[Table|ID] condition=Condition?)
+	 */
+	protected void sequence_DeleteStatement_SelectTable(ISerializationContext context, SelectTable semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     InserValues returns InserValues
 	 *
 	 * Constraint:
@@ -254,21 +282,9 @@ public class NlToSqlSemanticSequencer extends AbstractDelegatingSemanticSequence
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getSelectTableAccess().getTableTableIDTerminalRuleCall_0_1(), semanticObject.eGet(NlToSqlPackage.Literals.SELECT_TABLE__TABLE, false));
-		feeder.accept(grammarAccess.getInsertStatementAccess().getColumnsSelectColumnsListParserRuleCall_7_0(), semanticObject.getColumns());
-		feeder.accept(grammarAccess.getInsertStatementAccess().getValuesInserValuesParserRuleCall_12_0(), semanticObject.getValues());
+		feeder.accept(grammarAccess.getInsertStatementAccess().getColumnsSelectColumnsListParserRuleCall_8_0(), semanticObject.getColumns());
+		feeder.accept(grammarAccess.getInsertStatementAccess().getValuesInserValuesParserRuleCall_13_0(), semanticObject.getValues());
 		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Statement returns SelectTable
-	 *
-	 * Constraint:
-	 *     (table=[Table|ID] ((columns=SelectColumnsList values=InserValues) | (updates=SelectUpdateList condition=Condition?)))
-	 */
-	protected void sequence_InsertStatement_SelectTable_UpdateStatement(ISerializationContext context, SelectTable semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -384,8 +400,8 @@ public class NlToSqlSemanticSequencer extends AbstractDelegatingSemanticSequence
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, NlToSqlPackage.Literals.UPDATE_ITEM__VALUE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getUpdateItemAccess().getColumnColumnReferenceParserRuleCall_1_0(), semanticObject.getColumn());
-		feeder.accept(grammarAccess.getUpdateItemAccess().getValueValueParserRuleCall_3_0(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getUpdateItemAccess().getColumnColumnReferenceParserRuleCall_0_0(), semanticObject.getColumn());
+		feeder.accept(grammarAccess.getUpdateItemAccess().getValueValueParserRuleCall_2_0(), semanticObject.getValue());
 		feeder.finish();
 	}
 	

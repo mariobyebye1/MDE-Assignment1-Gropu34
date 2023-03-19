@@ -16,6 +16,7 @@ import uk.ac.kcl.inf.nlToSql.ColumnList;
 import uk.ac.kcl.inf.nlToSql.ColumnReference;
 import uk.ac.kcl.inf.nlToSql.Comparison;
 import uk.ac.kcl.inf.nlToSql.CreateTableStatement;
+import uk.ac.kcl.inf.nlToSql.DeleteStatement;
 import uk.ac.kcl.inf.nlToSql.InserValues;
 import uk.ac.kcl.inf.nlToSql.InsertStatement;
 import uk.ac.kcl.inf.nlToSql.LogicExpressions;
@@ -101,6 +102,13 @@ public class NlToSqlPackageImpl extends EPackageImpl implements NlToSqlPackage
    * @generated
    */
   private EClass updateStatementEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass deleteStatementEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -402,6 +410,17 @@ public class NlToSqlPackageImpl extends EPackageImpl implements NlToSqlPackage
   public EClass getUpdateStatement()
   {
     return updateStatementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getDeleteStatement()
+  {
+    return deleteStatementEClass;
   }
 
   /**
@@ -790,6 +809,8 @@ public class NlToSqlPackageImpl extends EPackageImpl implements NlToSqlPackage
 
     updateStatementEClass = createEClass(UPDATE_STATEMENT);
 
+    deleteStatementEClass = createEClass(DELETE_STATEMENT);
+
     selectUpdateListEClass = createEClass(SELECT_UPDATE_LIST);
     createEReference(selectUpdateListEClass, SELECT_UPDATE_LIST__UPDATE_ITEM);
 
@@ -863,9 +884,11 @@ public class NlToSqlPackageImpl extends EPackageImpl implements NlToSqlPackage
     selectStatementEClass.getESuperTypes().add(this.getStatement());
     insertStatementEClass.getESuperTypes().add(this.getStatement());
     updateStatementEClass.getESuperTypes().add(this.getStatement());
+    deleteStatementEClass.getESuperTypes().add(this.getStatement());
     selectTablesListEClass.getESuperTypes().add(this.getSelectStatement());
     selectTableEClass.getESuperTypes().add(this.getInsertStatement());
     selectTableEClass.getESuperTypes().add(this.getUpdateStatement());
+    selectTableEClass.getESuperTypes().add(this.getDeleteStatement());
     comparisonEClass.getESuperTypes().add(this.getLogicExpressions());
 
     // Initialize classes and features; add operations and parameters
@@ -893,6 +916,8 @@ public class NlToSqlPackageImpl extends EPackageImpl implements NlToSqlPackage
     initEClass(insertStatementEClass, InsertStatement.class, "InsertStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(updateStatementEClass, UpdateStatement.class, "UpdateStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(deleteStatementEClass, DeleteStatement.class, "DeleteStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(selectUpdateListEClass, SelectUpdateList.class, "SelectUpdateList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getSelectUpdateList_UpdateItem(), this.getUpdateItem(), null, "updateItem", null, 0, -1, SelectUpdateList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

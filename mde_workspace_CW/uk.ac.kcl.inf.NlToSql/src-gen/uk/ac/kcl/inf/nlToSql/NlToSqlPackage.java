@@ -292,6 +292,25 @@ public interface NlToSqlPackage extends EPackage
   int UPDATE_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 0;
 
   /**
+   * The meta object id for the '{@link uk.ac.kcl.inf.nlToSql.impl.DeleteStatementImpl <em>Delete Statement</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see uk.ac.kcl.inf.nlToSql.impl.DeleteStatementImpl
+   * @see uk.ac.kcl.inf.nlToSql.impl.NlToSqlPackageImpl#getDeleteStatement()
+   * @generated
+   */
+  int DELETE_STATEMENT = 9;
+
+  /**
+   * The number of structural features of the '<em>Delete Statement</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DELETE_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 0;
+
+  /**
    * The meta object id for the '{@link uk.ac.kcl.inf.nlToSql.impl.SelectUpdateListImpl <em>Select Update List</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -299,7 +318,7 @@ public interface NlToSqlPackage extends EPackage
    * @see uk.ac.kcl.inf.nlToSql.impl.NlToSqlPackageImpl#getSelectUpdateList()
    * @generated
    */
-  int SELECT_UPDATE_LIST = 9;
+  int SELECT_UPDATE_LIST = 10;
 
   /**
    * The feature id for the '<em><b>Update Item</b></em>' containment reference list.
@@ -327,7 +346,7 @@ public interface NlToSqlPackage extends EPackage
    * @see uk.ac.kcl.inf.nlToSql.impl.NlToSqlPackageImpl#getUpdateItem()
    * @generated
    */
-  int UPDATE_ITEM = 10;
+  int UPDATE_ITEM = 11;
 
   /**
    * The feature id for the '<em><b>Column</b></em>' containment reference.
@@ -364,7 +383,7 @@ public interface NlToSqlPackage extends EPackage
    * @see uk.ac.kcl.inf.nlToSql.impl.NlToSqlPackageImpl#getInserValues()
    * @generated
    */
-  int INSER_VALUES = 11;
+  int INSER_VALUES = 12;
 
   /**
    * The feature id for the '<em><b>Value List</b></em>' attribute list.
@@ -392,7 +411,7 @@ public interface NlToSqlPackage extends EPackage
    * @see uk.ac.kcl.inf.nlToSql.impl.NlToSqlPackageImpl#getSelectTablesList()
    * @generated
    */
-  int SELECT_TABLES_LIST = 12;
+  int SELECT_TABLES_LIST = 13;
 
   /**
    * The feature id for the '<em><b>Columns</b></em>' containment reference.
@@ -447,7 +466,7 @@ public interface NlToSqlPackage extends EPackage
    * @see uk.ac.kcl.inf.nlToSql.impl.NlToSqlPackageImpl#getSelectTable()
    * @generated
    */
-  int SELECT_TABLE = 13;
+  int SELECT_TABLE = 14;
 
   /**
    * The feature id for the '<em><b>Columns</b></em>' containment reference.
@@ -511,7 +530,7 @@ public interface NlToSqlPackage extends EPackage
    * @see uk.ac.kcl.inf.nlToSql.impl.NlToSqlPackageImpl#getSelectColumnsList()
    * @generated
    */
-  int SELECT_COLUMNS_LIST = 14;
+  int SELECT_COLUMNS_LIST = 15;
 
   /**
    * The feature id for the '<em><b>Select Column</b></em>' containment reference list.
@@ -539,7 +558,7 @@ public interface NlToSqlPackage extends EPackage
    * @see uk.ac.kcl.inf.nlToSql.impl.NlToSqlPackageImpl#getColumnReference()
    * @generated
    */
-  int COLUMN_REFERENCE = 15;
+  int COLUMN_REFERENCE = 16;
 
   /**
    * The feature id for the '<em><b>Column</b></em>' reference.
@@ -576,7 +595,7 @@ public interface NlToSqlPackage extends EPackage
    * @see uk.ac.kcl.inf.nlToSql.impl.NlToSqlPackageImpl#getLogicExpressions()
    * @generated
    */
-  int LOGIC_EXPRESSIONS = 16;
+  int LOGIC_EXPRESSIONS = 17;
 
   /**
    * The feature id for the '<em><b>Left Hand Side</b></em>' reference.
@@ -622,7 +641,7 @@ public interface NlToSqlPackage extends EPackage
    * @see uk.ac.kcl.inf.nlToSql.impl.NlToSqlPackageImpl#getComparison()
    * @generated
    */
-  int COMPARISON = 17;
+  int COMPARISON = 18;
 
   /**
    * The feature id for the '<em><b>Left Hand Side</b></em>' reference.
@@ -845,6 +864,16 @@ public interface NlToSqlPackage extends EPackage
    * @generated
    */
   EClass getUpdateStatement();
+
+  /**
+   * Returns the meta object for class '{@link uk.ac.kcl.inf.nlToSql.DeleteStatement <em>Delete Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Delete Statement</em>'.
+   * @see uk.ac.kcl.inf.nlToSql.DeleteStatement
+   * @generated
+   */
+  EClass getDeleteStatement();
 
   /**
    * Returns the meta object for class '{@link uk.ac.kcl.inf.nlToSql.SelectUpdateList <em>Select Update List</em>}'.
@@ -1335,6 +1364,16 @@ public interface NlToSqlPackage extends EPackage
      * @generated
      */
     EClass UPDATE_STATEMENT = eINSTANCE.getUpdateStatement();
+
+    /**
+     * The meta object literal for the '{@link uk.ac.kcl.inf.nlToSql.impl.DeleteStatementImpl <em>Delete Statement</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see uk.ac.kcl.inf.nlToSql.impl.DeleteStatementImpl
+     * @see uk.ac.kcl.inf.nlToSql.impl.NlToSqlPackageImpl#getDeleteStatement()
+     * @generated
+     */
+    EClass DELETE_STATEMENT = eINSTANCE.getDeleteStatement();
 
     /**
      * The meta object literal for the '{@link uk.ac.kcl.inf.nlToSql.impl.SelectUpdateListImpl <em>Select Update List</em>}' class.

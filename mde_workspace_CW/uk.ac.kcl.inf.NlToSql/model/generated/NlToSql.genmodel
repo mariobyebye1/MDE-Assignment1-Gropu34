@@ -27,6 +27,7 @@
     <genClasses ecoreClass="NlToSql.ecore#//SelectStatement"/>
     <genClasses ecoreClass="NlToSql.ecore#//InsertStatement"/>
     <genClasses ecoreClass="NlToSql.ecore#//UpdateStatement"/>
+    <genClasses ecoreClass="NlToSql.ecore#//DeleteStatement"/>
     <genClasses ecoreClass="NlToSql.ecore#//SelectUpdateList">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference NlToSql.ecore#//SelectUpdateList/updateItem"/>
     </genClasses>

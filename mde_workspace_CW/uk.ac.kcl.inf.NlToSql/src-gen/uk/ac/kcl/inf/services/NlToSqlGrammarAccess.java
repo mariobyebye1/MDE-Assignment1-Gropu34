@@ -49,19 +49,19 @@ public class NlToSqlGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 		private final RuleCall cSelectStatementParserRuleCall_0_1 = (RuleCall)cAlternatives_0.eContents().get(1);
 		private final RuleCall cInsertStatementParserRuleCall_0_2 = (RuleCall)cAlternatives_0.eContents().get(2);
 		private final RuleCall cUpdateStatementParserRuleCall_0_3 = (RuleCall)cAlternatives_0.eContents().get(3);
+		private final RuleCall cDeleteStatementParserRuleCall_0_4 = (RuleCall)cAlternatives_0.eContents().get(4);
 		private final Keyword cFullStopKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		
 		//// Define the Statement rule
 		//Statement:
-		//    (CreateTableStatement | SelectStatement | InsertStatement | UpdateStatement)'.'
-		////           | DeleteStatement
+		//    (CreateTableStatement | SelectStatement | InsertStatement | UpdateStatement | DeleteStatement)'.'
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//(CreateTableStatement | SelectStatement | InsertStatement | UpdateStatement)'.'
+		//(CreateTableStatement | SelectStatement | InsertStatement | UpdateStatement | DeleteStatement)'.'
 		public Group getGroup() { return cGroup; }
 		
-		//(CreateTableStatement | SelectStatement | InsertStatement | UpdateStatement)
+		//(CreateTableStatement | SelectStatement | InsertStatement | UpdateStatement | DeleteStatement)
 		public Alternatives getAlternatives_0() { return cAlternatives_0; }
 		
 		//CreateTableStatement
@@ -76,6 +76,9 @@ public class NlToSqlGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 		//UpdateStatement
 		public RuleCall getUpdateStatementParserRuleCall_0_3() { return cUpdateStatementParserRuleCall_0_3; }
 		
+		//DeleteStatement
+		public RuleCall getDeleteStatementParserRuleCall_0_4() { return cDeleteStatementParserRuleCall_0_4; }
+		
 		//'.'
 		public Keyword getFullStopKeyword_1() { return cFullStopKeyword_1; }
 	}
@@ -83,60 +86,56 @@ public class NlToSqlGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.NlToSql.CreateTableStatement");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cCreateKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final RuleCall cTheAParserRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
-		private final Keyword cTableKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Keyword cCalledKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cTableAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cTableTableParserRuleCall_4_0 = (RuleCall)cTableAssignment_4.eContents().get(0);
-		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
-		private final Keyword cWithKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
-		private final Keyword cColumnsKeyword_5_1 = (Keyword)cGroup_5.eContents().get(1);
-		private final Assignment cColumnsAssignment_5_2 = (Assignment)cGroup_5.eContents().get(2);
-		private final RuleCall cColumnsColumnListParserRuleCall_5_2_0 = (RuleCall)cColumnsAssignment_5_2.eContents().get(0);
+		private final Keyword cTableKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cCalledKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cTableAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cTableTableParserRuleCall_3_0 = (RuleCall)cTableAssignment_3.eContents().get(0);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cWithKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Keyword cColumnsKeyword_4_1 = (Keyword)cGroup_4.eContents().get(1);
+		private final Assignment cColumnsAssignment_4_2 = (Assignment)cGroup_4.eContents().get(2);
+		private final RuleCall cColumnsColumnListParserRuleCall_4_2_0 = (RuleCall)cColumnsAssignment_4_2.eContents().get(0);
 		
 		//// Define the table creation rule
 		//CreateTableStatement:
-		//  'Create' TheA 'table' 'called' table=Table
+		//  'Create' 'table' 'called' table=Table
 		//  ('with' 'columns' columns=ColumnList)?
 		// ;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Create' TheA 'table' 'called' table=Table
+		//'Create' 'table' 'called' table=Table
 		//('with' 'columns' columns=ColumnList)?
 		public Group getGroup() { return cGroup; }
 		
 		//'Create'
 		public Keyword getCreateKeyword_0() { return cCreateKeyword_0; }
 		
-		//TheA
-		public RuleCall getTheAParserRuleCall_1() { return cTheAParserRuleCall_1; }
-		
 		//'table'
-		public Keyword getTableKeyword_2() { return cTableKeyword_2; }
+		public Keyword getTableKeyword_1() { return cTableKeyword_1; }
 		
 		//'called'
-		public Keyword getCalledKeyword_3() { return cCalledKeyword_3; }
+		public Keyword getCalledKeyword_2() { return cCalledKeyword_2; }
 		
 		//table=Table
-		public Assignment getTableAssignment_4() { return cTableAssignment_4; }
+		public Assignment getTableAssignment_3() { return cTableAssignment_3; }
 		
 		//Table
-		public RuleCall getTableTableParserRuleCall_4_0() { return cTableTableParserRuleCall_4_0; }
+		public RuleCall getTableTableParserRuleCall_3_0() { return cTableTableParserRuleCall_3_0; }
 		
 		//('with' 'columns' columns=ColumnList)?
-		public Group getGroup_5() { return cGroup_5; }
+		public Group getGroup_4() { return cGroup_4; }
 		
 		//'with'
-		public Keyword getWithKeyword_5_0() { return cWithKeyword_5_0; }
+		public Keyword getWithKeyword_4_0() { return cWithKeyword_4_0; }
 		
 		//'columns'
-		public Keyword getColumnsKeyword_5_1() { return cColumnsKeyword_5_1; }
+		public Keyword getColumnsKeyword_4_1() { return cColumnsKeyword_4_1; }
 		
 		//columns=ColumnList
-		public Assignment getColumnsAssignment_5_2() { return cColumnsAssignment_5_2; }
+		public Assignment getColumnsAssignment_4_2() { return cColumnsAssignment_4_2; }
 		
 		//ColumnList
-		public RuleCall getColumnsColumnListParserRuleCall_5_2_0() { return cColumnsColumnListParserRuleCall_5_2_0; }
+		public RuleCall getColumnsColumnListParserRuleCall_4_2_0() { return cColumnsColumnListParserRuleCall_4_2_0; }
 	}
 	public class ColumnListElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.NlToSql.ColumnList");
@@ -233,6 +232,7 @@ public class NlToSqlGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 		private final Keyword cStringKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
 		private final Keyword cDateKeyword_2 = (Keyword)cAlternatives.eContents().get(2);
 		
+		//// Change datatype structure
 		//Datatype:
 		//  'integer' | 'string' | 'date'
 		// ;
@@ -368,30 +368,31 @@ public class NlToSqlGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cInsertKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Keyword cIntoKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final RuleCall cTheTableParserRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
-		private final RuleCall cSelectTableParserRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
-		private final Keyword cForKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final Keyword cTheKeyword_5 = (Keyword)cGroup.eContents().get(5);
-		private final Keyword cColumnsKeyword_6 = (Keyword)cGroup.eContents().get(6);
-		private final Assignment cColumnsAssignment_7 = (Assignment)cGroup.eContents().get(7);
-		private final RuleCall cColumnsSelectColumnsListParserRuleCall_7_0 = (RuleCall)cColumnsAssignment_7.eContents().get(0);
-		private final Keyword cInsertKeyword_8 = (Keyword)cGroup.eContents().get(8);
-		private final Keyword cTheKeyword_9 = (Keyword)cGroup.eContents().get(9);
-		private final Keyword cValuesKeyword_10 = (Keyword)cGroup.eContents().get(10);
-		private final Keyword cLeftParenthesisKeyword_11 = (Keyword)cGroup.eContents().get(11);
-		private final Assignment cValuesAssignment_12 = (Assignment)cGroup.eContents().get(12);
-		private final RuleCall cValuesInserValuesParserRuleCall_12_0 = (RuleCall)cValuesAssignment_12.eContents().get(0);
-		private final Keyword cRightParenthesisKeyword_13 = (Keyword)cGroup.eContents().get(13);
+		private final Keyword cTheKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Keyword cTableKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final RuleCall cSelectTableParserRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final Keyword cForKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Keyword cTheKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Keyword cColumnsKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Assignment cColumnsAssignment_8 = (Assignment)cGroup.eContents().get(8);
+		private final RuleCall cColumnsSelectColumnsListParserRuleCall_8_0 = (RuleCall)cColumnsAssignment_8.eContents().get(0);
+		private final Keyword cInsertKeyword_9 = (Keyword)cGroup.eContents().get(9);
+		private final Keyword cTheKeyword_10 = (Keyword)cGroup.eContents().get(10);
+		private final Keyword cValuesKeyword_11 = (Keyword)cGroup.eContents().get(11);
+		private final Keyword cLeftParenthesisKeyword_12 = (Keyword)cGroup.eContents().get(12);
+		private final Assignment cValuesAssignment_13 = (Assignment)cGroup.eContents().get(13);
+		private final RuleCall cValuesInserValuesParserRuleCall_13_0 = (RuleCall)cValuesAssignment_13.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_14 = (Keyword)cGroup.eContents().get(14);
 		
 		//// Define the InsertStatement rule
 		//InsertStatement:
-		//     'Insert' 'into' TheTable SelectTable
+		//     'Insert' 'into' 'the' 'table' SelectTable
 		//    'for' 'the' 'columns' columns = SelectColumnsList
 		//    'insert' 'the' 'values' '(' values = InserValues ')'
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		// 'Insert' 'into' TheTable SelectTable
+		// 'Insert' 'into' 'the' 'table' SelectTable
 		//'for' 'the' 'columns' columns = SelectColumnsList
 		//'insert' 'the' 'values' '(' values = InserValues ')'
 		public Group getGroup() { return cGroup; }
@@ -402,72 +403,76 @@ public class NlToSqlGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 		//'into'
 		public Keyword getIntoKeyword_1() { return cIntoKeyword_1; }
 		
-		//TheTable
-		public RuleCall getTheTableParserRuleCall_2() { return cTheTableParserRuleCall_2; }
+		//'the'
+		public Keyword getTheKeyword_2() { return cTheKeyword_2; }
+		
+		//'table'
+		public Keyword getTableKeyword_3() { return cTableKeyword_3; }
 		
 		//SelectTable
-		public RuleCall getSelectTableParserRuleCall_3() { return cSelectTableParserRuleCall_3; }
+		public RuleCall getSelectTableParserRuleCall_4() { return cSelectTableParserRuleCall_4; }
 		
 		//'for'
-		public Keyword getForKeyword_4() { return cForKeyword_4; }
+		public Keyword getForKeyword_5() { return cForKeyword_5; }
 		
 		//'the'
-		public Keyword getTheKeyword_5() { return cTheKeyword_5; }
+		public Keyword getTheKeyword_6() { return cTheKeyword_6; }
 		
 		//'columns'
-		public Keyword getColumnsKeyword_6() { return cColumnsKeyword_6; }
+		public Keyword getColumnsKeyword_7() { return cColumnsKeyword_7; }
 		
 		//columns = SelectColumnsList
-		public Assignment getColumnsAssignment_7() { return cColumnsAssignment_7; }
+		public Assignment getColumnsAssignment_8() { return cColumnsAssignment_8; }
 		
 		//SelectColumnsList
-		public RuleCall getColumnsSelectColumnsListParserRuleCall_7_0() { return cColumnsSelectColumnsListParserRuleCall_7_0; }
+		public RuleCall getColumnsSelectColumnsListParserRuleCall_8_0() { return cColumnsSelectColumnsListParserRuleCall_8_0; }
 		
 		//'insert'
-		public Keyword getInsertKeyword_8() { return cInsertKeyword_8; }
+		public Keyword getInsertKeyword_9() { return cInsertKeyword_9; }
 		
 		//'the'
-		public Keyword getTheKeyword_9() { return cTheKeyword_9; }
+		public Keyword getTheKeyword_10() { return cTheKeyword_10; }
 		
 		//'values'
-		public Keyword getValuesKeyword_10() { return cValuesKeyword_10; }
+		public Keyword getValuesKeyword_11() { return cValuesKeyword_11; }
 		
 		//'('
-		public Keyword getLeftParenthesisKeyword_11() { return cLeftParenthesisKeyword_11; }
+		public Keyword getLeftParenthesisKeyword_12() { return cLeftParenthesisKeyword_12; }
 		
 		//values = InserValues
-		public Assignment getValuesAssignment_12() { return cValuesAssignment_12; }
+		public Assignment getValuesAssignment_13() { return cValuesAssignment_13; }
 		
 		//InserValues
-		public RuleCall getValuesInserValuesParserRuleCall_12_0() { return cValuesInserValuesParserRuleCall_12_0; }
+		public RuleCall getValuesInserValuesParserRuleCall_13_0() { return cValuesInserValuesParserRuleCall_13_0; }
 		
 		//')'
-		public Keyword getRightParenthesisKeyword_13() { return cRightParenthesisKeyword_13; }
+		public Keyword getRightParenthesisKeyword_14() { return cRightParenthesisKeyword_14; }
 	}
 	public class UpdateStatementElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.NlToSql.UpdateStatement");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cUpdateKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final RuleCall cTheTableParserRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
-		private final RuleCall cSelectTableParserRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
-		private final Keyword cToKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Keyword cSetKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final Assignment cUpdatesAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cUpdatesSelectUpdateListParserRuleCall_5_0 = (RuleCall)cUpdatesAssignment_5.eContents().get(0);
-		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
-		private final Keyword cWhereKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
-		private final Assignment cConditionAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
-		private final RuleCall cConditionConditionParserRuleCall_6_1_0 = (RuleCall)cConditionAssignment_6_1.eContents().get(0);
+		private final Keyword cTheKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cTableKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final RuleCall cSelectTableParserRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
+		private final Keyword cToKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Keyword cSetKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Assignment cUpdatesAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cUpdatesSelectUpdateListParserRuleCall_6_0 = (RuleCall)cUpdatesAssignment_6.eContents().get(0);
+		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
+		private final Keyword cWhereKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
+		private final Assignment cConditionAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
+		private final RuleCall cConditionConditionParserRuleCall_7_1_0 = (RuleCall)cConditionAssignment_7_1.eContents().get(0);
 		
 		//// Define the UpdateStatement rule
 		//UpdateStatement:
-		//    'Update' TheTable SelectTable
+		//    'Update' 'the' 'table' SelectTable
 		//    'to''set' updates = SelectUpdateList
 		//    ('where' condition=Condition)?
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Update' TheTable SelectTable
+		//'Update' 'the' 'table' SelectTable
 		//'to''set' updates = SelectUpdateList
 		//('where' condition=Condition)?
 		public Group getGroup() { return cGroup; }
@@ -475,35 +480,138 @@ public class NlToSqlGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 		//'Update'
 		public Keyword getUpdateKeyword_0() { return cUpdateKeyword_0; }
 		
-		//TheTable
-		public RuleCall getTheTableParserRuleCall_1() { return cTheTableParserRuleCall_1; }
+		//'the'
+		public Keyword getTheKeyword_1() { return cTheKeyword_1; }
+		
+		//'table'
+		public Keyword getTableKeyword_2() { return cTableKeyword_2; }
 		
 		//SelectTable
-		public RuleCall getSelectTableParserRuleCall_2() { return cSelectTableParserRuleCall_2; }
+		public RuleCall getSelectTableParserRuleCall_3() { return cSelectTableParserRuleCall_3; }
 		
 		//'to'
-		public Keyword getToKeyword_3() { return cToKeyword_3; }
+		public Keyword getToKeyword_4() { return cToKeyword_4; }
 		
 		//'set'
-		public Keyword getSetKeyword_4() { return cSetKeyword_4; }
+		public Keyword getSetKeyword_5() { return cSetKeyword_5; }
 		
 		//updates = SelectUpdateList
-		public Assignment getUpdatesAssignment_5() { return cUpdatesAssignment_5; }
+		public Assignment getUpdatesAssignment_6() { return cUpdatesAssignment_6; }
 		
 		//SelectUpdateList
-		public RuleCall getUpdatesSelectUpdateListParserRuleCall_5_0() { return cUpdatesSelectUpdateListParserRuleCall_5_0; }
+		public RuleCall getUpdatesSelectUpdateListParserRuleCall_6_0() { return cUpdatesSelectUpdateListParserRuleCall_6_0; }
 		
 		//('where' condition=Condition)?
-		public Group getGroup_6() { return cGroup_6; }
+		public Group getGroup_7() { return cGroup_7; }
 		
 		//'where'
-		public Keyword getWhereKeyword_6_0() { return cWhereKeyword_6_0; }
+		public Keyword getWhereKeyword_7_0() { return cWhereKeyword_7_0; }
 		
 		//condition=Condition
-		public Assignment getConditionAssignment_6_1() { return cConditionAssignment_6_1; }
+		public Assignment getConditionAssignment_7_1() { return cConditionAssignment_7_1; }
 		
 		//Condition
-		public RuleCall getConditionConditionParserRuleCall_6_1_0() { return cConditionConditionParserRuleCall_6_1_0; }
+		public RuleCall getConditionConditionParserRuleCall_7_1_0() { return cConditionConditionParserRuleCall_7_1_0; }
+	}
+	public class DeleteStatementElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.NlToSql.DeleteStatement");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
+		private final Keyword cDeleteKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
+		private final Keyword cTheKeyword_0_1 = (Keyword)cGroup_0.eContents().get(1);
+		private final Keyword cTableKeyword_0_2 = (Keyword)cGroup_0.eContents().get(2);
+		private final RuleCall cSelectTableParserRuleCall_0_3 = (RuleCall)cGroup_0.eContents().get(3);
+		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
+		private final Keyword cEmptyKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final Keyword cTheKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
+		private final Keyword cTableKeyword_1_2 = (Keyword)cGroup_1.eContents().get(2);
+		private final RuleCall cSelectTableParserRuleCall_1_3 = (RuleCall)cGroup_1.eContents().get(3);
+		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
+		private final Keyword cDeleteKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Keyword cRecordsKeyword_2_1 = (Keyword)cGroup_2.eContents().get(1);
+		private final Keyword cFromKeyword_2_2 = (Keyword)cGroup_2.eContents().get(2);
+		private final Keyword cTheKeyword_2_3 = (Keyword)cGroup_2.eContents().get(3);
+		private final Keyword cTableKeyword_2_4 = (Keyword)cGroup_2.eContents().get(4);
+		private final RuleCall cSelectTableParserRuleCall_2_5 = (RuleCall)cGroup_2.eContents().get(5);
+		private final Keyword cWhereKeyword_2_6 = (Keyword)cGroup_2.eContents().get(6);
+		private final Assignment cConditionAssignment_2_7 = (Assignment)cGroup_2.eContents().get(7);
+		private final RuleCall cConditionConditionParserRuleCall_2_7_0 = (RuleCall)cConditionAssignment_2_7.eContents().get(0);
+		
+		//// Define the DeleteStatement rule
+		//DeleteStatement:
+		//    ('Delete' 'the' 'table' SelectTable) |
+		//    ('Empty' 'the' 'table' SelectTable) |
+		//    ('Delete' 'records' 'from' 'the' 'table' SelectTable
+		//    'where' condition=Condition)
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//('Delete' 'the' 'table' SelectTable) |
+		//('Empty' 'the' 'table' SelectTable) |
+		//('Delete' 'records' 'from' 'the' 'table' SelectTable
+		//'where' condition=Condition)
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//('Delete' 'the' 'table' SelectTable)
+		public Group getGroup_0() { return cGroup_0; }
+		
+		//'Delete'
+		public Keyword getDeleteKeyword_0_0() { return cDeleteKeyword_0_0; }
+		
+		//'the'
+		public Keyword getTheKeyword_0_1() { return cTheKeyword_0_1; }
+		
+		//'table'
+		public Keyword getTableKeyword_0_2() { return cTableKeyword_0_2; }
+		
+		//SelectTable
+		public RuleCall getSelectTableParserRuleCall_0_3() { return cSelectTableParserRuleCall_0_3; }
+		
+		//('Empty' 'the' 'table' SelectTable)
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//'Empty'
+		public Keyword getEmptyKeyword_1_0() { return cEmptyKeyword_1_0; }
+		
+		//'the'
+		public Keyword getTheKeyword_1_1() { return cTheKeyword_1_1; }
+		
+		//'table'
+		public Keyword getTableKeyword_1_2() { return cTableKeyword_1_2; }
+		
+		//SelectTable
+		public RuleCall getSelectTableParserRuleCall_1_3() { return cSelectTableParserRuleCall_1_3; }
+		
+		//('Delete' 'records' 'from' 'the' 'table' SelectTable
+		//'where' condition=Condition)
+		public Group getGroup_2() { return cGroup_2; }
+		
+		//'Delete'
+		public Keyword getDeleteKeyword_2_0() { return cDeleteKeyword_2_0; }
+		
+		//'records'
+		public Keyword getRecordsKeyword_2_1() { return cRecordsKeyword_2_1; }
+		
+		//'from'
+		public Keyword getFromKeyword_2_2() { return cFromKeyword_2_2; }
+		
+		//'the'
+		public Keyword getTheKeyword_2_3() { return cTheKeyword_2_3; }
+		
+		//'table'
+		public Keyword getTableKeyword_2_4() { return cTableKeyword_2_4; }
+		
+		//SelectTable
+		public RuleCall getSelectTableParserRuleCall_2_5() { return cSelectTableParserRuleCall_2_5; }
+		
+		//'where'
+		public Keyword getWhereKeyword_2_6() { return cWhereKeyword_2_6; }
+		
+		//condition=Condition
+		public Assignment getConditionAssignment_2_7() { return cConditionAssignment_2_7; }
+		
+		//Condition
+		public RuleCall getConditionConditionParserRuleCall_2_7_0() { return cConditionConditionParserRuleCall_2_7_0; }
 	}
 	public class SelectUpdateListElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.NlToSql.SelectUpdateList");
@@ -544,39 +652,35 @@ public class NlToSqlGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 	public class UpdateItemElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.NlToSql.UpdateItem");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final RuleCall cTheAParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
-		private final Assignment cColumnAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cColumnColumnReferenceParserRuleCall_1_0 = (RuleCall)cColumnAssignment_1.eContents().get(0);
-		private final Keyword cEqualsSignKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cValueAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cValueValueParserRuleCall_3_0 = (RuleCall)cValueAssignment_3.eContents().get(0);
+		private final Assignment cColumnAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cColumnColumnReferenceParserRuleCall_0_0 = (RuleCall)cColumnAssignment_0.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cValueAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cValueValueParserRuleCall_2_0 = (RuleCall)cValueAssignment_2.eContents().get(0);
 		
 		//// Define the UpdateItem rule
 		//UpdateItem:
-		//    (TheA column=ColumnReference '=' value=Value)
+		//    (column=ColumnReference '=' value=Value)
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//(TheA column=ColumnReference '=' value=Value)
+		//(column=ColumnReference '=' value=Value)
 		public Group getGroup() { return cGroup; }
 		
-		//TheA
-		public RuleCall getTheAParserRuleCall_0() { return cTheAParserRuleCall_0; }
-		
 		//column=ColumnReference
-		public Assignment getColumnAssignment_1() { return cColumnAssignment_1; }
+		public Assignment getColumnAssignment_0() { return cColumnAssignment_0; }
 		
 		//ColumnReference
-		public RuleCall getColumnColumnReferenceParserRuleCall_1_0() { return cColumnColumnReferenceParserRuleCall_1_0; }
+		public RuleCall getColumnColumnReferenceParserRuleCall_0_0() { return cColumnColumnReferenceParserRuleCall_0_0; }
 		
 		//'='
-		public Keyword getEqualsSignKeyword_2() { return cEqualsSignKeyword_2; }
+		public Keyword getEqualsSignKeyword_1() { return cEqualsSignKeyword_1; }
 		
 		//value=Value
-		public Assignment getValueAssignment_3() { return cValueAssignment_3; }
+		public Assignment getValueAssignment_2() { return cValueAssignment_2; }
 		
 		//Value
-		public RuleCall getValueValueParserRuleCall_3_0() { return cValueValueParserRuleCall_3_0; }
+		public RuleCall getValueValueParserRuleCall_2_0() { return cValueValueParserRuleCall_2_0; }
 	}
 	public class InserValuesElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.NlToSql.InserValues");
@@ -873,97 +977,141 @@ public class NlToSqlGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 	public class ComparisonOperatorElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.NlToSql.ComparisonOperator");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final Keyword cEqualsSignKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
+		private final RuleCall cComparisonOperatorSignsParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cComparisonOperatorStringParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		
+		//// Define the ComparisonOperator rule
+		//ComparisonOperator:
+		//    ComparisonOperatorSigns | ComparisonOperatorString
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//ComparisonOperatorSigns | ComparisonOperatorString
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//ComparisonOperatorSigns
+		public RuleCall getComparisonOperatorSignsParserRuleCall_0() { return cComparisonOperatorSignsParserRuleCall_0; }
+		
+		//ComparisonOperatorString
+		public RuleCall getComparisonOperatorStringParserRuleCall_1() { return cComparisonOperatorStringParserRuleCall_1; }
+	}
+	public class ComparisonOperatorStringElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.NlToSql.ComparisonOperatorString");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
+		private final Keyword cIsKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
+		private final Keyword cEqualKeyword_0_1 = (Keyword)cGroup_0.eContents().get(1);
+		private final Keyword cToKeyword_0_2 = (Keyword)cGroup_0.eContents().get(2);
 		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
 		private final Keyword cIsKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
-		private final Keyword cEqualKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
-		private final Keyword cToKeyword_1_2 = (Keyword)cGroup_1.eContents().get(2);
+		private final Keyword cNotKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
+		private final Keyword cEqualKeyword_1_2 = (Keyword)cGroup_1.eContents().get(2);
+		private final Keyword cToKeyword_1_3 = (Keyword)cGroup_1.eContents().get(3);
 		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
-		private final Keyword cIsKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Keyword cNotKeyword_2_1 = (Keyword)cGroup_2.eContents().get(1);
-		private final Keyword cEqualKeyword_2_2 = (Keyword)cGroup_2.eContents().get(2);
-		private final Keyword cToKeyword_2_3 = (Keyword)cGroup_2.eContents().get(3);
+		private final Keyword cLessKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Keyword cThanKeyword_2_1 = (Keyword)cGroup_2.eContents().get(1);
 		private final Group cGroup_3 = (Group)cAlternatives.eContents().get(3);
-		private final Keyword cLessKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Keyword cGreaterKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
 		private final Keyword cThanKeyword_3_1 = (Keyword)cGroup_3.eContents().get(1);
 		private final Group cGroup_4 = (Group)cAlternatives.eContents().get(4);
-		private final Keyword cGreaterKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Keyword cLessKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
 		private final Keyword cThanKeyword_4_1 = (Keyword)cGroup_4.eContents().get(1);
+		private final Keyword cOrKeyword_4_2 = (Keyword)cGroup_4.eContents().get(2);
+		private final Keyword cEqualKeyword_4_3 = (Keyword)cGroup_4.eContents().get(3);
+		private final Keyword cToKeyword_4_4 = (Keyword)cGroup_4.eContents().get(4);
 		private final Group cGroup_5 = (Group)cAlternatives.eContents().get(5);
-		private final Keyword cLessKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final Keyword cGreaterKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
 		private final Keyword cThanKeyword_5_1 = (Keyword)cGroup_5.eContents().get(1);
 		private final Keyword cOrKeyword_5_2 = (Keyword)cGroup_5.eContents().get(2);
 		private final Keyword cEqualKeyword_5_3 = (Keyword)cGroup_5.eContents().get(3);
 		private final Keyword cToKeyword_5_4 = (Keyword)cGroup_5.eContents().get(4);
-		private final Group cGroup_6 = (Group)cAlternatives.eContents().get(6);
-		private final Keyword cGreaterKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
-		private final Keyword cThanKeyword_6_1 = (Keyword)cGroup_6.eContents().get(1);
-		private final Keyword cOrKeyword_6_2 = (Keyword)cGroup_6.eContents().get(2);
-		private final Keyword cEqualKeyword_6_3 = (Keyword)cGroup_6.eContents().get(3);
-		private final Keyword cToKeyword_6_4 = (Keyword)cGroup_6.eContents().get(4);
 		
-		//// Define the ComparisonOperator rule
-		//ComparisonOperator:
-		//    '=' | 'is' 'equal' 'to' | 'is' 'not' 'equal' 'to' | 'less' 'than' | 'greater' 'than' | 'less' 'than' 'or' 'equal' 'to' | 'greater' 'than' 'or' 'equal' 'to'
+		//ComparisonOperatorString:
+		//    'is' 'equal' 'to'
+		//    | 'is' 'not' 'equal' 'to'
+		//    | 'less' 'than'
+		//    | 'greater' 'than'
+		//    | 'less' 'than' 'or' 'equal' 'to'
+		//    | 'greater' 'than' 'or' 'equal' 'to'
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'=' | 'is' 'equal' 'to' | 'is' 'not' 'equal' 'to' | 'less' 'than' | 'greater' 'than' | 'less' 'than' 'or' 'equal' 'to' | 'greater' 'than' 'or' 'equal' 'to'
+		//'is' 'equal' 'to'
+		//| 'is' 'not' 'equal' 'to'
+		//| 'less' 'than'
+		//| 'greater' 'than'
+		//| 'less' 'than' 'or' 'equal' 'to'
+		//| 'greater' 'than' 'or' 'equal' 'to'
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//'='
-		public Keyword getEqualsSignKeyword_0() { return cEqualsSignKeyword_0; }
-		
 		//'is' 'equal' 'to'
+		public Group getGroup_0() { return cGroup_0; }
+		
+		//'is'
+		public Keyword getIsKeyword_0_0() { return cIsKeyword_0_0; }
+		
+		//'equal'
+		public Keyword getEqualKeyword_0_1() { return cEqualKeyword_0_1; }
+		
+		//'to'
+		public Keyword getToKeyword_0_2() { return cToKeyword_0_2; }
+		
+		//'is' 'not' 'equal' 'to'
 		public Group getGroup_1() { return cGroup_1; }
 		
 		//'is'
 		public Keyword getIsKeyword_1_0() { return cIsKeyword_1_0; }
 		
-		//'equal'
-		public Keyword getEqualKeyword_1_1() { return cEqualKeyword_1_1; }
-		
-		//'to'
-		public Keyword getToKeyword_1_2() { return cToKeyword_1_2; }
-		
-		//'is' 'not' 'equal' 'to'
-		public Group getGroup_2() { return cGroup_2; }
-		
-		//'is'
-		public Keyword getIsKeyword_2_0() { return cIsKeyword_2_0; }
-		
 		//'not'
-		public Keyword getNotKeyword_2_1() { return cNotKeyword_2_1; }
+		public Keyword getNotKeyword_1_1() { return cNotKeyword_1_1; }
 		
 		//'equal'
-		public Keyword getEqualKeyword_2_2() { return cEqualKeyword_2_2; }
+		public Keyword getEqualKeyword_1_2() { return cEqualKeyword_1_2; }
 		
 		//'to'
-		public Keyword getToKeyword_2_3() { return cToKeyword_2_3; }
+		public Keyword getToKeyword_1_3() { return cToKeyword_1_3; }
 		
 		//'less' 'than'
-		public Group getGroup_3() { return cGroup_3; }
+		public Group getGroup_2() { return cGroup_2; }
 		
 		//'less'
-		public Keyword getLessKeyword_3_0() { return cLessKeyword_3_0; }
+		public Keyword getLessKeyword_2_0() { return cLessKeyword_2_0; }
+		
+		//'than'
+		public Keyword getThanKeyword_2_1() { return cThanKeyword_2_1; }
+		
+		//'greater' 'than'
+		public Group getGroup_3() { return cGroup_3; }
+		
+		//'greater'
+		public Keyword getGreaterKeyword_3_0() { return cGreaterKeyword_3_0; }
 		
 		//'than'
 		public Keyword getThanKeyword_3_1() { return cThanKeyword_3_1; }
 		
-		//'greater' 'than'
+		//'less' 'than' 'or' 'equal' 'to'
 		public Group getGroup_4() { return cGroup_4; }
 		
-		//'greater'
-		public Keyword getGreaterKeyword_4_0() { return cGreaterKeyword_4_0; }
+		//'less'
+		public Keyword getLessKeyword_4_0() { return cLessKeyword_4_0; }
 		
 		//'than'
 		public Keyword getThanKeyword_4_1() { return cThanKeyword_4_1; }
 		
-		//'less' 'than' 'or' 'equal' 'to'
+		//'or'
+		public Keyword getOrKeyword_4_2() { return cOrKeyword_4_2; }
+		
+		//'equal'
+		public Keyword getEqualKeyword_4_3() { return cEqualKeyword_4_3; }
+		
+		//'to'
+		public Keyword getToKeyword_4_4() { return cToKeyword_4_4; }
+		
+		//'greater' 'than' 'or' 'equal' 'to'
 		public Group getGroup_5() { return cGroup_5; }
 		
-		//'less'
-		public Keyword getLessKeyword_5_0() { return cLessKeyword_5_0; }
+		//'greater'
+		public Keyword getGreaterKeyword_5_0() { return cGreaterKeyword_5_0; }
 		
 		//'than'
 		public Keyword getThanKeyword_5_1() { return cThanKeyword_5_1; }
@@ -976,24 +1124,38 @@ public class NlToSqlGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 		
 		//'to'
 		public Keyword getToKeyword_5_4() { return cToKeyword_5_4; }
+	}
+	public class ComparisonOperatorSignsElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.NlToSql.ComparisonOperatorSigns");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Keyword cEqualsSignKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
+		private final Keyword cLessThanSignEqualsSignKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
+		private final Keyword cGreaterThanSignEqualsSignKeyword_2 = (Keyword)cAlternatives.eContents().get(2);
+		private final Keyword cGreaterThanSignKeyword_3 = (Keyword)cAlternatives.eContents().get(3);
+		private final Keyword cLessThanSignKeyword_4 = (Keyword)cAlternatives.eContents().get(4);
 		
-		//'greater' 'than' 'or' 'equal' 'to'
-		public Group getGroup_6() { return cGroup_6; }
+		//ComparisonOperatorSigns:
+		//    '=' | '<=' | '>='| '>' | '<'
+		//;
+		@Override public ParserRule getRule() { return rule; }
 		
-		//'greater'
-		public Keyword getGreaterKeyword_6_0() { return cGreaterKeyword_6_0; }
+		//'=' | '<=' | '>='| '>' | '<'
+		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//'than'
-		public Keyword getThanKeyword_6_1() { return cThanKeyword_6_1; }
+		//'='
+		public Keyword getEqualsSignKeyword_0() { return cEqualsSignKeyword_0; }
 		
-		//'or'
-		public Keyword getOrKeyword_6_2() { return cOrKeyword_6_2; }
+		//'<='
+		public Keyword getLessThanSignEqualsSignKeyword_1() { return cLessThanSignEqualsSignKeyword_1; }
 		
-		//'equal'
-		public Keyword getEqualKeyword_6_3() { return cEqualKeyword_6_3; }
+		//'>='
+		public Keyword getGreaterThanSignEqualsSignKeyword_2() { return cGreaterThanSignEqualsSignKeyword_2; }
 		
-		//'to'
-		public Keyword getToKeyword_6_4() { return cToKeyword_6_4; }
+		//'>'
+		public Keyword getGreaterThanSignKeyword_3() { return cGreaterThanSignKeyword_3; }
+		
+		//'<'
+		public Keyword getLessThanSignKeyword_4() { return cLessThanSignKeyword_4; }
 	}
 	public class ValueElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.NlToSql.Value");
@@ -1016,46 +1178,6 @@ public class NlToSqlGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 		//STRING
 		public RuleCall getSTRINGTerminalRuleCall_1() { return cSTRINGTerminalRuleCall_1; }
 	}
-	public class TheTableElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.NlToSql.TheTable");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cTheKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Keyword cTableKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		
-		//TheTable:
-		//    ('the' 'table')?
-		//;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//('the' 'table')?
-		public Group getGroup() { return cGroup; }
-		
-		//'the'
-		public Keyword getTheKeyword_0() { return cTheKeyword_0; }
-		
-		//'table'
-		public Keyword getTableKeyword_1() { return cTableKeyword_1; }
-	}
-	public class TheAElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.NlToSql.TheA");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final Keyword cTheKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
-		private final Keyword cAKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
-		
-		//TheA:
-		//    ('the' | 'a')?
-		//;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//('the' | 'a')?
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//'the'
-		public Keyword getTheKeyword_0() { return cTheKeyword_0; }
-		
-		//'a'
-		public Keyword getAKeyword_1() { return cAKeyword_1; }
-	}
 	
 	
 	private final AccountingSpeechElements pAccountingSpeech;
@@ -1068,6 +1190,7 @@ public class NlToSqlGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 	private final SelectStatementElements pSelectStatement;
 	private final InsertStatementElements pInsertStatement;
 	private final UpdateStatementElements pUpdateStatement;
+	private final DeleteStatementElements pDeleteStatement;
 	private final SelectUpdateListElements pSelectUpdateList;
 	private final UpdateItemElements pUpdateItem;
 	private final InserValuesElements pInserValues;
@@ -1079,9 +1202,9 @@ public class NlToSqlGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 	private final LogicOperatorElements pLogicOperator;
 	private final ComparisonElements pComparison;
 	private final ComparisonOperatorElements pComparisonOperator;
+	private final ComparisonOperatorStringElements pComparisonOperatorString;
+	private final ComparisonOperatorSignsElements pComparisonOperatorSigns;
 	private final ValueElements pValue;
-	private final TheTableElements pTheTable;
-	private final TheAElements pTheA;
 	
 	private final Grammar grammar;
 	
@@ -1102,6 +1225,7 @@ public class NlToSqlGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 		this.pSelectStatement = new SelectStatementElements();
 		this.pInsertStatement = new InsertStatementElements();
 		this.pUpdateStatement = new UpdateStatementElements();
+		this.pDeleteStatement = new DeleteStatementElements();
 		this.pSelectUpdateList = new SelectUpdateListElements();
 		this.pUpdateItem = new UpdateItemElements();
 		this.pInserValues = new InserValuesElements();
@@ -1113,9 +1237,9 @@ public class NlToSqlGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 		this.pLogicOperator = new LogicOperatorElements();
 		this.pComparison = new ComparisonElements();
 		this.pComparisonOperator = new ComparisonOperatorElements();
+		this.pComparisonOperatorString = new ComparisonOperatorStringElements();
+		this.pComparisonOperatorSigns = new ComparisonOperatorSignsElements();
 		this.pValue = new ValueElements();
-		this.pTheTable = new TheTableElements();
-		this.pTheA = new TheAElements();
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -1159,8 +1283,7 @@ public class NlToSqlGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 	
 	//// Define the Statement rule
 	//Statement:
-	//    (CreateTableStatement | SelectStatement | InsertStatement | UpdateStatement)'.'
-	////           | DeleteStatement
+	//    (CreateTableStatement | SelectStatement | InsertStatement | UpdateStatement | DeleteStatement)'.'
 	//;
 	public StatementElements getStatementAccess() {
 		return pStatement;
@@ -1172,7 +1295,7 @@ public class NlToSqlGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 	
 	//// Define the table creation rule
 	//CreateTableStatement:
-	//  'Create' TheA 'table' 'called' table=Table
+	//  'Create' 'table' 'called' table=Table
 	//  ('with' 'columns' columns=ColumnList)?
 	// ;
 	public CreateTableStatementElements getCreateTableStatementAccess() {
@@ -1216,6 +1339,7 @@ public class NlToSqlGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 		return getColumnAccess().getRule();
 	}
 	
+	//// Change datatype structure
 	//Datatype:
 	//  'integer' | 'string' | 'date'
 	// ;
@@ -1245,7 +1369,7 @@ public class NlToSqlGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 	
 	//// Define the InsertStatement rule
 	//InsertStatement:
-	//     'Insert' 'into' TheTable SelectTable
+	//     'Insert' 'into' 'the' 'table' SelectTable
 	//    'for' 'the' 'columns' columns = SelectColumnsList
 	//    'insert' 'the' 'values' '(' values = InserValues ')'
 	//;
@@ -1259,7 +1383,7 @@ public class NlToSqlGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 	
 	//// Define the UpdateStatement rule
 	//UpdateStatement:
-	//    'Update' TheTable SelectTable
+	//    'Update' 'the' 'table' SelectTable
 	//    'to''set' updates = SelectUpdateList
 	//    ('where' condition=Condition)?
 	//;
@@ -1269,6 +1393,21 @@ public class NlToSqlGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 	
 	public ParserRule getUpdateStatementRule() {
 		return getUpdateStatementAccess().getRule();
+	}
+	
+	//// Define the DeleteStatement rule
+	//DeleteStatement:
+	//    ('Delete' 'the' 'table' SelectTable) |
+	//    ('Empty' 'the' 'table' SelectTable) |
+	//    ('Delete' 'records' 'from' 'the' 'table' SelectTable
+	//    'where' condition=Condition)
+	//;
+	public DeleteStatementElements getDeleteStatementAccess() {
+		return pDeleteStatement;
+	}
+	
+	public ParserRule getDeleteStatementRule() {
+		return getDeleteStatementAccess().getRule();
 	}
 	
 	//SelectUpdateList:
@@ -1284,7 +1423,7 @@ public class NlToSqlGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 	
 	//// Define the UpdateItem rule
 	//UpdateItem:
-	//    (TheA column=ColumnReference '=' value=Value)
+	//    (column=ColumnReference '=' value=Value)
 	//;
 	public UpdateItemElements getUpdateItemAccess() {
 		return pUpdateItem;
@@ -1388,7 +1527,7 @@ public class NlToSqlGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 	
 	//// Define the ComparisonOperator rule
 	//ComparisonOperator:
-	//    '=' | 'is' 'equal' 'to' | 'is' 'not' 'equal' 'to' | 'less' 'than' | 'greater' 'than' | 'less' 'than' 'or' 'equal' 'to' | 'greater' 'than' 'or' 'equal' 'to'
+	//    ComparisonOperatorSigns | ComparisonOperatorString
 	//;
 	public ComparisonOperatorElements getComparisonOperatorAccess() {
 		return pComparisonOperator;
@@ -1396,6 +1535,33 @@ public class NlToSqlGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 	
 	public ParserRule getComparisonOperatorRule() {
 		return getComparisonOperatorAccess().getRule();
+	}
+	
+	//ComparisonOperatorString:
+	//    'is' 'equal' 'to'
+	//    | 'is' 'not' 'equal' 'to'
+	//    | 'less' 'than'
+	//    | 'greater' 'than'
+	//    | 'less' 'than' 'or' 'equal' 'to'
+	//    | 'greater' 'than' 'or' 'equal' 'to'
+	//;
+	public ComparisonOperatorStringElements getComparisonOperatorStringAccess() {
+		return pComparisonOperatorString;
+	}
+	
+	public ParserRule getComparisonOperatorStringRule() {
+		return getComparisonOperatorStringAccess().getRule();
+	}
+	
+	//ComparisonOperatorSigns:
+	//    '=' | '<=' | '>='| '>' | '<'
+	//;
+	public ComparisonOperatorSignsElements getComparisonOperatorSignsAccess() {
+		return pComparisonOperatorSigns;
+	}
+	
+	public ParserRule getComparisonOperatorSignsRule() {
+		return getComparisonOperatorSignsAccess().getRule();
 	}
 	
 	//// Define the Value rule
@@ -1408,28 +1574,6 @@ public class NlToSqlGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 	
 	public ParserRule getValueRule() {
 		return getValueAccess().getRule();
-	}
-	
-	//TheTable:
-	//    ('the' 'table')?
-	//;
-	public TheTableElements getTheTableAccess() {
-		return pTheTable;
-	}
-	
-	public ParserRule getTheTableRule() {
-		return getTheTableAccess().getRule();
-	}
-	
-	//TheA:
-	//    ('the' | 'a')?
-	//;
-	public TheAElements getTheAAccess() {
-		return pTheA;
-	}
-	
-	public ParserRule getTheARule() {
-		return getTheAAccess().getRule();
 	}
 	
 	//terminal ID: '^'?('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;

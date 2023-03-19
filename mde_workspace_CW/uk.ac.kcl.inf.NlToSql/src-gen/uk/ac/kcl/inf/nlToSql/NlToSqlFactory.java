@@ -105,6 +105,15 @@ public interface NlToSqlFactory extends EFactory
   UpdateStatement createUpdateStatement();
 
   /**
+   * Returns a new object of class '<em>Delete Statement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Delete Statement</em>'.
+   * @generated
+   */
+  DeleteStatement createDeleteStatement();
+
+  /**
    * Returns a new object of class '<em>Select Update List</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

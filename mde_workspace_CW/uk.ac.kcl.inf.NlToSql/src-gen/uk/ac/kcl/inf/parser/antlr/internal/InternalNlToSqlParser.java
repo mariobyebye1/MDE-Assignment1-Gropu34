@@ -21,19 +21,27 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'.'", "'Create'", "'table'", "'called'", "'with'", "'columns'", "','", "'of'", "'type'", "'integer'", "'string'", "'date'", "'From'", "'the'", "'show'", "'columns:'", "'all'", "'where'", "'group'", "'by'", "'Insert'", "'into'", "'for'", "'insert'", "'values'", "'('", "')'", "'Update'", "'to'", "'set'", "'='", "'in'", "'and'", "'or'", "'a'", "'is'", "'equal'", "'not'", "'less'", "'than'", "'greater'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'.'", "'Create'", "'table'", "'called'", "'with'", "'columns'", "','", "'of'", "'type'", "'integer'", "'string'", "'date'", "'From'", "'the'", "'show'", "'columns:'", "'all'", "'where'", "'group'", "'by'", "'Insert'", "'into'", "'for'", "'insert'", "'values'", "'('", "')'", "'Update'", "'to'", "'set'", "'Delete'", "'Empty'", "'records'", "'from'", "'='", "'in'", "'and'", "'or'", "'a'", "'is'", "'equal'", "'not'", "'less'", "'than'", "'greater'", "'<='", "'>='", "'>'", "'<'"
     };
     public static final int T__50=50;
     public static final int T__19=19;
     public static final int T__15=15;
+    public static final int T__59=59;
     public static final int T__16=16;
     public static final int T__17=17;
     public static final int T__18=18;
     public static final int T__11=11;
+    public static final int T__55=55;
     public static final int T__12=12;
+    public static final int T__56=56;
     public static final int T__13=13;
+    public static final int T__57=57;
     public static final int T__14=14;
+    public static final int T__58=58;
     public static final int T__51=51;
+    public static final int T__52=52;
+    public static final int T__53=53;
+    public static final int T__54=54;
     public static final int RULE_ID=4;
     public static final int T__26=26;
     public static final int T__27=27;
@@ -169,7 +177,7 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
                 int alt1=2;
                 int LA1_0 = input.LA(1);
 
-                if ( (LA1_0==12||LA1_0==23||LA1_0==31||LA1_0==38) ) {
+                if ( (LA1_0==12||LA1_0==23||LA1_0==31||LA1_0==38||(LA1_0>=41 && LA1_0<=42)) ) {
                     alt1=1;
                 }
 
@@ -268,11 +276,11 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleStatement"
-    // InternalNlToSql.g:107:1: ruleStatement returns [EObject current=null] : ( (this_CreateTableStatement_0= ruleCreateTableStatement | this_SelectStatement_1= ruleSelectStatement | this_InsertStatement_2= ruleInsertStatement | this_UpdateStatement_3= ruleUpdateStatement ) otherlv_4= '.' ) ;
+    // InternalNlToSql.g:107:1: ruleStatement returns [EObject current=null] : ( (this_CreateTableStatement_0= ruleCreateTableStatement | this_SelectStatement_1= ruleSelectStatement | this_InsertStatement_2= ruleInsertStatement | this_UpdateStatement_3= ruleUpdateStatement | this_DeleteStatement_4= ruleDeleteStatement ) otherlv_5= '.' ) ;
     public final EObject ruleStatement() throws RecognitionException {
         EObject current = null;
 
-        Token otherlv_4=null;
+        Token otherlv_5=null;
         EObject this_CreateTableStatement_0 = null;
 
         EObject this_SelectStatement_1 = null;
@@ -281,19 +289,21 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
 
         EObject this_UpdateStatement_3 = null;
 
+        EObject this_DeleteStatement_4 = null;
+
 
 
         	enterRule();
 
         try {
-            // InternalNlToSql.g:113:2: ( ( (this_CreateTableStatement_0= ruleCreateTableStatement | this_SelectStatement_1= ruleSelectStatement | this_InsertStatement_2= ruleInsertStatement | this_UpdateStatement_3= ruleUpdateStatement ) otherlv_4= '.' ) )
-            // InternalNlToSql.g:114:2: ( (this_CreateTableStatement_0= ruleCreateTableStatement | this_SelectStatement_1= ruleSelectStatement | this_InsertStatement_2= ruleInsertStatement | this_UpdateStatement_3= ruleUpdateStatement ) otherlv_4= '.' )
+            // InternalNlToSql.g:113:2: ( ( (this_CreateTableStatement_0= ruleCreateTableStatement | this_SelectStatement_1= ruleSelectStatement | this_InsertStatement_2= ruleInsertStatement | this_UpdateStatement_3= ruleUpdateStatement | this_DeleteStatement_4= ruleDeleteStatement ) otherlv_5= '.' ) )
+            // InternalNlToSql.g:114:2: ( (this_CreateTableStatement_0= ruleCreateTableStatement | this_SelectStatement_1= ruleSelectStatement | this_InsertStatement_2= ruleInsertStatement | this_UpdateStatement_3= ruleUpdateStatement | this_DeleteStatement_4= ruleDeleteStatement ) otherlv_5= '.' )
             {
-            // InternalNlToSql.g:114:2: ( (this_CreateTableStatement_0= ruleCreateTableStatement | this_SelectStatement_1= ruleSelectStatement | this_InsertStatement_2= ruleInsertStatement | this_UpdateStatement_3= ruleUpdateStatement ) otherlv_4= '.' )
-            // InternalNlToSql.g:115:3: (this_CreateTableStatement_0= ruleCreateTableStatement | this_SelectStatement_1= ruleSelectStatement | this_InsertStatement_2= ruleInsertStatement | this_UpdateStatement_3= ruleUpdateStatement ) otherlv_4= '.'
+            // InternalNlToSql.g:114:2: ( (this_CreateTableStatement_0= ruleCreateTableStatement | this_SelectStatement_1= ruleSelectStatement | this_InsertStatement_2= ruleInsertStatement | this_UpdateStatement_3= ruleUpdateStatement | this_DeleteStatement_4= ruleDeleteStatement ) otherlv_5= '.' )
+            // InternalNlToSql.g:115:3: (this_CreateTableStatement_0= ruleCreateTableStatement | this_SelectStatement_1= ruleSelectStatement | this_InsertStatement_2= ruleInsertStatement | this_UpdateStatement_3= ruleUpdateStatement | this_DeleteStatement_4= ruleDeleteStatement ) otherlv_5= '.'
             {
-            // InternalNlToSql.g:115:3: (this_CreateTableStatement_0= ruleCreateTableStatement | this_SelectStatement_1= ruleSelectStatement | this_InsertStatement_2= ruleInsertStatement | this_UpdateStatement_3= ruleUpdateStatement )
-            int alt2=4;
+            // InternalNlToSql.g:115:3: (this_CreateTableStatement_0= ruleCreateTableStatement | this_SelectStatement_1= ruleSelectStatement | this_InsertStatement_2= ruleInsertStatement | this_UpdateStatement_3= ruleUpdateStatement | this_DeleteStatement_4= ruleDeleteStatement )
+            int alt2=5;
             switch ( input.LA(1) ) {
             case 12:
                 {
@@ -313,6 +323,12 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
             case 38:
                 {
                 alt2=4;
+                }
+                break;
+            case 41:
+            case 42:
+                {
+                alt2=5;
                 }
                 break;
             default:
@@ -395,12 +411,30 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
 
                     }
                     break;
+                case 5 :
+                    // InternalNlToSql.g:152:4: this_DeleteStatement_4= ruleDeleteStatement
+                    {
+
+                    				newCompositeNode(grammarAccess.getStatementAccess().getDeleteStatementParserRuleCall_0_4());
+                    			
+                    pushFollow(FOLLOW_4);
+                    this_DeleteStatement_4=ruleDeleteStatement();
+
+                    state._fsp--;
+
+
+                    				current = this_DeleteStatement_4;
+                    				afterParserOrEnumRuleCall();
+                    			
+
+                    }
+                    break;
 
             }
 
-            otherlv_4=(Token)match(input,11,FOLLOW_2); 
+            otherlv_5=(Token)match(input,11,FOLLOW_2); 
 
-            			newLeafNode(otherlv_4, grammarAccess.getStatementAccess().getFullStopKeyword_1());
+            			newLeafNode(otherlv_5, grammarAccess.getStatementAccess().getFullStopKeyword_1());
             		
 
             }
@@ -425,7 +459,7 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleCreateTableStatement"
-    // InternalNlToSql.g:160:1: entryRuleCreateTableStatement returns [EObject current=null] : iv_ruleCreateTableStatement= ruleCreateTableStatement EOF ;
+    // InternalNlToSql.g:169:1: entryRuleCreateTableStatement returns [EObject current=null] : iv_ruleCreateTableStatement= ruleCreateTableStatement EOF ;
     public final EObject entryRuleCreateTableStatement() throws RecognitionException {
         EObject current = null;
 
@@ -433,8 +467,8 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalNlToSql.g:160:61: (iv_ruleCreateTableStatement= ruleCreateTableStatement EOF )
-            // InternalNlToSql.g:161:2: iv_ruleCreateTableStatement= ruleCreateTableStatement EOF
+            // InternalNlToSql.g:169:61: (iv_ruleCreateTableStatement= ruleCreateTableStatement EOF )
+            // InternalNlToSql.g:170:2: iv_ruleCreateTableStatement= ruleCreateTableStatement EOF
             {
              newCompositeNode(grammarAccess.getCreateTableStatementRule()); 
             pushFollow(FOLLOW_1);
@@ -461,64 +495,53 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleCreateTableStatement"
-    // InternalNlToSql.g:167:1: ruleCreateTableStatement returns [EObject current=null] : (otherlv_0= 'Create' ruleTheA otherlv_2= 'table' otherlv_3= 'called' ( (lv_table_4_0= ruleTable ) ) (otherlv_5= 'with' otherlv_6= 'columns' ( (lv_columns_7_0= ruleColumnList ) ) )? ) ;
+    // InternalNlToSql.g:176:1: ruleCreateTableStatement returns [EObject current=null] : (otherlv_0= 'Create' otherlv_1= 'table' otherlv_2= 'called' ( (lv_table_3_0= ruleTable ) ) (otherlv_4= 'with' otherlv_5= 'columns' ( (lv_columns_6_0= ruleColumnList ) ) )? ) ;
     public final EObject ruleCreateTableStatement() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_0=null;
+        Token otherlv_1=null;
         Token otherlv_2=null;
-        Token otherlv_3=null;
+        Token otherlv_4=null;
         Token otherlv_5=null;
-        Token otherlv_6=null;
-        EObject lv_table_4_0 = null;
+        EObject lv_table_3_0 = null;
 
-        EObject lv_columns_7_0 = null;
+        EObject lv_columns_6_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalNlToSql.g:173:2: ( (otherlv_0= 'Create' ruleTheA otherlv_2= 'table' otherlv_3= 'called' ( (lv_table_4_0= ruleTable ) ) (otherlv_5= 'with' otherlv_6= 'columns' ( (lv_columns_7_0= ruleColumnList ) ) )? ) )
-            // InternalNlToSql.g:174:2: (otherlv_0= 'Create' ruleTheA otherlv_2= 'table' otherlv_3= 'called' ( (lv_table_4_0= ruleTable ) ) (otherlv_5= 'with' otherlv_6= 'columns' ( (lv_columns_7_0= ruleColumnList ) ) )? )
+            // InternalNlToSql.g:182:2: ( (otherlv_0= 'Create' otherlv_1= 'table' otherlv_2= 'called' ( (lv_table_3_0= ruleTable ) ) (otherlv_4= 'with' otherlv_5= 'columns' ( (lv_columns_6_0= ruleColumnList ) ) )? ) )
+            // InternalNlToSql.g:183:2: (otherlv_0= 'Create' otherlv_1= 'table' otherlv_2= 'called' ( (lv_table_3_0= ruleTable ) ) (otherlv_4= 'with' otherlv_5= 'columns' ( (lv_columns_6_0= ruleColumnList ) ) )? )
             {
-            // InternalNlToSql.g:174:2: (otherlv_0= 'Create' ruleTheA otherlv_2= 'table' otherlv_3= 'called' ( (lv_table_4_0= ruleTable ) ) (otherlv_5= 'with' otherlv_6= 'columns' ( (lv_columns_7_0= ruleColumnList ) ) )? )
-            // InternalNlToSql.g:175:3: otherlv_0= 'Create' ruleTheA otherlv_2= 'table' otherlv_3= 'called' ( (lv_table_4_0= ruleTable ) ) (otherlv_5= 'with' otherlv_6= 'columns' ( (lv_columns_7_0= ruleColumnList ) ) )?
+            // InternalNlToSql.g:183:2: (otherlv_0= 'Create' otherlv_1= 'table' otherlv_2= 'called' ( (lv_table_3_0= ruleTable ) ) (otherlv_4= 'with' otherlv_5= 'columns' ( (lv_columns_6_0= ruleColumnList ) ) )? )
+            // InternalNlToSql.g:184:3: otherlv_0= 'Create' otherlv_1= 'table' otherlv_2= 'called' ( (lv_table_3_0= ruleTable ) ) (otherlv_4= 'with' otherlv_5= 'columns' ( (lv_columns_6_0= ruleColumnList ) ) )?
             {
             otherlv_0=(Token)match(input,12,FOLLOW_5); 
 
             			newLeafNode(otherlv_0, grammarAccess.getCreateTableStatementAccess().getCreateKeyword_0());
             		
+            otherlv_1=(Token)match(input,13,FOLLOW_6); 
 
-            			newCompositeNode(grammarAccess.getCreateTableStatementAccess().getTheAParserRuleCall_1());
+            			newLeafNode(otherlv_1, grammarAccess.getCreateTableStatementAccess().getTableKeyword_1());
             		
-            pushFollow(FOLLOW_6);
-            ruleTheA();
+            otherlv_2=(Token)match(input,14,FOLLOW_7); 
 
-            state._fsp--;
-
-
-            			afterParserOrEnumRuleCall();
+            			newLeafNode(otherlv_2, grammarAccess.getCreateTableStatementAccess().getCalledKeyword_2());
             		
-            otherlv_2=(Token)match(input,13,FOLLOW_7); 
-
-            			newLeafNode(otherlv_2, grammarAccess.getCreateTableStatementAccess().getTableKeyword_2());
-            		
-            otherlv_3=(Token)match(input,14,FOLLOW_8); 
-
-            			newLeafNode(otherlv_3, grammarAccess.getCreateTableStatementAccess().getCalledKeyword_3());
-            		
-            // InternalNlToSql.g:194:3: ( (lv_table_4_0= ruleTable ) )
-            // InternalNlToSql.g:195:4: (lv_table_4_0= ruleTable )
+            // InternalNlToSql.g:196:3: ( (lv_table_3_0= ruleTable ) )
+            // InternalNlToSql.g:197:4: (lv_table_3_0= ruleTable )
             {
-            // InternalNlToSql.g:195:4: (lv_table_4_0= ruleTable )
-            // InternalNlToSql.g:196:5: lv_table_4_0= ruleTable
+            // InternalNlToSql.g:197:4: (lv_table_3_0= ruleTable )
+            // InternalNlToSql.g:198:5: lv_table_3_0= ruleTable
             {
 
-            					newCompositeNode(grammarAccess.getCreateTableStatementAccess().getTableTableParserRuleCall_4_0());
+            					newCompositeNode(grammarAccess.getCreateTableStatementAccess().getTableTableParserRuleCall_3_0());
             				
-            pushFollow(FOLLOW_9);
-            lv_table_4_0=ruleTable();
+            pushFollow(FOLLOW_8);
+            lv_table_3_0=ruleTable();
 
             state._fsp--;
 
@@ -529,7 +552,7 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
             					set(
             						current,
             						"table",
-            						lv_table_4_0,
+            						lv_table_3_0,
             						"uk.ac.kcl.inf.NlToSql.Table");
             					afterParserOrEnumRuleCall();
             				
@@ -539,7 +562,7 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalNlToSql.g:213:3: (otherlv_5= 'with' otherlv_6= 'columns' ( (lv_columns_7_0= ruleColumnList ) ) )?
+            // InternalNlToSql.g:215:3: (otherlv_4= 'with' otherlv_5= 'columns' ( (lv_columns_6_0= ruleColumnList ) ) )?
             int alt3=2;
             int LA3_0 = input.LA(1);
 
@@ -548,27 +571,27 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
             }
             switch (alt3) {
                 case 1 :
-                    // InternalNlToSql.g:214:4: otherlv_5= 'with' otherlv_6= 'columns' ( (lv_columns_7_0= ruleColumnList ) )
+                    // InternalNlToSql.g:216:4: otherlv_4= 'with' otherlv_5= 'columns' ( (lv_columns_6_0= ruleColumnList ) )
                     {
-                    otherlv_5=(Token)match(input,15,FOLLOW_10); 
+                    otherlv_4=(Token)match(input,15,FOLLOW_9); 
 
-                    				newLeafNode(otherlv_5, grammarAccess.getCreateTableStatementAccess().getWithKeyword_5_0());
+                    				newLeafNode(otherlv_4, grammarAccess.getCreateTableStatementAccess().getWithKeyword_4_0());
                     			
-                    otherlv_6=(Token)match(input,16,FOLLOW_8); 
+                    otherlv_5=(Token)match(input,16,FOLLOW_7); 
 
-                    				newLeafNode(otherlv_6, grammarAccess.getCreateTableStatementAccess().getColumnsKeyword_5_1());
+                    				newLeafNode(otherlv_5, grammarAccess.getCreateTableStatementAccess().getColumnsKeyword_4_1());
                     			
-                    // InternalNlToSql.g:222:4: ( (lv_columns_7_0= ruleColumnList ) )
-                    // InternalNlToSql.g:223:5: (lv_columns_7_0= ruleColumnList )
+                    // InternalNlToSql.g:224:4: ( (lv_columns_6_0= ruleColumnList ) )
+                    // InternalNlToSql.g:225:5: (lv_columns_6_0= ruleColumnList )
                     {
-                    // InternalNlToSql.g:223:5: (lv_columns_7_0= ruleColumnList )
-                    // InternalNlToSql.g:224:6: lv_columns_7_0= ruleColumnList
+                    // InternalNlToSql.g:225:5: (lv_columns_6_0= ruleColumnList )
+                    // InternalNlToSql.g:226:6: lv_columns_6_0= ruleColumnList
                     {
 
-                    						newCompositeNode(grammarAccess.getCreateTableStatementAccess().getColumnsColumnListParserRuleCall_5_2_0());
+                    						newCompositeNode(grammarAccess.getCreateTableStatementAccess().getColumnsColumnListParserRuleCall_4_2_0());
                     					
                     pushFollow(FOLLOW_2);
-                    lv_columns_7_0=ruleColumnList();
+                    lv_columns_6_0=ruleColumnList();
 
                     state._fsp--;
 
@@ -579,7 +602,7 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
                     						set(
                     							current,
                     							"columns",
-                    							lv_columns_7_0,
+                    							lv_columns_6_0,
                     							"uk.ac.kcl.inf.NlToSql.ColumnList");
                     						afterParserOrEnumRuleCall();
                     					
@@ -618,7 +641,7 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleColumnList"
-    // InternalNlToSql.g:246:1: entryRuleColumnList returns [EObject current=null] : iv_ruleColumnList= ruleColumnList EOF ;
+    // InternalNlToSql.g:248:1: entryRuleColumnList returns [EObject current=null] : iv_ruleColumnList= ruleColumnList EOF ;
     public final EObject entryRuleColumnList() throws RecognitionException {
         EObject current = null;
 
@@ -626,8 +649,8 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalNlToSql.g:246:51: (iv_ruleColumnList= ruleColumnList EOF )
-            // InternalNlToSql.g:247:2: iv_ruleColumnList= ruleColumnList EOF
+            // InternalNlToSql.g:248:51: (iv_ruleColumnList= ruleColumnList EOF )
+            // InternalNlToSql.g:249:2: iv_ruleColumnList= ruleColumnList EOF
             {
              newCompositeNode(grammarAccess.getColumnListRule()); 
             pushFollow(FOLLOW_1);
@@ -654,7 +677,7 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleColumnList"
-    // InternalNlToSql.g:253:1: ruleColumnList returns [EObject current=null] : ( ( (lv_columnItem_0_0= ruleColumn ) ) (otherlv_1= ',' ( (lv_columnItem_2_0= ruleColumn ) ) )* ) ;
+    // InternalNlToSql.g:255:1: ruleColumnList returns [EObject current=null] : ( ( (lv_columnItem_0_0= ruleColumn ) ) (otherlv_1= ',' ( (lv_columnItem_2_0= ruleColumn ) ) )* ) ;
     public final EObject ruleColumnList() throws RecognitionException {
         EObject current = null;
 
@@ -668,22 +691,22 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalNlToSql.g:259:2: ( ( ( (lv_columnItem_0_0= ruleColumn ) ) (otherlv_1= ',' ( (lv_columnItem_2_0= ruleColumn ) ) )* ) )
-            // InternalNlToSql.g:260:2: ( ( (lv_columnItem_0_0= ruleColumn ) ) (otherlv_1= ',' ( (lv_columnItem_2_0= ruleColumn ) ) )* )
+            // InternalNlToSql.g:261:2: ( ( ( (lv_columnItem_0_0= ruleColumn ) ) (otherlv_1= ',' ( (lv_columnItem_2_0= ruleColumn ) ) )* ) )
+            // InternalNlToSql.g:262:2: ( ( (lv_columnItem_0_0= ruleColumn ) ) (otherlv_1= ',' ( (lv_columnItem_2_0= ruleColumn ) ) )* )
             {
-            // InternalNlToSql.g:260:2: ( ( (lv_columnItem_0_0= ruleColumn ) ) (otherlv_1= ',' ( (lv_columnItem_2_0= ruleColumn ) ) )* )
-            // InternalNlToSql.g:261:3: ( (lv_columnItem_0_0= ruleColumn ) ) (otherlv_1= ',' ( (lv_columnItem_2_0= ruleColumn ) ) )*
+            // InternalNlToSql.g:262:2: ( ( (lv_columnItem_0_0= ruleColumn ) ) (otherlv_1= ',' ( (lv_columnItem_2_0= ruleColumn ) ) )* )
+            // InternalNlToSql.g:263:3: ( (lv_columnItem_0_0= ruleColumn ) ) (otherlv_1= ',' ( (lv_columnItem_2_0= ruleColumn ) ) )*
             {
-            // InternalNlToSql.g:261:3: ( (lv_columnItem_0_0= ruleColumn ) )
-            // InternalNlToSql.g:262:4: (lv_columnItem_0_0= ruleColumn )
+            // InternalNlToSql.g:263:3: ( (lv_columnItem_0_0= ruleColumn ) )
+            // InternalNlToSql.g:264:4: (lv_columnItem_0_0= ruleColumn )
             {
-            // InternalNlToSql.g:262:4: (lv_columnItem_0_0= ruleColumn )
-            // InternalNlToSql.g:263:5: lv_columnItem_0_0= ruleColumn
+            // InternalNlToSql.g:264:4: (lv_columnItem_0_0= ruleColumn )
+            // InternalNlToSql.g:265:5: lv_columnItem_0_0= ruleColumn
             {
 
             					newCompositeNode(grammarAccess.getColumnListAccess().getColumnItemColumnParserRuleCall_0_0());
             				
-            pushFollow(FOLLOW_11);
+            pushFollow(FOLLOW_10);
             lv_columnItem_0_0=ruleColumn();
 
             state._fsp--;
@@ -705,7 +728,7 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalNlToSql.g:280:3: (otherlv_1= ',' ( (lv_columnItem_2_0= ruleColumn ) ) )*
+            // InternalNlToSql.g:282:3: (otherlv_1= ',' ( (lv_columnItem_2_0= ruleColumn ) ) )*
             loop4:
             do {
                 int alt4=2;
@@ -718,22 +741,22 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
 
                 switch (alt4) {
             	case 1 :
-            	    // InternalNlToSql.g:281:4: otherlv_1= ',' ( (lv_columnItem_2_0= ruleColumn ) )
+            	    // InternalNlToSql.g:283:4: otherlv_1= ',' ( (lv_columnItem_2_0= ruleColumn ) )
             	    {
-            	    otherlv_1=(Token)match(input,17,FOLLOW_8); 
+            	    otherlv_1=(Token)match(input,17,FOLLOW_7); 
 
             	    				newLeafNode(otherlv_1, grammarAccess.getColumnListAccess().getCommaKeyword_1_0());
             	    			
-            	    // InternalNlToSql.g:285:4: ( (lv_columnItem_2_0= ruleColumn ) )
-            	    // InternalNlToSql.g:286:5: (lv_columnItem_2_0= ruleColumn )
+            	    // InternalNlToSql.g:287:4: ( (lv_columnItem_2_0= ruleColumn ) )
+            	    // InternalNlToSql.g:288:5: (lv_columnItem_2_0= ruleColumn )
             	    {
-            	    // InternalNlToSql.g:286:5: (lv_columnItem_2_0= ruleColumn )
-            	    // InternalNlToSql.g:287:6: lv_columnItem_2_0= ruleColumn
+            	    // InternalNlToSql.g:288:5: (lv_columnItem_2_0= ruleColumn )
+            	    // InternalNlToSql.g:289:6: lv_columnItem_2_0= ruleColumn
             	    {
 
             	    						newCompositeNode(grammarAccess.getColumnListAccess().getColumnItemColumnParserRuleCall_1_1_0());
             	    					
-            	    pushFollow(FOLLOW_11);
+            	    pushFollow(FOLLOW_10);
             	    lv_columnItem_2_0=ruleColumn();
 
             	    state._fsp--;
@@ -787,7 +810,7 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleTable"
-    // InternalNlToSql.g:309:1: entryRuleTable returns [EObject current=null] : iv_ruleTable= ruleTable EOF ;
+    // InternalNlToSql.g:311:1: entryRuleTable returns [EObject current=null] : iv_ruleTable= ruleTable EOF ;
     public final EObject entryRuleTable() throws RecognitionException {
         EObject current = null;
 
@@ -795,8 +818,8 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalNlToSql.g:309:46: (iv_ruleTable= ruleTable EOF )
-            // InternalNlToSql.g:310:2: iv_ruleTable= ruleTable EOF
+            // InternalNlToSql.g:311:46: (iv_ruleTable= ruleTable EOF )
+            // InternalNlToSql.g:312:2: iv_ruleTable= ruleTable EOF
             {
              newCompositeNode(grammarAccess.getTableRule()); 
             pushFollow(FOLLOW_1);
@@ -823,7 +846,7 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleTable"
-    // InternalNlToSql.g:316:1: ruleTable returns [EObject current=null] : ( (lv_name_0_0= RULE_ID ) ) ;
+    // InternalNlToSql.g:318:1: ruleTable returns [EObject current=null] : ( (lv_name_0_0= RULE_ID ) ) ;
     public final EObject ruleTable() throws RecognitionException {
         EObject current = null;
 
@@ -833,14 +856,14 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalNlToSql.g:322:2: ( ( (lv_name_0_0= RULE_ID ) ) )
-            // InternalNlToSql.g:323:2: ( (lv_name_0_0= RULE_ID ) )
+            // InternalNlToSql.g:324:2: ( ( (lv_name_0_0= RULE_ID ) ) )
+            // InternalNlToSql.g:325:2: ( (lv_name_0_0= RULE_ID ) )
             {
-            // InternalNlToSql.g:323:2: ( (lv_name_0_0= RULE_ID ) )
-            // InternalNlToSql.g:324:3: (lv_name_0_0= RULE_ID )
+            // InternalNlToSql.g:325:2: ( (lv_name_0_0= RULE_ID ) )
+            // InternalNlToSql.g:326:3: (lv_name_0_0= RULE_ID )
             {
-            // InternalNlToSql.g:324:3: (lv_name_0_0= RULE_ID )
-            // InternalNlToSql.g:325:4: lv_name_0_0= RULE_ID
+            // InternalNlToSql.g:326:3: (lv_name_0_0= RULE_ID )
+            // InternalNlToSql.g:327:4: lv_name_0_0= RULE_ID
             {
             lv_name_0_0=(Token)match(input,RULE_ID,FOLLOW_2); 
 
@@ -882,7 +905,7 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleColumn"
-    // InternalNlToSql.g:344:1: entryRuleColumn returns [EObject current=null] : iv_ruleColumn= ruleColumn EOF ;
+    // InternalNlToSql.g:346:1: entryRuleColumn returns [EObject current=null] : iv_ruleColumn= ruleColumn EOF ;
     public final EObject entryRuleColumn() throws RecognitionException {
         EObject current = null;
 
@@ -890,8 +913,8 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalNlToSql.g:344:47: (iv_ruleColumn= ruleColumn EOF )
-            // InternalNlToSql.g:345:2: iv_ruleColumn= ruleColumn EOF
+            // InternalNlToSql.g:346:47: (iv_ruleColumn= ruleColumn EOF )
+            // InternalNlToSql.g:347:2: iv_ruleColumn= ruleColumn EOF
             {
              newCompositeNode(grammarAccess.getColumnRule()); 
             pushFollow(FOLLOW_1);
@@ -918,7 +941,7 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleColumn"
-    // InternalNlToSql.g:351:1: ruleColumn returns [EObject current=null] : ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= 'of' otherlv_2= 'type' ( (lv_type_3_0= ruleDatatype ) ) ) ;
+    // InternalNlToSql.g:353:1: ruleColumn returns [EObject current=null] : ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= 'of' otherlv_2= 'type' ( (lv_type_3_0= ruleDatatype ) ) ) ;
     public final EObject ruleColumn() throws RecognitionException {
         EObject current = null;
 
@@ -932,19 +955,19 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalNlToSql.g:357:2: ( ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= 'of' otherlv_2= 'type' ( (lv_type_3_0= ruleDatatype ) ) ) )
-            // InternalNlToSql.g:358:2: ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= 'of' otherlv_2= 'type' ( (lv_type_3_0= ruleDatatype ) ) )
+            // InternalNlToSql.g:359:2: ( ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= 'of' otherlv_2= 'type' ( (lv_type_3_0= ruleDatatype ) ) ) )
+            // InternalNlToSql.g:360:2: ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= 'of' otherlv_2= 'type' ( (lv_type_3_0= ruleDatatype ) ) )
             {
-            // InternalNlToSql.g:358:2: ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= 'of' otherlv_2= 'type' ( (lv_type_3_0= ruleDatatype ) ) )
-            // InternalNlToSql.g:359:3: ( (lv_name_0_0= RULE_ID ) ) otherlv_1= 'of' otherlv_2= 'type' ( (lv_type_3_0= ruleDatatype ) )
+            // InternalNlToSql.g:360:2: ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= 'of' otherlv_2= 'type' ( (lv_type_3_0= ruleDatatype ) ) )
+            // InternalNlToSql.g:361:3: ( (lv_name_0_0= RULE_ID ) ) otherlv_1= 'of' otherlv_2= 'type' ( (lv_type_3_0= ruleDatatype ) )
             {
-            // InternalNlToSql.g:359:3: ( (lv_name_0_0= RULE_ID ) )
-            // InternalNlToSql.g:360:4: (lv_name_0_0= RULE_ID )
+            // InternalNlToSql.g:361:3: ( (lv_name_0_0= RULE_ID ) )
+            // InternalNlToSql.g:362:4: (lv_name_0_0= RULE_ID )
             {
-            // InternalNlToSql.g:360:4: (lv_name_0_0= RULE_ID )
-            // InternalNlToSql.g:361:5: lv_name_0_0= RULE_ID
+            // InternalNlToSql.g:362:4: (lv_name_0_0= RULE_ID )
+            // InternalNlToSql.g:363:5: lv_name_0_0= RULE_ID
             {
-            lv_name_0_0=(Token)match(input,RULE_ID,FOLLOW_12); 
+            lv_name_0_0=(Token)match(input,RULE_ID,FOLLOW_11); 
 
             					newLeafNode(lv_name_0_0, grammarAccess.getColumnAccess().getNameIDTerminalRuleCall_0_0());
             				
@@ -964,19 +987,19 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,18,FOLLOW_13); 
+            otherlv_1=(Token)match(input,18,FOLLOW_12); 
 
             			newLeafNode(otherlv_1, grammarAccess.getColumnAccess().getOfKeyword_1());
             		
-            otherlv_2=(Token)match(input,19,FOLLOW_14); 
+            otherlv_2=(Token)match(input,19,FOLLOW_13); 
 
             			newLeafNode(otherlv_2, grammarAccess.getColumnAccess().getTypeKeyword_2());
             		
-            // InternalNlToSql.g:385:3: ( (lv_type_3_0= ruleDatatype ) )
-            // InternalNlToSql.g:386:4: (lv_type_3_0= ruleDatatype )
+            // InternalNlToSql.g:387:3: ( (lv_type_3_0= ruleDatatype ) )
+            // InternalNlToSql.g:388:4: (lv_type_3_0= ruleDatatype )
             {
-            // InternalNlToSql.g:386:4: (lv_type_3_0= ruleDatatype )
-            // InternalNlToSql.g:387:5: lv_type_3_0= ruleDatatype
+            // InternalNlToSql.g:388:4: (lv_type_3_0= ruleDatatype )
+            // InternalNlToSql.g:389:5: lv_type_3_0= ruleDatatype
             {
 
             					newCompositeNode(grammarAccess.getColumnAccess().getTypeDatatypeParserRuleCall_3_0());
@@ -1026,7 +1049,7 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleDatatype"
-    // InternalNlToSql.g:408:1: entryRuleDatatype returns [String current=null] : iv_ruleDatatype= ruleDatatype EOF ;
+    // InternalNlToSql.g:410:1: entryRuleDatatype returns [String current=null] : iv_ruleDatatype= ruleDatatype EOF ;
     public final String entryRuleDatatype() throws RecognitionException {
         String current = null;
 
@@ -1034,8 +1057,8 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalNlToSql.g:408:48: (iv_ruleDatatype= ruleDatatype EOF )
-            // InternalNlToSql.g:409:2: iv_ruleDatatype= ruleDatatype EOF
+            // InternalNlToSql.g:410:48: (iv_ruleDatatype= ruleDatatype EOF )
+            // InternalNlToSql.g:411:2: iv_ruleDatatype= ruleDatatype EOF
             {
              newCompositeNode(grammarAccess.getDatatypeRule()); 
             pushFollow(FOLLOW_1);
@@ -1062,7 +1085,7 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDatatype"
-    // InternalNlToSql.g:415:1: ruleDatatype returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= 'integer' | kw= 'string' | kw= 'date' ) ;
+    // InternalNlToSql.g:417:1: ruleDatatype returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= 'integer' | kw= 'string' | kw= 'date' ) ;
     public final AntlrDatatypeRuleToken ruleDatatype() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -1072,10 +1095,10 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalNlToSql.g:421:2: ( (kw= 'integer' | kw= 'string' | kw= 'date' ) )
-            // InternalNlToSql.g:422:2: (kw= 'integer' | kw= 'string' | kw= 'date' )
+            // InternalNlToSql.g:423:2: ( (kw= 'integer' | kw= 'string' | kw= 'date' ) )
+            // InternalNlToSql.g:424:2: (kw= 'integer' | kw= 'string' | kw= 'date' )
             {
-            // InternalNlToSql.g:422:2: (kw= 'integer' | kw= 'string' | kw= 'date' )
+            // InternalNlToSql.g:424:2: (kw= 'integer' | kw= 'string' | kw= 'date' )
             int alt5=3;
             switch ( input.LA(1) ) {
             case 20:
@@ -1102,7 +1125,7 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
 
             switch (alt5) {
                 case 1 :
-                    // InternalNlToSql.g:423:3: kw= 'integer'
+                    // InternalNlToSql.g:425:3: kw= 'integer'
                     {
                     kw=(Token)match(input,20,FOLLOW_2); 
 
@@ -1113,7 +1136,7 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalNlToSql.g:429:3: kw= 'string'
+                    // InternalNlToSql.g:431:3: kw= 'string'
                     {
                     kw=(Token)match(input,21,FOLLOW_2); 
 
@@ -1124,7 +1147,7 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalNlToSql.g:435:3: kw= 'date'
+                    // InternalNlToSql.g:437:3: kw= 'date'
                     {
                     kw=(Token)match(input,22,FOLLOW_2); 
 
@@ -1157,7 +1180,7 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleSelectStatement"
-    // InternalNlToSql.g:444:1: entryRuleSelectStatement returns [EObject current=null] : iv_ruleSelectStatement= ruleSelectStatement EOF ;
+    // InternalNlToSql.g:446:1: entryRuleSelectStatement returns [EObject current=null] : iv_ruleSelectStatement= ruleSelectStatement EOF ;
     public final EObject entryRuleSelectStatement() throws RecognitionException {
         EObject current = null;
 
@@ -1165,8 +1188,8 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalNlToSql.g:444:56: (iv_ruleSelectStatement= ruleSelectStatement EOF )
-            // InternalNlToSql.g:445:2: iv_ruleSelectStatement= ruleSelectStatement EOF
+            // InternalNlToSql.g:446:56: (iv_ruleSelectStatement= ruleSelectStatement EOF )
+            // InternalNlToSql.g:447:2: iv_ruleSelectStatement= ruleSelectStatement EOF
             {
              newCompositeNode(grammarAccess.getSelectStatementRule()); 
             pushFollow(FOLLOW_1);
@@ -1193,7 +1216,7 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleSelectStatement"
-    // InternalNlToSql.g:451:1: ruleSelectStatement returns [EObject current=null] : (otherlv_0= 'From' otherlv_1= 'the' otherlv_2= 'table' this_SelectTablesList_3= ruleSelectTablesList otherlv_4= 'show' ( (otherlv_5= 'the' otherlv_6= 'columns:' ( (lv_columns_7_0= ruleSelectColumnsList ) ) ) | (otherlv_8= 'all' otherlv_9= 'columns' ) ) (otherlv_10= 'where' ( (lv_condition_11_0= ruleCondition ) ) )? (otherlv_12= 'group' otherlv_13= 'by' ( (lv_group_14_0= ruleSelectColumnsList ) ) )? ) ;
+    // InternalNlToSql.g:453:1: ruleSelectStatement returns [EObject current=null] : (otherlv_0= 'From' otherlv_1= 'the' otherlv_2= 'table' this_SelectTablesList_3= ruleSelectTablesList otherlv_4= 'show' ( (otherlv_5= 'the' otherlv_6= 'columns:' ( (lv_columns_7_0= ruleSelectColumnsList ) ) ) | (otherlv_8= 'all' otherlv_9= 'columns' ) ) (otherlv_10= 'where' ( (lv_condition_11_0= ruleCondition ) ) )? (otherlv_12= 'group' otherlv_13= 'by' ( (lv_group_14_0= ruleSelectColumnsList ) ) )? ) ;
     public final EObject ruleSelectStatement() throws RecognitionException {
         EObject current = null;
 
@@ -1221,28 +1244,28 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalNlToSql.g:457:2: ( (otherlv_0= 'From' otherlv_1= 'the' otherlv_2= 'table' this_SelectTablesList_3= ruleSelectTablesList otherlv_4= 'show' ( (otherlv_5= 'the' otherlv_6= 'columns:' ( (lv_columns_7_0= ruleSelectColumnsList ) ) ) | (otherlv_8= 'all' otherlv_9= 'columns' ) ) (otherlv_10= 'where' ( (lv_condition_11_0= ruleCondition ) ) )? (otherlv_12= 'group' otherlv_13= 'by' ( (lv_group_14_0= ruleSelectColumnsList ) ) )? ) )
-            // InternalNlToSql.g:458:2: (otherlv_0= 'From' otherlv_1= 'the' otherlv_2= 'table' this_SelectTablesList_3= ruleSelectTablesList otherlv_4= 'show' ( (otherlv_5= 'the' otherlv_6= 'columns:' ( (lv_columns_7_0= ruleSelectColumnsList ) ) ) | (otherlv_8= 'all' otherlv_9= 'columns' ) ) (otherlv_10= 'where' ( (lv_condition_11_0= ruleCondition ) ) )? (otherlv_12= 'group' otherlv_13= 'by' ( (lv_group_14_0= ruleSelectColumnsList ) ) )? )
+            // InternalNlToSql.g:459:2: ( (otherlv_0= 'From' otherlv_1= 'the' otherlv_2= 'table' this_SelectTablesList_3= ruleSelectTablesList otherlv_4= 'show' ( (otherlv_5= 'the' otherlv_6= 'columns:' ( (lv_columns_7_0= ruleSelectColumnsList ) ) ) | (otherlv_8= 'all' otherlv_9= 'columns' ) ) (otherlv_10= 'where' ( (lv_condition_11_0= ruleCondition ) ) )? (otherlv_12= 'group' otherlv_13= 'by' ( (lv_group_14_0= ruleSelectColumnsList ) ) )? ) )
+            // InternalNlToSql.g:460:2: (otherlv_0= 'From' otherlv_1= 'the' otherlv_2= 'table' this_SelectTablesList_3= ruleSelectTablesList otherlv_4= 'show' ( (otherlv_5= 'the' otherlv_6= 'columns:' ( (lv_columns_7_0= ruleSelectColumnsList ) ) ) | (otherlv_8= 'all' otherlv_9= 'columns' ) ) (otherlv_10= 'where' ( (lv_condition_11_0= ruleCondition ) ) )? (otherlv_12= 'group' otherlv_13= 'by' ( (lv_group_14_0= ruleSelectColumnsList ) ) )? )
             {
-            // InternalNlToSql.g:458:2: (otherlv_0= 'From' otherlv_1= 'the' otherlv_2= 'table' this_SelectTablesList_3= ruleSelectTablesList otherlv_4= 'show' ( (otherlv_5= 'the' otherlv_6= 'columns:' ( (lv_columns_7_0= ruleSelectColumnsList ) ) ) | (otherlv_8= 'all' otherlv_9= 'columns' ) ) (otherlv_10= 'where' ( (lv_condition_11_0= ruleCondition ) ) )? (otherlv_12= 'group' otherlv_13= 'by' ( (lv_group_14_0= ruleSelectColumnsList ) ) )? )
-            // InternalNlToSql.g:459:3: otherlv_0= 'From' otherlv_1= 'the' otherlv_2= 'table' this_SelectTablesList_3= ruleSelectTablesList otherlv_4= 'show' ( (otherlv_5= 'the' otherlv_6= 'columns:' ( (lv_columns_7_0= ruleSelectColumnsList ) ) ) | (otherlv_8= 'all' otherlv_9= 'columns' ) ) (otherlv_10= 'where' ( (lv_condition_11_0= ruleCondition ) ) )? (otherlv_12= 'group' otherlv_13= 'by' ( (lv_group_14_0= ruleSelectColumnsList ) ) )?
+            // InternalNlToSql.g:460:2: (otherlv_0= 'From' otherlv_1= 'the' otherlv_2= 'table' this_SelectTablesList_3= ruleSelectTablesList otherlv_4= 'show' ( (otherlv_5= 'the' otherlv_6= 'columns:' ( (lv_columns_7_0= ruleSelectColumnsList ) ) ) | (otherlv_8= 'all' otherlv_9= 'columns' ) ) (otherlv_10= 'where' ( (lv_condition_11_0= ruleCondition ) ) )? (otherlv_12= 'group' otherlv_13= 'by' ( (lv_group_14_0= ruleSelectColumnsList ) ) )? )
+            // InternalNlToSql.g:461:3: otherlv_0= 'From' otherlv_1= 'the' otherlv_2= 'table' this_SelectTablesList_3= ruleSelectTablesList otherlv_4= 'show' ( (otherlv_5= 'the' otherlv_6= 'columns:' ( (lv_columns_7_0= ruleSelectColumnsList ) ) ) | (otherlv_8= 'all' otherlv_9= 'columns' ) ) (otherlv_10= 'where' ( (lv_condition_11_0= ruleCondition ) ) )? (otherlv_12= 'group' otherlv_13= 'by' ( (lv_group_14_0= ruleSelectColumnsList ) ) )?
             {
-            otherlv_0=(Token)match(input,23,FOLLOW_15); 
+            otherlv_0=(Token)match(input,23,FOLLOW_14); 
 
             			newLeafNode(otherlv_0, grammarAccess.getSelectStatementAccess().getFromKeyword_0());
             		
-            otherlv_1=(Token)match(input,24,FOLLOW_6); 
+            otherlv_1=(Token)match(input,24,FOLLOW_5); 
 
             			newLeafNode(otherlv_1, grammarAccess.getSelectStatementAccess().getTheKeyword_1());
             		
-            otherlv_2=(Token)match(input,13,FOLLOW_8); 
+            otherlv_2=(Token)match(input,13,FOLLOW_7); 
 
             			newLeafNode(otherlv_2, grammarAccess.getSelectStatementAccess().getTableKeyword_2());
             		
 
             			newCompositeNode(grammarAccess.getSelectStatementAccess().getSelectTablesListParserRuleCall_3());
             		
-            pushFollow(FOLLOW_16);
+            pushFollow(FOLLOW_15);
             this_SelectTablesList_3=ruleSelectTablesList();
 
             state._fsp--;
@@ -1251,11 +1274,11 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
             			current = this_SelectTablesList_3;
             			afterParserOrEnumRuleCall();
             		
-            otherlv_4=(Token)match(input,25,FOLLOW_17); 
+            otherlv_4=(Token)match(input,25,FOLLOW_16); 
 
             			newLeafNode(otherlv_4, grammarAccess.getSelectStatementAccess().getShowKeyword_4());
             		
-            // InternalNlToSql.g:483:3: ( (otherlv_5= 'the' otherlv_6= 'columns:' ( (lv_columns_7_0= ruleSelectColumnsList ) ) ) | (otherlv_8= 'all' otherlv_9= 'columns' ) )
+            // InternalNlToSql.g:485:3: ( (otherlv_5= 'the' otherlv_6= 'columns:' ( (lv_columns_7_0= ruleSelectColumnsList ) ) ) | (otherlv_8= 'all' otherlv_9= 'columns' ) )
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -1273,29 +1296,29 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
             }
             switch (alt6) {
                 case 1 :
-                    // InternalNlToSql.g:484:4: (otherlv_5= 'the' otherlv_6= 'columns:' ( (lv_columns_7_0= ruleSelectColumnsList ) ) )
+                    // InternalNlToSql.g:486:4: (otherlv_5= 'the' otherlv_6= 'columns:' ( (lv_columns_7_0= ruleSelectColumnsList ) ) )
                     {
-                    // InternalNlToSql.g:484:4: (otherlv_5= 'the' otherlv_6= 'columns:' ( (lv_columns_7_0= ruleSelectColumnsList ) ) )
-                    // InternalNlToSql.g:485:5: otherlv_5= 'the' otherlv_6= 'columns:' ( (lv_columns_7_0= ruleSelectColumnsList ) )
+                    // InternalNlToSql.g:486:4: (otherlv_5= 'the' otherlv_6= 'columns:' ( (lv_columns_7_0= ruleSelectColumnsList ) ) )
+                    // InternalNlToSql.g:487:5: otherlv_5= 'the' otherlv_6= 'columns:' ( (lv_columns_7_0= ruleSelectColumnsList ) )
                     {
-                    otherlv_5=(Token)match(input,24,FOLLOW_18); 
+                    otherlv_5=(Token)match(input,24,FOLLOW_17); 
 
                     					newLeafNode(otherlv_5, grammarAccess.getSelectStatementAccess().getTheKeyword_5_0_0());
                     				
-                    otherlv_6=(Token)match(input,26,FOLLOW_8); 
+                    otherlv_6=(Token)match(input,26,FOLLOW_7); 
 
                     					newLeafNode(otherlv_6, grammarAccess.getSelectStatementAccess().getColumnsKeyword_5_0_1());
                     				
-                    // InternalNlToSql.g:493:5: ( (lv_columns_7_0= ruleSelectColumnsList ) )
-                    // InternalNlToSql.g:494:6: (lv_columns_7_0= ruleSelectColumnsList )
+                    // InternalNlToSql.g:495:5: ( (lv_columns_7_0= ruleSelectColumnsList ) )
+                    // InternalNlToSql.g:496:6: (lv_columns_7_0= ruleSelectColumnsList )
                     {
-                    // InternalNlToSql.g:494:6: (lv_columns_7_0= ruleSelectColumnsList )
-                    // InternalNlToSql.g:495:7: lv_columns_7_0= ruleSelectColumnsList
+                    // InternalNlToSql.g:496:6: (lv_columns_7_0= ruleSelectColumnsList )
+                    // InternalNlToSql.g:497:7: lv_columns_7_0= ruleSelectColumnsList
                     {
 
                     							newCompositeNode(grammarAccess.getSelectStatementAccess().getColumnsSelectColumnsListParserRuleCall_5_0_2_0());
                     						
-                    pushFollow(FOLLOW_19);
+                    pushFollow(FOLLOW_18);
                     lv_columns_7_0=ruleSelectColumnsList();
 
                     state._fsp--;
@@ -1324,16 +1347,16 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalNlToSql.g:514:4: (otherlv_8= 'all' otherlv_9= 'columns' )
+                    // InternalNlToSql.g:516:4: (otherlv_8= 'all' otherlv_9= 'columns' )
                     {
-                    // InternalNlToSql.g:514:4: (otherlv_8= 'all' otherlv_9= 'columns' )
-                    // InternalNlToSql.g:515:5: otherlv_8= 'all' otherlv_9= 'columns'
+                    // InternalNlToSql.g:516:4: (otherlv_8= 'all' otherlv_9= 'columns' )
+                    // InternalNlToSql.g:517:5: otherlv_8= 'all' otherlv_9= 'columns'
                     {
-                    otherlv_8=(Token)match(input,27,FOLLOW_10); 
+                    otherlv_8=(Token)match(input,27,FOLLOW_9); 
 
                     					newLeafNode(otherlv_8, grammarAccess.getSelectStatementAccess().getAllKeyword_5_1_0());
                     				
-                    otherlv_9=(Token)match(input,16,FOLLOW_19); 
+                    otherlv_9=(Token)match(input,16,FOLLOW_18); 
 
                     					newLeafNode(otherlv_9, grammarAccess.getSelectStatementAccess().getColumnsKeyword_5_1_1());
                     				
@@ -1346,7 +1369,7 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalNlToSql.g:525:3: (otherlv_10= 'where' ( (lv_condition_11_0= ruleCondition ) ) )?
+            // InternalNlToSql.g:527:3: (otherlv_10= 'where' ( (lv_condition_11_0= ruleCondition ) ) )?
             int alt7=2;
             int LA7_0 = input.LA(1);
 
@@ -1355,22 +1378,22 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
             }
             switch (alt7) {
                 case 1 :
-                    // InternalNlToSql.g:526:4: otherlv_10= 'where' ( (lv_condition_11_0= ruleCondition ) )
+                    // InternalNlToSql.g:528:4: otherlv_10= 'where' ( (lv_condition_11_0= ruleCondition ) )
                     {
-                    otherlv_10=(Token)match(input,28,FOLLOW_20); 
+                    otherlv_10=(Token)match(input,28,FOLLOW_19); 
 
                     				newLeafNode(otherlv_10, grammarAccess.getSelectStatementAccess().getWhereKeyword_6_0());
                     			
-                    // InternalNlToSql.g:530:4: ( (lv_condition_11_0= ruleCondition ) )
-                    // InternalNlToSql.g:531:5: (lv_condition_11_0= ruleCondition )
+                    // InternalNlToSql.g:532:4: ( (lv_condition_11_0= ruleCondition ) )
+                    // InternalNlToSql.g:533:5: (lv_condition_11_0= ruleCondition )
                     {
-                    // InternalNlToSql.g:531:5: (lv_condition_11_0= ruleCondition )
-                    // InternalNlToSql.g:532:6: lv_condition_11_0= ruleCondition
+                    // InternalNlToSql.g:533:5: (lv_condition_11_0= ruleCondition )
+                    // InternalNlToSql.g:534:6: lv_condition_11_0= ruleCondition
                     {
 
                     						newCompositeNode(grammarAccess.getSelectStatementAccess().getConditionConditionParserRuleCall_6_1_0());
                     					
-                    pushFollow(FOLLOW_21);
+                    pushFollow(FOLLOW_20);
                     lv_condition_11_0=ruleCondition();
 
                     state._fsp--;
@@ -1398,7 +1421,7 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalNlToSql.g:550:3: (otherlv_12= 'group' otherlv_13= 'by' ( (lv_group_14_0= ruleSelectColumnsList ) ) )?
+            // InternalNlToSql.g:552:3: (otherlv_12= 'group' otherlv_13= 'by' ( (lv_group_14_0= ruleSelectColumnsList ) ) )?
             int alt8=2;
             int LA8_0 = input.LA(1);
 
@@ -1407,21 +1430,21 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
             }
             switch (alt8) {
                 case 1 :
-                    // InternalNlToSql.g:551:4: otherlv_12= 'group' otherlv_13= 'by' ( (lv_group_14_0= ruleSelectColumnsList ) )
+                    // InternalNlToSql.g:553:4: otherlv_12= 'group' otherlv_13= 'by' ( (lv_group_14_0= ruleSelectColumnsList ) )
                     {
-                    otherlv_12=(Token)match(input,29,FOLLOW_22); 
+                    otherlv_12=(Token)match(input,29,FOLLOW_21); 
 
                     				newLeafNode(otherlv_12, grammarAccess.getSelectStatementAccess().getGroupKeyword_7_0());
                     			
-                    otherlv_13=(Token)match(input,30,FOLLOW_8); 
+                    otherlv_13=(Token)match(input,30,FOLLOW_7); 
 
                     				newLeafNode(otherlv_13, grammarAccess.getSelectStatementAccess().getByKeyword_7_1());
                     			
-                    // InternalNlToSql.g:559:4: ( (lv_group_14_0= ruleSelectColumnsList ) )
-                    // InternalNlToSql.g:560:5: (lv_group_14_0= ruleSelectColumnsList )
+                    // InternalNlToSql.g:561:4: ( (lv_group_14_0= ruleSelectColumnsList ) )
+                    // InternalNlToSql.g:562:5: (lv_group_14_0= ruleSelectColumnsList )
                     {
-                    // InternalNlToSql.g:560:5: (lv_group_14_0= ruleSelectColumnsList )
-                    // InternalNlToSql.g:561:6: lv_group_14_0= ruleSelectColumnsList
+                    // InternalNlToSql.g:562:5: (lv_group_14_0= ruleSelectColumnsList )
+                    // InternalNlToSql.g:563:6: lv_group_14_0= ruleSelectColumnsList
                     {
 
                     						newCompositeNode(grammarAccess.getSelectStatementAccess().getGroupSelectColumnsListParserRuleCall_7_2_0());
@@ -1477,7 +1500,7 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleInsertStatement"
-    // InternalNlToSql.g:583:1: entryRuleInsertStatement returns [EObject current=null] : iv_ruleInsertStatement= ruleInsertStatement EOF ;
+    // InternalNlToSql.g:585:1: entryRuleInsertStatement returns [EObject current=null] : iv_ruleInsertStatement= ruleInsertStatement EOF ;
     public final EObject entryRuleInsertStatement() throws RecognitionException {
         EObject current = null;
 
@@ -1485,8 +1508,8 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalNlToSql.g:583:56: (iv_ruleInsertStatement= ruleInsertStatement EOF )
-            // InternalNlToSql.g:584:2: iv_ruleInsertStatement= ruleInsertStatement EOF
+            // InternalNlToSql.g:585:56: (iv_ruleInsertStatement= ruleInsertStatement EOF )
+            // InternalNlToSql.g:586:2: iv_ruleInsertStatement= ruleInsertStatement EOF
             {
              newCompositeNode(grammarAccess.getInsertStatementRule()); 
             pushFollow(FOLLOW_1);
@@ -1513,91 +1536,90 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleInsertStatement"
-    // InternalNlToSql.g:590:1: ruleInsertStatement returns [EObject current=null] : (otherlv_0= 'Insert' otherlv_1= 'into' ruleTheTable this_SelectTable_3= ruleSelectTable otherlv_4= 'for' otherlv_5= 'the' otherlv_6= 'columns' ( (lv_columns_7_0= ruleSelectColumnsList ) ) otherlv_8= 'insert' otherlv_9= 'the' otherlv_10= 'values' otherlv_11= '(' ( (lv_values_12_0= ruleInserValues ) ) otherlv_13= ')' ) ;
+    // InternalNlToSql.g:592:1: ruleInsertStatement returns [EObject current=null] : (otherlv_0= 'Insert' otherlv_1= 'into' otherlv_2= 'the' otherlv_3= 'table' this_SelectTable_4= ruleSelectTable otherlv_5= 'for' otherlv_6= 'the' otherlv_7= 'columns' ( (lv_columns_8_0= ruleSelectColumnsList ) ) otherlv_9= 'insert' otherlv_10= 'the' otherlv_11= 'values' otherlv_12= '(' ( (lv_values_13_0= ruleInserValues ) ) otherlv_14= ')' ) ;
     public final EObject ruleInsertStatement() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_0=null;
         Token otherlv_1=null;
-        Token otherlv_4=null;
+        Token otherlv_2=null;
+        Token otherlv_3=null;
         Token otherlv_5=null;
         Token otherlv_6=null;
-        Token otherlv_8=null;
+        Token otherlv_7=null;
         Token otherlv_9=null;
         Token otherlv_10=null;
         Token otherlv_11=null;
-        Token otherlv_13=null;
-        EObject this_SelectTable_3 = null;
+        Token otherlv_12=null;
+        Token otherlv_14=null;
+        EObject this_SelectTable_4 = null;
 
-        EObject lv_columns_7_0 = null;
+        EObject lv_columns_8_0 = null;
 
-        EObject lv_values_12_0 = null;
+        EObject lv_values_13_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalNlToSql.g:596:2: ( (otherlv_0= 'Insert' otherlv_1= 'into' ruleTheTable this_SelectTable_3= ruleSelectTable otherlv_4= 'for' otherlv_5= 'the' otherlv_6= 'columns' ( (lv_columns_7_0= ruleSelectColumnsList ) ) otherlv_8= 'insert' otherlv_9= 'the' otherlv_10= 'values' otherlv_11= '(' ( (lv_values_12_0= ruleInserValues ) ) otherlv_13= ')' ) )
-            // InternalNlToSql.g:597:2: (otherlv_0= 'Insert' otherlv_1= 'into' ruleTheTable this_SelectTable_3= ruleSelectTable otherlv_4= 'for' otherlv_5= 'the' otherlv_6= 'columns' ( (lv_columns_7_0= ruleSelectColumnsList ) ) otherlv_8= 'insert' otherlv_9= 'the' otherlv_10= 'values' otherlv_11= '(' ( (lv_values_12_0= ruleInserValues ) ) otherlv_13= ')' )
+            // InternalNlToSql.g:598:2: ( (otherlv_0= 'Insert' otherlv_1= 'into' otherlv_2= 'the' otherlv_3= 'table' this_SelectTable_4= ruleSelectTable otherlv_5= 'for' otherlv_6= 'the' otherlv_7= 'columns' ( (lv_columns_8_0= ruleSelectColumnsList ) ) otherlv_9= 'insert' otherlv_10= 'the' otherlv_11= 'values' otherlv_12= '(' ( (lv_values_13_0= ruleInserValues ) ) otherlv_14= ')' ) )
+            // InternalNlToSql.g:599:2: (otherlv_0= 'Insert' otherlv_1= 'into' otherlv_2= 'the' otherlv_3= 'table' this_SelectTable_4= ruleSelectTable otherlv_5= 'for' otherlv_6= 'the' otherlv_7= 'columns' ( (lv_columns_8_0= ruleSelectColumnsList ) ) otherlv_9= 'insert' otherlv_10= 'the' otherlv_11= 'values' otherlv_12= '(' ( (lv_values_13_0= ruleInserValues ) ) otherlv_14= ')' )
             {
-            // InternalNlToSql.g:597:2: (otherlv_0= 'Insert' otherlv_1= 'into' ruleTheTable this_SelectTable_3= ruleSelectTable otherlv_4= 'for' otherlv_5= 'the' otherlv_6= 'columns' ( (lv_columns_7_0= ruleSelectColumnsList ) ) otherlv_8= 'insert' otherlv_9= 'the' otherlv_10= 'values' otherlv_11= '(' ( (lv_values_12_0= ruleInserValues ) ) otherlv_13= ')' )
-            // InternalNlToSql.g:598:3: otherlv_0= 'Insert' otherlv_1= 'into' ruleTheTable this_SelectTable_3= ruleSelectTable otherlv_4= 'for' otherlv_5= 'the' otherlv_6= 'columns' ( (lv_columns_7_0= ruleSelectColumnsList ) ) otherlv_8= 'insert' otherlv_9= 'the' otherlv_10= 'values' otherlv_11= '(' ( (lv_values_12_0= ruleInserValues ) ) otherlv_13= ')'
+            // InternalNlToSql.g:599:2: (otherlv_0= 'Insert' otherlv_1= 'into' otherlv_2= 'the' otherlv_3= 'table' this_SelectTable_4= ruleSelectTable otherlv_5= 'for' otherlv_6= 'the' otherlv_7= 'columns' ( (lv_columns_8_0= ruleSelectColumnsList ) ) otherlv_9= 'insert' otherlv_10= 'the' otherlv_11= 'values' otherlv_12= '(' ( (lv_values_13_0= ruleInserValues ) ) otherlv_14= ')' )
+            // InternalNlToSql.g:600:3: otherlv_0= 'Insert' otherlv_1= 'into' otherlv_2= 'the' otherlv_3= 'table' this_SelectTable_4= ruleSelectTable otherlv_5= 'for' otherlv_6= 'the' otherlv_7= 'columns' ( (lv_columns_8_0= ruleSelectColumnsList ) ) otherlv_9= 'insert' otherlv_10= 'the' otherlv_11= 'values' otherlv_12= '(' ( (lv_values_13_0= ruleInserValues ) ) otherlv_14= ')'
             {
-            otherlv_0=(Token)match(input,31,FOLLOW_23); 
+            otherlv_0=(Token)match(input,31,FOLLOW_22); 
 
             			newLeafNode(otherlv_0, grammarAccess.getInsertStatementAccess().getInsertKeyword_0());
             		
-            otherlv_1=(Token)match(input,32,FOLLOW_24); 
+            otherlv_1=(Token)match(input,32,FOLLOW_14); 
 
             			newLeafNode(otherlv_1, grammarAccess.getInsertStatementAccess().getIntoKeyword_1());
             		
+            otherlv_2=(Token)match(input,24,FOLLOW_5); 
 
-            			newCompositeNode(grammarAccess.getInsertStatementAccess().getTheTableParserRuleCall_2());
+            			newLeafNode(otherlv_2, grammarAccess.getInsertStatementAccess().getTheKeyword_2());
             		
-            pushFollow(FOLLOW_24);
-            ruleTheTable();
+            otherlv_3=(Token)match(input,13,FOLLOW_7); 
+
+            			newLeafNode(otherlv_3, grammarAccess.getInsertStatementAccess().getTableKeyword_3());
+            		
+
+            			newCompositeNode(grammarAccess.getInsertStatementAccess().getSelectTableParserRuleCall_4());
+            		
+            pushFollow(FOLLOW_23);
+            this_SelectTable_4=ruleSelectTable();
 
             state._fsp--;
 
 
+            			current = this_SelectTable_4;
             			afterParserOrEnumRuleCall();
             		
+            otherlv_5=(Token)match(input,33,FOLLOW_14); 
 
-            			newCompositeNode(grammarAccess.getInsertStatementAccess().getSelectTableParserRuleCall_3());
+            			newLeafNode(otherlv_5, grammarAccess.getInsertStatementAccess().getForKeyword_5());
             		
-            pushFollow(FOLLOW_25);
-            this_SelectTable_3=ruleSelectTable();
+            otherlv_6=(Token)match(input,24,FOLLOW_9); 
 
-            state._fsp--;
-
-
-            			current = this_SelectTable_3;
-            			afterParserOrEnumRuleCall();
+            			newLeafNode(otherlv_6, grammarAccess.getInsertStatementAccess().getTheKeyword_6());
             		
-            otherlv_4=(Token)match(input,33,FOLLOW_15); 
+            otherlv_7=(Token)match(input,16,FOLLOW_7); 
 
-            			newLeafNode(otherlv_4, grammarAccess.getInsertStatementAccess().getForKeyword_4());
+            			newLeafNode(otherlv_7, grammarAccess.getInsertStatementAccess().getColumnsKeyword_7());
             		
-            otherlv_5=(Token)match(input,24,FOLLOW_10); 
-
-            			newLeafNode(otherlv_5, grammarAccess.getInsertStatementAccess().getTheKeyword_5());
-            		
-            otherlv_6=(Token)match(input,16,FOLLOW_8); 
-
-            			newLeafNode(otherlv_6, grammarAccess.getInsertStatementAccess().getColumnsKeyword_6());
-            		
-            // InternalNlToSql.g:633:3: ( (lv_columns_7_0= ruleSelectColumnsList ) )
-            // InternalNlToSql.g:634:4: (lv_columns_7_0= ruleSelectColumnsList )
+            // InternalNlToSql.g:636:3: ( (lv_columns_8_0= ruleSelectColumnsList ) )
+            // InternalNlToSql.g:637:4: (lv_columns_8_0= ruleSelectColumnsList )
             {
-            // InternalNlToSql.g:634:4: (lv_columns_7_0= ruleSelectColumnsList )
-            // InternalNlToSql.g:635:5: lv_columns_7_0= ruleSelectColumnsList
+            // InternalNlToSql.g:637:4: (lv_columns_8_0= ruleSelectColumnsList )
+            // InternalNlToSql.g:638:5: lv_columns_8_0= ruleSelectColumnsList
             {
 
-            					newCompositeNode(grammarAccess.getInsertStatementAccess().getColumnsSelectColumnsListParserRuleCall_7_0());
+            					newCompositeNode(grammarAccess.getInsertStatementAccess().getColumnsSelectColumnsListParserRuleCall_8_0());
             				
-            pushFollow(FOLLOW_26);
-            lv_columns_7_0=ruleSelectColumnsList();
+            pushFollow(FOLLOW_24);
+            lv_columns_8_0=ruleSelectColumnsList();
 
             state._fsp--;
 
@@ -1608,7 +1630,7 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
             					set(
             						current,
             						"columns",
-            						lv_columns_7_0,
+            						lv_columns_8_0,
             						"uk.ac.kcl.inf.NlToSql.SelectColumnsList");
             					afterParserOrEnumRuleCall();
             				
@@ -1618,33 +1640,33 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_8=(Token)match(input,34,FOLLOW_15); 
+            otherlv_9=(Token)match(input,34,FOLLOW_14); 
 
-            			newLeafNode(otherlv_8, grammarAccess.getInsertStatementAccess().getInsertKeyword_8());
+            			newLeafNode(otherlv_9, grammarAccess.getInsertStatementAccess().getInsertKeyword_9());
             		
-            otherlv_9=(Token)match(input,24,FOLLOW_27); 
+            otherlv_10=(Token)match(input,24,FOLLOW_25); 
 
-            			newLeafNode(otherlv_9, grammarAccess.getInsertStatementAccess().getTheKeyword_9());
+            			newLeafNode(otherlv_10, grammarAccess.getInsertStatementAccess().getTheKeyword_10());
             		
-            otherlv_10=(Token)match(input,35,FOLLOW_28); 
+            otherlv_11=(Token)match(input,35,FOLLOW_26); 
 
-            			newLeafNode(otherlv_10, grammarAccess.getInsertStatementAccess().getValuesKeyword_10());
+            			newLeafNode(otherlv_11, grammarAccess.getInsertStatementAccess().getValuesKeyword_11());
             		
-            otherlv_11=(Token)match(input,36,FOLLOW_29); 
+            otherlv_12=(Token)match(input,36,FOLLOW_27); 
 
-            			newLeafNode(otherlv_11, grammarAccess.getInsertStatementAccess().getLeftParenthesisKeyword_11());
+            			newLeafNode(otherlv_12, grammarAccess.getInsertStatementAccess().getLeftParenthesisKeyword_12());
             		
-            // InternalNlToSql.g:668:3: ( (lv_values_12_0= ruleInserValues ) )
-            // InternalNlToSql.g:669:4: (lv_values_12_0= ruleInserValues )
+            // InternalNlToSql.g:671:3: ( (lv_values_13_0= ruleInserValues ) )
+            // InternalNlToSql.g:672:4: (lv_values_13_0= ruleInserValues )
             {
-            // InternalNlToSql.g:669:4: (lv_values_12_0= ruleInserValues )
-            // InternalNlToSql.g:670:5: lv_values_12_0= ruleInserValues
+            // InternalNlToSql.g:672:4: (lv_values_13_0= ruleInserValues )
+            // InternalNlToSql.g:673:5: lv_values_13_0= ruleInserValues
             {
 
-            					newCompositeNode(grammarAccess.getInsertStatementAccess().getValuesInserValuesParserRuleCall_12_0());
+            					newCompositeNode(grammarAccess.getInsertStatementAccess().getValuesInserValuesParserRuleCall_13_0());
             				
-            pushFollow(FOLLOW_30);
-            lv_values_12_0=ruleInserValues();
+            pushFollow(FOLLOW_28);
+            lv_values_13_0=ruleInserValues();
 
             state._fsp--;
 
@@ -1655,7 +1677,7 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
             					set(
             						current,
             						"values",
-            						lv_values_12_0,
+            						lv_values_13_0,
             						"uk.ac.kcl.inf.NlToSql.InserValues");
             					afterParserOrEnumRuleCall();
             				
@@ -1665,9 +1687,9 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_13=(Token)match(input,37,FOLLOW_2); 
+            otherlv_14=(Token)match(input,37,FOLLOW_2); 
 
-            			newLeafNode(otherlv_13, grammarAccess.getInsertStatementAccess().getRightParenthesisKeyword_13());
+            			newLeafNode(otherlv_14, grammarAccess.getInsertStatementAccess().getRightParenthesisKeyword_14());
             		
 
             }
@@ -1692,7 +1714,7 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleUpdateStatement"
-    // InternalNlToSql.g:695:1: entryRuleUpdateStatement returns [EObject current=null] : iv_ruleUpdateStatement= ruleUpdateStatement EOF ;
+    // InternalNlToSql.g:698:1: entryRuleUpdateStatement returns [EObject current=null] : iv_ruleUpdateStatement= ruleUpdateStatement EOF ;
     public final EObject entryRuleUpdateStatement() throws RecognitionException {
         EObject current = null;
 
@@ -1700,8 +1722,8 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalNlToSql.g:695:56: (iv_ruleUpdateStatement= ruleUpdateStatement EOF )
-            // InternalNlToSql.g:696:2: iv_ruleUpdateStatement= ruleUpdateStatement EOF
+            // InternalNlToSql.g:698:56: (iv_ruleUpdateStatement= ruleUpdateStatement EOF )
+            // InternalNlToSql.g:699:2: iv_ruleUpdateStatement= ruleUpdateStatement EOF
             {
              newCompositeNode(grammarAccess.getUpdateStatementRule()); 
             pushFollow(FOLLOW_1);
@@ -1728,77 +1750,76 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleUpdateStatement"
-    // InternalNlToSql.g:702:1: ruleUpdateStatement returns [EObject current=null] : (otherlv_0= 'Update' ruleTheTable this_SelectTable_2= ruleSelectTable otherlv_3= 'to' otherlv_4= 'set' ( (lv_updates_5_0= ruleSelectUpdateList ) ) (otherlv_6= 'where' ( (lv_condition_7_0= ruleCondition ) ) )? ) ;
+    // InternalNlToSql.g:705:1: ruleUpdateStatement returns [EObject current=null] : (otherlv_0= 'Update' otherlv_1= 'the' otherlv_2= 'table' this_SelectTable_3= ruleSelectTable otherlv_4= 'to' otherlv_5= 'set' ( (lv_updates_6_0= ruleSelectUpdateList ) ) (otherlv_7= 'where' ( (lv_condition_8_0= ruleCondition ) ) )? ) ;
     public final EObject ruleUpdateStatement() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_0=null;
-        Token otherlv_3=null;
+        Token otherlv_1=null;
+        Token otherlv_2=null;
         Token otherlv_4=null;
-        Token otherlv_6=null;
-        EObject this_SelectTable_2 = null;
+        Token otherlv_5=null;
+        Token otherlv_7=null;
+        EObject this_SelectTable_3 = null;
 
-        EObject lv_updates_5_0 = null;
+        EObject lv_updates_6_0 = null;
 
-        EObject lv_condition_7_0 = null;
+        EObject lv_condition_8_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalNlToSql.g:708:2: ( (otherlv_0= 'Update' ruleTheTable this_SelectTable_2= ruleSelectTable otherlv_3= 'to' otherlv_4= 'set' ( (lv_updates_5_0= ruleSelectUpdateList ) ) (otherlv_6= 'where' ( (lv_condition_7_0= ruleCondition ) ) )? ) )
-            // InternalNlToSql.g:709:2: (otherlv_0= 'Update' ruleTheTable this_SelectTable_2= ruleSelectTable otherlv_3= 'to' otherlv_4= 'set' ( (lv_updates_5_0= ruleSelectUpdateList ) ) (otherlv_6= 'where' ( (lv_condition_7_0= ruleCondition ) ) )? )
+            // InternalNlToSql.g:711:2: ( (otherlv_0= 'Update' otherlv_1= 'the' otherlv_2= 'table' this_SelectTable_3= ruleSelectTable otherlv_4= 'to' otherlv_5= 'set' ( (lv_updates_6_0= ruleSelectUpdateList ) ) (otherlv_7= 'where' ( (lv_condition_8_0= ruleCondition ) ) )? ) )
+            // InternalNlToSql.g:712:2: (otherlv_0= 'Update' otherlv_1= 'the' otherlv_2= 'table' this_SelectTable_3= ruleSelectTable otherlv_4= 'to' otherlv_5= 'set' ( (lv_updates_6_0= ruleSelectUpdateList ) ) (otherlv_7= 'where' ( (lv_condition_8_0= ruleCondition ) ) )? )
             {
-            // InternalNlToSql.g:709:2: (otherlv_0= 'Update' ruleTheTable this_SelectTable_2= ruleSelectTable otherlv_3= 'to' otherlv_4= 'set' ( (lv_updates_5_0= ruleSelectUpdateList ) ) (otherlv_6= 'where' ( (lv_condition_7_0= ruleCondition ) ) )? )
-            // InternalNlToSql.g:710:3: otherlv_0= 'Update' ruleTheTable this_SelectTable_2= ruleSelectTable otherlv_3= 'to' otherlv_4= 'set' ( (lv_updates_5_0= ruleSelectUpdateList ) ) (otherlv_6= 'where' ( (lv_condition_7_0= ruleCondition ) ) )?
+            // InternalNlToSql.g:712:2: (otherlv_0= 'Update' otherlv_1= 'the' otherlv_2= 'table' this_SelectTable_3= ruleSelectTable otherlv_4= 'to' otherlv_5= 'set' ( (lv_updates_6_0= ruleSelectUpdateList ) ) (otherlv_7= 'where' ( (lv_condition_8_0= ruleCondition ) ) )? )
+            // InternalNlToSql.g:713:3: otherlv_0= 'Update' otherlv_1= 'the' otherlv_2= 'table' this_SelectTable_3= ruleSelectTable otherlv_4= 'to' otherlv_5= 'set' ( (lv_updates_6_0= ruleSelectUpdateList ) ) (otherlv_7= 'where' ( (lv_condition_8_0= ruleCondition ) ) )?
             {
-            otherlv_0=(Token)match(input,38,FOLLOW_24); 
+            otherlv_0=(Token)match(input,38,FOLLOW_14); 
 
             			newLeafNode(otherlv_0, grammarAccess.getUpdateStatementAccess().getUpdateKeyword_0());
             		
+            otherlv_1=(Token)match(input,24,FOLLOW_5); 
 
-            			newCompositeNode(grammarAccess.getUpdateStatementAccess().getTheTableParserRuleCall_1());
+            			newLeafNode(otherlv_1, grammarAccess.getUpdateStatementAccess().getTheKeyword_1());
             		
-            pushFollow(FOLLOW_24);
-            ruleTheTable();
+            otherlv_2=(Token)match(input,13,FOLLOW_7); 
+
+            			newLeafNode(otherlv_2, grammarAccess.getUpdateStatementAccess().getTableKeyword_2());
+            		
+
+            			newCompositeNode(grammarAccess.getUpdateStatementAccess().getSelectTableParserRuleCall_3());
+            		
+            pushFollow(FOLLOW_29);
+            this_SelectTable_3=ruleSelectTable();
 
             state._fsp--;
 
 
+            			current = this_SelectTable_3;
             			afterParserOrEnumRuleCall();
             		
+            otherlv_4=(Token)match(input,39,FOLLOW_30); 
 
-            			newCompositeNode(grammarAccess.getUpdateStatementAccess().getSelectTableParserRuleCall_2());
+            			newLeafNode(otherlv_4, grammarAccess.getUpdateStatementAccess().getToKeyword_4());
             		
-            pushFollow(FOLLOW_31);
-            this_SelectTable_2=ruleSelectTable();
+            otherlv_5=(Token)match(input,40,FOLLOW_7); 
 
-            state._fsp--;
-
-
-            			current = this_SelectTable_2;
-            			afterParserOrEnumRuleCall();
+            			newLeafNode(otherlv_5, grammarAccess.getUpdateStatementAccess().getSetKeyword_5());
             		
-            otherlv_3=(Token)match(input,39,FOLLOW_32); 
-
-            			newLeafNode(otherlv_3, grammarAccess.getUpdateStatementAccess().getToKeyword_3());
-            		
-            otherlv_4=(Token)match(input,40,FOLLOW_20); 
-
-            			newLeafNode(otherlv_4, grammarAccess.getUpdateStatementAccess().getSetKeyword_4());
-            		
-            // InternalNlToSql.g:737:3: ( (lv_updates_5_0= ruleSelectUpdateList ) )
-            // InternalNlToSql.g:738:4: (lv_updates_5_0= ruleSelectUpdateList )
+            // InternalNlToSql.g:741:3: ( (lv_updates_6_0= ruleSelectUpdateList ) )
+            // InternalNlToSql.g:742:4: (lv_updates_6_0= ruleSelectUpdateList )
             {
-            // InternalNlToSql.g:738:4: (lv_updates_5_0= ruleSelectUpdateList )
-            // InternalNlToSql.g:739:5: lv_updates_5_0= ruleSelectUpdateList
+            // InternalNlToSql.g:742:4: (lv_updates_6_0= ruleSelectUpdateList )
+            // InternalNlToSql.g:743:5: lv_updates_6_0= ruleSelectUpdateList
             {
 
-            					newCompositeNode(grammarAccess.getUpdateStatementAccess().getUpdatesSelectUpdateListParserRuleCall_5_0());
+            					newCompositeNode(grammarAccess.getUpdateStatementAccess().getUpdatesSelectUpdateListParserRuleCall_6_0());
             				
-            pushFollow(FOLLOW_33);
-            lv_updates_5_0=ruleSelectUpdateList();
+            pushFollow(FOLLOW_31);
+            lv_updates_6_0=ruleSelectUpdateList();
 
             state._fsp--;
 
@@ -1809,7 +1830,7 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
             					set(
             						current,
             						"updates",
-            						lv_updates_5_0,
+            						lv_updates_6_0,
             						"uk.ac.kcl.inf.NlToSql.SelectUpdateList");
             					afterParserOrEnumRuleCall();
             				
@@ -1819,7 +1840,7 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalNlToSql.g:756:3: (otherlv_6= 'where' ( (lv_condition_7_0= ruleCondition ) ) )?
+            // InternalNlToSql.g:760:3: (otherlv_7= 'where' ( (lv_condition_8_0= ruleCondition ) ) )?
             int alt9=2;
             int LA9_0 = input.LA(1);
 
@@ -1828,23 +1849,23 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
             }
             switch (alt9) {
                 case 1 :
-                    // InternalNlToSql.g:757:4: otherlv_6= 'where' ( (lv_condition_7_0= ruleCondition ) )
+                    // InternalNlToSql.g:761:4: otherlv_7= 'where' ( (lv_condition_8_0= ruleCondition ) )
                     {
-                    otherlv_6=(Token)match(input,28,FOLLOW_20); 
+                    otherlv_7=(Token)match(input,28,FOLLOW_19); 
 
-                    				newLeafNode(otherlv_6, grammarAccess.getUpdateStatementAccess().getWhereKeyword_6_0());
+                    				newLeafNode(otherlv_7, grammarAccess.getUpdateStatementAccess().getWhereKeyword_7_0());
                     			
-                    // InternalNlToSql.g:761:4: ( (lv_condition_7_0= ruleCondition ) )
-                    // InternalNlToSql.g:762:5: (lv_condition_7_0= ruleCondition )
+                    // InternalNlToSql.g:765:4: ( (lv_condition_8_0= ruleCondition ) )
+                    // InternalNlToSql.g:766:5: (lv_condition_8_0= ruleCondition )
                     {
-                    // InternalNlToSql.g:762:5: (lv_condition_7_0= ruleCondition )
-                    // InternalNlToSql.g:763:6: lv_condition_7_0= ruleCondition
+                    // InternalNlToSql.g:766:5: (lv_condition_8_0= ruleCondition )
+                    // InternalNlToSql.g:767:6: lv_condition_8_0= ruleCondition
                     {
 
-                    						newCompositeNode(grammarAccess.getUpdateStatementAccess().getConditionConditionParserRuleCall_6_1_0());
+                    						newCompositeNode(grammarAccess.getUpdateStatementAccess().getConditionConditionParserRuleCall_7_1_0());
                     					
                     pushFollow(FOLLOW_2);
-                    lv_condition_7_0=ruleCondition();
+                    lv_condition_8_0=ruleCondition();
 
                     state._fsp--;
 
@@ -1855,7 +1876,7 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
                     						set(
                     							current,
                     							"condition",
-                    							lv_condition_7_0,
+                    							lv_condition_8_0,
                     							"uk.ac.kcl.inf.NlToSql.Condition");
                     						afterParserOrEnumRuleCall();
                     					
@@ -1893,8 +1914,280 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleUpdateStatement"
 
 
+    // $ANTLR start "entryRuleDeleteStatement"
+    // InternalNlToSql.g:789:1: entryRuleDeleteStatement returns [EObject current=null] : iv_ruleDeleteStatement= ruleDeleteStatement EOF ;
+    public final EObject entryRuleDeleteStatement() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleDeleteStatement = null;
+
+
+        try {
+            // InternalNlToSql.g:789:56: (iv_ruleDeleteStatement= ruleDeleteStatement EOF )
+            // InternalNlToSql.g:790:2: iv_ruleDeleteStatement= ruleDeleteStatement EOF
+            {
+             newCompositeNode(grammarAccess.getDeleteStatementRule()); 
+            pushFollow(FOLLOW_1);
+            iv_ruleDeleteStatement=ruleDeleteStatement();
+
+            state._fsp--;
+
+             current =iv_ruleDeleteStatement; 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleDeleteStatement"
+
+
+    // $ANTLR start "ruleDeleteStatement"
+    // InternalNlToSql.g:796:1: ruleDeleteStatement returns [EObject current=null] : ( (otherlv_0= 'Delete' otherlv_1= 'the' otherlv_2= 'table' this_SelectTable_3= ruleSelectTable ) | (otherlv_4= 'Empty' otherlv_5= 'the' otherlv_6= 'table' this_SelectTable_7= ruleSelectTable ) | (otherlv_8= 'Delete' otherlv_9= 'records' otherlv_10= 'from' otherlv_11= 'the' otherlv_12= 'table' this_SelectTable_13= ruleSelectTable otherlv_14= 'where' ( (lv_condition_15_0= ruleCondition ) ) ) ) ;
+    public final EObject ruleDeleteStatement() throws RecognitionException {
+        EObject current = null;
+
+        Token otherlv_0=null;
+        Token otherlv_1=null;
+        Token otherlv_2=null;
+        Token otherlv_4=null;
+        Token otherlv_5=null;
+        Token otherlv_6=null;
+        Token otherlv_8=null;
+        Token otherlv_9=null;
+        Token otherlv_10=null;
+        Token otherlv_11=null;
+        Token otherlv_12=null;
+        Token otherlv_14=null;
+        EObject this_SelectTable_3 = null;
+
+        EObject this_SelectTable_7 = null;
+
+        EObject this_SelectTable_13 = null;
+
+        EObject lv_condition_15_0 = null;
+
+
+
+        	enterRule();
+
+        try {
+            // InternalNlToSql.g:802:2: ( ( (otherlv_0= 'Delete' otherlv_1= 'the' otherlv_2= 'table' this_SelectTable_3= ruleSelectTable ) | (otherlv_4= 'Empty' otherlv_5= 'the' otherlv_6= 'table' this_SelectTable_7= ruleSelectTable ) | (otherlv_8= 'Delete' otherlv_9= 'records' otherlv_10= 'from' otherlv_11= 'the' otherlv_12= 'table' this_SelectTable_13= ruleSelectTable otherlv_14= 'where' ( (lv_condition_15_0= ruleCondition ) ) ) ) )
+            // InternalNlToSql.g:803:2: ( (otherlv_0= 'Delete' otherlv_1= 'the' otherlv_2= 'table' this_SelectTable_3= ruleSelectTable ) | (otherlv_4= 'Empty' otherlv_5= 'the' otherlv_6= 'table' this_SelectTable_7= ruleSelectTable ) | (otherlv_8= 'Delete' otherlv_9= 'records' otherlv_10= 'from' otherlv_11= 'the' otherlv_12= 'table' this_SelectTable_13= ruleSelectTable otherlv_14= 'where' ( (lv_condition_15_0= ruleCondition ) ) ) )
+            {
+            // InternalNlToSql.g:803:2: ( (otherlv_0= 'Delete' otherlv_1= 'the' otherlv_2= 'table' this_SelectTable_3= ruleSelectTable ) | (otherlv_4= 'Empty' otherlv_5= 'the' otherlv_6= 'table' this_SelectTable_7= ruleSelectTable ) | (otherlv_8= 'Delete' otherlv_9= 'records' otherlv_10= 'from' otherlv_11= 'the' otherlv_12= 'table' this_SelectTable_13= ruleSelectTable otherlv_14= 'where' ( (lv_condition_15_0= ruleCondition ) ) ) )
+            int alt10=3;
+            int LA10_0 = input.LA(1);
+
+            if ( (LA10_0==41) ) {
+                int LA10_1 = input.LA(2);
+
+                if ( (LA10_1==43) ) {
+                    alt10=3;
+                }
+                else if ( (LA10_1==24) ) {
+                    alt10=1;
+                }
+                else {
+                    NoViableAltException nvae =
+                        new NoViableAltException("", 10, 1, input);
+
+                    throw nvae;
+                }
+            }
+            else if ( (LA10_0==42) ) {
+                alt10=2;
+            }
+            else {
+                NoViableAltException nvae =
+                    new NoViableAltException("", 10, 0, input);
+
+                throw nvae;
+            }
+            switch (alt10) {
+                case 1 :
+                    // InternalNlToSql.g:804:3: (otherlv_0= 'Delete' otherlv_1= 'the' otherlv_2= 'table' this_SelectTable_3= ruleSelectTable )
+                    {
+                    // InternalNlToSql.g:804:3: (otherlv_0= 'Delete' otherlv_1= 'the' otherlv_2= 'table' this_SelectTable_3= ruleSelectTable )
+                    // InternalNlToSql.g:805:4: otherlv_0= 'Delete' otherlv_1= 'the' otherlv_2= 'table' this_SelectTable_3= ruleSelectTable
+                    {
+                    otherlv_0=(Token)match(input,41,FOLLOW_14); 
+
+                    				newLeafNode(otherlv_0, grammarAccess.getDeleteStatementAccess().getDeleteKeyword_0_0());
+                    			
+                    otherlv_1=(Token)match(input,24,FOLLOW_5); 
+
+                    				newLeafNode(otherlv_1, grammarAccess.getDeleteStatementAccess().getTheKeyword_0_1());
+                    			
+                    otherlv_2=(Token)match(input,13,FOLLOW_7); 
+
+                    				newLeafNode(otherlv_2, grammarAccess.getDeleteStatementAccess().getTableKeyword_0_2());
+                    			
+
+                    				newCompositeNode(grammarAccess.getDeleteStatementAccess().getSelectTableParserRuleCall_0_3());
+                    			
+                    pushFollow(FOLLOW_2);
+                    this_SelectTable_3=ruleSelectTable();
+
+                    state._fsp--;
+
+
+                    				current = this_SelectTable_3;
+                    				afterParserOrEnumRuleCall();
+                    			
+
+                    }
+
+
+                    }
+                    break;
+                case 2 :
+                    // InternalNlToSql.g:827:3: (otherlv_4= 'Empty' otherlv_5= 'the' otherlv_6= 'table' this_SelectTable_7= ruleSelectTable )
+                    {
+                    // InternalNlToSql.g:827:3: (otherlv_4= 'Empty' otherlv_5= 'the' otherlv_6= 'table' this_SelectTable_7= ruleSelectTable )
+                    // InternalNlToSql.g:828:4: otherlv_4= 'Empty' otherlv_5= 'the' otherlv_6= 'table' this_SelectTable_7= ruleSelectTable
+                    {
+                    otherlv_4=(Token)match(input,42,FOLLOW_14); 
+
+                    				newLeafNode(otherlv_4, grammarAccess.getDeleteStatementAccess().getEmptyKeyword_1_0());
+                    			
+                    otherlv_5=(Token)match(input,24,FOLLOW_5); 
+
+                    				newLeafNode(otherlv_5, grammarAccess.getDeleteStatementAccess().getTheKeyword_1_1());
+                    			
+                    otherlv_6=(Token)match(input,13,FOLLOW_7); 
+
+                    				newLeafNode(otherlv_6, grammarAccess.getDeleteStatementAccess().getTableKeyword_1_2());
+                    			
+
+                    				newCompositeNode(grammarAccess.getDeleteStatementAccess().getSelectTableParserRuleCall_1_3());
+                    			
+                    pushFollow(FOLLOW_2);
+                    this_SelectTable_7=ruleSelectTable();
+
+                    state._fsp--;
+
+
+                    				current = this_SelectTable_7;
+                    				afterParserOrEnumRuleCall();
+                    			
+
+                    }
+
+
+                    }
+                    break;
+                case 3 :
+                    // InternalNlToSql.g:850:3: (otherlv_8= 'Delete' otherlv_9= 'records' otherlv_10= 'from' otherlv_11= 'the' otherlv_12= 'table' this_SelectTable_13= ruleSelectTable otherlv_14= 'where' ( (lv_condition_15_0= ruleCondition ) ) )
+                    {
+                    // InternalNlToSql.g:850:3: (otherlv_8= 'Delete' otherlv_9= 'records' otherlv_10= 'from' otherlv_11= 'the' otherlv_12= 'table' this_SelectTable_13= ruleSelectTable otherlv_14= 'where' ( (lv_condition_15_0= ruleCondition ) ) )
+                    // InternalNlToSql.g:851:4: otherlv_8= 'Delete' otherlv_9= 'records' otherlv_10= 'from' otherlv_11= 'the' otherlv_12= 'table' this_SelectTable_13= ruleSelectTable otherlv_14= 'where' ( (lv_condition_15_0= ruleCondition ) )
+                    {
+                    otherlv_8=(Token)match(input,41,FOLLOW_32); 
+
+                    				newLeafNode(otherlv_8, grammarAccess.getDeleteStatementAccess().getDeleteKeyword_2_0());
+                    			
+                    otherlv_9=(Token)match(input,43,FOLLOW_33); 
+
+                    				newLeafNode(otherlv_9, grammarAccess.getDeleteStatementAccess().getRecordsKeyword_2_1());
+                    			
+                    otherlv_10=(Token)match(input,44,FOLLOW_14); 
+
+                    				newLeafNode(otherlv_10, grammarAccess.getDeleteStatementAccess().getFromKeyword_2_2());
+                    			
+                    otherlv_11=(Token)match(input,24,FOLLOW_5); 
+
+                    				newLeafNode(otherlv_11, grammarAccess.getDeleteStatementAccess().getTheKeyword_2_3());
+                    			
+                    otherlv_12=(Token)match(input,13,FOLLOW_7); 
+
+                    				newLeafNode(otherlv_12, grammarAccess.getDeleteStatementAccess().getTableKeyword_2_4());
+                    			
+
+                    				newCompositeNode(grammarAccess.getDeleteStatementAccess().getSelectTableParserRuleCall_2_5());
+                    			
+                    pushFollow(FOLLOW_34);
+                    this_SelectTable_13=ruleSelectTable();
+
+                    state._fsp--;
+
+
+                    				current = this_SelectTable_13;
+                    				afterParserOrEnumRuleCall();
+                    			
+                    otherlv_14=(Token)match(input,28,FOLLOW_19); 
+
+                    				newLeafNode(otherlv_14, grammarAccess.getDeleteStatementAccess().getWhereKeyword_2_6());
+                    			
+                    // InternalNlToSql.g:883:4: ( (lv_condition_15_0= ruleCondition ) )
+                    // InternalNlToSql.g:884:5: (lv_condition_15_0= ruleCondition )
+                    {
+                    // InternalNlToSql.g:884:5: (lv_condition_15_0= ruleCondition )
+                    // InternalNlToSql.g:885:6: lv_condition_15_0= ruleCondition
+                    {
+
+                    						newCompositeNode(grammarAccess.getDeleteStatementAccess().getConditionConditionParserRuleCall_2_7_0());
+                    					
+                    pushFollow(FOLLOW_2);
+                    lv_condition_15_0=ruleCondition();
+
+                    state._fsp--;
+
+
+                    						if (current==null) {
+                    							current = createModelElementForParent(grammarAccess.getDeleteStatementRule());
+                    						}
+                    						set(
+                    							current,
+                    							"condition",
+                    							lv_condition_15_0,
+                    							"uk.ac.kcl.inf.NlToSql.Condition");
+                    						afterParserOrEnumRuleCall();
+                    					
+
+                    }
+
+
+                    }
+
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+
+            }
+
+
+            	leaveRule();
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleDeleteStatement"
+
+
     // $ANTLR start "entryRuleSelectUpdateList"
-    // InternalNlToSql.g:785:1: entryRuleSelectUpdateList returns [EObject current=null] : iv_ruleSelectUpdateList= ruleSelectUpdateList EOF ;
+    // InternalNlToSql.g:907:1: entryRuleSelectUpdateList returns [EObject current=null] : iv_ruleSelectUpdateList= ruleSelectUpdateList EOF ;
     public final EObject entryRuleSelectUpdateList() throws RecognitionException {
         EObject current = null;
 
@@ -1902,8 +2195,8 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalNlToSql.g:785:57: (iv_ruleSelectUpdateList= ruleSelectUpdateList EOF )
-            // InternalNlToSql.g:786:2: iv_ruleSelectUpdateList= ruleSelectUpdateList EOF
+            // InternalNlToSql.g:907:57: (iv_ruleSelectUpdateList= ruleSelectUpdateList EOF )
+            // InternalNlToSql.g:908:2: iv_ruleSelectUpdateList= ruleSelectUpdateList EOF
             {
              newCompositeNode(grammarAccess.getSelectUpdateListRule()); 
             pushFollow(FOLLOW_1);
@@ -1930,7 +2223,7 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleSelectUpdateList"
-    // InternalNlToSql.g:792:1: ruleSelectUpdateList returns [EObject current=null] : ( ( (lv_updateItem_0_0= ruleUpdateItem ) ) (otherlv_1= ',' ( (lv_updateItem_2_0= ruleUpdateItem ) ) )* ) ;
+    // InternalNlToSql.g:914:1: ruleSelectUpdateList returns [EObject current=null] : ( ( (lv_updateItem_0_0= ruleUpdateItem ) ) (otherlv_1= ',' ( (lv_updateItem_2_0= ruleUpdateItem ) ) )* ) ;
     public final EObject ruleSelectUpdateList() throws RecognitionException {
         EObject current = null;
 
@@ -1944,22 +2237,22 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalNlToSql.g:798:2: ( ( ( (lv_updateItem_0_0= ruleUpdateItem ) ) (otherlv_1= ',' ( (lv_updateItem_2_0= ruleUpdateItem ) ) )* ) )
-            // InternalNlToSql.g:799:2: ( ( (lv_updateItem_0_0= ruleUpdateItem ) ) (otherlv_1= ',' ( (lv_updateItem_2_0= ruleUpdateItem ) ) )* )
+            // InternalNlToSql.g:920:2: ( ( ( (lv_updateItem_0_0= ruleUpdateItem ) ) (otherlv_1= ',' ( (lv_updateItem_2_0= ruleUpdateItem ) ) )* ) )
+            // InternalNlToSql.g:921:2: ( ( (lv_updateItem_0_0= ruleUpdateItem ) ) (otherlv_1= ',' ( (lv_updateItem_2_0= ruleUpdateItem ) ) )* )
             {
-            // InternalNlToSql.g:799:2: ( ( (lv_updateItem_0_0= ruleUpdateItem ) ) (otherlv_1= ',' ( (lv_updateItem_2_0= ruleUpdateItem ) ) )* )
-            // InternalNlToSql.g:800:3: ( (lv_updateItem_0_0= ruleUpdateItem ) ) (otherlv_1= ',' ( (lv_updateItem_2_0= ruleUpdateItem ) ) )*
+            // InternalNlToSql.g:921:2: ( ( (lv_updateItem_0_0= ruleUpdateItem ) ) (otherlv_1= ',' ( (lv_updateItem_2_0= ruleUpdateItem ) ) )* )
+            // InternalNlToSql.g:922:3: ( (lv_updateItem_0_0= ruleUpdateItem ) ) (otherlv_1= ',' ( (lv_updateItem_2_0= ruleUpdateItem ) ) )*
             {
-            // InternalNlToSql.g:800:3: ( (lv_updateItem_0_0= ruleUpdateItem ) )
-            // InternalNlToSql.g:801:4: (lv_updateItem_0_0= ruleUpdateItem )
+            // InternalNlToSql.g:922:3: ( (lv_updateItem_0_0= ruleUpdateItem ) )
+            // InternalNlToSql.g:923:4: (lv_updateItem_0_0= ruleUpdateItem )
             {
-            // InternalNlToSql.g:801:4: (lv_updateItem_0_0= ruleUpdateItem )
-            // InternalNlToSql.g:802:5: lv_updateItem_0_0= ruleUpdateItem
+            // InternalNlToSql.g:923:4: (lv_updateItem_0_0= ruleUpdateItem )
+            // InternalNlToSql.g:924:5: lv_updateItem_0_0= ruleUpdateItem
             {
 
             					newCompositeNode(grammarAccess.getSelectUpdateListAccess().getUpdateItemUpdateItemParserRuleCall_0_0());
             				
-            pushFollow(FOLLOW_11);
+            pushFollow(FOLLOW_10);
             lv_updateItem_0_0=ruleUpdateItem();
 
             state._fsp--;
@@ -1981,35 +2274,35 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalNlToSql.g:819:3: (otherlv_1= ',' ( (lv_updateItem_2_0= ruleUpdateItem ) ) )*
-            loop10:
+            // InternalNlToSql.g:941:3: (otherlv_1= ',' ( (lv_updateItem_2_0= ruleUpdateItem ) ) )*
+            loop11:
             do {
-                int alt10=2;
-                int LA10_0 = input.LA(1);
+                int alt11=2;
+                int LA11_0 = input.LA(1);
 
-                if ( (LA10_0==17) ) {
-                    alt10=1;
+                if ( (LA11_0==17) ) {
+                    alt11=1;
                 }
 
 
-                switch (alt10) {
+                switch (alt11) {
             	case 1 :
-            	    // InternalNlToSql.g:820:4: otherlv_1= ',' ( (lv_updateItem_2_0= ruleUpdateItem ) )
+            	    // InternalNlToSql.g:942:4: otherlv_1= ',' ( (lv_updateItem_2_0= ruleUpdateItem ) )
             	    {
-            	    otherlv_1=(Token)match(input,17,FOLLOW_20); 
+            	    otherlv_1=(Token)match(input,17,FOLLOW_7); 
 
             	    				newLeafNode(otherlv_1, grammarAccess.getSelectUpdateListAccess().getCommaKeyword_1_0());
             	    			
-            	    // InternalNlToSql.g:824:4: ( (lv_updateItem_2_0= ruleUpdateItem ) )
-            	    // InternalNlToSql.g:825:5: (lv_updateItem_2_0= ruleUpdateItem )
+            	    // InternalNlToSql.g:946:4: ( (lv_updateItem_2_0= ruleUpdateItem ) )
+            	    // InternalNlToSql.g:947:5: (lv_updateItem_2_0= ruleUpdateItem )
             	    {
-            	    // InternalNlToSql.g:825:5: (lv_updateItem_2_0= ruleUpdateItem )
-            	    // InternalNlToSql.g:826:6: lv_updateItem_2_0= ruleUpdateItem
+            	    // InternalNlToSql.g:947:5: (lv_updateItem_2_0= ruleUpdateItem )
+            	    // InternalNlToSql.g:948:6: lv_updateItem_2_0= ruleUpdateItem
             	    {
 
             	    						newCompositeNode(grammarAccess.getSelectUpdateListAccess().getUpdateItemUpdateItemParserRuleCall_1_1_0());
             	    					
-            	    pushFollow(FOLLOW_11);
+            	    pushFollow(FOLLOW_10);
             	    lv_updateItem_2_0=ruleUpdateItem();
 
             	    state._fsp--;
@@ -2023,331 +2316,6 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
             	    							"updateItem",
             	    							lv_updateItem_2_0,
             	    							"uk.ac.kcl.inf.NlToSql.UpdateItem");
-            	    						afterParserOrEnumRuleCall();
-            	    					
-
-            	    }
-
-
-            	    }
-
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop10;
-                }
-            } while (true);
-
-
-            }
-
-
-            }
-
-
-            	leaveRule();
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "ruleSelectUpdateList"
-
-
-    // $ANTLR start "entryRuleUpdateItem"
-    // InternalNlToSql.g:848:1: entryRuleUpdateItem returns [EObject current=null] : iv_ruleUpdateItem= ruleUpdateItem EOF ;
-    public final EObject entryRuleUpdateItem() throws RecognitionException {
-        EObject current = null;
-
-        EObject iv_ruleUpdateItem = null;
-
-
-        try {
-            // InternalNlToSql.g:848:51: (iv_ruleUpdateItem= ruleUpdateItem EOF )
-            // InternalNlToSql.g:849:2: iv_ruleUpdateItem= ruleUpdateItem EOF
-            {
-             newCompositeNode(grammarAccess.getUpdateItemRule()); 
-            pushFollow(FOLLOW_1);
-            iv_ruleUpdateItem=ruleUpdateItem();
-
-            state._fsp--;
-
-             current =iv_ruleUpdateItem; 
-            match(input,EOF,FOLLOW_2); 
-
-            }
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "entryRuleUpdateItem"
-
-
-    // $ANTLR start "ruleUpdateItem"
-    // InternalNlToSql.g:855:1: ruleUpdateItem returns [EObject current=null] : ( ruleTheA ( (lv_column_1_0= ruleColumnReference ) ) otherlv_2= '=' ( (lv_value_3_0= ruleValue ) ) ) ;
-    public final EObject ruleUpdateItem() throws RecognitionException {
-        EObject current = null;
-
-        Token otherlv_2=null;
-        EObject lv_column_1_0 = null;
-
-        AntlrDatatypeRuleToken lv_value_3_0 = null;
-
-
-
-        	enterRule();
-
-        try {
-            // InternalNlToSql.g:861:2: ( ( ruleTheA ( (lv_column_1_0= ruleColumnReference ) ) otherlv_2= '=' ( (lv_value_3_0= ruleValue ) ) ) )
-            // InternalNlToSql.g:862:2: ( ruleTheA ( (lv_column_1_0= ruleColumnReference ) ) otherlv_2= '=' ( (lv_value_3_0= ruleValue ) ) )
-            {
-            // InternalNlToSql.g:862:2: ( ruleTheA ( (lv_column_1_0= ruleColumnReference ) ) otherlv_2= '=' ( (lv_value_3_0= ruleValue ) ) )
-            // InternalNlToSql.g:863:3: ruleTheA ( (lv_column_1_0= ruleColumnReference ) ) otherlv_2= '=' ( (lv_value_3_0= ruleValue ) )
-            {
-
-            			newCompositeNode(grammarAccess.getUpdateItemAccess().getTheAParserRuleCall_0());
-            		
-            pushFollow(FOLLOW_8);
-            ruleTheA();
-
-            state._fsp--;
-
-
-            			afterParserOrEnumRuleCall();
-            		
-            // InternalNlToSql.g:870:3: ( (lv_column_1_0= ruleColumnReference ) )
-            // InternalNlToSql.g:871:4: (lv_column_1_0= ruleColumnReference )
-            {
-            // InternalNlToSql.g:871:4: (lv_column_1_0= ruleColumnReference )
-            // InternalNlToSql.g:872:5: lv_column_1_0= ruleColumnReference
-            {
-
-            					newCompositeNode(grammarAccess.getUpdateItemAccess().getColumnColumnReferenceParserRuleCall_1_0());
-            				
-            pushFollow(FOLLOW_34);
-            lv_column_1_0=ruleColumnReference();
-
-            state._fsp--;
-
-
-            					if (current==null) {
-            						current = createModelElementForParent(grammarAccess.getUpdateItemRule());
-            					}
-            					set(
-            						current,
-            						"column",
-            						lv_column_1_0,
-            						"uk.ac.kcl.inf.NlToSql.ColumnReference");
-            					afterParserOrEnumRuleCall();
-            				
-
-            }
-
-
-            }
-
-            otherlv_2=(Token)match(input,41,FOLLOW_29); 
-
-            			newLeafNode(otherlv_2, grammarAccess.getUpdateItemAccess().getEqualsSignKeyword_2());
-            		
-            // InternalNlToSql.g:893:3: ( (lv_value_3_0= ruleValue ) )
-            // InternalNlToSql.g:894:4: (lv_value_3_0= ruleValue )
-            {
-            // InternalNlToSql.g:894:4: (lv_value_3_0= ruleValue )
-            // InternalNlToSql.g:895:5: lv_value_3_0= ruleValue
-            {
-
-            					newCompositeNode(grammarAccess.getUpdateItemAccess().getValueValueParserRuleCall_3_0());
-            				
-            pushFollow(FOLLOW_2);
-            lv_value_3_0=ruleValue();
-
-            state._fsp--;
-
-
-            					if (current==null) {
-            						current = createModelElementForParent(grammarAccess.getUpdateItemRule());
-            					}
-            					set(
-            						current,
-            						"value",
-            						lv_value_3_0,
-            						"uk.ac.kcl.inf.NlToSql.Value");
-            					afterParserOrEnumRuleCall();
-            				
-
-            }
-
-
-            }
-
-
-            }
-
-
-            }
-
-
-            	leaveRule();
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "ruleUpdateItem"
-
-
-    // $ANTLR start "entryRuleInserValues"
-    // InternalNlToSql.g:916:1: entryRuleInserValues returns [EObject current=null] : iv_ruleInserValues= ruleInserValues EOF ;
-    public final EObject entryRuleInserValues() throws RecognitionException {
-        EObject current = null;
-
-        EObject iv_ruleInserValues = null;
-
-
-        try {
-            // InternalNlToSql.g:916:52: (iv_ruleInserValues= ruleInserValues EOF )
-            // InternalNlToSql.g:917:2: iv_ruleInserValues= ruleInserValues EOF
-            {
-             newCompositeNode(grammarAccess.getInserValuesRule()); 
-            pushFollow(FOLLOW_1);
-            iv_ruleInserValues=ruleInserValues();
-
-            state._fsp--;
-
-             current =iv_ruleInserValues; 
-            match(input,EOF,FOLLOW_2); 
-
-            }
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "entryRuleInserValues"
-
-
-    // $ANTLR start "ruleInserValues"
-    // InternalNlToSql.g:923:1: ruleInserValues returns [EObject current=null] : ( ( (lv_valueList_0_0= ruleValue ) ) (otherlv_1= ',' ( (lv_valueList_2_0= ruleValue ) ) )* ) ;
-    public final EObject ruleInserValues() throws RecognitionException {
-        EObject current = null;
-
-        Token otherlv_1=null;
-        AntlrDatatypeRuleToken lv_valueList_0_0 = null;
-
-        AntlrDatatypeRuleToken lv_valueList_2_0 = null;
-
-
-
-        	enterRule();
-
-        try {
-            // InternalNlToSql.g:929:2: ( ( ( (lv_valueList_0_0= ruleValue ) ) (otherlv_1= ',' ( (lv_valueList_2_0= ruleValue ) ) )* ) )
-            // InternalNlToSql.g:930:2: ( ( (lv_valueList_0_0= ruleValue ) ) (otherlv_1= ',' ( (lv_valueList_2_0= ruleValue ) ) )* )
-            {
-            // InternalNlToSql.g:930:2: ( ( (lv_valueList_0_0= ruleValue ) ) (otherlv_1= ',' ( (lv_valueList_2_0= ruleValue ) ) )* )
-            // InternalNlToSql.g:931:3: ( (lv_valueList_0_0= ruleValue ) ) (otherlv_1= ',' ( (lv_valueList_2_0= ruleValue ) ) )*
-            {
-            // InternalNlToSql.g:931:3: ( (lv_valueList_0_0= ruleValue ) )
-            // InternalNlToSql.g:932:4: (lv_valueList_0_0= ruleValue )
-            {
-            // InternalNlToSql.g:932:4: (lv_valueList_0_0= ruleValue )
-            // InternalNlToSql.g:933:5: lv_valueList_0_0= ruleValue
-            {
-
-            					newCompositeNode(grammarAccess.getInserValuesAccess().getValueListValueParserRuleCall_0_0());
-            				
-            pushFollow(FOLLOW_11);
-            lv_valueList_0_0=ruleValue();
-
-            state._fsp--;
-
-
-            					if (current==null) {
-            						current = createModelElementForParent(grammarAccess.getInserValuesRule());
-            					}
-            					add(
-            						current,
-            						"valueList",
-            						lv_valueList_0_0,
-            						"uk.ac.kcl.inf.NlToSql.Value");
-            					afterParserOrEnumRuleCall();
-            				
-
-            }
-
-
-            }
-
-            // InternalNlToSql.g:950:3: (otherlv_1= ',' ( (lv_valueList_2_0= ruleValue ) ) )*
-            loop11:
-            do {
-                int alt11=2;
-                int LA11_0 = input.LA(1);
-
-                if ( (LA11_0==17) ) {
-                    alt11=1;
-                }
-
-
-                switch (alt11) {
-            	case 1 :
-            	    // InternalNlToSql.g:951:4: otherlv_1= ',' ( (lv_valueList_2_0= ruleValue ) )
-            	    {
-            	    otherlv_1=(Token)match(input,17,FOLLOW_29); 
-
-            	    				newLeafNode(otherlv_1, grammarAccess.getInserValuesAccess().getCommaKeyword_1_0());
-            	    			
-            	    // InternalNlToSql.g:955:4: ( (lv_valueList_2_0= ruleValue ) )
-            	    // InternalNlToSql.g:956:5: (lv_valueList_2_0= ruleValue )
-            	    {
-            	    // InternalNlToSql.g:956:5: (lv_valueList_2_0= ruleValue )
-            	    // InternalNlToSql.g:957:6: lv_valueList_2_0= ruleValue
-            	    {
-
-            	    						newCompositeNode(grammarAccess.getInserValuesAccess().getValueListValueParserRuleCall_1_1_0());
-            	    					
-            	    pushFollow(FOLLOW_11);
-            	    lv_valueList_2_0=ruleValue();
-
-            	    state._fsp--;
-
-
-            	    						if (current==null) {
-            	    							current = createModelElementForParent(grammarAccess.getInserValuesRule());
-            	    						}
-            	    						add(
-            	    							current,
-            	    							"valueList",
-            	    							lv_valueList_2_0,
-            	    							"uk.ac.kcl.inf.NlToSql.Value");
             	    						afterParserOrEnumRuleCall();
             	    					
 
@@ -2384,28 +2352,28 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleInserValues"
+    // $ANTLR end "ruleSelectUpdateList"
 
 
-    // $ANTLR start "entryRuleSelectTablesList"
-    // InternalNlToSql.g:979:1: entryRuleSelectTablesList returns [EObject current=null] : iv_ruleSelectTablesList= ruleSelectTablesList EOF ;
-    public final EObject entryRuleSelectTablesList() throws RecognitionException {
+    // $ANTLR start "entryRuleUpdateItem"
+    // InternalNlToSql.g:970:1: entryRuleUpdateItem returns [EObject current=null] : iv_ruleUpdateItem= ruleUpdateItem EOF ;
+    public final EObject entryRuleUpdateItem() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleSelectTablesList = null;
+        EObject iv_ruleUpdateItem = null;
 
 
         try {
-            // InternalNlToSql.g:979:57: (iv_ruleSelectTablesList= ruleSelectTablesList EOF )
-            // InternalNlToSql.g:980:2: iv_ruleSelectTablesList= ruleSelectTablesList EOF
+            // InternalNlToSql.g:970:51: (iv_ruleUpdateItem= ruleUpdateItem EOF )
+            // InternalNlToSql.g:971:2: iv_ruleUpdateItem= ruleUpdateItem EOF
             {
-             newCompositeNode(grammarAccess.getSelectTablesListRule()); 
+             newCompositeNode(grammarAccess.getUpdateItemRule()); 
             pushFollow(FOLLOW_1);
-            iv_ruleSelectTablesList=ruleSelectTablesList();
+            iv_ruleUpdateItem=ruleUpdateItem();
 
             state._fsp--;
 
-             current =iv_ruleSelectTablesList; 
+             current =iv_ruleUpdateItem; 
             match(input,EOF,FOLLOW_2); 
 
             }
@@ -2420,42 +2388,54 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRuleSelectTablesList"
+    // $ANTLR end "entryRuleUpdateItem"
 
 
-    // $ANTLR start "ruleSelectTablesList"
-    // InternalNlToSql.g:986:1: ruleSelectTablesList returns [EObject current=null] : ( ( (otherlv_0= RULE_ID ) ) (otherlv_1= ',' ( (otherlv_2= RULE_ID ) ) )* ) ;
-    public final EObject ruleSelectTablesList() throws RecognitionException {
+    // $ANTLR start "ruleUpdateItem"
+    // InternalNlToSql.g:977:1: ruleUpdateItem returns [EObject current=null] : ( ( (lv_column_0_0= ruleColumnReference ) ) otherlv_1= '=' ( (lv_value_2_0= ruleValue ) ) ) ;
+    public final EObject ruleUpdateItem() throws RecognitionException {
         EObject current = null;
 
-        Token otherlv_0=null;
         Token otherlv_1=null;
-        Token otherlv_2=null;
+        EObject lv_column_0_0 = null;
+
+        AntlrDatatypeRuleToken lv_value_2_0 = null;
+
 
 
         	enterRule();
 
         try {
-            // InternalNlToSql.g:992:2: ( ( ( (otherlv_0= RULE_ID ) ) (otherlv_1= ',' ( (otherlv_2= RULE_ID ) ) )* ) )
-            // InternalNlToSql.g:993:2: ( ( (otherlv_0= RULE_ID ) ) (otherlv_1= ',' ( (otherlv_2= RULE_ID ) ) )* )
+            // InternalNlToSql.g:983:2: ( ( ( (lv_column_0_0= ruleColumnReference ) ) otherlv_1= '=' ( (lv_value_2_0= ruleValue ) ) ) )
+            // InternalNlToSql.g:984:2: ( ( (lv_column_0_0= ruleColumnReference ) ) otherlv_1= '=' ( (lv_value_2_0= ruleValue ) ) )
             {
-            // InternalNlToSql.g:993:2: ( ( (otherlv_0= RULE_ID ) ) (otherlv_1= ',' ( (otherlv_2= RULE_ID ) ) )* )
-            // InternalNlToSql.g:994:3: ( (otherlv_0= RULE_ID ) ) (otherlv_1= ',' ( (otherlv_2= RULE_ID ) ) )*
+            // InternalNlToSql.g:984:2: ( ( (lv_column_0_0= ruleColumnReference ) ) otherlv_1= '=' ( (lv_value_2_0= ruleValue ) ) )
+            // InternalNlToSql.g:985:3: ( (lv_column_0_0= ruleColumnReference ) ) otherlv_1= '=' ( (lv_value_2_0= ruleValue ) )
             {
-            // InternalNlToSql.g:994:3: ( (otherlv_0= RULE_ID ) )
-            // InternalNlToSql.g:995:4: (otherlv_0= RULE_ID )
+            // InternalNlToSql.g:985:3: ( (lv_column_0_0= ruleColumnReference ) )
+            // InternalNlToSql.g:986:4: (lv_column_0_0= ruleColumnReference )
             {
-            // InternalNlToSql.g:995:4: (otherlv_0= RULE_ID )
-            // InternalNlToSql.g:996:5: otherlv_0= RULE_ID
+            // InternalNlToSql.g:986:4: (lv_column_0_0= ruleColumnReference )
+            // InternalNlToSql.g:987:5: lv_column_0_0= ruleColumnReference
             {
+
+            					newCompositeNode(grammarAccess.getUpdateItemAccess().getColumnColumnReferenceParserRuleCall_0_0());
+            				
+            pushFollow(FOLLOW_35);
+            lv_column_0_0=ruleColumnReference();
+
+            state._fsp--;
+
 
             					if (current==null) {
-            						current = createModelElement(grammarAccess.getSelectTablesListRule());
+            						current = createModelElementForParent(grammarAccess.getUpdateItemRule());
             					}
-            				
-            otherlv_0=(Token)match(input,RULE_ID,FOLLOW_11); 
-
-            					newLeafNode(otherlv_0, grammarAccess.getSelectTablesListAccess().getSelectTableTableCrossReference_0_0());
+            					set(
+            						current,
+            						"column",
+            						lv_column_0_0,
+            						"uk.ac.kcl.inf.NlToSql.ColumnReference");
+            					afterParserOrEnumRuleCall();
             				
 
             }
@@ -2463,7 +2443,152 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalNlToSql.g:1007:3: (otherlv_1= ',' ( (otherlv_2= RULE_ID ) ) )*
+            otherlv_1=(Token)match(input,45,FOLLOW_27); 
+
+            			newLeafNode(otherlv_1, grammarAccess.getUpdateItemAccess().getEqualsSignKeyword_1());
+            		
+            // InternalNlToSql.g:1008:3: ( (lv_value_2_0= ruleValue ) )
+            // InternalNlToSql.g:1009:4: (lv_value_2_0= ruleValue )
+            {
+            // InternalNlToSql.g:1009:4: (lv_value_2_0= ruleValue )
+            // InternalNlToSql.g:1010:5: lv_value_2_0= ruleValue
+            {
+
+            					newCompositeNode(grammarAccess.getUpdateItemAccess().getValueValueParserRuleCall_2_0());
+            				
+            pushFollow(FOLLOW_2);
+            lv_value_2_0=ruleValue();
+
+            state._fsp--;
+
+
+            					if (current==null) {
+            						current = createModelElementForParent(grammarAccess.getUpdateItemRule());
+            					}
+            					set(
+            						current,
+            						"value",
+            						lv_value_2_0,
+            						"uk.ac.kcl.inf.NlToSql.Value");
+            					afterParserOrEnumRuleCall();
+            				
+
+            }
+
+
+            }
+
+
+            }
+
+
+            }
+
+
+            	leaveRule();
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleUpdateItem"
+
+
+    // $ANTLR start "entryRuleInserValues"
+    // InternalNlToSql.g:1031:1: entryRuleInserValues returns [EObject current=null] : iv_ruleInserValues= ruleInserValues EOF ;
+    public final EObject entryRuleInserValues() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleInserValues = null;
+
+
+        try {
+            // InternalNlToSql.g:1031:52: (iv_ruleInserValues= ruleInserValues EOF )
+            // InternalNlToSql.g:1032:2: iv_ruleInserValues= ruleInserValues EOF
+            {
+             newCompositeNode(grammarAccess.getInserValuesRule()); 
+            pushFollow(FOLLOW_1);
+            iv_ruleInserValues=ruleInserValues();
+
+            state._fsp--;
+
+             current =iv_ruleInserValues; 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleInserValues"
+
+
+    // $ANTLR start "ruleInserValues"
+    // InternalNlToSql.g:1038:1: ruleInserValues returns [EObject current=null] : ( ( (lv_valueList_0_0= ruleValue ) ) (otherlv_1= ',' ( (lv_valueList_2_0= ruleValue ) ) )* ) ;
+    public final EObject ruleInserValues() throws RecognitionException {
+        EObject current = null;
+
+        Token otherlv_1=null;
+        AntlrDatatypeRuleToken lv_valueList_0_0 = null;
+
+        AntlrDatatypeRuleToken lv_valueList_2_0 = null;
+
+
+
+        	enterRule();
+
+        try {
+            // InternalNlToSql.g:1044:2: ( ( ( (lv_valueList_0_0= ruleValue ) ) (otherlv_1= ',' ( (lv_valueList_2_0= ruleValue ) ) )* ) )
+            // InternalNlToSql.g:1045:2: ( ( (lv_valueList_0_0= ruleValue ) ) (otherlv_1= ',' ( (lv_valueList_2_0= ruleValue ) ) )* )
+            {
+            // InternalNlToSql.g:1045:2: ( ( (lv_valueList_0_0= ruleValue ) ) (otherlv_1= ',' ( (lv_valueList_2_0= ruleValue ) ) )* )
+            // InternalNlToSql.g:1046:3: ( (lv_valueList_0_0= ruleValue ) ) (otherlv_1= ',' ( (lv_valueList_2_0= ruleValue ) ) )*
+            {
+            // InternalNlToSql.g:1046:3: ( (lv_valueList_0_0= ruleValue ) )
+            // InternalNlToSql.g:1047:4: (lv_valueList_0_0= ruleValue )
+            {
+            // InternalNlToSql.g:1047:4: (lv_valueList_0_0= ruleValue )
+            // InternalNlToSql.g:1048:5: lv_valueList_0_0= ruleValue
+            {
+
+            					newCompositeNode(grammarAccess.getInserValuesAccess().getValueListValueParserRuleCall_0_0());
+            				
+            pushFollow(FOLLOW_10);
+            lv_valueList_0_0=ruleValue();
+
+            state._fsp--;
+
+
+            					if (current==null) {
+            						current = createModelElementForParent(grammarAccess.getInserValuesRule());
+            					}
+            					add(
+            						current,
+            						"valueList",
+            						lv_valueList_0_0,
+            						"uk.ac.kcl.inf.NlToSql.Value");
+            					afterParserOrEnumRuleCall();
+            				
+
+            }
+
+
+            }
+
+            // InternalNlToSql.g:1065:3: (otherlv_1= ',' ( (lv_valueList_2_0= ruleValue ) ) )*
             loop12:
             do {
                 int alt12=2;
@@ -2476,26 +2601,36 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
 
                 switch (alt12) {
             	case 1 :
-            	    // InternalNlToSql.g:1008:4: otherlv_1= ',' ( (otherlv_2= RULE_ID ) )
+            	    // InternalNlToSql.g:1066:4: otherlv_1= ',' ( (lv_valueList_2_0= ruleValue ) )
             	    {
-            	    otherlv_1=(Token)match(input,17,FOLLOW_8); 
+            	    otherlv_1=(Token)match(input,17,FOLLOW_27); 
 
-            	    				newLeafNode(otherlv_1, grammarAccess.getSelectTablesListAccess().getCommaKeyword_1_0());
+            	    				newLeafNode(otherlv_1, grammarAccess.getInserValuesAccess().getCommaKeyword_1_0());
             	    			
-            	    // InternalNlToSql.g:1012:4: ( (otherlv_2= RULE_ID ) )
-            	    // InternalNlToSql.g:1013:5: (otherlv_2= RULE_ID )
+            	    // InternalNlToSql.g:1070:4: ( (lv_valueList_2_0= ruleValue ) )
+            	    // InternalNlToSql.g:1071:5: (lv_valueList_2_0= ruleValue )
             	    {
-            	    // InternalNlToSql.g:1013:5: (otherlv_2= RULE_ID )
-            	    // InternalNlToSql.g:1014:6: otherlv_2= RULE_ID
+            	    // InternalNlToSql.g:1071:5: (lv_valueList_2_0= ruleValue )
+            	    // InternalNlToSql.g:1072:6: lv_valueList_2_0= ruleValue
             	    {
+
+            	    						newCompositeNode(grammarAccess.getInserValuesAccess().getValueListValueParserRuleCall_1_1_0());
+            	    					
+            	    pushFollow(FOLLOW_10);
+            	    lv_valueList_2_0=ruleValue();
+
+            	    state._fsp--;
+
 
             	    						if (current==null) {
-            	    							current = createModelElement(grammarAccess.getSelectTablesListRule());
+            	    							current = createModelElementForParent(grammarAccess.getInserValuesRule());
             	    						}
-            	    					
-            	    otherlv_2=(Token)match(input,RULE_ID,FOLLOW_11); 
-
-            	    						newLeafNode(otherlv_2, grammarAccess.getSelectTablesListAccess().getSelectTableTableCrossReference_1_1_0());
+            	    						add(
+            	    							current,
+            	    							"valueList",
+            	    							lv_valueList_2_0,
+            	    							"uk.ac.kcl.inf.NlToSql.Value");
+            	    						afterParserOrEnumRuleCall();
             	    					
 
             	    }
@@ -2531,11 +2666,158 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
+    // $ANTLR end "ruleInserValues"
+
+
+    // $ANTLR start "entryRuleSelectTablesList"
+    // InternalNlToSql.g:1094:1: entryRuleSelectTablesList returns [EObject current=null] : iv_ruleSelectTablesList= ruleSelectTablesList EOF ;
+    public final EObject entryRuleSelectTablesList() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleSelectTablesList = null;
+
+
+        try {
+            // InternalNlToSql.g:1094:57: (iv_ruleSelectTablesList= ruleSelectTablesList EOF )
+            // InternalNlToSql.g:1095:2: iv_ruleSelectTablesList= ruleSelectTablesList EOF
+            {
+             newCompositeNode(grammarAccess.getSelectTablesListRule()); 
+            pushFollow(FOLLOW_1);
+            iv_ruleSelectTablesList=ruleSelectTablesList();
+
+            state._fsp--;
+
+             current =iv_ruleSelectTablesList; 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleSelectTablesList"
+
+
+    // $ANTLR start "ruleSelectTablesList"
+    // InternalNlToSql.g:1101:1: ruleSelectTablesList returns [EObject current=null] : ( ( (otherlv_0= RULE_ID ) ) (otherlv_1= ',' ( (otherlv_2= RULE_ID ) ) )* ) ;
+    public final EObject ruleSelectTablesList() throws RecognitionException {
+        EObject current = null;
+
+        Token otherlv_0=null;
+        Token otherlv_1=null;
+        Token otherlv_2=null;
+
+
+        	enterRule();
+
+        try {
+            // InternalNlToSql.g:1107:2: ( ( ( (otherlv_0= RULE_ID ) ) (otherlv_1= ',' ( (otherlv_2= RULE_ID ) ) )* ) )
+            // InternalNlToSql.g:1108:2: ( ( (otherlv_0= RULE_ID ) ) (otherlv_1= ',' ( (otherlv_2= RULE_ID ) ) )* )
+            {
+            // InternalNlToSql.g:1108:2: ( ( (otherlv_0= RULE_ID ) ) (otherlv_1= ',' ( (otherlv_2= RULE_ID ) ) )* )
+            // InternalNlToSql.g:1109:3: ( (otherlv_0= RULE_ID ) ) (otherlv_1= ',' ( (otherlv_2= RULE_ID ) ) )*
+            {
+            // InternalNlToSql.g:1109:3: ( (otherlv_0= RULE_ID ) )
+            // InternalNlToSql.g:1110:4: (otherlv_0= RULE_ID )
+            {
+            // InternalNlToSql.g:1110:4: (otherlv_0= RULE_ID )
+            // InternalNlToSql.g:1111:5: otherlv_0= RULE_ID
+            {
+
+            					if (current==null) {
+            						current = createModelElement(grammarAccess.getSelectTablesListRule());
+            					}
+            				
+            otherlv_0=(Token)match(input,RULE_ID,FOLLOW_10); 
+
+            					newLeafNode(otherlv_0, grammarAccess.getSelectTablesListAccess().getSelectTableTableCrossReference_0_0());
+            				
+
+            }
+
+
+            }
+
+            // InternalNlToSql.g:1122:3: (otherlv_1= ',' ( (otherlv_2= RULE_ID ) ) )*
+            loop13:
+            do {
+                int alt13=2;
+                int LA13_0 = input.LA(1);
+
+                if ( (LA13_0==17) ) {
+                    alt13=1;
+                }
+
+
+                switch (alt13) {
+            	case 1 :
+            	    // InternalNlToSql.g:1123:4: otherlv_1= ',' ( (otherlv_2= RULE_ID ) )
+            	    {
+            	    otherlv_1=(Token)match(input,17,FOLLOW_7); 
+
+            	    				newLeafNode(otherlv_1, grammarAccess.getSelectTablesListAccess().getCommaKeyword_1_0());
+            	    			
+            	    // InternalNlToSql.g:1127:4: ( (otherlv_2= RULE_ID ) )
+            	    // InternalNlToSql.g:1128:5: (otherlv_2= RULE_ID )
+            	    {
+            	    // InternalNlToSql.g:1128:5: (otherlv_2= RULE_ID )
+            	    // InternalNlToSql.g:1129:6: otherlv_2= RULE_ID
+            	    {
+
+            	    						if (current==null) {
+            	    							current = createModelElement(grammarAccess.getSelectTablesListRule());
+            	    						}
+            	    					
+            	    otherlv_2=(Token)match(input,RULE_ID,FOLLOW_10); 
+
+            	    						newLeafNode(otherlv_2, grammarAccess.getSelectTablesListAccess().getSelectTableTableCrossReference_1_1_0());
+            	    					
+
+            	    }
+
+
+            	    }
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop13;
+                }
+            } while (true);
+
+
+            }
+
+
+            }
+
+
+            	leaveRule();
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
     // $ANTLR end "ruleSelectTablesList"
 
 
     // $ANTLR start "entryRuleSelectTable"
-    // InternalNlToSql.g:1030:1: entryRuleSelectTable returns [EObject current=null] : iv_ruleSelectTable= ruleSelectTable EOF ;
+    // InternalNlToSql.g:1145:1: entryRuleSelectTable returns [EObject current=null] : iv_ruleSelectTable= ruleSelectTable EOF ;
     public final EObject entryRuleSelectTable() throws RecognitionException {
         EObject current = null;
 
@@ -2543,8 +2825,8 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalNlToSql.g:1030:52: (iv_ruleSelectTable= ruleSelectTable EOF )
-            // InternalNlToSql.g:1031:2: iv_ruleSelectTable= ruleSelectTable EOF
+            // InternalNlToSql.g:1145:52: (iv_ruleSelectTable= ruleSelectTable EOF )
+            // InternalNlToSql.g:1146:2: iv_ruleSelectTable= ruleSelectTable EOF
             {
              newCompositeNode(grammarAccess.getSelectTableRule()); 
             pushFollow(FOLLOW_1);
@@ -2571,7 +2853,7 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleSelectTable"
-    // InternalNlToSql.g:1037:1: ruleSelectTable returns [EObject current=null] : ( (otherlv_0= RULE_ID ) ) ;
+    // InternalNlToSql.g:1152:1: ruleSelectTable returns [EObject current=null] : ( (otherlv_0= RULE_ID ) ) ;
     public final EObject ruleSelectTable() throws RecognitionException {
         EObject current = null;
 
@@ -2581,14 +2863,14 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalNlToSql.g:1043:2: ( ( (otherlv_0= RULE_ID ) ) )
-            // InternalNlToSql.g:1044:2: ( (otherlv_0= RULE_ID ) )
+            // InternalNlToSql.g:1158:2: ( ( (otherlv_0= RULE_ID ) ) )
+            // InternalNlToSql.g:1159:2: ( (otherlv_0= RULE_ID ) )
             {
-            // InternalNlToSql.g:1044:2: ( (otherlv_0= RULE_ID ) )
-            // InternalNlToSql.g:1045:3: (otherlv_0= RULE_ID )
+            // InternalNlToSql.g:1159:2: ( (otherlv_0= RULE_ID ) )
+            // InternalNlToSql.g:1160:3: (otherlv_0= RULE_ID )
             {
-            // InternalNlToSql.g:1045:3: (otherlv_0= RULE_ID )
-            // InternalNlToSql.g:1046:4: otherlv_0= RULE_ID
+            // InternalNlToSql.g:1160:3: (otherlv_0= RULE_ID )
+            // InternalNlToSql.g:1161:4: otherlv_0= RULE_ID
             {
 
             				if (current==null) {
@@ -2625,7 +2907,7 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleSelectColumnsList"
-    // InternalNlToSql.g:1060:1: entryRuleSelectColumnsList returns [EObject current=null] : iv_ruleSelectColumnsList= ruleSelectColumnsList EOF ;
+    // InternalNlToSql.g:1175:1: entryRuleSelectColumnsList returns [EObject current=null] : iv_ruleSelectColumnsList= ruleSelectColumnsList EOF ;
     public final EObject entryRuleSelectColumnsList() throws RecognitionException {
         EObject current = null;
 
@@ -2633,8 +2915,8 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalNlToSql.g:1060:58: (iv_ruleSelectColumnsList= ruleSelectColumnsList EOF )
-            // InternalNlToSql.g:1061:2: iv_ruleSelectColumnsList= ruleSelectColumnsList EOF
+            // InternalNlToSql.g:1175:58: (iv_ruleSelectColumnsList= ruleSelectColumnsList EOF )
+            // InternalNlToSql.g:1176:2: iv_ruleSelectColumnsList= ruleSelectColumnsList EOF
             {
              newCompositeNode(grammarAccess.getSelectColumnsListRule()); 
             pushFollow(FOLLOW_1);
@@ -2661,7 +2943,7 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleSelectColumnsList"
-    // InternalNlToSql.g:1067:1: ruleSelectColumnsList returns [EObject current=null] : ( ( (lv_selectColumn_0_0= ruleColumnReference ) ) (otherlv_1= ',' ( (lv_selectColumn_2_0= ruleColumnReference ) ) )* ) ;
+    // InternalNlToSql.g:1182:1: ruleSelectColumnsList returns [EObject current=null] : ( ( (lv_selectColumn_0_0= ruleColumnReference ) ) (otherlv_1= ',' ( (lv_selectColumn_2_0= ruleColumnReference ) ) )* ) ;
     public final EObject ruleSelectColumnsList() throws RecognitionException {
         EObject current = null;
 
@@ -2675,22 +2957,22 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalNlToSql.g:1073:2: ( ( ( (lv_selectColumn_0_0= ruleColumnReference ) ) (otherlv_1= ',' ( (lv_selectColumn_2_0= ruleColumnReference ) ) )* ) )
-            // InternalNlToSql.g:1074:2: ( ( (lv_selectColumn_0_0= ruleColumnReference ) ) (otherlv_1= ',' ( (lv_selectColumn_2_0= ruleColumnReference ) ) )* )
+            // InternalNlToSql.g:1188:2: ( ( ( (lv_selectColumn_0_0= ruleColumnReference ) ) (otherlv_1= ',' ( (lv_selectColumn_2_0= ruleColumnReference ) ) )* ) )
+            // InternalNlToSql.g:1189:2: ( ( (lv_selectColumn_0_0= ruleColumnReference ) ) (otherlv_1= ',' ( (lv_selectColumn_2_0= ruleColumnReference ) ) )* )
             {
-            // InternalNlToSql.g:1074:2: ( ( (lv_selectColumn_0_0= ruleColumnReference ) ) (otherlv_1= ',' ( (lv_selectColumn_2_0= ruleColumnReference ) ) )* )
-            // InternalNlToSql.g:1075:3: ( (lv_selectColumn_0_0= ruleColumnReference ) ) (otherlv_1= ',' ( (lv_selectColumn_2_0= ruleColumnReference ) ) )*
+            // InternalNlToSql.g:1189:2: ( ( (lv_selectColumn_0_0= ruleColumnReference ) ) (otherlv_1= ',' ( (lv_selectColumn_2_0= ruleColumnReference ) ) )* )
+            // InternalNlToSql.g:1190:3: ( (lv_selectColumn_0_0= ruleColumnReference ) ) (otherlv_1= ',' ( (lv_selectColumn_2_0= ruleColumnReference ) ) )*
             {
-            // InternalNlToSql.g:1075:3: ( (lv_selectColumn_0_0= ruleColumnReference ) )
-            // InternalNlToSql.g:1076:4: (lv_selectColumn_0_0= ruleColumnReference )
+            // InternalNlToSql.g:1190:3: ( (lv_selectColumn_0_0= ruleColumnReference ) )
+            // InternalNlToSql.g:1191:4: (lv_selectColumn_0_0= ruleColumnReference )
             {
-            // InternalNlToSql.g:1076:4: (lv_selectColumn_0_0= ruleColumnReference )
-            // InternalNlToSql.g:1077:5: lv_selectColumn_0_0= ruleColumnReference
+            // InternalNlToSql.g:1191:4: (lv_selectColumn_0_0= ruleColumnReference )
+            // InternalNlToSql.g:1192:5: lv_selectColumn_0_0= ruleColumnReference
             {
 
             					newCompositeNode(grammarAccess.getSelectColumnsListAccess().getSelectColumnColumnReferenceParserRuleCall_0_0());
             				
-            pushFollow(FOLLOW_11);
+            pushFollow(FOLLOW_10);
             lv_selectColumn_0_0=ruleColumnReference();
 
             state._fsp--;
@@ -2712,35 +2994,35 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalNlToSql.g:1094:3: (otherlv_1= ',' ( (lv_selectColumn_2_0= ruleColumnReference ) ) )*
-            loop13:
+            // InternalNlToSql.g:1209:3: (otherlv_1= ',' ( (lv_selectColumn_2_0= ruleColumnReference ) ) )*
+            loop14:
             do {
-                int alt13=2;
-                int LA13_0 = input.LA(1);
+                int alt14=2;
+                int LA14_0 = input.LA(1);
 
-                if ( (LA13_0==17) ) {
-                    alt13=1;
+                if ( (LA14_0==17) ) {
+                    alt14=1;
                 }
 
 
-                switch (alt13) {
+                switch (alt14) {
             	case 1 :
-            	    // InternalNlToSql.g:1095:4: otherlv_1= ',' ( (lv_selectColumn_2_0= ruleColumnReference ) )
+            	    // InternalNlToSql.g:1210:4: otherlv_1= ',' ( (lv_selectColumn_2_0= ruleColumnReference ) )
             	    {
-            	    otherlv_1=(Token)match(input,17,FOLLOW_8); 
+            	    otherlv_1=(Token)match(input,17,FOLLOW_7); 
 
             	    				newLeafNode(otherlv_1, grammarAccess.getSelectColumnsListAccess().getCommaKeyword_1_0());
             	    			
-            	    // InternalNlToSql.g:1099:4: ( (lv_selectColumn_2_0= ruleColumnReference ) )
-            	    // InternalNlToSql.g:1100:5: (lv_selectColumn_2_0= ruleColumnReference )
+            	    // InternalNlToSql.g:1214:4: ( (lv_selectColumn_2_0= ruleColumnReference ) )
+            	    // InternalNlToSql.g:1215:5: (lv_selectColumn_2_0= ruleColumnReference )
             	    {
-            	    // InternalNlToSql.g:1100:5: (lv_selectColumn_2_0= ruleColumnReference )
-            	    // InternalNlToSql.g:1101:6: lv_selectColumn_2_0= ruleColumnReference
+            	    // InternalNlToSql.g:1215:5: (lv_selectColumn_2_0= ruleColumnReference )
+            	    // InternalNlToSql.g:1216:6: lv_selectColumn_2_0= ruleColumnReference
             	    {
 
             	    						newCompositeNode(grammarAccess.getSelectColumnsListAccess().getSelectColumnColumnReferenceParserRuleCall_1_1_0());
             	    					
-            	    pushFollow(FOLLOW_11);
+            	    pushFollow(FOLLOW_10);
             	    lv_selectColumn_2_0=ruleColumnReference();
 
             	    state._fsp--;
@@ -2767,7 +3049,7 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop13;
+            	    break loop14;
                 }
             } while (true);
 
@@ -2794,7 +3076,7 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleColumnReference"
-    // InternalNlToSql.g:1123:1: entryRuleColumnReference returns [EObject current=null] : iv_ruleColumnReference= ruleColumnReference EOF ;
+    // InternalNlToSql.g:1238:1: entryRuleColumnReference returns [EObject current=null] : iv_ruleColumnReference= ruleColumnReference EOF ;
     public final EObject entryRuleColumnReference() throws RecognitionException {
         EObject current = null;
 
@@ -2802,8 +3084,8 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalNlToSql.g:1123:56: (iv_ruleColumnReference= ruleColumnReference EOF )
-            // InternalNlToSql.g:1124:2: iv_ruleColumnReference= ruleColumnReference EOF
+            // InternalNlToSql.g:1238:56: (iv_ruleColumnReference= ruleColumnReference EOF )
+            // InternalNlToSql.g:1239:2: iv_ruleColumnReference= ruleColumnReference EOF
             {
              newCompositeNode(grammarAccess.getColumnReferenceRule()); 
             pushFollow(FOLLOW_1);
@@ -2830,7 +3112,7 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleColumnReference"
-    // InternalNlToSql.g:1130:1: ruleColumnReference returns [EObject current=null] : ( ( (otherlv_0= RULE_ID ) ) (otherlv_1= 'in' ( (otherlv_2= RULE_ID ) ) )? ) ;
+    // InternalNlToSql.g:1245:1: ruleColumnReference returns [EObject current=null] : ( ( (otherlv_0= RULE_ID ) ) (otherlv_1= 'in' ( (otherlv_2= RULE_ID ) ) )? ) ;
     public final EObject ruleColumnReference() throws RecognitionException {
         EObject current = null;
 
@@ -2842,24 +3124,24 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalNlToSql.g:1136:2: ( ( ( (otherlv_0= RULE_ID ) ) (otherlv_1= 'in' ( (otherlv_2= RULE_ID ) ) )? ) )
-            // InternalNlToSql.g:1137:2: ( ( (otherlv_0= RULE_ID ) ) (otherlv_1= 'in' ( (otherlv_2= RULE_ID ) ) )? )
+            // InternalNlToSql.g:1251:2: ( ( ( (otherlv_0= RULE_ID ) ) (otherlv_1= 'in' ( (otherlv_2= RULE_ID ) ) )? ) )
+            // InternalNlToSql.g:1252:2: ( ( (otherlv_0= RULE_ID ) ) (otherlv_1= 'in' ( (otherlv_2= RULE_ID ) ) )? )
             {
-            // InternalNlToSql.g:1137:2: ( ( (otherlv_0= RULE_ID ) ) (otherlv_1= 'in' ( (otherlv_2= RULE_ID ) ) )? )
-            // InternalNlToSql.g:1138:3: ( (otherlv_0= RULE_ID ) ) (otherlv_1= 'in' ( (otherlv_2= RULE_ID ) ) )?
+            // InternalNlToSql.g:1252:2: ( ( (otherlv_0= RULE_ID ) ) (otherlv_1= 'in' ( (otherlv_2= RULE_ID ) ) )? )
+            // InternalNlToSql.g:1253:3: ( (otherlv_0= RULE_ID ) ) (otherlv_1= 'in' ( (otherlv_2= RULE_ID ) ) )?
             {
-            // InternalNlToSql.g:1138:3: ( (otherlv_0= RULE_ID ) )
-            // InternalNlToSql.g:1139:4: (otherlv_0= RULE_ID )
+            // InternalNlToSql.g:1253:3: ( (otherlv_0= RULE_ID ) )
+            // InternalNlToSql.g:1254:4: (otherlv_0= RULE_ID )
             {
-            // InternalNlToSql.g:1139:4: (otherlv_0= RULE_ID )
-            // InternalNlToSql.g:1140:5: otherlv_0= RULE_ID
+            // InternalNlToSql.g:1254:4: (otherlv_0= RULE_ID )
+            // InternalNlToSql.g:1255:5: otherlv_0= RULE_ID
             {
 
             					if (current==null) {
             						current = createModelElement(grammarAccess.getColumnReferenceRule());
             					}
             				
-            otherlv_0=(Token)match(input,RULE_ID,FOLLOW_35); 
+            otherlv_0=(Token)match(input,RULE_ID,FOLLOW_36); 
 
             					newLeafNode(otherlv_0, grammarAccess.getColumnReferenceAccess().getColumnColumnCrossReference_0_0());
             				
@@ -2869,26 +3151,26 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalNlToSql.g:1151:3: (otherlv_1= 'in' ( (otherlv_2= RULE_ID ) ) )?
-            int alt14=2;
-            int LA14_0 = input.LA(1);
+            // InternalNlToSql.g:1266:3: (otherlv_1= 'in' ( (otherlv_2= RULE_ID ) ) )?
+            int alt15=2;
+            int LA15_0 = input.LA(1);
 
-            if ( (LA14_0==42) ) {
-                alt14=1;
+            if ( (LA15_0==46) ) {
+                alt15=1;
             }
-            switch (alt14) {
+            switch (alt15) {
                 case 1 :
-                    // InternalNlToSql.g:1152:4: otherlv_1= 'in' ( (otherlv_2= RULE_ID ) )
+                    // InternalNlToSql.g:1267:4: otherlv_1= 'in' ( (otherlv_2= RULE_ID ) )
                     {
-                    otherlv_1=(Token)match(input,42,FOLLOW_8); 
+                    otherlv_1=(Token)match(input,46,FOLLOW_7); 
 
                     				newLeafNode(otherlv_1, grammarAccess.getColumnReferenceAccess().getInKeyword_1_0());
                     			
-                    // InternalNlToSql.g:1156:4: ( (otherlv_2= RULE_ID ) )
-                    // InternalNlToSql.g:1157:5: (otherlv_2= RULE_ID )
+                    // InternalNlToSql.g:1271:4: ( (otherlv_2= RULE_ID ) )
+                    // InternalNlToSql.g:1272:5: (otherlv_2= RULE_ID )
                     {
-                    // InternalNlToSql.g:1157:5: (otherlv_2= RULE_ID )
-                    // InternalNlToSql.g:1158:6: otherlv_2= RULE_ID
+                    // InternalNlToSql.g:1272:5: (otherlv_2= RULE_ID )
+                    // InternalNlToSql.g:1273:6: otherlv_2= RULE_ID
                     {
 
                     						if (current==null) {
@@ -2934,7 +3216,7 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleCondition"
-    // InternalNlToSql.g:1174:1: entryRuleCondition returns [EObject current=null] : iv_ruleCondition= ruleCondition EOF ;
+    // InternalNlToSql.g:1289:1: entryRuleCondition returns [EObject current=null] : iv_ruleCondition= ruleCondition EOF ;
     public final EObject entryRuleCondition() throws RecognitionException {
         EObject current = null;
 
@@ -2942,8 +3224,8 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalNlToSql.g:1174:50: (iv_ruleCondition= ruleCondition EOF )
-            // InternalNlToSql.g:1175:2: iv_ruleCondition= ruleCondition EOF
+            // InternalNlToSql.g:1289:50: (iv_ruleCondition= ruleCondition EOF )
+            // InternalNlToSql.g:1290:2: iv_ruleCondition= ruleCondition EOF
             {
              newCompositeNode(grammarAccess.getConditionRule()); 
             pushFollow(FOLLOW_1);
@@ -2970,7 +3252,7 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleCondition"
-    // InternalNlToSql.g:1181:1: ruleCondition returns [EObject current=null] : (this_Comparison_0= ruleComparison ( () ruleLogicOperator ( (lv_right_3_0= ruleComparison ) ) )* ) ;
+    // InternalNlToSql.g:1296:1: ruleCondition returns [EObject current=null] : (this_Comparison_0= ruleComparison ( () ruleLogicOperator ( (lv_right_3_0= ruleComparison ) ) )* ) ;
     public final EObject ruleCondition() throws RecognitionException {
         EObject current = null;
 
@@ -2983,16 +3265,16 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalNlToSql.g:1187:2: ( (this_Comparison_0= ruleComparison ( () ruleLogicOperator ( (lv_right_3_0= ruleComparison ) ) )* ) )
-            // InternalNlToSql.g:1188:2: (this_Comparison_0= ruleComparison ( () ruleLogicOperator ( (lv_right_3_0= ruleComparison ) ) )* )
+            // InternalNlToSql.g:1302:2: ( (this_Comparison_0= ruleComparison ( () ruleLogicOperator ( (lv_right_3_0= ruleComparison ) ) )* ) )
+            // InternalNlToSql.g:1303:2: (this_Comparison_0= ruleComparison ( () ruleLogicOperator ( (lv_right_3_0= ruleComparison ) ) )* )
             {
-            // InternalNlToSql.g:1188:2: (this_Comparison_0= ruleComparison ( () ruleLogicOperator ( (lv_right_3_0= ruleComparison ) ) )* )
-            // InternalNlToSql.g:1189:3: this_Comparison_0= ruleComparison ( () ruleLogicOperator ( (lv_right_3_0= ruleComparison ) ) )*
+            // InternalNlToSql.g:1303:2: (this_Comparison_0= ruleComparison ( () ruleLogicOperator ( (lv_right_3_0= ruleComparison ) ) )* )
+            // InternalNlToSql.g:1304:3: this_Comparison_0= ruleComparison ( () ruleLogicOperator ( (lv_right_3_0= ruleComparison ) ) )*
             {
 
             			newCompositeNode(grammarAccess.getConditionAccess().getComparisonParserRuleCall_0());
             		
-            pushFollow(FOLLOW_36);
+            pushFollow(FOLLOW_37);
             this_Comparison_0=ruleComparison();
 
             state._fsp--;
@@ -3001,23 +3283,23 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
             			current = this_Comparison_0;
             			afterParserOrEnumRuleCall();
             		
-            // InternalNlToSql.g:1197:3: ( () ruleLogicOperator ( (lv_right_3_0= ruleComparison ) ) )*
-            loop15:
+            // InternalNlToSql.g:1312:3: ( () ruleLogicOperator ( (lv_right_3_0= ruleComparison ) ) )*
+            loop16:
             do {
-                int alt15=2;
-                int LA15_0 = input.LA(1);
+                int alt16=2;
+                int LA16_0 = input.LA(1);
 
-                if ( ((LA15_0>=43 && LA15_0<=44)) ) {
-                    alt15=1;
+                if ( ((LA16_0>=47 && LA16_0<=48)) ) {
+                    alt16=1;
                 }
 
 
-                switch (alt15) {
+                switch (alt16) {
             	case 1 :
-            	    // InternalNlToSql.g:1198:4: () ruleLogicOperator ( (lv_right_3_0= ruleComparison ) )
+            	    // InternalNlToSql.g:1313:4: () ruleLogicOperator ( (lv_right_3_0= ruleComparison ) )
             	    {
-            	    // InternalNlToSql.g:1198:4: ()
-            	    // InternalNlToSql.g:1199:5: 
+            	    // InternalNlToSql.g:1313:4: ()
+            	    // InternalNlToSql.g:1314:5: 
             	    {
 
             	    					current = forceCreateModelElementAndSet(
@@ -3030,7 +3312,7 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
 
             	    				newCompositeNode(grammarAccess.getConditionAccess().getLogicOperatorParserRuleCall_1_1());
             	    			
-            	    pushFollow(FOLLOW_20);
+            	    pushFollow(FOLLOW_19);
             	    ruleLogicOperator();
 
             	    state._fsp--;
@@ -3038,16 +3320,16 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
 
             	    				afterParserOrEnumRuleCall();
             	    			
-            	    // InternalNlToSql.g:1212:4: ( (lv_right_3_0= ruleComparison ) )
-            	    // InternalNlToSql.g:1213:5: (lv_right_3_0= ruleComparison )
+            	    // InternalNlToSql.g:1327:4: ( (lv_right_3_0= ruleComparison ) )
+            	    // InternalNlToSql.g:1328:5: (lv_right_3_0= ruleComparison )
             	    {
-            	    // InternalNlToSql.g:1213:5: (lv_right_3_0= ruleComparison )
-            	    // InternalNlToSql.g:1214:6: lv_right_3_0= ruleComparison
+            	    // InternalNlToSql.g:1328:5: (lv_right_3_0= ruleComparison )
+            	    // InternalNlToSql.g:1329:6: lv_right_3_0= ruleComparison
             	    {
 
             	    						newCompositeNode(grammarAccess.getConditionAccess().getRightComparisonParserRuleCall_1_2_0());
             	    					
-            	    pushFollow(FOLLOW_36);
+            	    pushFollow(FOLLOW_37);
             	    lv_right_3_0=ruleComparison();
 
             	    state._fsp--;
@@ -3074,7 +3356,7 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop15;
+            	    break loop16;
                 }
             } while (true);
 
@@ -3101,7 +3383,7 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleLogicOperator"
-    // InternalNlToSql.g:1236:1: entryRuleLogicOperator returns [String current=null] : iv_ruleLogicOperator= ruleLogicOperator EOF ;
+    // InternalNlToSql.g:1351:1: entryRuleLogicOperator returns [String current=null] : iv_ruleLogicOperator= ruleLogicOperator EOF ;
     public final String entryRuleLogicOperator() throws RecognitionException {
         String current = null;
 
@@ -3109,8 +3391,8 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalNlToSql.g:1236:53: (iv_ruleLogicOperator= ruleLogicOperator EOF )
-            // InternalNlToSql.g:1237:2: iv_ruleLogicOperator= ruleLogicOperator EOF
+            // InternalNlToSql.g:1351:53: (iv_ruleLogicOperator= ruleLogicOperator EOF )
+            // InternalNlToSql.g:1352:2: iv_ruleLogicOperator= ruleLogicOperator EOF
             {
              newCompositeNode(grammarAccess.getLogicOperatorRule()); 
             pushFollow(FOLLOW_1);
@@ -3137,7 +3419,7 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleLogicOperator"
-    // InternalNlToSql.g:1243:1: ruleLogicOperator returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= 'and' | kw= 'or' ) ;
+    // InternalNlToSql.g:1358:1: ruleLogicOperator returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= 'and' | kw= 'or' ) ;
     public final AntlrDatatypeRuleToken ruleLogicOperator() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -3147,30 +3429,30 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalNlToSql.g:1249:2: ( (kw= 'and' | kw= 'or' ) )
-            // InternalNlToSql.g:1250:2: (kw= 'and' | kw= 'or' )
+            // InternalNlToSql.g:1364:2: ( (kw= 'and' | kw= 'or' ) )
+            // InternalNlToSql.g:1365:2: (kw= 'and' | kw= 'or' )
             {
-            // InternalNlToSql.g:1250:2: (kw= 'and' | kw= 'or' )
-            int alt16=2;
-            int LA16_0 = input.LA(1);
+            // InternalNlToSql.g:1365:2: (kw= 'and' | kw= 'or' )
+            int alt17=2;
+            int LA17_0 = input.LA(1);
 
-            if ( (LA16_0==43) ) {
-                alt16=1;
+            if ( (LA17_0==47) ) {
+                alt17=1;
             }
-            else if ( (LA16_0==44) ) {
-                alt16=2;
+            else if ( (LA17_0==48) ) {
+                alt17=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 16, 0, input);
+                    new NoViableAltException("", 17, 0, input);
 
                 throw nvae;
             }
-            switch (alt16) {
+            switch (alt17) {
                 case 1 :
-                    // InternalNlToSql.g:1251:3: kw= 'and'
+                    // InternalNlToSql.g:1366:3: kw= 'and'
                     {
-                    kw=(Token)match(input,43,FOLLOW_2); 
+                    kw=(Token)match(input,47,FOLLOW_2); 
 
                     			current.merge(kw);
                     			newLeafNode(kw, grammarAccess.getLogicOperatorAccess().getAndKeyword_0());
@@ -3179,9 +3461,9 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalNlToSql.g:1257:3: kw= 'or'
+                    // InternalNlToSql.g:1372:3: kw= 'or'
                     {
-                    kw=(Token)match(input,44,FOLLOW_2); 
+                    kw=(Token)match(input,48,FOLLOW_2); 
 
                     			current.merge(kw);
                     			newLeafNode(kw, grammarAccess.getLogicOperatorAccess().getOrKeyword_1());
@@ -3212,7 +3494,7 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleComparison"
-    // InternalNlToSql.g:1266:1: entryRuleComparison returns [EObject current=null] : iv_ruleComparison= ruleComparison EOF ;
+    // InternalNlToSql.g:1381:1: entryRuleComparison returns [EObject current=null] : iv_ruleComparison= ruleComparison EOF ;
     public final EObject entryRuleComparison() throws RecognitionException {
         EObject current = null;
 
@@ -3220,8 +3502,8 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalNlToSql.g:1266:51: (iv_ruleComparison= ruleComparison EOF )
-            // InternalNlToSql.g:1267:2: iv_ruleComparison= ruleComparison EOF
+            // InternalNlToSql.g:1381:51: (iv_ruleComparison= ruleComparison EOF )
+            // InternalNlToSql.g:1382:2: iv_ruleComparison= ruleComparison EOF
             {
              newCompositeNode(grammarAccess.getComparisonRule()); 
             pushFollow(FOLLOW_1);
@@ -3248,7 +3530,7 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleComparison"
-    // InternalNlToSql.g:1273:1: ruleComparison returns [EObject current=null] : ( (otherlv_0= 'the' | otherlv_1= 'a' )? ( (otherlv_2= RULE_ID ) ) ( (lv_operator_3_0= ruleComparisonOperator ) ) ( (lv_rightHandSide_4_0= ruleValue ) ) ) ;
+    // InternalNlToSql.g:1388:1: ruleComparison returns [EObject current=null] : ( (otherlv_0= 'the' | otherlv_1= 'a' )? ( (otherlv_2= RULE_ID ) ) ( (lv_operator_3_0= ruleComparisonOperator ) ) ( (lv_rightHandSide_4_0= ruleValue ) ) ) ;
     public final EObject ruleComparison() throws RecognitionException {
         EObject current = null;
 
@@ -3264,27 +3546,27 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalNlToSql.g:1279:2: ( ( (otherlv_0= 'the' | otherlv_1= 'a' )? ( (otherlv_2= RULE_ID ) ) ( (lv_operator_3_0= ruleComparisonOperator ) ) ( (lv_rightHandSide_4_0= ruleValue ) ) ) )
-            // InternalNlToSql.g:1280:2: ( (otherlv_0= 'the' | otherlv_1= 'a' )? ( (otherlv_2= RULE_ID ) ) ( (lv_operator_3_0= ruleComparisonOperator ) ) ( (lv_rightHandSide_4_0= ruleValue ) ) )
+            // InternalNlToSql.g:1394:2: ( ( (otherlv_0= 'the' | otherlv_1= 'a' )? ( (otherlv_2= RULE_ID ) ) ( (lv_operator_3_0= ruleComparisonOperator ) ) ( (lv_rightHandSide_4_0= ruleValue ) ) ) )
+            // InternalNlToSql.g:1395:2: ( (otherlv_0= 'the' | otherlv_1= 'a' )? ( (otherlv_2= RULE_ID ) ) ( (lv_operator_3_0= ruleComparisonOperator ) ) ( (lv_rightHandSide_4_0= ruleValue ) ) )
             {
-            // InternalNlToSql.g:1280:2: ( (otherlv_0= 'the' | otherlv_1= 'a' )? ( (otherlv_2= RULE_ID ) ) ( (lv_operator_3_0= ruleComparisonOperator ) ) ( (lv_rightHandSide_4_0= ruleValue ) ) )
-            // InternalNlToSql.g:1281:3: (otherlv_0= 'the' | otherlv_1= 'a' )? ( (otherlv_2= RULE_ID ) ) ( (lv_operator_3_0= ruleComparisonOperator ) ) ( (lv_rightHandSide_4_0= ruleValue ) )
+            // InternalNlToSql.g:1395:2: ( (otherlv_0= 'the' | otherlv_1= 'a' )? ( (otherlv_2= RULE_ID ) ) ( (lv_operator_3_0= ruleComparisonOperator ) ) ( (lv_rightHandSide_4_0= ruleValue ) ) )
+            // InternalNlToSql.g:1396:3: (otherlv_0= 'the' | otherlv_1= 'a' )? ( (otherlv_2= RULE_ID ) ) ( (lv_operator_3_0= ruleComparisonOperator ) ) ( (lv_rightHandSide_4_0= ruleValue ) )
             {
-            // InternalNlToSql.g:1281:3: (otherlv_0= 'the' | otherlv_1= 'a' )?
-            int alt17=3;
-            int LA17_0 = input.LA(1);
+            // InternalNlToSql.g:1396:3: (otherlv_0= 'the' | otherlv_1= 'a' )?
+            int alt18=3;
+            int LA18_0 = input.LA(1);
 
-            if ( (LA17_0==24) ) {
-                alt17=1;
+            if ( (LA18_0==24) ) {
+                alt18=1;
             }
-            else if ( (LA17_0==45) ) {
-                alt17=2;
+            else if ( (LA18_0==49) ) {
+                alt18=2;
             }
-            switch (alt17) {
+            switch (alt18) {
                 case 1 :
-                    // InternalNlToSql.g:1282:4: otherlv_0= 'the'
+                    // InternalNlToSql.g:1397:4: otherlv_0= 'the'
                     {
-                    otherlv_0=(Token)match(input,24,FOLLOW_8); 
+                    otherlv_0=(Token)match(input,24,FOLLOW_7); 
 
                     				newLeafNode(otherlv_0, grammarAccess.getComparisonAccess().getTheKeyword_0_0());
                     			
@@ -3292,9 +3574,9 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalNlToSql.g:1287:4: otherlv_1= 'a'
+                    // InternalNlToSql.g:1402:4: otherlv_1= 'a'
                     {
-                    otherlv_1=(Token)match(input,45,FOLLOW_8); 
+                    otherlv_1=(Token)match(input,49,FOLLOW_7); 
 
                     				newLeafNode(otherlv_1, grammarAccess.getComparisonAccess().getAKeyword_0_1());
                     			
@@ -3304,18 +3586,18 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalNlToSql.g:1292:3: ( (otherlv_2= RULE_ID ) )
-            // InternalNlToSql.g:1293:4: (otherlv_2= RULE_ID )
+            // InternalNlToSql.g:1407:3: ( (otherlv_2= RULE_ID ) )
+            // InternalNlToSql.g:1408:4: (otherlv_2= RULE_ID )
             {
-            // InternalNlToSql.g:1293:4: (otherlv_2= RULE_ID )
-            // InternalNlToSql.g:1294:5: otherlv_2= RULE_ID
+            // InternalNlToSql.g:1408:4: (otherlv_2= RULE_ID )
+            // InternalNlToSql.g:1409:5: otherlv_2= RULE_ID
             {
 
             					if (current==null) {
             						current = createModelElement(grammarAccess.getComparisonRule());
             					}
             				
-            otherlv_2=(Token)match(input,RULE_ID,FOLLOW_37); 
+            otherlv_2=(Token)match(input,RULE_ID,FOLLOW_38); 
 
             					newLeafNode(otherlv_2, grammarAccess.getComparisonAccess().getLeftHandSideColumnCrossReference_1_0());
             				
@@ -3325,16 +3607,16 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalNlToSql.g:1305:3: ( (lv_operator_3_0= ruleComparisonOperator ) )
-            // InternalNlToSql.g:1306:4: (lv_operator_3_0= ruleComparisonOperator )
+            // InternalNlToSql.g:1420:3: ( (lv_operator_3_0= ruleComparisonOperator ) )
+            // InternalNlToSql.g:1421:4: (lv_operator_3_0= ruleComparisonOperator )
             {
-            // InternalNlToSql.g:1306:4: (lv_operator_3_0= ruleComparisonOperator )
-            // InternalNlToSql.g:1307:5: lv_operator_3_0= ruleComparisonOperator
+            // InternalNlToSql.g:1421:4: (lv_operator_3_0= ruleComparisonOperator )
+            // InternalNlToSql.g:1422:5: lv_operator_3_0= ruleComparisonOperator
             {
 
             					newCompositeNode(grammarAccess.getComparisonAccess().getOperatorComparisonOperatorParserRuleCall_2_0());
             				
-            pushFollow(FOLLOW_29);
+            pushFollow(FOLLOW_27);
             lv_operator_3_0=ruleComparisonOperator();
 
             state._fsp--;
@@ -3356,11 +3638,11 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalNlToSql.g:1324:3: ( (lv_rightHandSide_4_0= ruleValue ) )
-            // InternalNlToSql.g:1325:4: (lv_rightHandSide_4_0= ruleValue )
+            // InternalNlToSql.g:1439:3: ( (lv_rightHandSide_4_0= ruleValue ) )
+            // InternalNlToSql.g:1440:4: (lv_rightHandSide_4_0= ruleValue )
             {
-            // InternalNlToSql.g:1325:4: (lv_rightHandSide_4_0= ruleValue )
-            // InternalNlToSql.g:1326:5: lv_rightHandSide_4_0= ruleValue
+            // InternalNlToSql.g:1440:4: (lv_rightHandSide_4_0= ruleValue )
+            // InternalNlToSql.g:1441:5: lv_rightHandSide_4_0= ruleValue
             {
 
             					newCompositeNode(grammarAccess.getComparisonAccess().getRightHandSideValueParserRuleCall_3_0());
@@ -3410,7 +3692,7 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleComparisonOperator"
-    // InternalNlToSql.g:1347:1: entryRuleComparisonOperator returns [String current=null] : iv_ruleComparisonOperator= ruleComparisonOperator EOF ;
+    // InternalNlToSql.g:1462:1: entryRuleComparisonOperator returns [String current=null] : iv_ruleComparisonOperator= ruleComparisonOperator EOF ;
     public final String entryRuleComparisonOperator() throws RecognitionException {
         String current = null;
 
@@ -3418,8 +3700,8 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalNlToSql.g:1347:58: (iv_ruleComparisonOperator= ruleComparisonOperator EOF )
-            // InternalNlToSql.g:1348:2: iv_ruleComparisonOperator= ruleComparisonOperator EOF
+            // InternalNlToSql.g:1462:58: (iv_ruleComparisonOperator= ruleComparisonOperator EOF )
+            // InternalNlToSql.g:1463:2: iv_ruleComparisonOperator= ruleComparisonOperator EOF
             {
              newCompositeNode(grammarAccess.getComparisonOperatorRule()); 
             pushFollow(FOLLOW_1);
@@ -3446,8 +3728,140 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleComparisonOperator"
-    // InternalNlToSql.g:1354:1: ruleComparisonOperator returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= '=' | (kw= 'is' kw= 'equal' kw= 'to' ) | (kw= 'is' kw= 'not' kw= 'equal' kw= 'to' ) | (kw= 'less' kw= 'than' ) | (kw= 'greater' kw= 'than' ) | (kw= 'less' kw= 'than' kw= 'or' kw= 'equal' kw= 'to' ) | (kw= 'greater' kw= 'than' kw= 'or' kw= 'equal' kw= 'to' ) ) ;
+    // InternalNlToSql.g:1469:1: ruleComparisonOperator returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_ComparisonOperatorSigns_0= ruleComparisonOperatorSigns | this_ComparisonOperatorString_1= ruleComparisonOperatorString ) ;
     public final AntlrDatatypeRuleToken ruleComparisonOperator() throws RecognitionException {
+        AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
+
+        AntlrDatatypeRuleToken this_ComparisonOperatorSigns_0 = null;
+
+        AntlrDatatypeRuleToken this_ComparisonOperatorString_1 = null;
+
+
+
+        	enterRule();
+
+        try {
+            // InternalNlToSql.g:1475:2: ( (this_ComparisonOperatorSigns_0= ruleComparisonOperatorSigns | this_ComparisonOperatorString_1= ruleComparisonOperatorString ) )
+            // InternalNlToSql.g:1476:2: (this_ComparisonOperatorSigns_0= ruleComparisonOperatorSigns | this_ComparisonOperatorString_1= ruleComparisonOperatorString )
+            {
+            // InternalNlToSql.g:1476:2: (this_ComparisonOperatorSigns_0= ruleComparisonOperatorSigns | this_ComparisonOperatorString_1= ruleComparisonOperatorString )
+            int alt19=2;
+            int LA19_0 = input.LA(1);
+
+            if ( (LA19_0==45||(LA19_0>=56 && LA19_0<=59)) ) {
+                alt19=1;
+            }
+            else if ( (LA19_0==50||LA19_0==53||LA19_0==55) ) {
+                alt19=2;
+            }
+            else {
+                NoViableAltException nvae =
+                    new NoViableAltException("", 19, 0, input);
+
+                throw nvae;
+            }
+            switch (alt19) {
+                case 1 :
+                    // InternalNlToSql.g:1477:3: this_ComparisonOperatorSigns_0= ruleComparisonOperatorSigns
+                    {
+
+                    			newCompositeNode(grammarAccess.getComparisonOperatorAccess().getComparisonOperatorSignsParserRuleCall_0());
+                    		
+                    pushFollow(FOLLOW_2);
+                    this_ComparisonOperatorSigns_0=ruleComparisonOperatorSigns();
+
+                    state._fsp--;
+
+
+                    			current.merge(this_ComparisonOperatorSigns_0);
+                    		
+
+                    			afterParserOrEnumRuleCall();
+                    		
+
+                    }
+                    break;
+                case 2 :
+                    // InternalNlToSql.g:1488:3: this_ComparisonOperatorString_1= ruleComparisonOperatorString
+                    {
+
+                    			newCompositeNode(grammarAccess.getComparisonOperatorAccess().getComparisonOperatorStringParserRuleCall_1());
+                    		
+                    pushFollow(FOLLOW_2);
+                    this_ComparisonOperatorString_1=ruleComparisonOperatorString();
+
+                    state._fsp--;
+
+
+                    			current.merge(this_ComparisonOperatorString_1);
+                    		
+
+                    			afterParserOrEnumRuleCall();
+                    		
+
+                    }
+                    break;
+
+            }
+
+
+            }
+
+
+            	leaveRule();
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleComparisonOperator"
+
+
+    // $ANTLR start "entryRuleComparisonOperatorString"
+    // InternalNlToSql.g:1502:1: entryRuleComparisonOperatorString returns [String current=null] : iv_ruleComparisonOperatorString= ruleComparisonOperatorString EOF ;
+    public final String entryRuleComparisonOperatorString() throws RecognitionException {
+        String current = null;
+
+        AntlrDatatypeRuleToken iv_ruleComparisonOperatorString = null;
+
+
+        try {
+            // InternalNlToSql.g:1502:64: (iv_ruleComparisonOperatorString= ruleComparisonOperatorString EOF )
+            // InternalNlToSql.g:1503:2: iv_ruleComparisonOperatorString= ruleComparisonOperatorString EOF
+            {
+             newCompositeNode(grammarAccess.getComparisonOperatorStringRule()); 
+            pushFollow(FOLLOW_1);
+            iv_ruleComparisonOperatorString=ruleComparisonOperatorString();
+
+            state._fsp--;
+
+             current =iv_ruleComparisonOperatorString.getText(); 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleComparisonOperatorString"
+
+
+    // $ANTLR start "ruleComparisonOperatorString"
+    // InternalNlToSql.g:1509:1: ruleComparisonOperatorString returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : ( (kw= 'is' kw= 'equal' kw= 'to' ) | (kw= 'is' kw= 'not' kw= 'equal' kw= 'to' ) | (kw= 'less' kw= 'than' ) | (kw= 'greater' kw= 'than' ) | (kw= 'less' kw= 'than' kw= 'or' kw= 'equal' kw= 'to' ) | (kw= 'greater' kw= 'than' kw= 'or' kw= 'equal' kw= 'to' ) ) ;
+    public final AntlrDatatypeRuleToken ruleComparisonOperatorString() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
         Token kw=null;
@@ -3456,44 +3870,65 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalNlToSql.g:1360:2: ( (kw= '=' | (kw= 'is' kw= 'equal' kw= 'to' ) | (kw= 'is' kw= 'not' kw= 'equal' kw= 'to' ) | (kw= 'less' kw= 'than' ) | (kw= 'greater' kw= 'than' ) | (kw= 'less' kw= 'than' kw= 'or' kw= 'equal' kw= 'to' ) | (kw= 'greater' kw= 'than' kw= 'or' kw= 'equal' kw= 'to' ) ) )
-            // InternalNlToSql.g:1361:2: (kw= '=' | (kw= 'is' kw= 'equal' kw= 'to' ) | (kw= 'is' kw= 'not' kw= 'equal' kw= 'to' ) | (kw= 'less' kw= 'than' ) | (kw= 'greater' kw= 'than' ) | (kw= 'less' kw= 'than' kw= 'or' kw= 'equal' kw= 'to' ) | (kw= 'greater' kw= 'than' kw= 'or' kw= 'equal' kw= 'to' ) )
+            // InternalNlToSql.g:1515:2: ( ( (kw= 'is' kw= 'equal' kw= 'to' ) | (kw= 'is' kw= 'not' kw= 'equal' kw= 'to' ) | (kw= 'less' kw= 'than' ) | (kw= 'greater' kw= 'than' ) | (kw= 'less' kw= 'than' kw= 'or' kw= 'equal' kw= 'to' ) | (kw= 'greater' kw= 'than' kw= 'or' kw= 'equal' kw= 'to' ) ) )
+            // InternalNlToSql.g:1516:2: ( (kw= 'is' kw= 'equal' kw= 'to' ) | (kw= 'is' kw= 'not' kw= 'equal' kw= 'to' ) | (kw= 'less' kw= 'than' ) | (kw= 'greater' kw= 'than' ) | (kw= 'less' kw= 'than' kw= 'or' kw= 'equal' kw= 'to' ) | (kw= 'greater' kw= 'than' kw= 'or' kw= 'equal' kw= 'to' ) )
             {
-            // InternalNlToSql.g:1361:2: (kw= '=' | (kw= 'is' kw= 'equal' kw= 'to' ) | (kw= 'is' kw= 'not' kw= 'equal' kw= 'to' ) | (kw= 'less' kw= 'than' ) | (kw= 'greater' kw= 'than' ) | (kw= 'less' kw= 'than' kw= 'or' kw= 'equal' kw= 'to' ) | (kw= 'greater' kw= 'than' kw= 'or' kw= 'equal' kw= 'to' ) )
-            int alt18=7;
-            alt18 = dfa18.predict(input);
-            switch (alt18) {
+            // InternalNlToSql.g:1516:2: ( (kw= 'is' kw= 'equal' kw= 'to' ) | (kw= 'is' kw= 'not' kw= 'equal' kw= 'to' ) | (kw= 'less' kw= 'than' ) | (kw= 'greater' kw= 'than' ) | (kw= 'less' kw= 'than' kw= 'or' kw= 'equal' kw= 'to' ) | (kw= 'greater' kw= 'than' kw= 'or' kw= 'equal' kw= 'to' ) )
+            int alt20=6;
+            alt20 = dfa20.predict(input);
+            switch (alt20) {
                 case 1 :
-                    // InternalNlToSql.g:1362:3: kw= '='
+                    // InternalNlToSql.g:1517:3: (kw= 'is' kw= 'equal' kw= 'to' )
                     {
-                    kw=(Token)match(input,41,FOLLOW_2); 
-
-                    			current.merge(kw);
-                    			newLeafNode(kw, grammarAccess.getComparisonOperatorAccess().getEqualsSignKeyword_0());
-                    		
-
-                    }
-                    break;
-                case 2 :
-                    // InternalNlToSql.g:1368:3: (kw= 'is' kw= 'equal' kw= 'to' )
+                    // InternalNlToSql.g:1517:3: (kw= 'is' kw= 'equal' kw= 'to' )
+                    // InternalNlToSql.g:1518:4: kw= 'is' kw= 'equal' kw= 'to'
                     {
-                    // InternalNlToSql.g:1368:3: (kw= 'is' kw= 'equal' kw= 'to' )
-                    // InternalNlToSql.g:1369:4: kw= 'is' kw= 'equal' kw= 'to'
-                    {
-                    kw=(Token)match(input,46,FOLLOW_38); 
+                    kw=(Token)match(input,50,FOLLOW_39); 
 
                     				current.merge(kw);
-                    				newLeafNode(kw, grammarAccess.getComparisonOperatorAccess().getIsKeyword_1_0());
+                    				newLeafNode(kw, grammarAccess.getComparisonOperatorStringAccess().getIsKeyword_0_0());
                     			
-                    kw=(Token)match(input,47,FOLLOW_31); 
+                    kw=(Token)match(input,51,FOLLOW_29); 
 
                     				current.merge(kw);
-                    				newLeafNode(kw, grammarAccess.getComparisonOperatorAccess().getEqualKeyword_1_1());
+                    				newLeafNode(kw, grammarAccess.getComparisonOperatorStringAccess().getEqualKeyword_0_1());
                     			
                     kw=(Token)match(input,39,FOLLOW_2); 
 
                     				current.merge(kw);
-                    				newLeafNode(kw, grammarAccess.getComparisonOperatorAccess().getToKeyword_1_2());
+                    				newLeafNode(kw, grammarAccess.getComparisonOperatorStringAccess().getToKeyword_0_2());
+                    			
+
+                    }
+
+
+                    }
+                    break;
+                case 2 :
+                    // InternalNlToSql.g:1535:3: (kw= 'is' kw= 'not' kw= 'equal' kw= 'to' )
+                    {
+                    // InternalNlToSql.g:1535:3: (kw= 'is' kw= 'not' kw= 'equal' kw= 'to' )
+                    // InternalNlToSql.g:1536:4: kw= 'is' kw= 'not' kw= 'equal' kw= 'to'
+                    {
+                    kw=(Token)match(input,50,FOLLOW_40); 
+
+                    				current.merge(kw);
+                    				newLeafNode(kw, grammarAccess.getComparisonOperatorStringAccess().getIsKeyword_1_0());
+                    			
+                    kw=(Token)match(input,52,FOLLOW_39); 
+
+                    				current.merge(kw);
+                    				newLeafNode(kw, grammarAccess.getComparisonOperatorStringAccess().getNotKeyword_1_1());
+                    			
+                    kw=(Token)match(input,51,FOLLOW_29); 
+
+                    				current.merge(kw);
+                    				newLeafNode(kw, grammarAccess.getComparisonOperatorStringAccess().getEqualKeyword_1_2());
+                    			
+                    kw=(Token)match(input,39,FOLLOW_2); 
+
+                    				current.merge(kw);
+                    				newLeafNode(kw, grammarAccess.getComparisonOperatorStringAccess().getToKeyword_1_3());
                     			
 
                     }
@@ -3502,30 +3937,20 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalNlToSql.g:1386:3: (kw= 'is' kw= 'not' kw= 'equal' kw= 'to' )
+                    // InternalNlToSql.g:1558:3: (kw= 'less' kw= 'than' )
                     {
-                    // InternalNlToSql.g:1386:3: (kw= 'is' kw= 'not' kw= 'equal' kw= 'to' )
-                    // InternalNlToSql.g:1387:4: kw= 'is' kw= 'not' kw= 'equal' kw= 'to'
+                    // InternalNlToSql.g:1558:3: (kw= 'less' kw= 'than' )
+                    // InternalNlToSql.g:1559:4: kw= 'less' kw= 'than'
                     {
-                    kw=(Token)match(input,46,FOLLOW_39); 
+                    kw=(Token)match(input,53,FOLLOW_41); 
 
                     				current.merge(kw);
-                    				newLeafNode(kw, grammarAccess.getComparisonOperatorAccess().getIsKeyword_2_0());
+                    				newLeafNode(kw, grammarAccess.getComparisonOperatorStringAccess().getLessKeyword_2_0());
                     			
-                    kw=(Token)match(input,48,FOLLOW_38); 
+                    kw=(Token)match(input,54,FOLLOW_2); 
 
                     				current.merge(kw);
-                    				newLeafNode(kw, grammarAccess.getComparisonOperatorAccess().getNotKeyword_2_1());
-                    			
-                    kw=(Token)match(input,47,FOLLOW_31); 
-
-                    				current.merge(kw);
-                    				newLeafNode(kw, grammarAccess.getComparisonOperatorAccess().getEqualKeyword_2_2());
-                    			
-                    kw=(Token)match(input,39,FOLLOW_2); 
-
-                    				current.merge(kw);
-                    				newLeafNode(kw, grammarAccess.getComparisonOperatorAccess().getToKeyword_2_3());
+                    				newLeafNode(kw, grammarAccess.getComparisonOperatorStringAccess().getThanKeyword_2_1());
                     			
 
                     }
@@ -3534,20 +3959,20 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalNlToSql.g:1409:3: (kw= 'less' kw= 'than' )
+                    // InternalNlToSql.g:1571:3: (kw= 'greater' kw= 'than' )
                     {
-                    // InternalNlToSql.g:1409:3: (kw= 'less' kw= 'than' )
-                    // InternalNlToSql.g:1410:4: kw= 'less' kw= 'than'
+                    // InternalNlToSql.g:1571:3: (kw= 'greater' kw= 'than' )
+                    // InternalNlToSql.g:1572:4: kw= 'greater' kw= 'than'
                     {
-                    kw=(Token)match(input,49,FOLLOW_40); 
+                    kw=(Token)match(input,55,FOLLOW_41); 
 
                     				current.merge(kw);
-                    				newLeafNode(kw, grammarAccess.getComparisonOperatorAccess().getLessKeyword_3_0());
+                    				newLeafNode(kw, grammarAccess.getComparisonOperatorStringAccess().getGreaterKeyword_3_0());
                     			
-                    kw=(Token)match(input,50,FOLLOW_2); 
+                    kw=(Token)match(input,54,FOLLOW_2); 
 
                     				current.merge(kw);
-                    				newLeafNode(kw, grammarAccess.getComparisonOperatorAccess().getThanKeyword_3_1());
+                    				newLeafNode(kw, grammarAccess.getComparisonOperatorStringAccess().getThanKeyword_3_1());
                     			
 
                     }
@@ -3556,20 +3981,35 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // InternalNlToSql.g:1422:3: (kw= 'greater' kw= 'than' )
+                    // InternalNlToSql.g:1584:3: (kw= 'less' kw= 'than' kw= 'or' kw= 'equal' kw= 'to' )
                     {
-                    // InternalNlToSql.g:1422:3: (kw= 'greater' kw= 'than' )
-                    // InternalNlToSql.g:1423:4: kw= 'greater' kw= 'than'
+                    // InternalNlToSql.g:1584:3: (kw= 'less' kw= 'than' kw= 'or' kw= 'equal' kw= 'to' )
+                    // InternalNlToSql.g:1585:4: kw= 'less' kw= 'than' kw= 'or' kw= 'equal' kw= 'to'
                     {
-                    kw=(Token)match(input,51,FOLLOW_40); 
+                    kw=(Token)match(input,53,FOLLOW_41); 
 
                     				current.merge(kw);
-                    				newLeafNode(kw, grammarAccess.getComparisonOperatorAccess().getGreaterKeyword_4_0());
+                    				newLeafNode(kw, grammarAccess.getComparisonOperatorStringAccess().getLessKeyword_4_0());
                     			
-                    kw=(Token)match(input,50,FOLLOW_2); 
+                    kw=(Token)match(input,54,FOLLOW_42); 
 
                     				current.merge(kw);
-                    				newLeafNode(kw, grammarAccess.getComparisonOperatorAccess().getThanKeyword_4_1());
+                    				newLeafNode(kw, grammarAccess.getComparisonOperatorStringAccess().getThanKeyword_4_1());
+                    			
+                    kw=(Token)match(input,48,FOLLOW_39); 
+
+                    				current.merge(kw);
+                    				newLeafNode(kw, grammarAccess.getComparisonOperatorStringAccess().getOrKeyword_4_2());
+                    			
+                    kw=(Token)match(input,51,FOLLOW_29); 
+
+                    				current.merge(kw);
+                    				newLeafNode(kw, grammarAccess.getComparisonOperatorStringAccess().getEqualKeyword_4_3());
+                    			
+                    kw=(Token)match(input,39,FOLLOW_2); 
+
+                    				current.merge(kw);
+                    				newLeafNode(kw, grammarAccess.getComparisonOperatorStringAccess().getToKeyword_4_4());
                     			
 
                     }
@@ -3578,72 +4018,35 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 6 :
-                    // InternalNlToSql.g:1435:3: (kw= 'less' kw= 'than' kw= 'or' kw= 'equal' kw= 'to' )
+                    // InternalNlToSql.g:1612:3: (kw= 'greater' kw= 'than' kw= 'or' kw= 'equal' kw= 'to' )
                     {
-                    // InternalNlToSql.g:1435:3: (kw= 'less' kw= 'than' kw= 'or' kw= 'equal' kw= 'to' )
-                    // InternalNlToSql.g:1436:4: kw= 'less' kw= 'than' kw= 'or' kw= 'equal' kw= 'to'
+                    // InternalNlToSql.g:1612:3: (kw= 'greater' kw= 'than' kw= 'or' kw= 'equal' kw= 'to' )
+                    // InternalNlToSql.g:1613:4: kw= 'greater' kw= 'than' kw= 'or' kw= 'equal' kw= 'to'
                     {
-                    kw=(Token)match(input,49,FOLLOW_40); 
+                    kw=(Token)match(input,55,FOLLOW_41); 
 
                     				current.merge(kw);
-                    				newLeafNode(kw, grammarAccess.getComparisonOperatorAccess().getLessKeyword_5_0());
+                    				newLeafNode(kw, grammarAccess.getComparisonOperatorStringAccess().getGreaterKeyword_5_0());
                     			
-                    kw=(Token)match(input,50,FOLLOW_41); 
+                    kw=(Token)match(input,54,FOLLOW_42); 
 
                     				current.merge(kw);
-                    				newLeafNode(kw, grammarAccess.getComparisonOperatorAccess().getThanKeyword_5_1());
+                    				newLeafNode(kw, grammarAccess.getComparisonOperatorStringAccess().getThanKeyword_5_1());
                     			
-                    kw=(Token)match(input,44,FOLLOW_38); 
+                    kw=(Token)match(input,48,FOLLOW_39); 
 
                     				current.merge(kw);
-                    				newLeafNode(kw, grammarAccess.getComparisonOperatorAccess().getOrKeyword_5_2());
+                    				newLeafNode(kw, grammarAccess.getComparisonOperatorStringAccess().getOrKeyword_5_2());
                     			
-                    kw=(Token)match(input,47,FOLLOW_31); 
+                    kw=(Token)match(input,51,FOLLOW_29); 
 
                     				current.merge(kw);
-                    				newLeafNode(kw, grammarAccess.getComparisonOperatorAccess().getEqualKeyword_5_3());
+                    				newLeafNode(kw, grammarAccess.getComparisonOperatorStringAccess().getEqualKeyword_5_3());
                     			
                     kw=(Token)match(input,39,FOLLOW_2); 
 
                     				current.merge(kw);
-                    				newLeafNode(kw, grammarAccess.getComparisonOperatorAccess().getToKeyword_5_4());
-                    			
-
-                    }
-
-
-                    }
-                    break;
-                case 7 :
-                    // InternalNlToSql.g:1463:3: (kw= 'greater' kw= 'than' kw= 'or' kw= 'equal' kw= 'to' )
-                    {
-                    // InternalNlToSql.g:1463:3: (kw= 'greater' kw= 'than' kw= 'or' kw= 'equal' kw= 'to' )
-                    // InternalNlToSql.g:1464:4: kw= 'greater' kw= 'than' kw= 'or' kw= 'equal' kw= 'to'
-                    {
-                    kw=(Token)match(input,51,FOLLOW_40); 
-
-                    				current.merge(kw);
-                    				newLeafNode(kw, grammarAccess.getComparisonOperatorAccess().getGreaterKeyword_6_0());
-                    			
-                    kw=(Token)match(input,50,FOLLOW_41); 
-
-                    				current.merge(kw);
-                    				newLeafNode(kw, grammarAccess.getComparisonOperatorAccess().getThanKeyword_6_1());
-                    			
-                    kw=(Token)match(input,44,FOLLOW_38); 
-
-                    				current.merge(kw);
-                    				newLeafNode(kw, grammarAccess.getComparisonOperatorAccess().getOrKeyword_6_2());
-                    			
-                    kw=(Token)match(input,47,FOLLOW_31); 
-
-                    				current.merge(kw);
-                    				newLeafNode(kw, grammarAccess.getComparisonOperatorAccess().getEqualKeyword_6_3());
-                    			
-                    kw=(Token)match(input,39,FOLLOW_2); 
-
-                    				current.merge(kw);
-                    				newLeafNode(kw, grammarAccess.getComparisonOperatorAccess().getToKeyword_6_4());
+                    				newLeafNode(kw, grammarAccess.getComparisonOperatorStringAccess().getToKeyword_5_4());
                     			
 
                     }
@@ -3670,11 +4073,174 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleComparisonOperator"
+    // $ANTLR end "ruleComparisonOperatorString"
+
+
+    // $ANTLR start "entryRuleComparisonOperatorSigns"
+    // InternalNlToSql.g:1643:1: entryRuleComparisonOperatorSigns returns [String current=null] : iv_ruleComparisonOperatorSigns= ruleComparisonOperatorSigns EOF ;
+    public final String entryRuleComparisonOperatorSigns() throws RecognitionException {
+        String current = null;
+
+        AntlrDatatypeRuleToken iv_ruleComparisonOperatorSigns = null;
+
+
+        try {
+            // InternalNlToSql.g:1643:63: (iv_ruleComparisonOperatorSigns= ruleComparisonOperatorSigns EOF )
+            // InternalNlToSql.g:1644:2: iv_ruleComparisonOperatorSigns= ruleComparisonOperatorSigns EOF
+            {
+             newCompositeNode(grammarAccess.getComparisonOperatorSignsRule()); 
+            pushFollow(FOLLOW_1);
+            iv_ruleComparisonOperatorSigns=ruleComparisonOperatorSigns();
+
+            state._fsp--;
+
+             current =iv_ruleComparisonOperatorSigns.getText(); 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleComparisonOperatorSigns"
+
+
+    // $ANTLR start "ruleComparisonOperatorSigns"
+    // InternalNlToSql.g:1650:1: ruleComparisonOperatorSigns returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= '=' | kw= '<=' | kw= '>=' | kw= '>' | kw= '<' ) ;
+    public final AntlrDatatypeRuleToken ruleComparisonOperatorSigns() throws RecognitionException {
+        AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
+
+        Token kw=null;
+
+
+        	enterRule();
+
+        try {
+            // InternalNlToSql.g:1656:2: ( (kw= '=' | kw= '<=' | kw= '>=' | kw= '>' | kw= '<' ) )
+            // InternalNlToSql.g:1657:2: (kw= '=' | kw= '<=' | kw= '>=' | kw= '>' | kw= '<' )
+            {
+            // InternalNlToSql.g:1657:2: (kw= '=' | kw= '<=' | kw= '>=' | kw= '>' | kw= '<' )
+            int alt21=5;
+            switch ( input.LA(1) ) {
+            case 45:
+                {
+                alt21=1;
+                }
+                break;
+            case 56:
+                {
+                alt21=2;
+                }
+                break;
+            case 57:
+                {
+                alt21=3;
+                }
+                break;
+            case 58:
+                {
+                alt21=4;
+                }
+                break;
+            case 59:
+                {
+                alt21=5;
+                }
+                break;
+            default:
+                NoViableAltException nvae =
+                    new NoViableAltException("", 21, 0, input);
+
+                throw nvae;
+            }
+
+            switch (alt21) {
+                case 1 :
+                    // InternalNlToSql.g:1658:3: kw= '='
+                    {
+                    kw=(Token)match(input,45,FOLLOW_2); 
+
+                    			current.merge(kw);
+                    			newLeafNode(kw, grammarAccess.getComparisonOperatorSignsAccess().getEqualsSignKeyword_0());
+                    		
+
+                    }
+                    break;
+                case 2 :
+                    // InternalNlToSql.g:1664:3: kw= '<='
+                    {
+                    kw=(Token)match(input,56,FOLLOW_2); 
+
+                    			current.merge(kw);
+                    			newLeafNode(kw, grammarAccess.getComparisonOperatorSignsAccess().getLessThanSignEqualsSignKeyword_1());
+                    		
+
+                    }
+                    break;
+                case 3 :
+                    // InternalNlToSql.g:1670:3: kw= '>='
+                    {
+                    kw=(Token)match(input,57,FOLLOW_2); 
+
+                    			current.merge(kw);
+                    			newLeafNode(kw, grammarAccess.getComparisonOperatorSignsAccess().getGreaterThanSignEqualsSignKeyword_2());
+                    		
+
+                    }
+                    break;
+                case 4 :
+                    // InternalNlToSql.g:1676:3: kw= '>'
+                    {
+                    kw=(Token)match(input,58,FOLLOW_2); 
+
+                    			current.merge(kw);
+                    			newLeafNode(kw, grammarAccess.getComparisonOperatorSignsAccess().getGreaterThanSignKeyword_3());
+                    		
+
+                    }
+                    break;
+                case 5 :
+                    // InternalNlToSql.g:1682:3: kw= '<'
+                    {
+                    kw=(Token)match(input,59,FOLLOW_2); 
+
+                    			current.merge(kw);
+                    			newLeafNode(kw, grammarAccess.getComparisonOperatorSignsAccess().getLessThanSignKeyword_4());
+                    		
+
+                    }
+                    break;
+
+            }
+
+
+            }
+
+
+            	leaveRule();
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleComparisonOperatorSigns"
 
 
     // $ANTLR start "entryRuleValue"
-    // InternalNlToSql.g:1494:1: entryRuleValue returns [String current=null] : iv_ruleValue= ruleValue EOF ;
+    // InternalNlToSql.g:1691:1: entryRuleValue returns [String current=null] : iv_ruleValue= ruleValue EOF ;
     public final String entryRuleValue() throws RecognitionException {
         String current = null;
 
@@ -3682,8 +4248,8 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalNlToSql.g:1494:45: (iv_ruleValue= ruleValue EOF )
-            // InternalNlToSql.g:1495:2: iv_ruleValue= ruleValue EOF
+            // InternalNlToSql.g:1691:45: (iv_ruleValue= ruleValue EOF )
+            // InternalNlToSql.g:1692:2: iv_ruleValue= ruleValue EOF
             {
              newCompositeNode(grammarAccess.getValueRule()); 
             pushFollow(FOLLOW_1);
@@ -3710,7 +4276,7 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleValue"
-    // InternalNlToSql.g:1501:1: ruleValue returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_INT_0= RULE_INT | this_STRING_1= RULE_STRING ) ;
+    // InternalNlToSql.g:1698:1: ruleValue returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_INT_0= RULE_INT | this_STRING_1= RULE_STRING ) ;
     public final AntlrDatatypeRuleToken ruleValue() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -3721,28 +4287,28 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalNlToSql.g:1507:2: ( (this_INT_0= RULE_INT | this_STRING_1= RULE_STRING ) )
-            // InternalNlToSql.g:1508:2: (this_INT_0= RULE_INT | this_STRING_1= RULE_STRING )
+            // InternalNlToSql.g:1704:2: ( (this_INT_0= RULE_INT | this_STRING_1= RULE_STRING ) )
+            // InternalNlToSql.g:1705:2: (this_INT_0= RULE_INT | this_STRING_1= RULE_STRING )
             {
-            // InternalNlToSql.g:1508:2: (this_INT_0= RULE_INT | this_STRING_1= RULE_STRING )
-            int alt19=2;
-            int LA19_0 = input.LA(1);
+            // InternalNlToSql.g:1705:2: (this_INT_0= RULE_INT | this_STRING_1= RULE_STRING )
+            int alt22=2;
+            int LA22_0 = input.LA(1);
 
-            if ( (LA19_0==RULE_INT) ) {
-                alt19=1;
+            if ( (LA22_0==RULE_INT) ) {
+                alt22=1;
             }
-            else if ( (LA19_0==RULE_STRING) ) {
-                alt19=2;
+            else if ( (LA22_0==RULE_STRING) ) {
+                alt22=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 19, 0, input);
+                    new NoViableAltException("", 22, 0, input);
 
                 throw nvae;
             }
-            switch (alt19) {
+            switch (alt22) {
                 case 1 :
-                    // InternalNlToSql.g:1509:3: this_INT_0= RULE_INT
+                    // InternalNlToSql.g:1706:3: this_INT_0= RULE_INT
                     {
                     this_INT_0=(Token)match(input,RULE_INT,FOLLOW_2); 
 
@@ -3755,7 +4321,7 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalNlToSql.g:1517:3: this_STRING_1= RULE_STRING
+                    // InternalNlToSql.g:1714:3: this_STRING_1= RULE_STRING
                     {
                     this_STRING_1=(Token)match(input,RULE_STRING,FOLLOW_2); 
 
@@ -3788,227 +4354,25 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
     }
     // $ANTLR end "ruleValue"
 
-
-    // $ANTLR start "entryRuleTheTable"
-    // InternalNlToSql.g:1528:1: entryRuleTheTable returns [String current=null] : iv_ruleTheTable= ruleTheTable EOF ;
-    public final String entryRuleTheTable() throws RecognitionException {
-        String current = null;
-
-        AntlrDatatypeRuleToken iv_ruleTheTable = null;
-
-
-        try {
-            // InternalNlToSql.g:1528:48: (iv_ruleTheTable= ruleTheTable EOF )
-            // InternalNlToSql.g:1529:2: iv_ruleTheTable= ruleTheTable EOF
-            {
-             newCompositeNode(grammarAccess.getTheTableRule()); 
-            pushFollow(FOLLOW_1);
-            iv_ruleTheTable=ruleTheTable();
-
-            state._fsp--;
-
-             current =iv_ruleTheTable.getText(); 
-            match(input,EOF,FOLLOW_2); 
-
-            }
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "entryRuleTheTable"
-
-
-    // $ANTLR start "ruleTheTable"
-    // InternalNlToSql.g:1535:1: ruleTheTable returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= 'the' kw= 'table' )? ;
-    public final AntlrDatatypeRuleToken ruleTheTable() throws RecognitionException {
-        AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
-
-        Token kw=null;
-
-
-        	enterRule();
-
-        try {
-            // InternalNlToSql.g:1541:2: ( (kw= 'the' kw= 'table' )? )
-            // InternalNlToSql.g:1542:2: (kw= 'the' kw= 'table' )?
-            {
-            // InternalNlToSql.g:1542:2: (kw= 'the' kw= 'table' )?
-            int alt20=2;
-            int LA20_0 = input.LA(1);
-
-            if ( (LA20_0==24) ) {
-                alt20=1;
-            }
-            switch (alt20) {
-                case 1 :
-                    // InternalNlToSql.g:1543:3: kw= 'the' kw= 'table'
-                    {
-                    kw=(Token)match(input,24,FOLLOW_6); 
-
-                    			current.merge(kw);
-                    			newLeafNode(kw, grammarAccess.getTheTableAccess().getTheKeyword_0());
-                    		
-                    kw=(Token)match(input,13,FOLLOW_2); 
-
-                    			current.merge(kw);
-                    			newLeafNode(kw, grammarAccess.getTheTableAccess().getTableKeyword_1());
-                    		
-
-                    }
-                    break;
-
-            }
-
-
-            }
-
-
-            	leaveRule();
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "ruleTheTable"
-
-
-    // $ANTLR start "entryRuleTheA"
-    // InternalNlToSql.g:1557:1: entryRuleTheA returns [String current=null] : iv_ruleTheA= ruleTheA EOF ;
-    public final String entryRuleTheA() throws RecognitionException {
-        String current = null;
-
-        AntlrDatatypeRuleToken iv_ruleTheA = null;
-
-
-        try {
-            // InternalNlToSql.g:1557:44: (iv_ruleTheA= ruleTheA EOF )
-            // InternalNlToSql.g:1558:2: iv_ruleTheA= ruleTheA EOF
-            {
-             newCompositeNode(grammarAccess.getTheARule()); 
-            pushFollow(FOLLOW_1);
-            iv_ruleTheA=ruleTheA();
-
-            state._fsp--;
-
-             current =iv_ruleTheA.getText(); 
-            match(input,EOF,FOLLOW_2); 
-
-            }
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "entryRuleTheA"
-
-
-    // $ANTLR start "ruleTheA"
-    // InternalNlToSql.g:1564:1: ruleTheA returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= 'the' | kw= 'a' )? ;
-    public final AntlrDatatypeRuleToken ruleTheA() throws RecognitionException {
-        AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
-
-        Token kw=null;
-
-
-        	enterRule();
-
-        try {
-            // InternalNlToSql.g:1570:2: ( (kw= 'the' | kw= 'a' )? )
-            // InternalNlToSql.g:1571:2: (kw= 'the' | kw= 'a' )?
-            {
-            // InternalNlToSql.g:1571:2: (kw= 'the' | kw= 'a' )?
-            int alt21=3;
-            int LA21_0 = input.LA(1);
-
-            if ( (LA21_0==24) ) {
-                alt21=1;
-            }
-            else if ( (LA21_0==45) ) {
-                alt21=2;
-            }
-            switch (alt21) {
-                case 1 :
-                    // InternalNlToSql.g:1572:3: kw= 'the'
-                    {
-                    kw=(Token)match(input,24,FOLLOW_2); 
-
-                    			current.merge(kw);
-                    			newLeafNode(kw, grammarAccess.getTheAAccess().getTheKeyword_0());
-                    		
-
-                    }
-                    break;
-                case 2 :
-                    // InternalNlToSql.g:1578:3: kw= 'a'
-                    {
-                    kw=(Token)match(input,45,FOLLOW_2); 
-
-                    			current.merge(kw);
-                    			newLeafNode(kw, grammarAccess.getTheAAccess().getAKeyword_1());
-                    		
-
-                    }
-                    break;
-
-            }
-
-
-            }
-
-
-            	leaveRule();
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "ruleTheA"
-
     // Delegated rules
 
 
-    protected DFA18 dfa18 = new DFA18(this);
-    static final String dfa_1s = "\15\uffff";
-    static final String dfa_2s = "\7\uffff\1\11\1\13\4\uffff";
-    static final String dfa_3s = "\1\51\1\uffff\1\57\2\62\2\uffff\2\5\4\uffff";
-    static final String dfa_4s = "\1\63\1\uffff\1\60\2\62\2\uffff\2\54\4\uffff";
-    static final String dfa_5s = "\1\uffff\1\1\3\uffff\1\3\1\2\2\uffff\1\4\1\6\1\5\1\7";
-    static final String dfa_6s = "\15\uffff}>";
+    protected DFA20 dfa20 = new DFA20(this);
+    static final String dfa_1s = "\14\uffff";
+    static final String dfa_2s = "\6\uffff\1\10\1\12\4\uffff";
+    static final String dfa_3s = "\1\62\1\63\2\66\2\uffff\2\5\4\uffff";
+    static final String dfa_4s = "\1\67\1\64\2\66\2\uffff\2\60\4\uffff";
+    static final String dfa_5s = "\4\uffff\1\2\1\1\2\uffff\1\3\1\5\1\4\1\6";
+    static final String dfa_6s = "\14\uffff}>";
     static final String[] dfa_7s = {
-            "\1\1\4\uffff\1\2\2\uffff\1\3\1\uffff\1\4",
-            "",
-            "\1\6\1\5",
+            "\1\1\2\uffff\1\2\1\uffff\1\3",
+            "\1\5\1\4",
+            "\1\6",
             "\1\7",
-            "\1\10",
             "",
             "",
-            "\2\11\45\uffff\1\12",
-            "\2\13\45\uffff\1\14",
+            "\2\10\51\uffff\1\11",
+            "\2\12\51\uffff\1\13",
             "",
             "",
             "",
@@ -4023,11 +4387,11 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
     static final short[] dfa_6 = DFA.unpackEncodedString(dfa_6s);
     static final short[][] dfa_7 = unpackEncodedStringArray(dfa_7s);
 
-    class DFA18 extends DFA {
+    class DFA20 extends DFA {
 
-        public DFA18(BaseRecognizer recognizer) {
+        public DFA20(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
-            this.decisionNumber = 18;
+            this.decisionNumber = 20;
             this.eot = dfa_1;
             this.eof = dfa_2;
             this.min = dfa_3;
@@ -4037,51 +4401,52 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
             this.transition = dfa_7;
         }
         public String getDescription() {
-            return "1361:2: (kw= '=' | (kw= 'is' kw= 'equal' kw= 'to' ) | (kw= 'is' kw= 'not' kw= 'equal' kw= 'to' ) | (kw= 'less' kw= 'than' ) | (kw= 'greater' kw= 'than' ) | (kw= 'less' kw= 'than' kw= 'or' kw= 'equal' kw= 'to' ) | (kw= 'greater' kw= 'than' kw= 'or' kw= 'equal' kw= 'to' ) )";
+            return "1516:2: ( (kw= 'is' kw= 'equal' kw= 'to' ) | (kw= 'is' kw= 'not' kw= 'equal' kw= 'to' ) | (kw= 'less' kw= 'than' ) | (kw= 'greater' kw= 'than' ) | (kw= 'less' kw= 'than' kw= 'or' kw= 'equal' kw= 'to' ) | (kw= 'greater' kw= 'than' kw= 'or' kw= 'equal' kw= 'to' ) )";
         }
     }
  
 
     public static final BitSet FOLLOW_1 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_2 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000004080801002L});
+    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000064080801002L});
     public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000000800L});
-    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000200001002000L});
-    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000008002L});
-    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000020002L});
-    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000040000L});
-    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000080000L});
-    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000000700000L});
-    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000001000000L});
-    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000002000000L});
-    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000009000000L});
-    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000004000000L});
-    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000000030000002L});
-    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0000200001000010L});
-    public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0000000020000002L});
-    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0000000040000000L});
-    public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0000000100000000L});
-    public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x0000000001000010L});
-    public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x0000000200000000L});
-    public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x0000000400000000L});
-    public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x0000000800000000L});
-    public static final BitSet FOLLOW_28 = new BitSet(new long[]{0x0000001000000000L});
-    public static final BitSet FOLLOW_29 = new BitSet(new long[]{0x0000000000000060L});
-    public static final BitSet FOLLOW_30 = new BitSet(new long[]{0x0000002000000000L});
-    public static final BitSet FOLLOW_31 = new BitSet(new long[]{0x0000008000000000L});
-    public static final BitSet FOLLOW_32 = new BitSet(new long[]{0x0000010000000000L});
-    public static final BitSet FOLLOW_33 = new BitSet(new long[]{0x0000000010000002L});
-    public static final BitSet FOLLOW_34 = new BitSet(new long[]{0x0000020000000000L});
-    public static final BitSet FOLLOW_35 = new BitSet(new long[]{0x0000040000000002L});
-    public static final BitSet FOLLOW_36 = new BitSet(new long[]{0x0000180000000002L});
-    public static final BitSet FOLLOW_37 = new BitSet(new long[]{0x000A420000000000L});
-    public static final BitSet FOLLOW_38 = new BitSet(new long[]{0x0000800000000000L});
-    public static final BitSet FOLLOW_39 = new BitSet(new long[]{0x0001000000000000L});
-    public static final BitSet FOLLOW_40 = new BitSet(new long[]{0x0004000000000000L});
-    public static final BitSet FOLLOW_41 = new BitSet(new long[]{0x0000100000000000L});
+    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000004000L});
+    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000008002L});
+    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000020002L});
+    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000040000L});
+    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000080000L});
+    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000700000L});
+    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000001000000L});
+    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000002000000L});
+    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000009000000L});
+    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000004000000L});
+    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000030000002L});
+    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0002000001000010L});
+    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0000000020000002L});
+    public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0000000040000000L});
+    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0000000100000000L});
+    public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0000000200000000L});
+    public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x0000000400000000L});
+    public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x0000000800000000L});
+    public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x0000001000000000L});
+    public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x0000000000000060L});
+    public static final BitSet FOLLOW_28 = new BitSet(new long[]{0x0000002000000000L});
+    public static final BitSet FOLLOW_29 = new BitSet(new long[]{0x0000008000000000L});
+    public static final BitSet FOLLOW_30 = new BitSet(new long[]{0x0000010000000000L});
+    public static final BitSet FOLLOW_31 = new BitSet(new long[]{0x0000000010000002L});
+    public static final BitSet FOLLOW_32 = new BitSet(new long[]{0x0000080000000000L});
+    public static final BitSet FOLLOW_33 = new BitSet(new long[]{0x0000100000000000L});
+    public static final BitSet FOLLOW_34 = new BitSet(new long[]{0x0000000010000000L});
+    public static final BitSet FOLLOW_35 = new BitSet(new long[]{0x0000200000000000L});
+    public static final BitSet FOLLOW_36 = new BitSet(new long[]{0x0000400000000002L});
+    public static final BitSet FOLLOW_37 = new BitSet(new long[]{0x0001800000000002L});
+    public static final BitSet FOLLOW_38 = new BitSet(new long[]{0x0FA4200000000000L});
+    public static final BitSet FOLLOW_39 = new BitSet(new long[]{0x0008000000000000L});
+    public static final BitSet FOLLOW_40 = new BitSet(new long[]{0x0010000000000000L});
+    public static final BitSet FOLLOW_41 = new BitSet(new long[]{0x0040000000000000L});
+    public static final BitSet FOLLOW_42 = new BitSet(new long[]{0x0001000000000000L});
 
 }

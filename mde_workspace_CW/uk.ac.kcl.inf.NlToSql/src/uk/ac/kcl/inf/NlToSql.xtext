@@ -9,14 +9,12 @@ AccountingSpeech:
 
 // Define the Statement rule
 Statement:
-    (CreateTableStatement | SelectStatement | InsertStatement | UpdateStatement)'.'
-//    	   | DeleteStatement
-    
+    (CreateTableStatement | SelectStatement | InsertStatement | UpdateStatement | DeleteStatement)'.'
 ;
 
 // Define the table creation rule
 CreateTableStatement:
-  'Create' TheA 'table' 'called' table=Table
+  'Create' 'table' 'called' table=Table
   ('with' 'columns' columns=ColumnList)?
  ;
 
@@ -32,6 +30,7 @@ Table:
 Column:
   name=ID 'of' 'type' type=Datatype;
 
+// Change datatype structure
 Datatype:
   'integer' | 'string' | 'date'
  ;
@@ -48,17 +47,26 @@ SelectStatement:
 
 // Define the InsertStatement rule
 InsertStatement:
- 	'Insert' 'into' TheTable SelectTable
+ 	'Insert' 'into' 'the' 'table' SelectTable
     'for' 'the' 'columns' columns = SelectColumnsList
     'insert' 'the' 'values' '(' values = InserValues ')'
 ;
 
 // Define the UpdateStatement rule
 UpdateStatement:
-    'Update' TheTable SelectTable
+    'Update' 'the' 'table' SelectTable
     'to''set' updates = SelectUpdateList
     ('where' condition=Condition)?
 ;
+
+// Define the DeleteStatement rule
+DeleteStatement:
+	('Delete' 'the' 'table' SelectTable) |
+	('Empty' 'the' 'table' SelectTable) |
+    ('Delete' 'records' 'from' 'the' 'table' SelectTable
+    'where' condition=Condition)
+;
+
 
 SelectUpdateList:
 	updateItem+=UpdateItem (',' updateItem+=UpdateItem)*
@@ -66,7 +74,7 @@ SelectUpdateList:
 
 // Define the UpdateItem rule
 UpdateItem:
-    (TheA column=ColumnReference '=' value=Value)
+    (column=ColumnReference '=' value=Value)
 ;
 
 
@@ -110,127 +118,24 @@ Comparison returns LogicExpressions:
 
 // Define the ComparisonOperator rule
 ComparisonOperator:
-    '=' | 'is' 'equal' 'to' | 'is' 'not' 'equal' 'to' | 'less' 'than' | 'greater' 'than' | 'less' 'than' 'or' 'equal' 'to' | 'greater' 'than' 'or' 'equal' 'to'
+    ComparisonOperatorSigns | ComparisonOperatorString
 ;
 
+
+ComparisonOperatorString:
+	'is' 'equal' 'to' 
+	| 'is' 'not' 'equal' 'to' 
+	| 'less' 'than' 
+	| 'greater' 'than' 
+	| 'less' 'than' 'or' 'equal' 'to' 
+	| 'greater' 'than' 'or' 'equal' 'to'
+;
+
+ComparisonOperatorSigns:
+	'=' | '<=' | '>='| '>' | '<'
+;
 
 // Define the Value rule
 Value:
     INT | STRING
 ;
-
-TheTable:
-	('the' 'table')?
-;
-
-TheA:
-	('the' | 'a')?
-;
-
-
-
-
-
-
-
-
-
-
-
-
-//// Define the UpdateItem rule
-//UpdateItem:
-//    ('the' | 'a')? property=[Property] '=' value=Value
-//;
-//
-//
-//// Define the PropertyName rule
-//PropertyName:
-//    ('the' | 'a')? name=ID
-//    
-//;
-//
-//
-//// Define the InsertStatement rule
-//InsertStatement:
-//    ('can' 'you')? 'insert' 'into' entity=EntityName 
-//    'columns''(' propertyList+=PropertyName (',' propertyList+=PropertyName)* ')' 
-//    'insert''values' '(' valueList+=Value (',' valueList+=Value)* ')'
-//;
-
-//// Define the UpdateStatement rule
-//UpdateStatement:
-//    ('can' 'you')? 'update' 'table' entity=EntityName 
-//    'to''set' (updateItem+=UpdateItem (',' updateItem+=UpdateItem)*) 
-//    ('where' condition=Condition)?
-//;
-//
-//// Define the DeleteStatement rule
-//DeleteStatement:
-//    ('can' 'you' 'please')? 'delete' 'from' entity=EntityName 
-//    ('where' condition=Condition)?
-//;
-
-
-
-
-
-
-
-
-
-//// Define the PropertyReference rule
-//PropertyReference:
-//    ('the' | 'a')? property=[Property]
-//;
-//
-//// Define the EntityName rule
-//EntityName:
-//    ('the' | 'a')? name=ID
-//;
-//
-//// Define the PropertyName rule
-//PropertyName:
-//    ('the' | 'a')? name=ID
-//;
-//
-//// Define the Value rule
-//Value:
-//    INT | STRING
-//;
-//
-//// Define the UpdateItem rule
-//UpdateItem:
-//    ('the' | 'a')? property=[Property] '=' value=Value
-//;
-//
-//// Define the Condition rule
-//Condition:
-//    expression=Comparison (logicOperator=LogicOperator expression=Comparison)*
-//;
-//
-//// Define the Comparison rule
-//Comparison:
-//    ('the' | 'a')? leftHandSide=[Property] operator=ComparisonOperator rightHandSide=Value
-//;
-//
-//// Define the LogicOperator rule
-//LogicOperator:
-//    'and' | 'or'
-//;
-//
-//// Define the ComparisonOperator rule
-//ComparisonOperator:
-//    '=' | 'is' 'equal' 'to' | 'is' 'not' 'equal' 'to' | 'less' 'than' | 'greater' 'than' | 'less' 'than' 'or' 'equal' 'to' | 'greater' 'than' 'or' 'equal' 'to'
-//;
-//
-//// Define the Entity rule
-//Entity:
-//    ('the' | 'a')? name=ID
-//;
-//
-//// Define the Property rule
-//Property:
-//    ('the' | 'a')? name=ID
-//;
-

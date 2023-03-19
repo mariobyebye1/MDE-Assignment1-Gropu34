@@ -74,6 +74,7 @@ public class NlToSqlFactoryImpl extends EFactoryImpl implements NlToSqlFactory
       case NlToSqlPackage.SELECT_STATEMENT: return createSelectStatement();
       case NlToSqlPackage.INSERT_STATEMENT: return createInsertStatement();
       case NlToSqlPackage.UPDATE_STATEMENT: return createUpdateStatement();
+      case NlToSqlPackage.DELETE_STATEMENT: return createDeleteStatement();
       case NlToSqlPackage.SELECT_UPDATE_LIST: return createSelectUpdateList();
       case NlToSqlPackage.UPDATE_ITEM: return createUpdateItem();
       case NlToSqlPackage.INSER_VALUES: return createInserValues();
@@ -194,6 +195,18 @@ public class NlToSqlFactoryImpl extends EFactoryImpl implements NlToSqlFactory
   {
     UpdateStatementImpl updateStatement = new UpdateStatementImpl();
     return updateStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public DeleteStatement createDeleteStatement()
+  {
+    DeleteStatementImpl deleteStatement = new DeleteStatementImpl();
+    return deleteStatement;
   }
 
   /**

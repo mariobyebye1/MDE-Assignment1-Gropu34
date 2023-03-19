@@ -26,6 +26,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="SelectStatement" eSuperTypes="#//Statement"/>
   <eClassifiers xsi:type="ecore:EClass" name="InsertStatement" eSuperTypes="#//Statement"/>
   <eClassifiers xsi:type="ecore:EClass" name="UpdateStatement" eSuperTypes="#//Statement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DeleteStatement" eSuperTypes="#//Statement"/>
   <eClassifiers xsi:type="ecore:EClass" name="SelectUpdateList">
     <eStructuralFeatures xsi:type="ecore:EReference" name="updateItem" upperBound="-1"
         eType="#//UpdateItem" containment="true"/>
@@ -49,7 +50,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="selectTable" unique="false"
         upperBound="-1" eType="#//Table"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SelectTable" eSuperTypes="#//InsertStatement #//UpdateStatement">
+  <eClassifiers xsi:type="ecore:EClass" name="SelectTable" eSuperTypes="#//InsertStatement #//UpdateStatement #//DeleteStatement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="columns" eType="#//SelectColumnsList"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="values" eType="#//InserValues"

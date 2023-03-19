@@ -9,12 +9,6 @@ package uk.ac.kcl.inf.nlToSql;
  * A representation of the model object '<em><b>Delete Statement</b></em>'.
  * <!-- end-user-doc -->
  *
- * <p>
- * The following features are supported:
- * </p>
- * <ul>
- *   <li>{@link uk.ac.kcl.inf.nlToSql.DeleteStatement#getCondition <em>Condition</em>}</li>
- * </ul>
  *
  * @see uk.ac.kcl.inf.nlToSql.NlToSqlPackage#getDeleteStatement()
  * @model
@@ -22,26 +16,4 @@ package uk.ac.kcl.inf.nlToSql;
  */
 public interface DeleteStatement extends Statement
 {
-  /**
-   * Returns the value of the '<em><b>Condition</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Condition</em>' containment reference.
-   * @see #setCondition(Condition)
-   * @see uk.ac.kcl.inf.nlToSql.NlToSqlPackage#getDeleteStatement_Condition()
-   * @model containment="true"
-   * @generated
-   */
-  Condition getCondition();
-
-  /**
-   * Sets the value of the '{@link uk.ac.kcl.inf.nlToSql.DeleteStatement#getCondition <em>Condition</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Condition</em>' containment reference.
-   * @see #getCondition()
-   * @generated
-   */
-  void setCondition(Condition value);
-
 } // DeleteStatement

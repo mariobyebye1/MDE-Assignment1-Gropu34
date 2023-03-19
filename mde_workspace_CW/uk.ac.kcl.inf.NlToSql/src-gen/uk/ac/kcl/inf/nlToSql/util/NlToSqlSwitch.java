@@ -140,6 +140,14 @@ public class NlToSqlSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case NlToSqlPackage.DELETE_STATEMENT:
+      {
+        DeleteStatement deleteStatement = (DeleteStatement)theEObject;
+        T result = caseDeleteStatement(deleteStatement);
+        if (result == null) result = caseStatement(deleteStatement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case NlToSqlPackage.SELECT_UPDATE_LIST:
       {
         SelectUpdateList selectUpdateList = (SelectUpdateList)theEObject;
@@ -176,6 +184,7 @@ public class NlToSqlSwitch<T> extends Switch<T>
         T result = caseSelectTable(selectTable);
         if (result == null) result = caseInsertStatement(selectTable);
         if (result == null) result = caseUpdateStatement(selectTable);
+        if (result == null) result = caseDeleteStatement(selectTable);
         if (result == null) result = caseStatement(selectTable);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -353,6 +362,22 @@ public class NlToSqlSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseUpdateStatement(UpdateStatement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Delete Statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Delete Statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDeleteStatement(DeleteStatement object)
   {
     return null;
   }
