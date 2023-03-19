@@ -4,6 +4,7 @@
 package uk.ac.kcl.inf.nlToSql.impl;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -86,6 +87,44 @@ public class NlToSqlFactoryImpl extends EFactoryImpl implements NlToSqlFactory
       case NlToSqlPackage.COMPARISON: return createComparison();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+    }
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Object createFromString(EDataType eDataType, String initialValue)
+  {
+    switch (eDataType.getClassifierID())
+    {
+      case NlToSqlPackage.DATATYPE:
+        return createDatatypeFromString(eDataType, initialValue);
+      case NlToSqlPackage.LOGIC_OPERATOR:
+        return createLogicOperatorFromString(eDataType, initialValue);
+      default:
+        throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+    }
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String convertToString(EDataType eDataType, Object instanceValue)
+  {
+    switch (eDataType.getClassifierID())
+    {
+      case NlToSqlPackage.DATATYPE:
+        return convertDatatypeToString(eDataType, instanceValue);
+      case NlToSqlPackage.LOGIC_OPERATOR:
+        return convertLogicOperatorToString(eDataType, instanceValue);
+      default:
+        throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
     }
   }
 
@@ -315,6 +354,50 @@ public class NlToSqlFactoryImpl extends EFactoryImpl implements NlToSqlFactory
   {
     ComparisonImpl comparison = new ComparisonImpl();
     return comparison;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Datatype createDatatypeFromString(EDataType eDataType, String initialValue)
+  {
+    Datatype result = Datatype.get(initialValue);
+    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+    return result;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String convertDatatypeToString(EDataType eDataType, Object instanceValue)
+  {
+    return instanceValue == null ? null : instanceValue.toString();
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public LogicOperator createLogicOperatorFromString(EDataType eDataType, String initialValue)
+  {
+    LogicOperator result = LogicOperator.get(initialValue);
+    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+    return result;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String convertLogicOperatorToString(EDataType eDataType, Object instanceValue)
+  {
+    return instanceValue == null ? null : instanceValue.toString();
   }
 
   /**

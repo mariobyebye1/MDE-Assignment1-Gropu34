@@ -10,6 +10,8 @@ import org.eclipse.xtext.Action;
 import org.eclipse.xtext.Alternatives;
 import org.eclipse.xtext.Assignment;
 import org.eclipse.xtext.CrossReference;
+import org.eclipse.xtext.EnumLiteralDeclaration;
+import org.eclipse.xtext.EnumRule;
 import org.eclipse.xtext.Grammar;
 import org.eclipse.xtext.GrammarUtil;
 import org.eclipse.xtext.Group;
@@ -198,7 +200,7 @@ public class NlToSqlGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 		private final Keyword cOfKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Keyword cTypeKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cTypeAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cTypeDatatypeParserRuleCall_3_0 = (RuleCall)cTypeAssignment_3.eContents().get(0);
+		private final RuleCall cTypeDatatypeEnumRuleCall_3_0 = (RuleCall)cTypeAssignment_3.eContents().get(0);
 		
 		//Column:
 		//  name=ID 'of' 'type' type=Datatype;
@@ -223,32 +225,7 @@ public class NlToSqlGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 		public Assignment getTypeAssignment_3() { return cTypeAssignment_3; }
 		
 		//Datatype
-		public RuleCall getTypeDatatypeParserRuleCall_3_0() { return cTypeDatatypeParserRuleCall_3_0; }
-	}
-	public class DatatypeElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.NlToSql.Datatype");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final Keyword cIntegerKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
-		private final Keyword cStringKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
-		private final Keyword cDateKeyword_2 = (Keyword)cAlternatives.eContents().get(2);
-		
-		//// Change datatype structure
-		//Datatype:
-		//  'integer' | 'string' | 'date'
-		// ;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//'integer' | 'string' | 'date'
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//'integer'
-		public Keyword getIntegerKeyword_0() { return cIntegerKeyword_0; }
-		
-		//'string'
-		public Keyword getStringKeyword_1() { return cStringKeyword_1; }
-		
-		//'date'
-		public Keyword getDateKeyword_2() { return cDateKeyword_2; }
+		public RuleCall getTypeDatatypeEnumRuleCall_3_0() { return cTypeDatatypeEnumRuleCall_3_0; }
 	}
 	public class SelectStatementElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.NlToSql.SelectStatement");
@@ -869,57 +846,40 @@ public class NlToSqlGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 		private final RuleCall cComparisonParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
 		private final Action cComparisonLeftAction_1_0 = (Action)cGroup_1.eContents().get(0);
-		private final RuleCall cLogicOperatorParserRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
+		private final Assignment cLogicOperatorAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cLogicOperatorLogicOperatorEnumRuleCall_1_1_0 = (RuleCall)cLogicOperatorAssignment_1_1.eContents().get(0);
 		private final Assignment cRightAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
 		private final RuleCall cRightComparisonParserRuleCall_1_2_0 = (RuleCall)cRightAssignment_1_2.eContents().get(0);
 		
 		//// Define the Condition rule
 		//Condition returns LogicExpressions:
-		//    Comparison ({Comparison.left = current} LogicOperator right += Comparison)*
+		//    Comparison ({Comparison.left = current} logicOperator=LogicOperator right += Comparison)*
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//Comparison ({Comparison.left = current} LogicOperator right += Comparison)*
+		//Comparison ({Comparison.left = current} logicOperator=LogicOperator right += Comparison)*
 		public Group getGroup() { return cGroup; }
 		
 		//Comparison
 		public RuleCall getComparisonParserRuleCall_0() { return cComparisonParserRuleCall_0; }
 		
-		//({Comparison.left = current} LogicOperator right += Comparison)*
+		//({Comparison.left = current} logicOperator=LogicOperator right += Comparison)*
 		public Group getGroup_1() { return cGroup_1; }
 		
 		//{Comparison.left = current}
 		public Action getComparisonLeftAction_1_0() { return cComparisonLeftAction_1_0; }
 		
+		//logicOperator=LogicOperator
+		public Assignment getLogicOperatorAssignment_1_1() { return cLogicOperatorAssignment_1_1; }
+		
 		//LogicOperator
-		public RuleCall getLogicOperatorParserRuleCall_1_1() { return cLogicOperatorParserRuleCall_1_1; }
+		public RuleCall getLogicOperatorLogicOperatorEnumRuleCall_1_1_0() { return cLogicOperatorLogicOperatorEnumRuleCall_1_1_0; }
 		
 		//right += Comparison
 		public Assignment getRightAssignment_1_2() { return cRightAssignment_1_2; }
 		
 		//Comparison
 		public RuleCall getRightComparisonParserRuleCall_1_2_0() { return cRightComparisonParserRuleCall_1_2_0; }
-	}
-	public class LogicOperatorElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.NlToSql.LogicOperator");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final Keyword cAndKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
-		private final Keyword cOrKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
-		
-		//// Define the LogicOperator rule
-		//LogicOperator:
-		//    'and' | 'or'
-		//;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//'and' | 'or'
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//'and'
-		public Keyword getAndKeyword_0() { return cAndKeyword_0; }
-		
-		//'or'
-		public Keyword getOrKeyword_1() { return cOrKeyword_1; }
 	}
 	public class ComparisonElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.NlToSql.Comparison");
@@ -1179,6 +1139,67 @@ public class NlToSqlGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 		public RuleCall getSTRINGTerminalRuleCall_1() { return cSTRINGTerminalRuleCall_1; }
 	}
 	
+	public class DatatypeElements extends AbstractElementFinder.AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.NlToSql.Datatype");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final EnumLiteralDeclaration cIntegerEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
+		private final Keyword cIntegerIntegerKeyword_0_0 = (Keyword)cIntegerEnumLiteralDeclaration_0.eContents().get(0);
+		private final EnumLiteralDeclaration cStringEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
+		private final Keyword cStringStringKeyword_1_0 = (Keyword)cStringEnumLiteralDeclaration_1.eContents().get(0);
+		private final EnumLiteralDeclaration cDateEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
+		private final Keyword cDateDateKeyword_2_0 = (Keyword)cDateEnumLiteralDeclaration_2.eContents().get(0);
+		
+		//// Change datatype structure
+		//enum Datatype:
+		//  integer | string | date
+		// ;
+		public EnumRule getRule() { return rule; }
+		
+		//integer | string | date
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//integer
+		public EnumLiteralDeclaration getIntegerEnumLiteralDeclaration_0() { return cIntegerEnumLiteralDeclaration_0; }
+		
+		public Keyword getIntegerIntegerKeyword_0_0() { return cIntegerIntegerKeyword_0_0; }
+		
+		//string
+		public EnumLiteralDeclaration getStringEnumLiteralDeclaration_1() { return cStringEnumLiteralDeclaration_1; }
+		
+		public Keyword getStringStringKeyword_1_0() { return cStringStringKeyword_1_0; }
+		
+		//date
+		public EnumLiteralDeclaration getDateEnumLiteralDeclaration_2() { return cDateEnumLiteralDeclaration_2; }
+		
+		public Keyword getDateDateKeyword_2_0() { return cDateDateKeyword_2_0; }
+	}
+	public class LogicOperatorElements extends AbstractElementFinder.AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.NlToSql.LogicOperator");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final EnumLiteralDeclaration cAndEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
+		private final Keyword cAndAndKeyword_0_0 = (Keyword)cAndEnumLiteralDeclaration_0.eContents().get(0);
+		private final EnumLiteralDeclaration cOrEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
+		private final Keyword cOrOrKeyword_1_0 = (Keyword)cOrEnumLiteralDeclaration_1.eContents().get(0);
+		
+		//// Define the LogicOperator rule
+		//enum LogicOperator:
+		//    and | or
+		//;
+		public EnumRule getRule() { return rule; }
+		
+		//and | or
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//and
+		public EnumLiteralDeclaration getAndEnumLiteralDeclaration_0() { return cAndEnumLiteralDeclaration_0; }
+		
+		public Keyword getAndAndKeyword_0_0() { return cAndAndKeyword_0_0; }
+		
+		//or
+		public EnumLiteralDeclaration getOrEnumLiteralDeclaration_1() { return cOrEnumLiteralDeclaration_1; }
+		
+		public Keyword getOrOrKeyword_1_0() { return cOrOrKeyword_1_0; }
+	}
 	
 	private final AccountingSpeechElements pAccountingSpeech;
 	private final StatementElements pStatement;
@@ -1186,7 +1207,7 @@ public class NlToSqlGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 	private final ColumnListElements pColumnList;
 	private final TableElements pTable;
 	private final ColumnElements pColumn;
-	private final DatatypeElements pDatatype;
+	private final DatatypeElements eDatatype;
 	private final SelectStatementElements pSelectStatement;
 	private final InsertStatementElements pInsertStatement;
 	private final UpdateStatementElements pUpdateStatement;
@@ -1199,7 +1220,7 @@ public class NlToSqlGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 	private final SelectColumnsListElements pSelectColumnsList;
 	private final ColumnReferenceElements pColumnReference;
 	private final ConditionElements pCondition;
-	private final LogicOperatorElements pLogicOperator;
+	private final LogicOperatorElements eLogicOperator;
 	private final ComparisonElements pComparison;
 	private final ComparisonOperatorElements pComparisonOperator;
 	private final ComparisonOperatorStringElements pComparisonOperatorString;
@@ -1221,7 +1242,7 @@ public class NlToSqlGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 		this.pColumnList = new ColumnListElements();
 		this.pTable = new TableElements();
 		this.pColumn = new ColumnElements();
-		this.pDatatype = new DatatypeElements();
+		this.eDatatype = new DatatypeElements();
 		this.pSelectStatement = new SelectStatementElements();
 		this.pInsertStatement = new InsertStatementElements();
 		this.pUpdateStatement = new UpdateStatementElements();
@@ -1234,7 +1255,7 @@ public class NlToSqlGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 		this.pSelectColumnsList = new SelectColumnsListElements();
 		this.pColumnReference = new ColumnReferenceElements();
 		this.pCondition = new ConditionElements();
-		this.pLogicOperator = new LogicOperatorElements();
+		this.eLogicOperator = new LogicOperatorElements();
 		this.pComparison = new ComparisonElements();
 		this.pComparisonOperator = new ComparisonOperatorElements();
 		this.pComparisonOperatorString = new ComparisonOperatorStringElements();
@@ -1340,14 +1361,14 @@ public class NlToSqlGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 	}
 	
 	//// Change datatype structure
-	//Datatype:
-	//  'integer' | 'string' | 'date'
+	//enum Datatype:
+	//  integer | string | date
 	// ;
 	public DatatypeElements getDatatypeAccess() {
-		return pDatatype;
+		return eDatatype;
 	}
 	
-	public ParserRule getDatatypeRule() {
+	public EnumRule getDatatypeRule() {
 		return getDatatypeAccess().getRule();
 	}
 	
@@ -1491,7 +1512,7 @@ public class NlToSqlGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 	
 	//// Define the Condition rule
 	//Condition returns LogicExpressions:
-	//    Comparison ({Comparison.left = current} LogicOperator right += Comparison)*
+	//    Comparison ({Comparison.left = current} logicOperator=LogicOperator right += Comparison)*
 	//;
 	public ConditionElements getConditionAccess() {
 		return pCondition;
@@ -1502,14 +1523,14 @@ public class NlToSqlGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 	}
 	
 	//// Define the LogicOperator rule
-	//LogicOperator:
-	//    'and' | 'or'
+	//enum LogicOperator:
+	//    and | or
 	//;
 	public LogicOperatorElements getLogicOperatorAccess() {
-		return pLogicOperator;
+		return eLogicOperator;
 	}
 	
-	public ParserRule getLogicOperatorRule() {
+	public EnumRule getLogicOperatorRule() {
 		return getLogicOperatorAccess().getRule();
 	}
 	

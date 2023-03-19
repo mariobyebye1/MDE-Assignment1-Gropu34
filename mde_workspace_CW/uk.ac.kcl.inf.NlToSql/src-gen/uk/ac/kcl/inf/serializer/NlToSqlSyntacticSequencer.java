@@ -36,21 +36,9 @@ public class NlToSqlSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	@Override
 	protected String getUnassignedRuleCallToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (ruleCall.getRule() == grammarAccess.getLogicOperatorRule())
-			return getLogicOperatorToken(semanticObject, ruleCall, node);
 		return "";
 	}
 	
-	/**
-	 * LogicOperator:
-	 *     'and' | 'or'
-	 * ;
-	 */
-	protected String getLogicOperatorToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (node != null)
-			return getTokenText(node);
-		return "and";
-	}
 	
 	@Override
 	protected void emitUnassignedTokens(EObject semanticObject, ISynTransition transition, INode fromNode, INode toNode) {

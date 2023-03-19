@@ -15,6 +15,7 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link uk.ac.kcl.inf.nlToSql.Comparison#getLeft <em>Left</em>}</li>
+ *   <li>{@link uk.ac.kcl.inf.nlToSql.Comparison#getLogicOperator <em>Logic Operator</em>}</li>
  *   <li>{@link uk.ac.kcl.inf.nlToSql.Comparison#getRight <em>Right</em>}</li>
  * </ul>
  *
@@ -45,6 +46,31 @@ public interface Comparison extends LogicExpressions
    * @generated
    */
   void setLeft(LogicExpressions value);
+
+  /**
+   * Returns the value of the '<em><b>Logic Operator</b></em>' attribute.
+   * The literals are from the enumeration {@link uk.ac.kcl.inf.nlToSql.LogicOperator}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Logic Operator</em>' attribute.
+   * @see uk.ac.kcl.inf.nlToSql.LogicOperator
+   * @see #setLogicOperator(LogicOperator)
+   * @see uk.ac.kcl.inf.nlToSql.NlToSqlPackage#getComparison_LogicOperator()
+   * @model
+   * @generated
+   */
+  LogicOperator getLogicOperator();
+
+  /**
+   * Sets the value of the '{@link uk.ac.kcl.inf.nlToSql.Comparison#getLogicOperator <em>Logic Operator</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Logic Operator</em>' attribute.
+   * @see uk.ac.kcl.inf.nlToSql.LogicOperator
+   * @see #getLogicOperator()
+   * @generated
+   */
+  void setLogicOperator(LogicOperator value);
 
   /**
    * Returns the value of the '<em><b>Right</b></em>' containment reference list.

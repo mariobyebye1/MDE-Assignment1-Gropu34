@@ -6,6 +6,15 @@
     complianceLevel="8.0" copyrightFields="false" runtimeVersion="2.20">
   <genPackages prefix="NlToSql" basePackage="uk.ac.kcl.inf" disposableProviderFactory="true"
       fileExtensions="nlToSql" ecorePackage="NlToSql.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="NlToSql.ecore#//Datatype">
+      <genEnumLiterals ecoreEnumLiteral="NlToSql.ecore#//Datatype/integer"/>
+      <genEnumLiterals ecoreEnumLiteral="NlToSql.ecore#//Datatype/string"/>
+      <genEnumLiterals ecoreEnumLiteral="NlToSql.ecore#//Datatype/date"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="NlToSql.ecore#//LogicOperator">
+      <genEnumLiterals ecoreEnumLiteral="NlToSql.ecore#//LogicOperator/and"/>
+      <genEnumLiterals ecoreEnumLiteral="NlToSql.ecore#//LogicOperator/or"/>
+    </genEnums>
     <genClasses ecoreClass="NlToSql.ecore#//AccountingSpeech">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference NlToSql.ecore#//AccountingSpeech/statements"/>
     </genClasses>
@@ -65,6 +74,7 @@
     </genClasses>
     <genClasses ecoreClass="NlToSql.ecore#//Comparison">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference NlToSql.ecore#//Comparison/left"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NlToSql.ecore#//Comparison/logicOperator"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference NlToSql.ecore#//Comparison/right"/>
     </genClasses>
   </genPackages>

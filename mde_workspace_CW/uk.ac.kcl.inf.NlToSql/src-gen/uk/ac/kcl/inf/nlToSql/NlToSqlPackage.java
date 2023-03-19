@@ -5,6 +5,7 @@ package uk.ac.kcl.inf.nlToSql;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -680,13 +681,22 @@ public interface NlToSqlPackage extends EPackage
   int COMPARISON__LEFT = LOGIC_EXPRESSIONS_FEATURE_COUNT + 0;
 
   /**
+   * The feature id for the '<em><b>Logic Operator</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPARISON__LOGIC_OPERATOR = LOGIC_EXPRESSIONS_FEATURE_COUNT + 1;
+
+  /**
    * The feature id for the '<em><b>Right</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int COMPARISON__RIGHT = LOGIC_EXPRESSIONS_FEATURE_COUNT + 1;
+  int COMPARISON__RIGHT = LOGIC_EXPRESSIONS_FEATURE_COUNT + 2;
 
   /**
    * The number of structural features of the '<em>Comparison</em>' class.
@@ -695,7 +705,27 @@ public interface NlToSqlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int COMPARISON_FEATURE_COUNT = LOGIC_EXPRESSIONS_FEATURE_COUNT + 2;
+  int COMPARISON_FEATURE_COUNT = LOGIC_EXPRESSIONS_FEATURE_COUNT + 3;
+
+  /**
+   * The meta object id for the '{@link uk.ac.kcl.inf.nlToSql.Datatype <em>Datatype</em>}' enum.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see uk.ac.kcl.inf.nlToSql.Datatype
+   * @see uk.ac.kcl.inf.nlToSql.impl.NlToSqlPackageImpl#getDatatype()
+   * @generated
+   */
+  int DATATYPE = 19;
+
+  /**
+   * The meta object id for the '{@link uk.ac.kcl.inf.nlToSql.LogicOperator <em>Logic Operator</em>}' enum.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see uk.ac.kcl.inf.nlToSql.LogicOperator
+   * @see uk.ac.kcl.inf.nlToSql.impl.NlToSqlPackageImpl#getLogicOperator()
+   * @generated
+   */
+  int LOGIC_OPERATOR = 20;
 
 
   /**
@@ -1186,6 +1216,17 @@ public interface NlToSqlPackage extends EPackage
   EReference getComparison_Left();
 
   /**
+   * Returns the meta object for the attribute '{@link uk.ac.kcl.inf.nlToSql.Comparison#getLogicOperator <em>Logic Operator</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Logic Operator</em>'.
+   * @see uk.ac.kcl.inf.nlToSql.Comparison#getLogicOperator()
+   * @see #getComparison()
+   * @generated
+   */
+  EAttribute getComparison_LogicOperator();
+
+  /**
    * Returns the meta object for the containment reference list '{@link uk.ac.kcl.inf.nlToSql.Comparison#getRight <em>Right</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1195,6 +1236,26 @@ public interface NlToSqlPackage extends EPackage
    * @generated
    */
   EReference getComparison_Right();
+
+  /**
+   * Returns the meta object for enum '{@link uk.ac.kcl.inf.nlToSql.Datatype <em>Datatype</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for enum '<em>Datatype</em>'.
+   * @see uk.ac.kcl.inf.nlToSql.Datatype
+   * @generated
+   */
+  EEnum getDatatype();
+
+  /**
+   * Returns the meta object for enum '{@link uk.ac.kcl.inf.nlToSql.LogicOperator <em>Logic Operator</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for enum '<em>Logic Operator</em>'.
+   * @see uk.ac.kcl.inf.nlToSql.LogicOperator
+   * @generated
+   */
+  EEnum getLogicOperator();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -1626,12 +1687,40 @@ public interface NlToSqlPackage extends EPackage
     EReference COMPARISON__LEFT = eINSTANCE.getComparison_Left();
 
     /**
+     * The meta object literal for the '<em><b>Logic Operator</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute COMPARISON__LOGIC_OPERATOR = eINSTANCE.getComparison_LogicOperator();
+
+    /**
      * The meta object literal for the '<em><b>Right</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EReference COMPARISON__RIGHT = eINSTANCE.getComparison_Right();
+
+    /**
+     * The meta object literal for the '{@link uk.ac.kcl.inf.nlToSql.Datatype <em>Datatype</em>}' enum.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see uk.ac.kcl.inf.nlToSql.Datatype
+     * @see uk.ac.kcl.inf.nlToSql.impl.NlToSqlPackageImpl#getDatatype()
+     * @generated
+     */
+    EEnum DATATYPE = eINSTANCE.getDatatype();
+
+    /**
+     * The meta object literal for the '{@link uk.ac.kcl.inf.nlToSql.LogicOperator <em>Logic Operator</em>}' enum.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see uk.ac.kcl.inf.nlToSql.LogicOperator
+     * @see uk.ac.kcl.inf.nlToSql.impl.NlToSqlPackageImpl#getLogicOperator()
+     * @generated
+     */
+    EEnum LOGIC_OPERATOR = eINSTANCE.getLogicOperator();
 
   }
 

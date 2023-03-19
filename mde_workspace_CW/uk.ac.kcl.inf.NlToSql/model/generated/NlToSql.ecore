@@ -21,7 +21,12 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Column">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//Datatype"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Datatype">
+    <eLiterals name="integer" literal="integer"/>
+    <eLiterals name="string" value="1" literal="string"/>
+    <eLiterals name="date" value="2" literal="date"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SelectStatement" eSuperTypes="#//Statement"/>
   <eClassifiers xsi:type="ecore:EClass" name="InsertStatement" eSuperTypes="#//Statement"/>
@@ -74,9 +79,14 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="rightHandSide" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="LogicOperator">
+    <eLiterals name="and" literal="and"/>
+    <eLiterals name="or" value="1" literal="or"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Comparison" eSuperTypes="#//LogicExpressions">
     <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//LogicExpressions"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="logicOperator" eType="#//LogicOperator"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="right" upperBound="-1"
         eType="#//LogicExpressions" containment="true"/>
   </eClassifiers>

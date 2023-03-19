@@ -23,6 +23,7 @@ import org.eclipse.xtext.parser.*;
 import org.eclipse.xtext.parser.impl.*;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.common.util.Enumerator;
 import org.eclipse.xtext.parser.antlr.AbstractInternalAntlrParser;
 import org.eclipse.xtext.parser.antlr.XtextTokenStream;
 import org.eclipse.xtext.parser.antlr.XtextTokenStream.HiddenTokens;
@@ -387,7 +388,7 @@ ruleColumn returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getColumnAccess().getTypeDatatypeParserRuleCall_3_0());
+					newCompositeNode(grammarAccess.getColumnAccess().getTypeDatatypeEnumRuleCall_3_0());
 				}
 				lv_type_3_0=ruleDatatype
 				{
@@ -403,42 +404,6 @@ ruleColumn returns [EObject current=null]
 				}
 			)
 		)
-	)
-;
-
-// Entry rule entryRuleDatatype
-entryRuleDatatype returns [String current=null]:
-	{ newCompositeNode(grammarAccess.getDatatypeRule()); }
-	iv_ruleDatatype=ruleDatatype
-	{ $current=$iv_ruleDatatype.current.getText(); }
-	EOF;
-
-// Rule Datatype
-ruleDatatype returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		kw='integer'
-		{
-			$current.merge(kw);
-			newLeafNode(kw, grammarAccess.getDatatypeAccess().getIntegerKeyword_0());
-		}
-		    |
-		kw='string'
-		{
-			$current.merge(kw);
-			newLeafNode(kw, grammarAccess.getDatatypeAccess().getStringKeyword_1());
-		}
-		    |
-		kw='date'
-		{
-			$current.merge(kw);
-			newLeafNode(kw, grammarAccess.getDatatypeAccess().getDateKeyword_2());
-		}
 	)
 ;
 
@@ -1317,13 +1282,25 @@ ruleCondition returns [EObject current=null]
 						$current);
 				}
 			)
-			{
-				newCompositeNode(grammarAccess.getConditionAccess().getLogicOperatorParserRuleCall_1_1());
-			}
-			ruleLogicOperator
-			{
-				afterParserOrEnumRuleCall();
-			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getConditionAccess().getLogicOperatorLogicOperatorEnumRuleCall_1_1_0());
+					}
+					lv_logicOperator_2_0=ruleLogicOperator
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getConditionRule());
+						}
+						set(
+							$current,
+							"logicOperator",
+							lv_logicOperator_2_0,
+							"uk.ac.kcl.inf.NlToSql.LogicOperator");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
 			(
 				(
 					{
@@ -1344,36 +1321,6 @@ ruleCondition returns [EObject current=null]
 				)
 			)
 		)*
-	)
-;
-
-// Entry rule entryRuleLogicOperator
-entryRuleLogicOperator returns [String current=null]:
-	{ newCompositeNode(grammarAccess.getLogicOperatorRule()); }
-	iv_ruleLogicOperator=ruleLogicOperator
-	{ $current=$iv_ruleLogicOperator.current.getText(); }
-	EOF;
-
-// Rule LogicOperator
-ruleLogicOperator returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		kw='and'
-		{
-			$current.merge(kw);
-			newLeafNode(kw, grammarAccess.getLogicOperatorAccess().getAndKeyword_0());
-		}
-		    |
-		kw='or'
-		{
-			$current.merge(kw);
-			newLeafNode(kw, grammarAccess.getLogicOperatorAccess().getOrKeyword_1());
-		}
 	)
 ;
 
@@ -1718,6 +1665,68 @@ ruleValue returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
 		{
 			newLeafNode(this_STRING_1, grammarAccess.getValueAccess().getSTRINGTerminalRuleCall_1());
 		}
+	)
+;
+
+// Rule Datatype
+ruleDatatype returns [Enumerator current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			enumLiteral_0='integer'
+			{
+				$current = grammarAccess.getDatatypeAccess().getIntegerEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_0, grammarAccess.getDatatypeAccess().getIntegerEnumLiteralDeclaration_0());
+			}
+		)
+		    |
+		(
+			enumLiteral_1='string'
+			{
+				$current = grammarAccess.getDatatypeAccess().getStringEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_1, grammarAccess.getDatatypeAccess().getStringEnumLiteralDeclaration_1());
+			}
+		)
+		    |
+		(
+			enumLiteral_2='date'
+			{
+				$current = grammarAccess.getDatatypeAccess().getDateEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_2, grammarAccess.getDatatypeAccess().getDateEnumLiteralDeclaration_2());
+			}
+		)
+	)
+;
+
+// Rule LogicOperator
+ruleLogicOperator returns [Enumerator current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			enumLiteral_0='and'
+			{
+				$current = grammarAccess.getLogicOperatorAccess().getAndEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_0, grammarAccess.getLogicOperatorAccess().getAndEnumLiteralDeclaration_0());
+			}
+		)
+		    |
+		(
+			enumLiteral_1='or'
+			{
+				$current = grammarAccess.getLogicOperatorAccess().getOrEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_1, grammarAccess.getLogicOperatorAccess().getOrEnumLiteralDeclaration_1());
+			}
+		)
 	)
 ;
 

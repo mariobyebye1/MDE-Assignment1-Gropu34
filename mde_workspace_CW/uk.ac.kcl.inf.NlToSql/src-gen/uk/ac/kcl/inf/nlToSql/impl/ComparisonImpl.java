@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import uk.ac.kcl.inf.nlToSql.Comparison;
 import uk.ac.kcl.inf.nlToSql.LogicExpressions;
+import uk.ac.kcl.inf.nlToSql.LogicOperator;
 import uk.ac.kcl.inf.nlToSql.NlToSqlPackage;
 
 /**
@@ -31,6 +32,7 @@ import uk.ac.kcl.inf.nlToSql.NlToSqlPackage;
  * </p>
  * <ul>
  *   <li>{@link uk.ac.kcl.inf.nlToSql.impl.ComparisonImpl#getLeft <em>Left</em>}</li>
+ *   <li>{@link uk.ac.kcl.inf.nlToSql.impl.ComparisonImpl#getLogicOperator <em>Logic Operator</em>}</li>
  *   <li>{@link uk.ac.kcl.inf.nlToSql.impl.ComparisonImpl#getRight <em>Right</em>}</li>
  * </ul>
  *
@@ -47,6 +49,26 @@ public class ComparisonImpl extends LogicExpressionsImpl implements Comparison
    * @ordered
    */
   protected LogicExpressions left;
+
+  /**
+   * The default value of the '{@link #getLogicOperator() <em>Logic Operator</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getLogicOperator()
+   * @generated
+   * @ordered
+   */
+  protected static final LogicOperator LOGIC_OPERATOR_EDEFAULT = LogicOperator.AND;
+
+  /**
+   * The cached value of the '{@link #getLogicOperator() <em>Logic Operator</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getLogicOperator()
+   * @generated
+   * @ordered
+   */
+  protected LogicOperator logicOperator = LOGIC_OPERATOR_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getRight() <em>Right</em>}' containment reference list.
@@ -135,6 +157,31 @@ public class ComparisonImpl extends LogicExpressionsImpl implements Comparison
    * @generated
    */
   @Override
+  public LogicOperator getLogicOperator()
+  {
+    return logicOperator;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setLogicOperator(LogicOperator newLogicOperator)
+  {
+    LogicOperator oldLogicOperator = logicOperator;
+    logicOperator = newLogicOperator == null ? LOGIC_OPERATOR_EDEFAULT : newLogicOperator;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, NlToSqlPackage.COMPARISON__LOGIC_OPERATOR, oldLogicOperator, logicOperator));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EList<LogicExpressions> getRight()
   {
     if (right == null)
@@ -174,6 +221,8 @@ public class ComparisonImpl extends LogicExpressionsImpl implements Comparison
     {
       case NlToSqlPackage.COMPARISON__LEFT:
         return getLeft();
+      case NlToSqlPackage.COMPARISON__LOGIC_OPERATOR:
+        return getLogicOperator();
       case NlToSqlPackage.COMPARISON__RIGHT:
         return getRight();
     }
@@ -193,6 +242,9 @@ public class ComparisonImpl extends LogicExpressionsImpl implements Comparison
     {
       case NlToSqlPackage.COMPARISON__LEFT:
         setLeft((LogicExpressions)newValue);
+        return;
+      case NlToSqlPackage.COMPARISON__LOGIC_OPERATOR:
+        setLogicOperator((LogicOperator)newValue);
         return;
       case NlToSqlPackage.COMPARISON__RIGHT:
         getRight().clear();
@@ -215,6 +267,9 @@ public class ComparisonImpl extends LogicExpressionsImpl implements Comparison
       case NlToSqlPackage.COMPARISON__LEFT:
         setLeft((LogicExpressions)null);
         return;
+      case NlToSqlPackage.COMPARISON__LOGIC_OPERATOR:
+        setLogicOperator(LOGIC_OPERATOR_EDEFAULT);
+        return;
       case NlToSqlPackage.COMPARISON__RIGHT:
         getRight().clear();
         return;
@@ -234,10 +289,29 @@ public class ComparisonImpl extends LogicExpressionsImpl implements Comparison
     {
       case NlToSqlPackage.COMPARISON__LEFT:
         return left != null;
+      case NlToSqlPackage.COMPARISON__LOGIC_OPERATOR:
+        return logicOperator != LOGIC_OPERATOR_EDEFAULT;
       case NlToSqlPackage.COMPARISON__RIGHT:
         return right != null && !right.isEmpty();
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuilder result = new StringBuilder(super.toString());
+    result.append(" (logicOperator: ");
+    result.append(logicOperator);
+    result.append(')');
+    return result.toString();
   }
 
 } //ComparisonImpl

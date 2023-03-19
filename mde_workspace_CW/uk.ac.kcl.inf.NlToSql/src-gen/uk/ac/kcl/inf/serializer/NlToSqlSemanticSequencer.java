@@ -171,7 +171,7 @@ public class NlToSqlSemanticSequencer extends AbstractDelegatingSemanticSequence
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getColumnAccess().getNameIDTerminalRuleCall_0_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getColumnAccess().getTypeDatatypeParserRuleCall_3_0(), semanticObject.getType());
+		feeder.accept(grammarAccess.getColumnAccess().getTypeDatatypeEnumRuleCall_3_0(), semanticObject.getType());
 		feeder.finish();
 	}
 	
@@ -208,7 +208,7 @@ public class NlToSqlSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *     Condition.Comparison_1_0 returns Comparison
 	 *
 	 * Constraint:
-	 *     (left=Condition_Comparison_1_0 right+=Comparison)
+	 *     (left=Condition_Comparison_1_0 logicOperator=LogicOperator right+=Comparison)
 	 */
 	protected void sequence_Condition(ISerializationContext context, Comparison semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
