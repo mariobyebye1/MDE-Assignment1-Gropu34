@@ -9,6 +9,15 @@ package uk.ac.kcl.inf.nlToSql;
  * A representation of the model object '<em><b>Select Statement</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link uk.ac.kcl.inf.nlToSql.SelectStatement#getTables <em>Tables</em>}</li>
+ *   <li>{@link uk.ac.kcl.inf.nlToSql.SelectStatement#getColumns <em>Columns</em>}</li>
+ *   <li>{@link uk.ac.kcl.inf.nlToSql.SelectStatement#getCondition <em>Condition</em>}</li>
+ *   <li>{@link uk.ac.kcl.inf.nlToSql.SelectStatement#getGroup <em>Group</em>}</li>
+ * </ul>
  *
  * @see uk.ac.kcl.inf.nlToSql.NlToSqlPackage#getSelectStatement()
  * @model
@@ -16,4 +25,92 @@ package uk.ac.kcl.inf.nlToSql;
  */
 public interface SelectStatement extends Statement
 {
+  /**
+   * Returns the value of the '<em><b>Tables</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Tables</em>' containment reference.
+   * @see #setTables(SelectTablesList)
+   * @see uk.ac.kcl.inf.nlToSql.NlToSqlPackage#getSelectStatement_Tables()
+   * @model containment="true"
+   * @generated
+   */
+  SelectTablesList getTables();
+
+  /**
+   * Sets the value of the '{@link uk.ac.kcl.inf.nlToSql.SelectStatement#getTables <em>Tables</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Tables</em>' containment reference.
+   * @see #getTables()
+   * @generated
+   */
+  void setTables(SelectTablesList value);
+
+  /**
+   * Returns the value of the '<em><b>Columns</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Columns</em>' containment reference.
+   * @see #setColumns(SelectColumnsList)
+   * @see uk.ac.kcl.inf.nlToSql.NlToSqlPackage#getSelectStatement_Columns()
+   * @model containment="true"
+   * @generated
+   */
+  SelectColumnsList getColumns();
+
+  /**
+   * Sets the value of the '{@link uk.ac.kcl.inf.nlToSql.SelectStatement#getColumns <em>Columns</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Columns</em>' containment reference.
+   * @see #getColumns()
+   * @generated
+   */
+  void setColumns(SelectColumnsList value);
+
+  /**
+   * Returns the value of the '<em><b>Condition</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Condition</em>' containment reference.
+   * @see #setCondition(LogicExpressions)
+   * @see uk.ac.kcl.inf.nlToSql.NlToSqlPackage#getSelectStatement_Condition()
+   * @model containment="true"
+   * @generated
+   */
+  LogicExpressions getCondition();
+
+  /**
+   * Sets the value of the '{@link uk.ac.kcl.inf.nlToSql.SelectStatement#getCondition <em>Condition</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Condition</em>' containment reference.
+   * @see #getCondition()
+   * @generated
+   */
+  void setCondition(LogicExpressions value);
+
+  /**
+   * Returns the value of the '<em><b>Group</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Group</em>' containment reference.
+   * @see #setGroup(SelectColumnsList)
+   * @see uk.ac.kcl.inf.nlToSql.NlToSqlPackage#getSelectStatement_Group()
+   * @model containment="true"
+   * @generated
+   */
+  SelectColumnsList getGroup();
+
+  /**
+   * Sets the value of the '{@link uk.ac.kcl.inf.nlToSql.SelectStatement#getGroup <em>Group</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Group</em>' containment reference.
+   * @see #getGroup()
+   * @generated
+   */
+  void setGroup(SelectColumnsList value);
+
 } // SelectStatement

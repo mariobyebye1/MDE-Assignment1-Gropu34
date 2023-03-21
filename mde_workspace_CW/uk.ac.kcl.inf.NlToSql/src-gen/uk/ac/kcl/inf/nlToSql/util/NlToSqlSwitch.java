@@ -173,8 +173,6 @@ public class NlToSqlSwitch<T> extends Switch<T>
       {
         SelectTablesList selectTablesList = (SelectTablesList)theEObject;
         T result = caseSelectTablesList(selectTablesList);
-        if (result == null) result = caseSelectStatement(selectTablesList);
-        if (result == null) result = caseStatement(selectTablesList);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -182,8 +180,6 @@ public class NlToSqlSwitch<T> extends Switch<T>
       {
         SelectTable selectTable = (SelectTable)theEObject;
         T result = caseSelectTable(selectTable);
-        if (result == null) result = caseInsertStatement(selectTable);
-        if (result == null) result = caseUpdateStatement(selectTable);
         if (result == null) result = caseDeleteStatement(selectTable);
         if (result == null) result = caseStatement(selectTable);
         if (result == null) result = defaultCase(theEObject);

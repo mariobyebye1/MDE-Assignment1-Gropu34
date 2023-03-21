@@ -9,6 +9,14 @@ package uk.ac.kcl.inf.nlToSql;
  * A representation of the model object '<em><b>Update Statement</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link uk.ac.kcl.inf.nlToSql.UpdateStatement#getTable <em>Table</em>}</li>
+ *   <li>{@link uk.ac.kcl.inf.nlToSql.UpdateStatement#getUpdates <em>Updates</em>}</li>
+ *   <li>{@link uk.ac.kcl.inf.nlToSql.UpdateStatement#getCondition <em>Condition</em>}</li>
+ * </ul>
  *
  * @see uk.ac.kcl.inf.nlToSql.NlToSqlPackage#getUpdateStatement()
  * @model
@@ -16,4 +24,70 @@ package uk.ac.kcl.inf.nlToSql;
  */
 public interface UpdateStatement extends Statement
 {
+  /**
+   * Returns the value of the '<em><b>Table</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Table</em>' containment reference.
+   * @see #setTable(SelectTable)
+   * @see uk.ac.kcl.inf.nlToSql.NlToSqlPackage#getUpdateStatement_Table()
+   * @model containment="true"
+   * @generated
+   */
+  SelectTable getTable();
+
+  /**
+   * Sets the value of the '{@link uk.ac.kcl.inf.nlToSql.UpdateStatement#getTable <em>Table</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Table</em>' containment reference.
+   * @see #getTable()
+   * @generated
+   */
+  void setTable(SelectTable value);
+
+  /**
+   * Returns the value of the '<em><b>Updates</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Updates</em>' containment reference.
+   * @see #setUpdates(SelectUpdateList)
+   * @see uk.ac.kcl.inf.nlToSql.NlToSqlPackage#getUpdateStatement_Updates()
+   * @model containment="true"
+   * @generated
+   */
+  SelectUpdateList getUpdates();
+
+  /**
+   * Sets the value of the '{@link uk.ac.kcl.inf.nlToSql.UpdateStatement#getUpdates <em>Updates</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Updates</em>' containment reference.
+   * @see #getUpdates()
+   * @generated
+   */
+  void setUpdates(SelectUpdateList value);
+
+  /**
+   * Returns the value of the '<em><b>Condition</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Condition</em>' containment reference.
+   * @see #setCondition(LogicExpressions)
+   * @see uk.ac.kcl.inf.nlToSql.NlToSqlPackage#getUpdateStatement_Condition()
+   * @model containment="true"
+   * @generated
+   */
+  LogicExpressions getCondition();
+
+  /**
+   * Sets the value of the '{@link uk.ac.kcl.inf.nlToSql.UpdateStatement#getCondition <em>Condition</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Condition</em>' containment reference.
+   * @see #getCondition()
+   * @generated
+   */
+  void setCondition(LogicExpressions value);
+
 } // UpdateStatement

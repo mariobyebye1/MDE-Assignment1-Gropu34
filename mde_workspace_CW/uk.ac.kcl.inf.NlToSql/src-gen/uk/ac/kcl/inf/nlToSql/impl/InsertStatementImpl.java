@@ -3,20 +3,67 @@
  */
 package uk.ac.kcl.inf.nlToSql.impl;
 
-import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import uk.ac.kcl.inf.nlToSql.InserValues;
 import uk.ac.kcl.inf.nlToSql.InsertStatement;
 import uk.ac.kcl.inf.nlToSql.NlToSqlPackage;
+import uk.ac.kcl.inf.nlToSql.SelectColumnsList;
+import uk.ac.kcl.inf.nlToSql.SelectTable;
 
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Insert Statement</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following features are implemented:
+ * </p>
+ * <ul>
+ *   <li>{@link uk.ac.kcl.inf.nlToSql.impl.InsertStatementImpl#getTable <em>Table</em>}</li>
+ *   <li>{@link uk.ac.kcl.inf.nlToSql.impl.InsertStatementImpl#getColumns <em>Columns</em>}</li>
+ *   <li>{@link uk.ac.kcl.inf.nlToSql.impl.InsertStatementImpl#getValues <em>Values</em>}</li>
+ * </ul>
  *
  * @generated
  */
 public class InsertStatementImpl extends StatementImpl implements InsertStatement
 {
+  /**
+   * The cached value of the '{@link #getTable() <em>Table</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getTable()
+   * @generated
+   * @ordered
+   */
+  protected SelectTable table;
+
+  /**
+   * The cached value of the '{@link #getColumns() <em>Columns</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getColumns()
+   * @generated
+   * @ordered
+   */
+  protected SelectColumnsList columns;
+
+  /**
+   * The cached value of the '{@link #getValues() <em>Values</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getValues()
+   * @generated
+   * @ordered
+   */
+  protected InserValues values;
+
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -36,6 +83,262 @@ public class InsertStatementImpl extends StatementImpl implements InsertStatemen
   protected EClass eStaticClass()
   {
     return NlToSqlPackage.Literals.INSERT_STATEMENT;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SelectTable getTable()
+  {
+    return table;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetTable(SelectTable newTable, NotificationChain msgs)
+  {
+    SelectTable oldTable = table;
+    table = newTable;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, NlToSqlPackage.INSERT_STATEMENT__TABLE, oldTable, newTable);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setTable(SelectTable newTable)
+  {
+    if (newTable != table)
+    {
+      NotificationChain msgs = null;
+      if (table != null)
+        msgs = ((InternalEObject)table).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - NlToSqlPackage.INSERT_STATEMENT__TABLE, null, msgs);
+      if (newTable != null)
+        msgs = ((InternalEObject)newTable).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - NlToSqlPackage.INSERT_STATEMENT__TABLE, null, msgs);
+      msgs = basicSetTable(newTable, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, NlToSqlPackage.INSERT_STATEMENT__TABLE, newTable, newTable));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SelectColumnsList getColumns()
+  {
+    return columns;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetColumns(SelectColumnsList newColumns, NotificationChain msgs)
+  {
+    SelectColumnsList oldColumns = columns;
+    columns = newColumns;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, NlToSqlPackage.INSERT_STATEMENT__COLUMNS, oldColumns, newColumns);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setColumns(SelectColumnsList newColumns)
+  {
+    if (newColumns != columns)
+    {
+      NotificationChain msgs = null;
+      if (columns != null)
+        msgs = ((InternalEObject)columns).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - NlToSqlPackage.INSERT_STATEMENT__COLUMNS, null, msgs);
+      if (newColumns != null)
+        msgs = ((InternalEObject)newColumns).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - NlToSqlPackage.INSERT_STATEMENT__COLUMNS, null, msgs);
+      msgs = basicSetColumns(newColumns, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, NlToSqlPackage.INSERT_STATEMENT__COLUMNS, newColumns, newColumns));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public InserValues getValues()
+  {
+    return values;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetValues(InserValues newValues, NotificationChain msgs)
+  {
+    InserValues oldValues = values;
+    values = newValues;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, NlToSqlPackage.INSERT_STATEMENT__VALUES, oldValues, newValues);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setValues(InserValues newValues)
+  {
+    if (newValues != values)
+    {
+      NotificationChain msgs = null;
+      if (values != null)
+        msgs = ((InternalEObject)values).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - NlToSqlPackage.INSERT_STATEMENT__VALUES, null, msgs);
+      if (newValues != null)
+        msgs = ((InternalEObject)newValues).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - NlToSqlPackage.INSERT_STATEMENT__VALUES, null, msgs);
+      msgs = basicSetValues(newValues, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, NlToSqlPackage.INSERT_STATEMENT__VALUES, newValues, newValues));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case NlToSqlPackage.INSERT_STATEMENT__TABLE:
+        return basicSetTable(null, msgs);
+      case NlToSqlPackage.INSERT_STATEMENT__COLUMNS:
+        return basicSetColumns(null, msgs);
+      case NlToSqlPackage.INSERT_STATEMENT__VALUES:
+        return basicSetValues(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  {
+    switch (featureID)
+    {
+      case NlToSqlPackage.INSERT_STATEMENT__TABLE:
+        return getTable();
+      case NlToSqlPackage.INSERT_STATEMENT__COLUMNS:
+        return getColumns();
+      case NlToSqlPackage.INSERT_STATEMENT__VALUES:
+        return getValues();
+    }
+    return super.eGet(featureID, resolve, coreType);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eSet(int featureID, Object newValue)
+  {
+    switch (featureID)
+    {
+      case NlToSqlPackage.INSERT_STATEMENT__TABLE:
+        setTable((SelectTable)newValue);
+        return;
+      case NlToSqlPackage.INSERT_STATEMENT__COLUMNS:
+        setColumns((SelectColumnsList)newValue);
+        return;
+      case NlToSqlPackage.INSERT_STATEMENT__VALUES:
+        setValues((InserValues)newValue);
+        return;
+    }
+    super.eSet(featureID, newValue);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eUnset(int featureID)
+  {
+    switch (featureID)
+    {
+      case NlToSqlPackage.INSERT_STATEMENT__TABLE:
+        setTable((SelectTable)null);
+        return;
+      case NlToSqlPackage.INSERT_STATEMENT__COLUMNS:
+        setColumns((SelectColumnsList)null);
+        return;
+      case NlToSqlPackage.INSERT_STATEMENT__VALUES:
+        setValues((InserValues)null);
+        return;
+    }
+    super.eUnset(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public boolean eIsSet(int featureID)
+  {
+    switch (featureID)
+    {
+      case NlToSqlPackage.INSERT_STATEMENT__TABLE:
+        return table != null;
+      case NlToSqlPackage.INSERT_STATEMENT__COLUMNS:
+        return columns != null;
+      case NlToSqlPackage.INSERT_STATEMENT__VALUES:
+        return values != null;
+    }
+    return super.eIsSet(featureID);
   }
 
 } //InsertStatementImpl

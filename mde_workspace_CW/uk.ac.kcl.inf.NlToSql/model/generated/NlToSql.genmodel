@@ -32,11 +32,27 @@
     <genClasses ecoreClass="NlToSql.ecore#//Column">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NlToSql.ecore#//Column/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NlToSql.ecore#//Column/type"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference NlToSql.ecore#//Column/table"/>
     </genClasses>
-    <genClasses ecoreClass="NlToSql.ecore#//SelectStatement"/>
-    <genClasses ecoreClass="NlToSql.ecore#//InsertStatement"/>
-    <genClasses ecoreClass="NlToSql.ecore#//UpdateStatement"/>
-    <genClasses ecoreClass="NlToSql.ecore#//DeleteStatement"/>
+    <genClasses ecoreClass="NlToSql.ecore#//SelectStatement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference NlToSql.ecore#//SelectStatement/tables"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference NlToSql.ecore#//SelectStatement/columns"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference NlToSql.ecore#//SelectStatement/condition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference NlToSql.ecore#//SelectStatement/group"/>
+    </genClasses>
+    <genClasses ecoreClass="NlToSql.ecore#//InsertStatement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference NlToSql.ecore#//InsertStatement/table"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference NlToSql.ecore#//InsertStatement/columns"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference NlToSql.ecore#//InsertStatement/values"/>
+    </genClasses>
+    <genClasses ecoreClass="NlToSql.ecore#//UpdateStatement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference NlToSql.ecore#//UpdateStatement/table"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference NlToSql.ecore#//UpdateStatement/updates"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference NlToSql.ecore#//UpdateStatement/condition"/>
+    </genClasses>
+    <genClasses ecoreClass="NlToSql.ecore#//DeleteStatement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference NlToSql.ecore#//DeleteStatement/tables"/>
+    </genClasses>
     <genClasses ecoreClass="NlToSql.ecore#//SelectUpdateList">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference NlToSql.ecore#//SelectUpdateList/updateItem"/>
     </genClasses>
@@ -48,15 +64,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NlToSql.ecore#//InserValues/valueList"/>
     </genClasses>
     <genClasses ecoreClass="NlToSql.ecore#//SelectTablesList">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference NlToSql.ecore#//SelectTablesList/columns"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference NlToSql.ecore#//SelectTablesList/condition"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference NlToSql.ecore#//SelectTablesList/group"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference NlToSql.ecore#//SelectTablesList/selectTable"/>
     </genClasses>
     <genClasses ecoreClass="NlToSql.ecore#//SelectTable">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference NlToSql.ecore#//SelectTable/columns"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference NlToSql.ecore#//SelectTable/values"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference NlToSql.ecore#//SelectTable/updates"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference NlToSql.ecore#//SelectTable/condition"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference NlToSql.ecore#//SelectTable/table"/>
     </genClasses>

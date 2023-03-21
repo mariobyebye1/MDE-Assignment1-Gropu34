@@ -201,12 +201,15 @@ public class NlToSqlGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 		private final Keyword cTypeKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cTypeAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cTypeDatatypeEnumRuleCall_3_0 = (RuleCall)cTypeAssignment_3.eContents().get(0);
+		private final Assignment cTableAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final CrossReference cTableTableCrossReference_4_0 = (CrossReference)cTableAssignment_4.eContents().get(0);
+		private final RuleCall cTableTableIDTerminalRuleCall_4_0_1 = (RuleCall)cTableTableCrossReference_4_0.eContents().get(1);
 		
 		//Column:
-		//  name=ID 'of' 'type' type=Datatype;
+		//  name=ID 'of' 'type' type=Datatype (table=[Table])?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name=ID 'of' 'type' type=Datatype
+		//name=ID 'of' 'type' type=Datatype (table=[Table])?
 		public Group getGroup() { return cGroup; }
 		
 		//name=ID
@@ -226,6 +229,15 @@ public class NlToSqlGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 		
 		//Datatype
 		public RuleCall getTypeDatatypeEnumRuleCall_3_0() { return cTypeDatatypeEnumRuleCall_3_0; }
+		
+		//(table=[Table])?
+		public Assignment getTableAssignment_4() { return cTableAssignment_4; }
+		
+		//[Table]
+		public CrossReference getTableTableCrossReference_4_0() { return cTableTableCrossReference_4_0; }
+		
+		//ID
+		public RuleCall getTableTableIDTerminalRuleCall_4_0_1() { return cTableTableIDTerminalRuleCall_4_0_1; }
 	}
 	public class SelectStatementElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.NlToSql.SelectStatement");
@@ -233,7 +245,8 @@ public class NlToSqlGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 		private final Keyword cFromKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Keyword cTheKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Keyword cTableKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final RuleCall cSelectTablesListParserRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
+		private final Assignment cTablesAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cTablesSelectTablesListParserRuleCall_3_0 = (RuleCall)cTablesAssignment_3.eContents().get(0);
 		private final Keyword cShowKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		private final Alternatives cAlternatives_5 = (Alternatives)cGroup.eContents().get(5);
 		private final Group cGroup_5_0 = (Group)cAlternatives_5.eContents().get(0);
@@ -250,25 +263,26 @@ public class NlToSqlGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 		private final RuleCall cConditionConditionParserRuleCall_6_1_0 = (RuleCall)cConditionAssignment_6_1.eContents().get(0);
 		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
 		private final Keyword cGroupKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
-		private final Keyword cByKeyword_7_1 = (Keyword)cGroup_7.eContents().get(1);
-		private final Assignment cGroupAssignment_7_2 = (Assignment)cGroup_7.eContents().get(2);
-		private final RuleCall cGroupSelectColumnsListParserRuleCall_7_2_0 = (RuleCall)cGroupAssignment_7_2.eContents().get(0);
+		private final Keyword cThemKeyword_7_1 = (Keyword)cGroup_7.eContents().get(1);
+		private final Keyword cByKeyword_7_2 = (Keyword)cGroup_7.eContents().get(2);
+		private final Assignment cGroupAssignment_7_3 = (Assignment)cGroup_7.eContents().get(3);
+		private final RuleCall cGroupSelectColumnsListParserRuleCall_7_3_0 = (RuleCall)cGroupAssignment_7_3.eContents().get(0);
 		
 		//// Define the SelectStatement rule
 		//SelectStatement:
-		//    'From' 'the' 'table' SelectTablesList
+		//    'From' 'the' 'table' tables = SelectTablesList
 		//    'show'
 		//    ('the' 'columns:' columns = SelectColumnsList | 'all' 'columns')
 		//    ('where' condition=Condition)?
-		//    ('group' 'by' group = SelectColumnsList)?
+		//    ('group' 'them' 'by' group = SelectColumnsList)?
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'From' 'the' 'table' SelectTablesList
+		//'From' 'the' 'table' tables = SelectTablesList
 		//'show'
 		//('the' 'columns:' columns = SelectColumnsList | 'all' 'columns')
 		//('where' condition=Condition)?
-		//('group' 'by' group = SelectColumnsList)?
+		//('group' 'them' 'by' group = SelectColumnsList)?
 		public Group getGroup() { return cGroup; }
 		
 		//'From'
@@ -280,8 +294,11 @@ public class NlToSqlGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 		//'table'
 		public Keyword getTableKeyword_2() { return cTableKeyword_2; }
 		
+		//tables = SelectTablesList
+		public Assignment getTablesAssignment_3() { return cTablesAssignment_3; }
+		
 		//SelectTablesList
-		public RuleCall getSelectTablesListParserRuleCall_3() { return cSelectTablesListParserRuleCall_3; }
+		public RuleCall getTablesSelectTablesListParserRuleCall_3_0() { return cTablesSelectTablesListParserRuleCall_3_0; }
 		
 		//'show'
 		public Keyword getShowKeyword_4() { return cShowKeyword_4; }
@@ -325,20 +342,23 @@ public class NlToSqlGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 		//Condition
 		public RuleCall getConditionConditionParserRuleCall_6_1_0() { return cConditionConditionParserRuleCall_6_1_0; }
 		
-		//('group' 'by' group = SelectColumnsList)?
+		//('group' 'them' 'by' group = SelectColumnsList)?
 		public Group getGroup_7() { return cGroup_7; }
 		
 		//'group'
 		public Keyword getGroupKeyword_7_0() { return cGroupKeyword_7_0; }
 		
+		//'them'
+		public Keyword getThemKeyword_7_1() { return cThemKeyword_7_1; }
+		
 		//'by'
-		public Keyword getByKeyword_7_1() { return cByKeyword_7_1; }
+		public Keyword getByKeyword_7_2() { return cByKeyword_7_2; }
 		
 		//group = SelectColumnsList
-		public Assignment getGroupAssignment_7_2() { return cGroupAssignment_7_2; }
+		public Assignment getGroupAssignment_7_3() { return cGroupAssignment_7_3; }
 		
 		//SelectColumnsList
-		public RuleCall getGroupSelectColumnsListParserRuleCall_7_2_0() { return cGroupSelectColumnsListParserRuleCall_7_2_0; }
+		public RuleCall getGroupSelectColumnsListParserRuleCall_7_3_0() { return cGroupSelectColumnsListParserRuleCall_7_3_0; }
 	}
 	public class InsertStatementElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.NlToSql.InsertStatement");
@@ -347,7 +367,8 @@ public class NlToSqlGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 		private final Keyword cIntoKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Keyword cTheKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Keyword cTableKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final RuleCall cSelectTableParserRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final Assignment cTableAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cTableSelectTableParserRuleCall_4_0 = (RuleCall)cTableAssignment_4.eContents().get(0);
 		private final Keyword cForKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		private final Keyword cTheKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		private final Keyword cColumnsKeyword_7 = (Keyword)cGroup.eContents().get(7);
@@ -363,13 +384,13 @@ public class NlToSqlGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 		
 		//// Define the InsertStatement rule
 		//InsertStatement:
-		//     'Insert' 'into' 'the' 'table' SelectTable
+		//     'Insert' 'into' 'the' 'table' table = SelectTable
 		//    'for' 'the' 'columns' columns = SelectColumnsList
 		//    'insert' 'the' 'values' '(' values = InserValues ')'
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		// 'Insert' 'into' 'the' 'table' SelectTable
+		// 'Insert' 'into' 'the' 'table' table = SelectTable
 		//'for' 'the' 'columns' columns = SelectColumnsList
 		//'insert' 'the' 'values' '(' values = InserValues ')'
 		public Group getGroup() { return cGroup; }
@@ -386,8 +407,11 @@ public class NlToSqlGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 		//'table'
 		public Keyword getTableKeyword_3() { return cTableKeyword_3; }
 		
+		//table = SelectTable
+		public Assignment getTableAssignment_4() { return cTableAssignment_4; }
+		
 		//SelectTable
-		public RuleCall getSelectTableParserRuleCall_4() { return cSelectTableParserRuleCall_4; }
+		public RuleCall getTableSelectTableParserRuleCall_4_0() { return cTableSelectTableParserRuleCall_4_0; }
 		
 		//'for'
 		public Keyword getForKeyword_5() { return cForKeyword_5; }
@@ -431,7 +455,8 @@ public class NlToSqlGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 		private final Keyword cUpdateKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Keyword cTheKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Keyword cTableKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final RuleCall cSelectTableParserRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
+		private final Assignment cTableAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cTableSelectTableParserRuleCall_3_0 = (RuleCall)cTableAssignment_3.eContents().get(0);
 		private final Keyword cToKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		private final Keyword cSetKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		private final Assignment cUpdatesAssignment_6 = (Assignment)cGroup.eContents().get(6);
@@ -443,13 +468,13 @@ public class NlToSqlGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 		
 		//// Define the UpdateStatement rule
 		//UpdateStatement:
-		//    'Update' 'the' 'table' SelectTable
+		//    'Update' 'the' 'table' table = SelectTable
 		//    'to''set' updates = SelectUpdateList
 		//    ('where' condition=Condition)?
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Update' 'the' 'table' SelectTable
+		//'Update' 'the' 'table' table = SelectTable
 		//'to''set' updates = SelectUpdateList
 		//('where' condition=Condition)?
 		public Group getGroup() { return cGroup; }
@@ -463,8 +488,11 @@ public class NlToSqlGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 		//'table'
 		public Keyword getTableKeyword_2() { return cTableKeyword_2; }
 		
+		//table = SelectTable
+		public Assignment getTableAssignment_3() { return cTableAssignment_3; }
+		
 		//SelectTable
-		public RuleCall getSelectTableParserRuleCall_3() { return cSelectTableParserRuleCall_3; }
+		public RuleCall getTableSelectTableParserRuleCall_3_0() { return cTableSelectTableParserRuleCall_3_0; }
 		
 		//'to'
 		public Keyword getToKeyword_4() { return cToKeyword_4; }
@@ -497,7 +525,8 @@ public class NlToSqlGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 		private final Keyword cDeleteKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
 		private final Keyword cTheKeyword_0_1 = (Keyword)cGroup_0.eContents().get(1);
 		private final Keyword cTableKeyword_0_2 = (Keyword)cGroup_0.eContents().get(2);
-		private final RuleCall cSelectTableParserRuleCall_0_3 = (RuleCall)cGroup_0.eContents().get(3);
+		private final Assignment cTablesAssignment_0_3 = (Assignment)cGroup_0.eContents().get(3);
+		private final RuleCall cTablesSelectTablesListParserRuleCall_0_3_0 = (RuleCall)cTablesAssignment_0_3.eContents().get(0);
 		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
 		private final Keyword cEmptyKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
 		private final Keyword cTheKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
@@ -516,20 +545,20 @@ public class NlToSqlGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 		
 		//// Define the DeleteStatement rule
 		//DeleteStatement:
-		//    ('Delete' 'the' 'table' SelectTable) |
+		//    ('Delete' 'the' 'table' tables = SelectTablesList) |
 		//    ('Empty' 'the' 'table' SelectTable) |
 		//    ('Delete' 'records' 'from' 'the' 'table' SelectTable
 		//    'where' condition=Condition)
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//('Delete' 'the' 'table' SelectTable) |
+		//('Delete' 'the' 'table' tables = SelectTablesList) |
 		//('Empty' 'the' 'table' SelectTable) |
 		//('Delete' 'records' 'from' 'the' 'table' SelectTable
 		//'where' condition=Condition)
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//('Delete' 'the' 'table' SelectTable)
+		//('Delete' 'the' 'table' tables = SelectTablesList)
 		public Group getGroup_0() { return cGroup_0; }
 		
 		//'Delete'
@@ -541,8 +570,11 @@ public class NlToSqlGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 		//'table'
 		public Keyword getTableKeyword_0_2() { return cTableKeyword_0_2; }
 		
-		//SelectTable
-		public RuleCall getSelectTableParserRuleCall_0_3() { return cSelectTableParserRuleCall_0_3; }
+		//tables = SelectTablesList
+		public Assignment getTablesAssignment_0_3() { return cTablesAssignment_0_3; }
+		
+		//SelectTablesList
+		public RuleCall getTablesSelectTablesListParserRuleCall_0_3_0() { return cTablesSelectTablesListParserRuleCall_0_3_0; }
 		
 		//('Empty' 'the' 'table' SelectTable)
 		public Group getGroup_1() { return cGroup_1; }
@@ -1351,7 +1383,7 @@ public class NlToSqlGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 	}
 	
 	//Column:
-	//  name=ID 'of' 'type' type=Datatype;
+	//  name=ID 'of' 'type' type=Datatype (table=[Table])?;
 	public ColumnElements getColumnAccess() {
 		return pColumn;
 	}
@@ -1374,11 +1406,11 @@ public class NlToSqlGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 	
 	//// Define the SelectStatement rule
 	//SelectStatement:
-	//    'From' 'the' 'table' SelectTablesList
+	//    'From' 'the' 'table' tables = SelectTablesList
 	//    'show'
 	//    ('the' 'columns:' columns = SelectColumnsList | 'all' 'columns')
 	//    ('where' condition=Condition)?
-	//    ('group' 'by' group = SelectColumnsList)?
+	//    ('group' 'them' 'by' group = SelectColumnsList)?
 	//;
 	public SelectStatementElements getSelectStatementAccess() {
 		return pSelectStatement;
@@ -1390,7 +1422,7 @@ public class NlToSqlGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 	
 	//// Define the InsertStatement rule
 	//InsertStatement:
-	//     'Insert' 'into' 'the' 'table' SelectTable
+	//     'Insert' 'into' 'the' 'table' table = SelectTable
 	//    'for' 'the' 'columns' columns = SelectColumnsList
 	//    'insert' 'the' 'values' '(' values = InserValues ')'
 	//;
@@ -1404,7 +1436,7 @@ public class NlToSqlGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 	
 	//// Define the UpdateStatement rule
 	//UpdateStatement:
-	//    'Update' 'the' 'table' SelectTable
+	//    'Update' 'the' 'table' table = SelectTable
 	//    'to''set' updates = SelectUpdateList
 	//    ('where' condition=Condition)?
 	//;
@@ -1418,7 +1450,7 @@ public class NlToSqlGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 	
 	//// Define the DeleteStatement rule
 	//DeleteStatement:
-	//    ('Delete' 'the' 'table' SelectTable) |
+	//    ('Delete' 'the' 'table' tables = SelectTablesList) |
 	//    ('Empty' 'the' 'table' SelectTable) |
 	//    ('Delete' 'records' 'from' 'the' 'table' SelectTable
 	//    'where' condition=Condition)

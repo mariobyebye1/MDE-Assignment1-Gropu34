@@ -3,20 +3,43 @@
  */
 package uk.ac.kcl.inf.nlToSql.impl;
 
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import uk.ac.kcl.inf.nlToSql.DeleteStatement;
 import uk.ac.kcl.inf.nlToSql.NlToSqlPackage;
+import uk.ac.kcl.inf.nlToSql.SelectTablesList;
 
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Delete Statement</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following features are implemented:
+ * </p>
+ * <ul>
+ *   <li>{@link uk.ac.kcl.inf.nlToSql.impl.DeleteStatementImpl#getTables <em>Tables</em>}</li>
+ * </ul>
  *
  * @generated
  */
 public class DeleteStatementImpl extends StatementImpl implements DeleteStatement
 {
+  /**
+   * The cached value of the '{@link #getTables() <em>Tables</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getTables()
+   * @generated
+   * @ordered
+   */
+  protected SelectTablesList tables;
+
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -36,6 +59,138 @@ public class DeleteStatementImpl extends StatementImpl implements DeleteStatemen
   protected EClass eStaticClass()
   {
     return NlToSqlPackage.Literals.DELETE_STATEMENT;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SelectTablesList getTables()
+  {
+    return tables;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetTables(SelectTablesList newTables, NotificationChain msgs)
+  {
+    SelectTablesList oldTables = tables;
+    tables = newTables;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, NlToSqlPackage.DELETE_STATEMENT__TABLES, oldTables, newTables);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setTables(SelectTablesList newTables)
+  {
+    if (newTables != tables)
+    {
+      NotificationChain msgs = null;
+      if (tables != null)
+        msgs = ((InternalEObject)tables).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - NlToSqlPackage.DELETE_STATEMENT__TABLES, null, msgs);
+      if (newTables != null)
+        msgs = ((InternalEObject)newTables).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - NlToSqlPackage.DELETE_STATEMENT__TABLES, null, msgs);
+      msgs = basicSetTables(newTables, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, NlToSqlPackage.DELETE_STATEMENT__TABLES, newTables, newTables));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case NlToSqlPackage.DELETE_STATEMENT__TABLES:
+        return basicSetTables(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  {
+    switch (featureID)
+    {
+      case NlToSqlPackage.DELETE_STATEMENT__TABLES:
+        return getTables();
+    }
+    return super.eGet(featureID, resolve, coreType);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eSet(int featureID, Object newValue)
+  {
+    switch (featureID)
+    {
+      case NlToSqlPackage.DELETE_STATEMENT__TABLES:
+        setTables((SelectTablesList)newValue);
+        return;
+    }
+    super.eSet(featureID, newValue);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eUnset(int featureID)
+  {
+    switch (featureID)
+    {
+      case NlToSqlPackage.DELETE_STATEMENT__TABLES:
+        setTables((SelectTablesList)null);
+        return;
+    }
+    super.eUnset(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public boolean eIsSet(int featureID)
+  {
+    switch (featureID)
+    {
+      case NlToSqlPackage.DELETE_STATEMENT__TABLES:
+        return tables != null;
+    }
+    return super.eIsSet(featureID);
   }
 
 } //DeleteStatementImpl

@@ -20,15 +20,19 @@ import uk.ac.kcl.inf.nlToSql.ColumnList;
 import uk.ac.kcl.inf.nlToSql.ColumnReference;
 import uk.ac.kcl.inf.nlToSql.Comparison;
 import uk.ac.kcl.inf.nlToSql.CreateTableStatement;
+import uk.ac.kcl.inf.nlToSql.DeleteStatement;
 import uk.ac.kcl.inf.nlToSql.InserValues;
+import uk.ac.kcl.inf.nlToSql.InsertStatement;
 import uk.ac.kcl.inf.nlToSql.LogicExpressions;
 import uk.ac.kcl.inf.nlToSql.NlToSqlPackage;
 import uk.ac.kcl.inf.nlToSql.SelectColumnsList;
+import uk.ac.kcl.inf.nlToSql.SelectStatement;
 import uk.ac.kcl.inf.nlToSql.SelectTable;
 import uk.ac.kcl.inf.nlToSql.SelectTablesList;
 import uk.ac.kcl.inf.nlToSql.SelectUpdateList;
 import uk.ac.kcl.inf.nlToSql.Table;
 import uk.ac.kcl.inf.nlToSql.UpdateItem;
+import uk.ac.kcl.inf.nlToSql.UpdateStatement;
 import uk.ac.kcl.inf.services.NlToSqlGrammarAccess;
 
 @SuppressWarnings("all")
@@ -63,8 +67,14 @@ public class NlToSqlSemanticSequencer extends AbstractDelegatingSemanticSequence
 			case NlToSqlPackage.CREATE_TABLE_STATEMENT:
 				sequence_CreateTableStatement(context, (CreateTableStatement) semanticObject); 
 				return; 
+			case NlToSqlPackage.DELETE_STATEMENT:
+				sequence_DeleteStatement(context, (DeleteStatement) semanticObject); 
+				return; 
 			case NlToSqlPackage.INSER_VALUES:
 				sequence_InserValues(context, (InserValues) semanticObject); 
+				return; 
+			case NlToSqlPackage.INSERT_STATEMENT:
+				sequence_InsertStatement(context, (InsertStatement) semanticObject); 
 				return; 
 			case NlToSqlPackage.LOGIC_EXPRESSIONS:
 				sequence_Comparison(context, (LogicExpressions) semanticObject); 
@@ -72,39 +82,23 @@ public class NlToSqlSemanticSequencer extends AbstractDelegatingSemanticSequence
 			case NlToSqlPackage.SELECT_COLUMNS_LIST:
 				sequence_SelectColumnsList(context, (SelectColumnsList) semanticObject); 
 				return; 
+			case NlToSqlPackage.SELECT_STATEMENT:
+				sequence_SelectStatement(context, (SelectStatement) semanticObject); 
+				return; 
 			case NlToSqlPackage.SELECT_TABLE:
-				if (rule == grammarAccess.getStatementRule()) {
-					sequence_DeleteStatement_InsertStatement_SelectTable_UpdateStatement(context, (SelectTable) semanticObject); 
-					return; 
-				}
-				else if (rule == grammarAccess.getDeleteStatementRule()) {
+				if (rule == grammarAccess.getStatementRule()
+						|| rule == grammarAccess.getDeleteStatementRule()) {
 					sequence_DeleteStatement_SelectTable(context, (SelectTable) semanticObject); 
-					return; 
-				}
-				else if (rule == grammarAccess.getInsertStatementRule()) {
-					sequence_InsertStatement_SelectTable(context, (SelectTable) semanticObject); 
 					return; 
 				}
 				else if (rule == grammarAccess.getSelectTableRule()) {
 					sequence_SelectTable(context, (SelectTable) semanticObject); 
 					return; 
 				}
-				else if (rule == grammarAccess.getUpdateStatementRule()) {
-					sequence_SelectTable_UpdateStatement(context, (SelectTable) semanticObject); 
-					return; 
-				}
 				else break;
 			case NlToSqlPackage.SELECT_TABLES_LIST:
-				if (rule == grammarAccess.getStatementRule()
-						|| rule == grammarAccess.getSelectStatementRule()) {
-					sequence_SelectStatement_SelectTablesList(context, (SelectTablesList) semanticObject); 
-					return; 
-				}
-				else if (rule == grammarAccess.getSelectTablesListRule()) {
-					sequence_SelectTablesList(context, (SelectTablesList) semanticObject); 
-					return; 
-				}
-				else break;
+				sequence_SelectTablesList(context, (SelectTablesList) semanticObject); 
+				return; 
 			case NlToSqlPackage.SELECT_UPDATE_LIST:
 				sequence_SelectUpdateList(context, (SelectUpdateList) semanticObject); 
 				return; 
@@ -113,6 +107,9 @@ public class NlToSqlSemanticSequencer extends AbstractDelegatingSemanticSequence
 				return; 
 			case NlToSqlPackage.UPDATE_ITEM:
 				sequence_UpdateItem(context, (UpdateItem) semanticObject); 
+				return; 
+			case NlToSqlPackage.UPDATE_STATEMENT:
+				sequence_UpdateStatement(context, (UpdateStatement) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
@@ -160,19 +157,10 @@ public class NlToSqlSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *     Column returns Column
 	 *
 	 * Constraint:
-	 *     (name=ID type=Datatype)
+	 *     (name=ID type=Datatype table=[Table|ID]?)
 	 */
 	protected void sequence_Column(ISerializationContext context, Column semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, NlToSqlPackage.Literals.COLUMN__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, NlToSqlPackage.Literals.COLUMN__NAME));
-			if (transientValues.isValueTransient(semanticObject, NlToSqlPackage.Literals.COLUMN__TYPE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, NlToSqlPackage.Literals.COLUMN__TYPE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getColumnAccess().getNameIDTerminalRuleCall_0_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getColumnAccess().getTypeDatatypeEnumRuleCall_3_0(), semanticObject.getType());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -230,18 +218,26 @@ public class NlToSqlSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Contexts:
-	 *     Statement returns SelectTable
+	 *     Statement returns DeleteStatement
+	 *     DeleteStatement returns DeleteStatement
 	 *
 	 * Constraint:
-	 *     (table=[Table|ID] ((columns=SelectColumnsList values=InserValues) | (updates=SelectUpdateList condition=Condition?) | condition=Condition)?)
+	 *     tables=SelectTablesList
 	 */
-	protected void sequence_DeleteStatement_InsertStatement_SelectTable_UpdateStatement(ISerializationContext context, SelectTable semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+	protected void sequence_DeleteStatement(ISerializationContext context, DeleteStatement semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, NlToSqlPackage.Literals.DELETE_STATEMENT__TABLES) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, NlToSqlPackage.Literals.DELETE_STATEMENT__TABLES));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getDeleteStatementAccess().getTablesSelectTablesListParserRuleCall_0_3_0(), semanticObject.getTables());
+		feeder.finish();
 	}
 	
 	
 	/**
 	 * Contexts:
+	 *     Statement returns SelectTable
 	 *     DeleteStatement returns SelectTable
 	 *
 	 * Constraint:
@@ -266,22 +262,23 @@ public class NlToSqlSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Contexts:
-	 *     InsertStatement returns SelectTable
+	 *     Statement returns InsertStatement
+	 *     InsertStatement returns InsertStatement
 	 *
 	 * Constraint:
-	 *     (table=[Table|ID] columns=SelectColumnsList values=InserValues)
+	 *     (table=SelectTable columns=SelectColumnsList values=InserValues)
 	 */
-	protected void sequence_InsertStatement_SelectTable(ISerializationContext context, SelectTable semanticObject) {
+	protected void sequence_InsertStatement(ISerializationContext context, InsertStatement semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, NlToSqlPackage.Literals.SELECT_TABLE__TABLE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, NlToSqlPackage.Literals.SELECT_TABLE__TABLE));
-			if (transientValues.isValueTransient(semanticObject, NlToSqlPackage.Literals.SELECT_TABLE__COLUMNS) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, NlToSqlPackage.Literals.SELECT_TABLE__COLUMNS));
-			if (transientValues.isValueTransient(semanticObject, NlToSqlPackage.Literals.SELECT_TABLE__VALUES) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, NlToSqlPackage.Literals.SELECT_TABLE__VALUES));
+			if (transientValues.isValueTransient(semanticObject, NlToSqlPackage.Literals.INSERT_STATEMENT__TABLE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, NlToSqlPackage.Literals.INSERT_STATEMENT__TABLE));
+			if (transientValues.isValueTransient(semanticObject, NlToSqlPackage.Literals.INSERT_STATEMENT__COLUMNS) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, NlToSqlPackage.Literals.INSERT_STATEMENT__COLUMNS));
+			if (transientValues.isValueTransient(semanticObject, NlToSqlPackage.Literals.INSERT_STATEMENT__VALUES) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, NlToSqlPackage.Literals.INSERT_STATEMENT__VALUES));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getSelectTableAccess().getTableTableIDTerminalRuleCall_0_1(), semanticObject.eGet(NlToSqlPackage.Literals.SELECT_TABLE__TABLE, false));
+		feeder.accept(grammarAccess.getInsertStatementAccess().getTableSelectTableParserRuleCall_4_0(), semanticObject.getTable());
 		feeder.accept(grammarAccess.getInsertStatementAccess().getColumnsSelectColumnsListParserRuleCall_8_0(), semanticObject.getColumns());
 		feeder.accept(grammarAccess.getInsertStatementAccess().getValuesInserValuesParserRuleCall_13_0(), semanticObject.getValues());
 		feeder.finish();
@@ -302,13 +299,13 @@ public class NlToSqlSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Contexts:
-	 *     Statement returns SelectTablesList
-	 *     SelectStatement returns SelectTablesList
+	 *     Statement returns SelectStatement
+	 *     SelectStatement returns SelectStatement
 	 *
 	 * Constraint:
-	 *     (selectTable+=[Table|ID] selectTable+=[Table|ID]* columns=SelectColumnsList? condition=Condition? group=SelectColumnsList?)
+	 *     (tables=SelectTablesList columns=SelectColumnsList? condition=Condition? group=SelectColumnsList?)
 	 */
-	protected void sequence_SelectStatement_SelectTablesList(ISerializationContext context, SelectTablesList semanticObject) {
+	protected void sequence_SelectStatement(ISerializationContext context, SelectStatement semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -328,18 +325,6 @@ public class NlToSqlSemanticSequencer extends AbstractDelegatingSemanticSequence
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getSelectTableAccess().getTableTableIDTerminalRuleCall_0_1(), semanticObject.eGet(NlToSqlPackage.Literals.SELECT_TABLE__TABLE, false));
 		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     UpdateStatement returns SelectTable
-	 *
-	 * Constraint:
-	 *     (table=[Table|ID] updates=SelectUpdateList condition=Condition?)
-	 */
-	protected void sequence_SelectTable_UpdateStatement(ISerializationContext context, SelectTable semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -403,6 +388,19 @@ public class NlToSqlSemanticSequencer extends AbstractDelegatingSemanticSequence
 		feeder.accept(grammarAccess.getUpdateItemAccess().getColumnColumnReferenceParserRuleCall_0_0(), semanticObject.getColumn());
 		feeder.accept(grammarAccess.getUpdateItemAccess().getValueValueParserRuleCall_2_0(), semanticObject.getValue());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Statement returns UpdateStatement
+	 *     UpdateStatement returns UpdateStatement
+	 *
+	 * Constraint:
+	 *     (table=SelectTable updates=SelectUpdateList condition=Condition?)
+	 */
+	protected void sequence_UpdateStatement(ISerializationContext context, UpdateStatement semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

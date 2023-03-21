@@ -3,20 +3,67 @@
  */
 package uk.ac.kcl.inf.nlToSql.impl;
 
-import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import uk.ac.kcl.inf.nlToSql.LogicExpressions;
 import uk.ac.kcl.inf.nlToSql.NlToSqlPackage;
+import uk.ac.kcl.inf.nlToSql.SelectTable;
+import uk.ac.kcl.inf.nlToSql.SelectUpdateList;
 import uk.ac.kcl.inf.nlToSql.UpdateStatement;
 
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Update Statement</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following features are implemented:
+ * </p>
+ * <ul>
+ *   <li>{@link uk.ac.kcl.inf.nlToSql.impl.UpdateStatementImpl#getTable <em>Table</em>}</li>
+ *   <li>{@link uk.ac.kcl.inf.nlToSql.impl.UpdateStatementImpl#getUpdates <em>Updates</em>}</li>
+ *   <li>{@link uk.ac.kcl.inf.nlToSql.impl.UpdateStatementImpl#getCondition <em>Condition</em>}</li>
+ * </ul>
  *
  * @generated
  */
 public class UpdateStatementImpl extends StatementImpl implements UpdateStatement
 {
+  /**
+   * The cached value of the '{@link #getTable() <em>Table</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getTable()
+   * @generated
+   * @ordered
+   */
+  protected SelectTable table;
+
+  /**
+   * The cached value of the '{@link #getUpdates() <em>Updates</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getUpdates()
+   * @generated
+   * @ordered
+   */
+  protected SelectUpdateList updates;
+
+  /**
+   * The cached value of the '{@link #getCondition() <em>Condition</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getCondition()
+   * @generated
+   * @ordered
+   */
+  protected LogicExpressions condition;
+
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -36,6 +83,262 @@ public class UpdateStatementImpl extends StatementImpl implements UpdateStatemen
   protected EClass eStaticClass()
   {
     return NlToSqlPackage.Literals.UPDATE_STATEMENT;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SelectTable getTable()
+  {
+    return table;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetTable(SelectTable newTable, NotificationChain msgs)
+  {
+    SelectTable oldTable = table;
+    table = newTable;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, NlToSqlPackage.UPDATE_STATEMENT__TABLE, oldTable, newTable);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setTable(SelectTable newTable)
+  {
+    if (newTable != table)
+    {
+      NotificationChain msgs = null;
+      if (table != null)
+        msgs = ((InternalEObject)table).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - NlToSqlPackage.UPDATE_STATEMENT__TABLE, null, msgs);
+      if (newTable != null)
+        msgs = ((InternalEObject)newTable).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - NlToSqlPackage.UPDATE_STATEMENT__TABLE, null, msgs);
+      msgs = basicSetTable(newTable, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, NlToSqlPackage.UPDATE_STATEMENT__TABLE, newTable, newTable));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SelectUpdateList getUpdates()
+  {
+    return updates;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetUpdates(SelectUpdateList newUpdates, NotificationChain msgs)
+  {
+    SelectUpdateList oldUpdates = updates;
+    updates = newUpdates;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, NlToSqlPackage.UPDATE_STATEMENT__UPDATES, oldUpdates, newUpdates);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setUpdates(SelectUpdateList newUpdates)
+  {
+    if (newUpdates != updates)
+    {
+      NotificationChain msgs = null;
+      if (updates != null)
+        msgs = ((InternalEObject)updates).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - NlToSqlPackage.UPDATE_STATEMENT__UPDATES, null, msgs);
+      if (newUpdates != null)
+        msgs = ((InternalEObject)newUpdates).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - NlToSqlPackage.UPDATE_STATEMENT__UPDATES, null, msgs);
+      msgs = basicSetUpdates(newUpdates, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, NlToSqlPackage.UPDATE_STATEMENT__UPDATES, newUpdates, newUpdates));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public LogicExpressions getCondition()
+  {
+    return condition;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetCondition(LogicExpressions newCondition, NotificationChain msgs)
+  {
+    LogicExpressions oldCondition = condition;
+    condition = newCondition;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, NlToSqlPackage.UPDATE_STATEMENT__CONDITION, oldCondition, newCondition);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setCondition(LogicExpressions newCondition)
+  {
+    if (newCondition != condition)
+    {
+      NotificationChain msgs = null;
+      if (condition != null)
+        msgs = ((InternalEObject)condition).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - NlToSqlPackage.UPDATE_STATEMENT__CONDITION, null, msgs);
+      if (newCondition != null)
+        msgs = ((InternalEObject)newCondition).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - NlToSqlPackage.UPDATE_STATEMENT__CONDITION, null, msgs);
+      msgs = basicSetCondition(newCondition, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, NlToSqlPackage.UPDATE_STATEMENT__CONDITION, newCondition, newCondition));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case NlToSqlPackage.UPDATE_STATEMENT__TABLE:
+        return basicSetTable(null, msgs);
+      case NlToSqlPackage.UPDATE_STATEMENT__UPDATES:
+        return basicSetUpdates(null, msgs);
+      case NlToSqlPackage.UPDATE_STATEMENT__CONDITION:
+        return basicSetCondition(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  {
+    switch (featureID)
+    {
+      case NlToSqlPackage.UPDATE_STATEMENT__TABLE:
+        return getTable();
+      case NlToSqlPackage.UPDATE_STATEMENT__UPDATES:
+        return getUpdates();
+      case NlToSqlPackage.UPDATE_STATEMENT__CONDITION:
+        return getCondition();
+    }
+    return super.eGet(featureID, resolve, coreType);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eSet(int featureID, Object newValue)
+  {
+    switch (featureID)
+    {
+      case NlToSqlPackage.UPDATE_STATEMENT__TABLE:
+        setTable((SelectTable)newValue);
+        return;
+      case NlToSqlPackage.UPDATE_STATEMENT__UPDATES:
+        setUpdates((SelectUpdateList)newValue);
+        return;
+      case NlToSqlPackage.UPDATE_STATEMENT__CONDITION:
+        setCondition((LogicExpressions)newValue);
+        return;
+    }
+    super.eSet(featureID, newValue);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eUnset(int featureID)
+  {
+    switch (featureID)
+    {
+      case NlToSqlPackage.UPDATE_STATEMENT__TABLE:
+        setTable((SelectTable)null);
+        return;
+      case NlToSqlPackage.UPDATE_STATEMENT__UPDATES:
+        setUpdates((SelectUpdateList)null);
+        return;
+      case NlToSqlPackage.UPDATE_STATEMENT__CONDITION:
+        setCondition((LogicExpressions)null);
+        return;
+    }
+    super.eUnset(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public boolean eIsSet(int featureID)
+  {
+    switch (featureID)
+    {
+      case NlToSqlPackage.UPDATE_STATEMENT__TABLE:
+        return table != null;
+      case NlToSqlPackage.UPDATE_STATEMENT__UPDATES:
+        return updates != null;
+      case NlToSqlPackage.UPDATE_STATEMENT__CONDITION:
+        return condition != null;
+    }
+    return super.eIsSet(featureID);
   }
 
 } //UpdateStatementImpl

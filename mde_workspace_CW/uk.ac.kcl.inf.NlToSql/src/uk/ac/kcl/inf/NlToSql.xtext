@@ -28,17 +28,16 @@ Table:
 ;
 
 Column:
-  name=ID 'of' 'type' type=Datatype;
+  name=ID 'of' 'type' type=Datatype (table=[Table])?;
 
 // Change datatype structure
 enum Datatype:
   integer | string | date
  ;
-
-
+ 
 // Define the SelectStatement rule
 SelectStatement:
-	'From' 'the' 'table' SelectTablesList
+	'From' 'the' 'table' tables = SelectTablesList
     'show' 
     ('the' 'columns:' columns = SelectColumnsList | 'all' 'columns') 
     ('where' condition=Condition)? 
@@ -47,21 +46,21 @@ SelectStatement:
 
 // Define the InsertStatement rule
 InsertStatement:
- 	'Insert' 'into' 'the' 'table' SelectTable
+ 	'Insert' 'into' 'the' 'table' table = SelectTable
     'for' 'the' 'columns' columns = SelectColumnsList
     'insert' 'the' 'values' '(' values = InserValues ')'
 ;
 
 // Define the UpdateStatement rule
 UpdateStatement:
-    'Update' 'the' 'table' SelectTable
+    'Update' 'the' 'table' table = SelectTable
     'to''set' updates = SelectUpdateList
     ('where' condition=Condition)?
 ;
 
 // Define the DeleteStatement rule
 DeleteStatement:
-	('Delete' 'the' 'table' SelectTable) |
+	('Delete' 'the' 'table' tables = SelectTablesList) |
 	('Empty' 'the' 'table' SelectTable) |
     ('Delete' 'records' 'from' 'the' 'table' SelectTable
     'where' condition=Condition)

@@ -9,6 +9,14 @@ package uk.ac.kcl.inf.nlToSql;
  * A representation of the model object '<em><b>Insert Statement</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link uk.ac.kcl.inf.nlToSql.InsertStatement#getTable <em>Table</em>}</li>
+ *   <li>{@link uk.ac.kcl.inf.nlToSql.InsertStatement#getColumns <em>Columns</em>}</li>
+ *   <li>{@link uk.ac.kcl.inf.nlToSql.InsertStatement#getValues <em>Values</em>}</li>
+ * </ul>
  *
  * @see uk.ac.kcl.inf.nlToSql.NlToSqlPackage#getInsertStatement()
  * @model
@@ -16,4 +24,70 @@ package uk.ac.kcl.inf.nlToSql;
  */
 public interface InsertStatement extends Statement
 {
+  /**
+   * Returns the value of the '<em><b>Table</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Table</em>' containment reference.
+   * @see #setTable(SelectTable)
+   * @see uk.ac.kcl.inf.nlToSql.NlToSqlPackage#getInsertStatement_Table()
+   * @model containment="true"
+   * @generated
+   */
+  SelectTable getTable();
+
+  /**
+   * Sets the value of the '{@link uk.ac.kcl.inf.nlToSql.InsertStatement#getTable <em>Table</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Table</em>' containment reference.
+   * @see #getTable()
+   * @generated
+   */
+  void setTable(SelectTable value);
+
+  /**
+   * Returns the value of the '<em><b>Columns</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Columns</em>' containment reference.
+   * @see #setColumns(SelectColumnsList)
+   * @see uk.ac.kcl.inf.nlToSql.NlToSqlPackage#getInsertStatement_Columns()
+   * @model containment="true"
+   * @generated
+   */
+  SelectColumnsList getColumns();
+
+  /**
+   * Sets the value of the '{@link uk.ac.kcl.inf.nlToSql.InsertStatement#getColumns <em>Columns</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Columns</em>' containment reference.
+   * @see #getColumns()
+   * @generated
+   */
+  void setColumns(SelectColumnsList value);
+
+  /**
+   * Returns the value of the '<em><b>Values</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Values</em>' containment reference.
+   * @see #setValues(InserValues)
+   * @see uk.ac.kcl.inf.nlToSql.NlToSqlPackage#getInsertStatement_Values()
+   * @model containment="true"
+   * @generated
+   */
+  InserValues getValues();
+
+  /**
+   * Sets the value of the '{@link uk.ac.kcl.inf.nlToSql.InsertStatement#getValues <em>Values</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Values</em>' containment reference.
+   * @see #getValues()
+   * @generated
+   */
+  void setValues(InserValues value);
+
 } // InsertStatement

@@ -23,15 +23,13 @@ public class NlToSqlSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected NlToSqlGrammarAccess grammarAccess;
 	protected AbstractElementAlias match_Comparison___AKeyword_0_1_or_TheKeyword_0_0__q;
-	protected AbstractElementAlias match_DeleteStatement_InsertStatement_UpdateStatement___DeleteKeyword_0_0_TheKeyword_0_1_TableKeyword_0_2___or___DeleteKeyword_2_0_RecordsKeyword_2_1_FromKeyword_2_2_TheKeyword_2_3_TableKeyword_2_4___or___EmptyKeyword_1_0_TheKeyword_1_1_TableKeyword_1_2___or___InsertKeyword_0_IntoKeyword_1_TheKeyword_2_TableKeyword_3___or___UpdateKeyword_0_TheKeyword_1_TableKeyword_2__;
-	protected AbstractElementAlias match_DeleteStatement___DeleteKeyword_0_0_TheKeyword_0_1_TableKeyword_0_2___or___DeleteKeyword_2_0_RecordsKeyword_2_1_FromKeyword_2_2_TheKeyword_2_3_TableKeyword_2_4___or___EmptyKeyword_1_0_TheKeyword_1_1_TableKeyword_1_2__;
+	protected AbstractElementAlias match_DeleteStatement___DeleteKeyword_2_0_RecordsKeyword_2_1_FromKeyword_2_2_TheKeyword_2_3_TableKeyword_2_4___or___EmptyKeyword_1_0_TheKeyword_1_1_TableKeyword_1_2__;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (NlToSqlGrammarAccess) access;
 		match_Comparison___AKeyword_0_1_or_TheKeyword_0_0__q = new AlternativeAlias(false, true, new TokenAlias(false, false, grammarAccess.getComparisonAccess().getAKeyword_0_1()), new TokenAlias(false, false, grammarAccess.getComparisonAccess().getTheKeyword_0_0()));
-		match_DeleteStatement_InsertStatement_UpdateStatement___DeleteKeyword_0_0_TheKeyword_0_1_TableKeyword_0_2___or___DeleteKeyword_2_0_RecordsKeyword_2_1_FromKeyword_2_2_TheKeyword_2_3_TableKeyword_2_4___or___EmptyKeyword_1_0_TheKeyword_1_1_TableKeyword_1_2___or___InsertKeyword_0_IntoKeyword_1_TheKeyword_2_TableKeyword_3___or___UpdateKeyword_0_TheKeyword_1_TableKeyword_2__ = new AlternativeAlias(false, false, new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getDeleteStatementAccess().getDeleteKeyword_0_0()), new TokenAlias(false, false, grammarAccess.getDeleteStatementAccess().getTheKeyword_0_1()), new TokenAlias(false, false, grammarAccess.getDeleteStatementAccess().getTableKeyword_0_2())), new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getDeleteStatementAccess().getDeleteKeyword_2_0()), new TokenAlias(false, false, grammarAccess.getDeleteStatementAccess().getRecordsKeyword_2_1()), new TokenAlias(false, false, grammarAccess.getDeleteStatementAccess().getFromKeyword_2_2()), new TokenAlias(false, false, grammarAccess.getDeleteStatementAccess().getTheKeyword_2_3()), new TokenAlias(false, false, grammarAccess.getDeleteStatementAccess().getTableKeyword_2_4())), new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getDeleteStatementAccess().getEmptyKeyword_1_0()), new TokenAlias(false, false, grammarAccess.getDeleteStatementAccess().getTheKeyword_1_1()), new TokenAlias(false, false, grammarAccess.getDeleteStatementAccess().getTableKeyword_1_2())), new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getInsertStatementAccess().getInsertKeyword_0()), new TokenAlias(false, false, grammarAccess.getInsertStatementAccess().getIntoKeyword_1()), new TokenAlias(false, false, grammarAccess.getInsertStatementAccess().getTheKeyword_2()), new TokenAlias(false, false, grammarAccess.getInsertStatementAccess().getTableKeyword_3())), new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getUpdateStatementAccess().getUpdateKeyword_0()), new TokenAlias(false, false, grammarAccess.getUpdateStatementAccess().getTheKeyword_1()), new TokenAlias(false, false, grammarAccess.getUpdateStatementAccess().getTableKeyword_2())));
-		match_DeleteStatement___DeleteKeyword_0_0_TheKeyword_0_1_TableKeyword_0_2___or___DeleteKeyword_2_0_RecordsKeyword_2_1_FromKeyword_2_2_TheKeyword_2_3_TableKeyword_2_4___or___EmptyKeyword_1_0_TheKeyword_1_1_TableKeyword_1_2__ = new AlternativeAlias(false, false, new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getDeleteStatementAccess().getDeleteKeyword_0_0()), new TokenAlias(false, false, grammarAccess.getDeleteStatementAccess().getTheKeyword_0_1()), new TokenAlias(false, false, grammarAccess.getDeleteStatementAccess().getTableKeyword_0_2())), new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getDeleteStatementAccess().getDeleteKeyword_2_0()), new TokenAlias(false, false, grammarAccess.getDeleteStatementAccess().getRecordsKeyword_2_1()), new TokenAlias(false, false, grammarAccess.getDeleteStatementAccess().getFromKeyword_2_2()), new TokenAlias(false, false, grammarAccess.getDeleteStatementAccess().getTheKeyword_2_3()), new TokenAlias(false, false, grammarAccess.getDeleteStatementAccess().getTableKeyword_2_4())), new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getDeleteStatementAccess().getEmptyKeyword_1_0()), new TokenAlias(false, false, grammarAccess.getDeleteStatementAccess().getTheKeyword_1_1()), new TokenAlias(false, false, grammarAccess.getDeleteStatementAccess().getTableKeyword_1_2())));
+		match_DeleteStatement___DeleteKeyword_2_0_RecordsKeyword_2_1_FromKeyword_2_2_TheKeyword_2_3_TableKeyword_2_4___or___EmptyKeyword_1_0_TheKeyword_1_1_TableKeyword_1_2__ = new AlternativeAlias(false, false, new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getDeleteStatementAccess().getDeleteKeyword_2_0()), new TokenAlias(false, false, grammarAccess.getDeleteStatementAccess().getRecordsKeyword_2_1()), new TokenAlias(false, false, grammarAccess.getDeleteStatementAccess().getFromKeyword_2_2()), new TokenAlias(false, false, grammarAccess.getDeleteStatementAccess().getTheKeyword_2_3()), new TokenAlias(false, false, grammarAccess.getDeleteStatementAccess().getTableKeyword_2_4())), new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getDeleteStatementAccess().getEmptyKeyword_1_0()), new TokenAlias(false, false, grammarAccess.getDeleteStatementAccess().getTheKeyword_1_1()), new TokenAlias(false, false, grammarAccess.getDeleteStatementAccess().getTableKeyword_1_2())));
 	}
 	
 	@Override
@@ -48,10 +46,8 @@ public class NlToSqlSyntacticSequencer extends AbstractSyntacticSequencer {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
 			if (match_Comparison___AKeyword_0_1_or_TheKeyword_0_0__q.equals(syntax))
 				emit_Comparison___AKeyword_0_1_or_TheKeyword_0_0__q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_DeleteStatement_InsertStatement_UpdateStatement___DeleteKeyword_0_0_TheKeyword_0_1_TableKeyword_0_2___or___DeleteKeyword_2_0_RecordsKeyword_2_1_FromKeyword_2_2_TheKeyword_2_3_TableKeyword_2_4___or___EmptyKeyword_1_0_TheKeyword_1_1_TableKeyword_1_2___or___InsertKeyword_0_IntoKeyword_1_TheKeyword_2_TableKeyword_3___or___UpdateKeyword_0_TheKeyword_1_TableKeyword_2__.equals(syntax))
-				emit_DeleteStatement_InsertStatement_UpdateStatement___DeleteKeyword_0_0_TheKeyword_0_1_TableKeyword_0_2___or___DeleteKeyword_2_0_RecordsKeyword_2_1_FromKeyword_2_2_TheKeyword_2_3_TableKeyword_2_4___or___EmptyKeyword_1_0_TheKeyword_1_1_TableKeyword_1_2___or___InsertKeyword_0_IntoKeyword_1_TheKeyword_2_TableKeyword_3___or___UpdateKeyword_0_TheKeyword_1_TableKeyword_2__(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_DeleteStatement___DeleteKeyword_0_0_TheKeyword_0_1_TableKeyword_0_2___or___DeleteKeyword_2_0_RecordsKeyword_2_1_FromKeyword_2_2_TheKeyword_2_3_TableKeyword_2_4___or___EmptyKeyword_1_0_TheKeyword_1_1_TableKeyword_1_2__.equals(syntax))
-				emit_DeleteStatement___DeleteKeyword_0_0_TheKeyword_0_1_TableKeyword_0_2___or___DeleteKeyword_2_0_RecordsKeyword_2_1_FromKeyword_2_2_TheKeyword_2_3_TableKeyword_2_4___or___EmptyKeyword_1_0_TheKeyword_1_1_TableKeyword_1_2__(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_DeleteStatement___DeleteKeyword_2_0_RecordsKeyword_2_1_FromKeyword_2_2_TheKeyword_2_3_TableKeyword_2_4___or___EmptyKeyword_1_0_TheKeyword_1_1_TableKeyword_1_2__.equals(syntax))
+				emit_DeleteStatement___DeleteKeyword_2_0_RecordsKeyword_2_1_FromKeyword_2_2_TheKeyword_2_3_TableKeyword_2_4___or___EmptyKeyword_1_0_TheKeyword_1_1_TableKeyword_1_2__(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
@@ -69,29 +65,12 @@ public class NlToSqlSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Ambiguous syntax:
-	 *     (
-	  *         ('Insert' 'into' 'the' 'table') | 
-	  *         ('Update' 'the' 'table') | 
-	  *         ('Delete' 'the' 'table') | 
-	  *         ('Empty' 'the' 'table') | 
-	  *         ('Delete' 'records' 'from' 'the' 'table')
-	  *     )
+	 *     ('Empty' 'the' 'table') | ('Delete' 'records' 'from' 'the' 'table')
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     (rule start) (ambiguity) table=[Table|ID]
 	 */
-	protected void emit_DeleteStatement_InsertStatement_UpdateStatement___DeleteKeyword_0_0_TheKeyword_0_1_TableKeyword_0_2___or___DeleteKeyword_2_0_RecordsKeyword_2_1_FromKeyword_2_2_TheKeyword_2_3_TableKeyword_2_4___or___EmptyKeyword_1_0_TheKeyword_1_1_TableKeyword_1_2___or___InsertKeyword_0_IntoKeyword_1_TheKeyword_2_TableKeyword_3___or___UpdateKeyword_0_TheKeyword_1_TableKeyword_2__(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     ('Delete' 'the' 'table') | ('Empty' 'the' 'table') | ('Delete' 'records' 'from' 'the' 'table')
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     (rule start) (ambiguity) table=[Table|ID]
-	 */
-	protected void emit_DeleteStatement___DeleteKeyword_0_0_TheKeyword_0_1_TableKeyword_0_2___or___DeleteKeyword_2_0_RecordsKeyword_2_1_FromKeyword_2_2_TheKeyword_2_3_TableKeyword_2_4___or___EmptyKeyword_1_0_TheKeyword_1_1_TableKeyword_1_2__(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_DeleteStatement___DeleteKeyword_2_0_RecordsKeyword_2_1_FromKeyword_2_2_TheKeyword_2_3_TableKeyword_2_4___or___EmptyKeyword_1_0_TheKeyword_1_1_TableKeyword_1_2__(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

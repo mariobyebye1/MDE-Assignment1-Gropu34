@@ -227,13 +227,22 @@ public interface NlToSqlPackage extends EPackage
   int COLUMN__TYPE = 1;
 
   /**
+   * The feature id for the '<em><b>Table</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COLUMN__TABLE = 2;
+
+  /**
    * The number of structural features of the '<em>Column</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int COLUMN_FEATURE_COUNT = 2;
+  int COLUMN_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link uk.ac.kcl.inf.nlToSql.impl.SelectStatementImpl <em>Select Statement</em>}' class.
@@ -246,13 +255,49 @@ public interface NlToSqlPackage extends EPackage
   int SELECT_STATEMENT = 6;
 
   /**
+   * The feature id for the '<em><b>Tables</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SELECT_STATEMENT__TABLES = STATEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Columns</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SELECT_STATEMENT__COLUMNS = STATEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Condition</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SELECT_STATEMENT__CONDITION = STATEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The feature id for the '<em><b>Group</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SELECT_STATEMENT__GROUP = STATEMENT_FEATURE_COUNT + 3;
+
+  /**
    * The number of structural features of the '<em>Select Statement</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SELECT_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 0;
+  int SELECT_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 4;
 
   /**
    * The meta object id for the '{@link uk.ac.kcl.inf.nlToSql.impl.InsertStatementImpl <em>Insert Statement</em>}' class.
@@ -265,13 +310,40 @@ public interface NlToSqlPackage extends EPackage
   int INSERT_STATEMENT = 7;
 
   /**
+   * The feature id for the '<em><b>Table</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INSERT_STATEMENT__TABLE = STATEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Columns</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INSERT_STATEMENT__COLUMNS = STATEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Values</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INSERT_STATEMENT__VALUES = STATEMENT_FEATURE_COUNT + 2;
+
+  /**
    * The number of structural features of the '<em>Insert Statement</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int INSERT_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 0;
+  int INSERT_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link uk.ac.kcl.inf.nlToSql.impl.UpdateStatementImpl <em>Update Statement</em>}' class.
@@ -284,13 +356,40 @@ public interface NlToSqlPackage extends EPackage
   int UPDATE_STATEMENT = 8;
 
   /**
+   * The feature id for the '<em><b>Table</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UPDATE_STATEMENT__TABLE = STATEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Updates</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UPDATE_STATEMENT__UPDATES = STATEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Condition</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UPDATE_STATEMENT__CONDITION = STATEMENT_FEATURE_COUNT + 2;
+
+  /**
    * The number of structural features of the '<em>Update Statement</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int UPDATE_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 0;
+  int UPDATE_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link uk.ac.kcl.inf.nlToSql.impl.DeleteStatementImpl <em>Delete Statement</em>}' class.
@@ -303,13 +402,22 @@ public interface NlToSqlPackage extends EPackage
   int DELETE_STATEMENT = 9;
 
   /**
+   * The feature id for the '<em><b>Tables</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DELETE_STATEMENT__TABLES = STATEMENT_FEATURE_COUNT + 0;
+
+  /**
    * The number of structural features of the '<em>Delete Statement</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DELETE_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 0;
+  int DELETE_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link uk.ac.kcl.inf.nlToSql.impl.SelectUpdateListImpl <em>Select Update List</em>}' class.
@@ -415,40 +523,13 @@ public interface NlToSqlPackage extends EPackage
   int SELECT_TABLES_LIST = 13;
 
   /**
-   * The feature id for the '<em><b>Columns</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SELECT_TABLES_LIST__COLUMNS = SELECT_STATEMENT_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Condition</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SELECT_TABLES_LIST__CONDITION = SELECT_STATEMENT_FEATURE_COUNT + 1;
-
-  /**
-   * The feature id for the '<em><b>Group</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SELECT_TABLES_LIST__GROUP = SELECT_STATEMENT_FEATURE_COUNT + 2;
-
-  /**
    * The feature id for the '<em><b>Select Table</b></em>' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SELECT_TABLES_LIST__SELECT_TABLE = SELECT_STATEMENT_FEATURE_COUNT + 3;
+  int SELECT_TABLES_LIST__SELECT_TABLE = 0;
 
   /**
    * The number of structural features of the '<em>Select Tables List</em>' class.
@@ -457,7 +538,7 @@ public interface NlToSqlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SELECT_TABLES_LIST_FEATURE_COUNT = SELECT_STATEMENT_FEATURE_COUNT + 4;
+  int SELECT_TABLES_LIST_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link uk.ac.kcl.inf.nlToSql.impl.SelectTableImpl <em>Select Table</em>}' class.
@@ -470,31 +551,13 @@ public interface NlToSqlPackage extends EPackage
   int SELECT_TABLE = 14;
 
   /**
-   * The feature id for the '<em><b>Columns</b></em>' containment reference.
+   * The feature id for the '<em><b>Tables</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SELECT_TABLE__COLUMNS = INSERT_STATEMENT_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Values</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SELECT_TABLE__VALUES = INSERT_STATEMENT_FEATURE_COUNT + 1;
-
-  /**
-   * The feature id for the '<em><b>Updates</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SELECT_TABLE__UPDATES = INSERT_STATEMENT_FEATURE_COUNT + 2;
+  int SELECT_TABLE__TABLES = DELETE_STATEMENT__TABLES;
 
   /**
    * The feature id for the '<em><b>Condition</b></em>' containment reference.
@@ -503,7 +566,7 @@ public interface NlToSqlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SELECT_TABLE__CONDITION = INSERT_STATEMENT_FEATURE_COUNT + 3;
+  int SELECT_TABLE__CONDITION = DELETE_STATEMENT_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Table</b></em>' reference.
@@ -512,7 +575,7 @@ public interface NlToSqlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SELECT_TABLE__TABLE = INSERT_STATEMENT_FEATURE_COUNT + 4;
+  int SELECT_TABLE__TABLE = DELETE_STATEMENT_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Select Table</em>' class.
@@ -521,7 +584,7 @@ public interface NlToSqlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SELECT_TABLE_FEATURE_COUNT = INSERT_STATEMENT_FEATURE_COUNT + 5;
+  int SELECT_TABLE_FEATURE_COUNT = DELETE_STATEMENT_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link uk.ac.kcl.inf.nlToSql.impl.SelectColumnsListImpl <em>Select Columns List</em>}' class.
@@ -866,6 +929,17 @@ public interface NlToSqlPackage extends EPackage
   EAttribute getColumn_Type();
 
   /**
+   * Returns the meta object for the reference '{@link uk.ac.kcl.inf.nlToSql.Column#getTable <em>Table</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Table</em>'.
+   * @see uk.ac.kcl.inf.nlToSql.Column#getTable()
+   * @see #getColumn()
+   * @generated
+   */
+  EReference getColumn_Table();
+
+  /**
    * Returns the meta object for class '{@link uk.ac.kcl.inf.nlToSql.SelectStatement <em>Select Statement</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -874,6 +948,50 @@ public interface NlToSqlPackage extends EPackage
    * @generated
    */
   EClass getSelectStatement();
+
+  /**
+   * Returns the meta object for the containment reference '{@link uk.ac.kcl.inf.nlToSql.SelectStatement#getTables <em>Tables</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Tables</em>'.
+   * @see uk.ac.kcl.inf.nlToSql.SelectStatement#getTables()
+   * @see #getSelectStatement()
+   * @generated
+   */
+  EReference getSelectStatement_Tables();
+
+  /**
+   * Returns the meta object for the containment reference '{@link uk.ac.kcl.inf.nlToSql.SelectStatement#getColumns <em>Columns</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Columns</em>'.
+   * @see uk.ac.kcl.inf.nlToSql.SelectStatement#getColumns()
+   * @see #getSelectStatement()
+   * @generated
+   */
+  EReference getSelectStatement_Columns();
+
+  /**
+   * Returns the meta object for the containment reference '{@link uk.ac.kcl.inf.nlToSql.SelectStatement#getCondition <em>Condition</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Condition</em>'.
+   * @see uk.ac.kcl.inf.nlToSql.SelectStatement#getCondition()
+   * @see #getSelectStatement()
+   * @generated
+   */
+  EReference getSelectStatement_Condition();
+
+  /**
+   * Returns the meta object for the containment reference '{@link uk.ac.kcl.inf.nlToSql.SelectStatement#getGroup <em>Group</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Group</em>'.
+   * @see uk.ac.kcl.inf.nlToSql.SelectStatement#getGroup()
+   * @see #getSelectStatement()
+   * @generated
+   */
+  EReference getSelectStatement_Group();
 
   /**
    * Returns the meta object for class '{@link uk.ac.kcl.inf.nlToSql.InsertStatement <em>Insert Statement</em>}'.
@@ -886,6 +1004,39 @@ public interface NlToSqlPackage extends EPackage
   EClass getInsertStatement();
 
   /**
+   * Returns the meta object for the containment reference '{@link uk.ac.kcl.inf.nlToSql.InsertStatement#getTable <em>Table</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Table</em>'.
+   * @see uk.ac.kcl.inf.nlToSql.InsertStatement#getTable()
+   * @see #getInsertStatement()
+   * @generated
+   */
+  EReference getInsertStatement_Table();
+
+  /**
+   * Returns the meta object for the containment reference '{@link uk.ac.kcl.inf.nlToSql.InsertStatement#getColumns <em>Columns</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Columns</em>'.
+   * @see uk.ac.kcl.inf.nlToSql.InsertStatement#getColumns()
+   * @see #getInsertStatement()
+   * @generated
+   */
+  EReference getInsertStatement_Columns();
+
+  /**
+   * Returns the meta object for the containment reference '{@link uk.ac.kcl.inf.nlToSql.InsertStatement#getValues <em>Values</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Values</em>'.
+   * @see uk.ac.kcl.inf.nlToSql.InsertStatement#getValues()
+   * @see #getInsertStatement()
+   * @generated
+   */
+  EReference getInsertStatement_Values();
+
+  /**
    * Returns the meta object for class '{@link uk.ac.kcl.inf.nlToSql.UpdateStatement <em>Update Statement</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -896,6 +1047,39 @@ public interface NlToSqlPackage extends EPackage
   EClass getUpdateStatement();
 
   /**
+   * Returns the meta object for the containment reference '{@link uk.ac.kcl.inf.nlToSql.UpdateStatement#getTable <em>Table</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Table</em>'.
+   * @see uk.ac.kcl.inf.nlToSql.UpdateStatement#getTable()
+   * @see #getUpdateStatement()
+   * @generated
+   */
+  EReference getUpdateStatement_Table();
+
+  /**
+   * Returns the meta object for the containment reference '{@link uk.ac.kcl.inf.nlToSql.UpdateStatement#getUpdates <em>Updates</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Updates</em>'.
+   * @see uk.ac.kcl.inf.nlToSql.UpdateStatement#getUpdates()
+   * @see #getUpdateStatement()
+   * @generated
+   */
+  EReference getUpdateStatement_Updates();
+
+  /**
+   * Returns the meta object for the containment reference '{@link uk.ac.kcl.inf.nlToSql.UpdateStatement#getCondition <em>Condition</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Condition</em>'.
+   * @see uk.ac.kcl.inf.nlToSql.UpdateStatement#getCondition()
+   * @see #getUpdateStatement()
+   * @generated
+   */
+  EReference getUpdateStatement_Condition();
+
+  /**
    * Returns the meta object for class '{@link uk.ac.kcl.inf.nlToSql.DeleteStatement <em>Delete Statement</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -904,6 +1088,17 @@ public interface NlToSqlPackage extends EPackage
    * @generated
    */
   EClass getDeleteStatement();
+
+  /**
+   * Returns the meta object for the containment reference '{@link uk.ac.kcl.inf.nlToSql.DeleteStatement#getTables <em>Tables</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Tables</em>'.
+   * @see uk.ac.kcl.inf.nlToSql.DeleteStatement#getTables()
+   * @see #getDeleteStatement()
+   * @generated
+   */
+  EReference getDeleteStatement_Tables();
 
   /**
    * Returns the meta object for class '{@link uk.ac.kcl.inf.nlToSql.SelectUpdateList <em>Select Update List</em>}'.
@@ -990,39 +1185,6 @@ public interface NlToSqlPackage extends EPackage
   EClass getSelectTablesList();
 
   /**
-   * Returns the meta object for the containment reference '{@link uk.ac.kcl.inf.nlToSql.SelectTablesList#getColumns <em>Columns</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Columns</em>'.
-   * @see uk.ac.kcl.inf.nlToSql.SelectTablesList#getColumns()
-   * @see #getSelectTablesList()
-   * @generated
-   */
-  EReference getSelectTablesList_Columns();
-
-  /**
-   * Returns the meta object for the containment reference '{@link uk.ac.kcl.inf.nlToSql.SelectTablesList#getCondition <em>Condition</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Condition</em>'.
-   * @see uk.ac.kcl.inf.nlToSql.SelectTablesList#getCondition()
-   * @see #getSelectTablesList()
-   * @generated
-   */
-  EReference getSelectTablesList_Condition();
-
-  /**
-   * Returns the meta object for the containment reference '{@link uk.ac.kcl.inf.nlToSql.SelectTablesList#getGroup <em>Group</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Group</em>'.
-   * @see uk.ac.kcl.inf.nlToSql.SelectTablesList#getGroup()
-   * @see #getSelectTablesList()
-   * @generated
-   */
-  EReference getSelectTablesList_Group();
-
-  /**
    * Returns the meta object for the reference list '{@link uk.ac.kcl.inf.nlToSql.SelectTablesList#getSelectTable <em>Select Table</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1042,39 +1204,6 @@ public interface NlToSqlPackage extends EPackage
    * @generated
    */
   EClass getSelectTable();
-
-  /**
-   * Returns the meta object for the containment reference '{@link uk.ac.kcl.inf.nlToSql.SelectTable#getColumns <em>Columns</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Columns</em>'.
-   * @see uk.ac.kcl.inf.nlToSql.SelectTable#getColumns()
-   * @see #getSelectTable()
-   * @generated
-   */
-  EReference getSelectTable_Columns();
-
-  /**
-   * Returns the meta object for the containment reference '{@link uk.ac.kcl.inf.nlToSql.SelectTable#getValues <em>Values</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Values</em>'.
-   * @see uk.ac.kcl.inf.nlToSql.SelectTable#getValues()
-   * @see #getSelectTable()
-   * @generated
-   */
-  EReference getSelectTable_Values();
-
-  /**
-   * Returns the meta object for the containment reference '{@link uk.ac.kcl.inf.nlToSql.SelectTable#getUpdates <em>Updates</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Updates</em>'.
-   * @see uk.ac.kcl.inf.nlToSql.SelectTable#getUpdates()
-   * @see #getSelectTable()
-   * @generated
-   */
-  EReference getSelectTable_Updates();
 
   /**
    * Returns the meta object for the containment reference '{@link uk.ac.kcl.inf.nlToSql.SelectTable#getCondition <em>Condition</em>}'.
@@ -1397,6 +1526,14 @@ public interface NlToSqlPackage extends EPackage
     EAttribute COLUMN__TYPE = eINSTANCE.getColumn_Type();
 
     /**
+     * The meta object literal for the '<em><b>Table</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference COLUMN__TABLE = eINSTANCE.getColumn_Table();
+
+    /**
      * The meta object literal for the '{@link uk.ac.kcl.inf.nlToSql.impl.SelectStatementImpl <em>Select Statement</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1405,6 +1542,38 @@ public interface NlToSqlPackage extends EPackage
      * @generated
      */
     EClass SELECT_STATEMENT = eINSTANCE.getSelectStatement();
+
+    /**
+     * The meta object literal for the '<em><b>Tables</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SELECT_STATEMENT__TABLES = eINSTANCE.getSelectStatement_Tables();
+
+    /**
+     * The meta object literal for the '<em><b>Columns</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SELECT_STATEMENT__COLUMNS = eINSTANCE.getSelectStatement_Columns();
+
+    /**
+     * The meta object literal for the '<em><b>Condition</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SELECT_STATEMENT__CONDITION = eINSTANCE.getSelectStatement_Condition();
+
+    /**
+     * The meta object literal for the '<em><b>Group</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SELECT_STATEMENT__GROUP = eINSTANCE.getSelectStatement_Group();
 
     /**
      * The meta object literal for the '{@link uk.ac.kcl.inf.nlToSql.impl.InsertStatementImpl <em>Insert Statement</em>}' class.
@@ -1417,6 +1586,30 @@ public interface NlToSqlPackage extends EPackage
     EClass INSERT_STATEMENT = eINSTANCE.getInsertStatement();
 
     /**
+     * The meta object literal for the '<em><b>Table</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference INSERT_STATEMENT__TABLE = eINSTANCE.getInsertStatement_Table();
+
+    /**
+     * The meta object literal for the '<em><b>Columns</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference INSERT_STATEMENT__COLUMNS = eINSTANCE.getInsertStatement_Columns();
+
+    /**
+     * The meta object literal for the '<em><b>Values</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference INSERT_STATEMENT__VALUES = eINSTANCE.getInsertStatement_Values();
+
+    /**
      * The meta object literal for the '{@link uk.ac.kcl.inf.nlToSql.impl.UpdateStatementImpl <em>Update Statement</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1427,6 +1620,30 @@ public interface NlToSqlPackage extends EPackage
     EClass UPDATE_STATEMENT = eINSTANCE.getUpdateStatement();
 
     /**
+     * The meta object literal for the '<em><b>Table</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference UPDATE_STATEMENT__TABLE = eINSTANCE.getUpdateStatement_Table();
+
+    /**
+     * The meta object literal for the '<em><b>Updates</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference UPDATE_STATEMENT__UPDATES = eINSTANCE.getUpdateStatement_Updates();
+
+    /**
+     * The meta object literal for the '<em><b>Condition</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference UPDATE_STATEMENT__CONDITION = eINSTANCE.getUpdateStatement_Condition();
+
+    /**
      * The meta object literal for the '{@link uk.ac.kcl.inf.nlToSql.impl.DeleteStatementImpl <em>Delete Statement</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1435,6 +1652,14 @@ public interface NlToSqlPackage extends EPackage
      * @generated
      */
     EClass DELETE_STATEMENT = eINSTANCE.getDeleteStatement();
+
+    /**
+     * The meta object literal for the '<em><b>Tables</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DELETE_STATEMENT__TABLES = eINSTANCE.getDeleteStatement_Tables();
 
     /**
      * The meta object literal for the '{@link uk.ac.kcl.inf.nlToSql.impl.SelectUpdateListImpl <em>Select Update List</em>}' class.
@@ -1509,30 +1734,6 @@ public interface NlToSqlPackage extends EPackage
     EClass SELECT_TABLES_LIST = eINSTANCE.getSelectTablesList();
 
     /**
-     * The meta object literal for the '<em><b>Columns</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference SELECT_TABLES_LIST__COLUMNS = eINSTANCE.getSelectTablesList_Columns();
-
-    /**
-     * The meta object literal for the '<em><b>Condition</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference SELECT_TABLES_LIST__CONDITION = eINSTANCE.getSelectTablesList_Condition();
-
-    /**
-     * The meta object literal for the '<em><b>Group</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference SELECT_TABLES_LIST__GROUP = eINSTANCE.getSelectTablesList_Group();
-
-    /**
      * The meta object literal for the '<em><b>Select Table</b></em>' reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1549,30 +1750,6 @@ public interface NlToSqlPackage extends EPackage
      * @generated
      */
     EClass SELECT_TABLE = eINSTANCE.getSelectTable();
-
-    /**
-     * The meta object literal for the '<em><b>Columns</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference SELECT_TABLE__COLUMNS = eINSTANCE.getSelectTable_Columns();
-
-    /**
-     * The meta object literal for the '<em><b>Values</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference SELECT_TABLE__VALUES = eINSTANCE.getSelectTable_Values();
-
-    /**
-     * The meta object literal for the '<em><b>Updates</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference SELECT_TABLE__UPDATES = eINSTANCE.getSelectTable_Updates();
 
     /**
      * The meta object literal for the '<em><b>Condition</b></em>' containment reference feature.

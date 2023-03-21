@@ -9,6 +9,12 @@ package uk.ac.kcl.inf.nlToSql;
  * A representation of the model object '<em><b>Delete Statement</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link uk.ac.kcl.inf.nlToSql.DeleteStatement#getTables <em>Tables</em>}</li>
+ * </ul>
  *
  * @see uk.ac.kcl.inf.nlToSql.NlToSqlPackage#getDeleteStatement()
  * @model
@@ -16,4 +22,26 @@ package uk.ac.kcl.inf.nlToSql;
  */
 public interface DeleteStatement extends Statement
 {
+  /**
+   * Returns the value of the '<em><b>Tables</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Tables</em>' containment reference.
+   * @see #setTables(SelectTablesList)
+   * @see uk.ac.kcl.inf.nlToSql.NlToSqlPackage#getDeleteStatement_Tables()
+   * @model containment="true"
+   * @generated
+   */
+  SelectTablesList getTables();
+
+  /**
+   * Sets the value of the '{@link uk.ac.kcl.inf.nlToSql.DeleteStatement#getTables <em>Tables</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Tables</em>' containment reference.
+   * @see #getTables()
+   * @generated
+   */
+  void setTables(SelectTablesList value);
+
 } // DeleteStatement
