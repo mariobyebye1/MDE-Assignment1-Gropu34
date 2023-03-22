@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'.'", "'Create'", "'table'", "'called'", "'with'", "'columns'", "','", "'of'", "'type'", "'From'", "'the'", "'show'", "'columns:'", "'all'", "'where'", "'group'", "'them'", "'by'", "'Insert'", "'into'", "'for'", "'insert'", "'values'", "'('", "')'", "'Update'", "'to'", "'set'", "'Delete'", "'Empty'", "'records'", "'from'", "'='", "'in'", "'a'", "'is'", "'equal'", "'not'", "'less'", "'than'", "'greater'", "'or'", "'<='", "'>='", "'>'", "'<'", "'integer'", "'string'", "'date'", "'and'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'.'", "'Create'", "'table'", "'called'", "'with'", "'columns'", "','", "'of'", "'type'", "'From'", "'the'", "'show'", "'columns:'", "'all'", "'where'", "'group'", "'them'", "'by'", "'Insert'", "'into'", "'for'", "'insert'", "'values'", "'('", "')'", "'Update'", "'to'", "'set'", "'Delete'", "'Empty'", "'records'", "'from'", "'='", "'in'", "'and'", "'or'", "'a'", "'integer'", "'string'", "'date'", "'is equal to'", "'is not equal to'", "'less than'", "'greater than'", "'less than or equal to'", "'greater than or equal to'", "'<>'", "'<'", "'>'", "'<='", "'>='"
     };
     public static final int T__50=50;
     public static final int T__19=19;
@@ -44,6 +44,7 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
     public static final int T__53=53;
     public static final int T__54=54;
     public static final int T__60=60;
+    public static final int T__61=61;
     public static final int RULE_ID=4;
     public static final int T__26=26;
     public static final int T__27=27;
@@ -3243,7 +3244,7 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
 
         EObject this_Comparison_0 = null;
 
-        Enumerator lv_logicOperator_2_0 = null;
+        AntlrDatatypeRuleToken lv_logicOperator_2_0 = null;
 
         EObject lv_right_3_0 = null;
 
@@ -3276,7 +3277,7 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
                 int alt16=2;
                 int LA16_0 = input.LA(1);
 
-                if ( (LA16_0==52||LA16_0==60) ) {
+                if ( ((LA16_0>=45 && LA16_0<=46)) ) {
                     alt16=1;
                 }
 
@@ -3290,7 +3291,7 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
             	    {
 
             	    					current = forceCreateModelElementAndSet(
-            	    						grammarAccess.getConditionAccess().getComparisonLeftAction_1_0(),
+            	    						grammarAccess.getConditionAccess().getConditionLeftAction_1_0(),
             	    						current);
             	    				
 
@@ -3303,7 +3304,7 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
             	    // InternalNlToSql.g:1348:6: lv_logicOperator_2_0= ruleLogicOperator
             	    {
 
-            	    						newCompositeNode(grammarAccess.getConditionAccess().getLogicOperatorLogicOperatorEnumRuleCall_1_1_0());
+            	    						newCompositeNode(grammarAccess.getConditionAccess().getLogicOperatorLogicOperatorParserRuleCall_1_1_0());
             	    					
             	    pushFollow(FOLLOW_20);
             	    lv_logicOperator_2_0=ruleLogicOperator();
@@ -3314,7 +3315,7 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
             	    						if (current==null) {
             	    							current = createModelElementForParent(grammarAccess.getConditionRule());
             	    						}
-            	    						set(
+            	    						add(
             	    							current,
             	    							"logicOperator",
             	    							lv_logicOperator_2_0,
@@ -3389,8 +3390,119 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleCondition"
 
 
+    // $ANTLR start "entryRuleLogicOperator"
+    // InternalNlToSql.g:1389:1: entryRuleLogicOperator returns [String current=null] : iv_ruleLogicOperator= ruleLogicOperator EOF ;
+    public final String entryRuleLogicOperator() throws RecognitionException {
+        String current = null;
+
+        AntlrDatatypeRuleToken iv_ruleLogicOperator = null;
+
+
+        try {
+            // InternalNlToSql.g:1389:53: (iv_ruleLogicOperator= ruleLogicOperator EOF )
+            // InternalNlToSql.g:1390:2: iv_ruleLogicOperator= ruleLogicOperator EOF
+            {
+             newCompositeNode(grammarAccess.getLogicOperatorRule()); 
+            pushFollow(FOLLOW_1);
+            iv_ruleLogicOperator=ruleLogicOperator();
+
+            state._fsp--;
+
+             current =iv_ruleLogicOperator.getText(); 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleLogicOperator"
+
+
+    // $ANTLR start "ruleLogicOperator"
+    // InternalNlToSql.g:1396:1: ruleLogicOperator returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= 'and' | kw= 'or' ) ;
+    public final AntlrDatatypeRuleToken ruleLogicOperator() throws RecognitionException {
+        AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
+
+        Token kw=null;
+
+
+        	enterRule();
+
+        try {
+            // InternalNlToSql.g:1402:2: ( (kw= 'and' | kw= 'or' ) )
+            // InternalNlToSql.g:1403:2: (kw= 'and' | kw= 'or' )
+            {
+            // InternalNlToSql.g:1403:2: (kw= 'and' | kw= 'or' )
+            int alt17=2;
+            int LA17_0 = input.LA(1);
+
+            if ( (LA17_0==45) ) {
+                alt17=1;
+            }
+            else if ( (LA17_0==46) ) {
+                alt17=2;
+            }
+            else {
+                NoViableAltException nvae =
+                    new NoViableAltException("", 17, 0, input);
+
+                throw nvae;
+            }
+            switch (alt17) {
+                case 1 :
+                    // InternalNlToSql.g:1404:3: kw= 'and'
+                    {
+                    kw=(Token)match(input,45,FOLLOW_2); 
+
+                    			current.merge(kw);
+                    			newLeafNode(kw, grammarAccess.getLogicOperatorAccess().getAndKeyword_0());
+                    		
+
+                    }
+                    break;
+                case 2 :
+                    // InternalNlToSql.g:1410:3: kw= 'or'
+                    {
+                    kw=(Token)match(input,46,FOLLOW_2); 
+
+                    			current.merge(kw);
+                    			newLeafNode(kw, grammarAccess.getLogicOperatorAccess().getOrKeyword_1());
+                    		
+
+                    }
+                    break;
+
+            }
+
+
+            }
+
+
+            	leaveRule();
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleLogicOperator"
+
+
     // $ANTLR start "entryRuleComparison"
-    // InternalNlToSql.g:1389:1: entryRuleComparison returns [EObject current=null] : iv_ruleComparison= ruleComparison EOF ;
+    // InternalNlToSql.g:1419:1: entryRuleComparison returns [EObject current=null] : iv_ruleComparison= ruleComparison EOF ;
     public final EObject entryRuleComparison() throws RecognitionException {
         EObject current = null;
 
@@ -3398,8 +3510,8 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalNlToSql.g:1389:51: (iv_ruleComparison= ruleComparison EOF )
-            // InternalNlToSql.g:1390:2: iv_ruleComparison= ruleComparison EOF
+            // InternalNlToSql.g:1419:51: (iv_ruleComparison= ruleComparison EOF )
+            // InternalNlToSql.g:1420:2: iv_ruleComparison= ruleComparison EOF
             {
              newCompositeNode(grammarAccess.getComparisonRule()); 
             pushFollow(FOLLOW_1);
@@ -3426,14 +3538,14 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleComparison"
-    // InternalNlToSql.g:1396:1: ruleComparison returns [EObject current=null] : ( (otherlv_0= 'the' | otherlv_1= 'a' )? ( (otherlv_2= RULE_ID ) ) ( (lv_operator_3_0= ruleComparisonOperator ) ) ( (lv_rightHandSide_4_0= ruleValue ) ) ) ;
+    // InternalNlToSql.g:1426:1: ruleComparison returns [EObject current=null] : ( (otherlv_0= 'the' | otherlv_1= 'a' )? ( (otherlv_2= RULE_ID ) ) ( (lv_operator_3_0= ruleComparisonOperatorString ) ) ( (lv_rightHandSide_4_0= ruleValue ) ) ) ;
     public final EObject ruleComparison() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_0=null;
         Token otherlv_1=null;
         Token otherlv_2=null;
-        AntlrDatatypeRuleToken lv_operator_3_0 = null;
+        Enumerator lv_operator_3_0 = null;
 
         AntlrDatatypeRuleToken lv_rightHandSide_4_0 = null;
 
@@ -3442,25 +3554,25 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalNlToSql.g:1402:2: ( ( (otherlv_0= 'the' | otherlv_1= 'a' )? ( (otherlv_2= RULE_ID ) ) ( (lv_operator_3_0= ruleComparisonOperator ) ) ( (lv_rightHandSide_4_0= ruleValue ) ) ) )
-            // InternalNlToSql.g:1403:2: ( (otherlv_0= 'the' | otherlv_1= 'a' )? ( (otherlv_2= RULE_ID ) ) ( (lv_operator_3_0= ruleComparisonOperator ) ) ( (lv_rightHandSide_4_0= ruleValue ) ) )
+            // InternalNlToSql.g:1432:2: ( ( (otherlv_0= 'the' | otherlv_1= 'a' )? ( (otherlv_2= RULE_ID ) ) ( (lv_operator_3_0= ruleComparisonOperatorString ) ) ( (lv_rightHandSide_4_0= ruleValue ) ) ) )
+            // InternalNlToSql.g:1433:2: ( (otherlv_0= 'the' | otherlv_1= 'a' )? ( (otherlv_2= RULE_ID ) ) ( (lv_operator_3_0= ruleComparisonOperatorString ) ) ( (lv_rightHandSide_4_0= ruleValue ) ) )
             {
-            // InternalNlToSql.g:1403:2: ( (otherlv_0= 'the' | otherlv_1= 'a' )? ( (otherlv_2= RULE_ID ) ) ( (lv_operator_3_0= ruleComparisonOperator ) ) ( (lv_rightHandSide_4_0= ruleValue ) ) )
-            // InternalNlToSql.g:1404:3: (otherlv_0= 'the' | otherlv_1= 'a' )? ( (otherlv_2= RULE_ID ) ) ( (lv_operator_3_0= ruleComparisonOperator ) ) ( (lv_rightHandSide_4_0= ruleValue ) )
+            // InternalNlToSql.g:1433:2: ( (otherlv_0= 'the' | otherlv_1= 'a' )? ( (otherlv_2= RULE_ID ) ) ( (lv_operator_3_0= ruleComparisonOperatorString ) ) ( (lv_rightHandSide_4_0= ruleValue ) ) )
+            // InternalNlToSql.g:1434:3: (otherlv_0= 'the' | otherlv_1= 'a' )? ( (otherlv_2= RULE_ID ) ) ( (lv_operator_3_0= ruleComparisonOperatorString ) ) ( (lv_rightHandSide_4_0= ruleValue ) )
             {
-            // InternalNlToSql.g:1404:3: (otherlv_0= 'the' | otherlv_1= 'a' )?
-            int alt17=3;
-            int LA17_0 = input.LA(1);
+            // InternalNlToSql.g:1434:3: (otherlv_0= 'the' | otherlv_1= 'a' )?
+            int alt18=3;
+            int LA18_0 = input.LA(1);
 
-            if ( (LA17_0==21) ) {
-                alt17=1;
+            if ( (LA18_0==21) ) {
+                alt18=1;
             }
-            else if ( (LA17_0==45) ) {
-                alt17=2;
+            else if ( (LA18_0==47) ) {
+                alt18=2;
             }
-            switch (alt17) {
+            switch (alt18) {
                 case 1 :
-                    // InternalNlToSql.g:1405:4: otherlv_0= 'the'
+                    // InternalNlToSql.g:1435:4: otherlv_0= 'the'
                     {
                     otherlv_0=(Token)match(input,21,FOLLOW_7); 
 
@@ -3470,9 +3582,9 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalNlToSql.g:1410:4: otherlv_1= 'a'
+                    // InternalNlToSql.g:1440:4: otherlv_1= 'a'
                     {
-                    otherlv_1=(Token)match(input,45,FOLLOW_7); 
+                    otherlv_1=(Token)match(input,47,FOLLOW_7); 
 
                     				newLeafNode(otherlv_1, grammarAccess.getComparisonAccess().getAKeyword_0_1());
                     			
@@ -3482,11 +3594,11 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalNlToSql.g:1415:3: ( (otherlv_2= RULE_ID ) )
-            // InternalNlToSql.g:1416:4: (otherlv_2= RULE_ID )
+            // InternalNlToSql.g:1445:3: ( (otherlv_2= RULE_ID ) )
+            // InternalNlToSql.g:1446:4: (otherlv_2= RULE_ID )
             {
-            // InternalNlToSql.g:1416:4: (otherlv_2= RULE_ID )
-            // InternalNlToSql.g:1417:5: otherlv_2= RULE_ID
+            // InternalNlToSql.g:1446:4: (otherlv_2= RULE_ID )
+            // InternalNlToSql.g:1447:5: otherlv_2= RULE_ID
             {
 
             					if (current==null) {
@@ -3503,17 +3615,17 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalNlToSql.g:1428:3: ( (lv_operator_3_0= ruleComparisonOperator ) )
-            // InternalNlToSql.g:1429:4: (lv_operator_3_0= ruleComparisonOperator )
+            // InternalNlToSql.g:1458:3: ( (lv_operator_3_0= ruleComparisonOperatorString ) )
+            // InternalNlToSql.g:1459:4: (lv_operator_3_0= ruleComparisonOperatorString )
             {
-            // InternalNlToSql.g:1429:4: (lv_operator_3_0= ruleComparisonOperator )
-            // InternalNlToSql.g:1430:5: lv_operator_3_0= ruleComparisonOperator
+            // InternalNlToSql.g:1459:4: (lv_operator_3_0= ruleComparisonOperatorString )
+            // InternalNlToSql.g:1460:5: lv_operator_3_0= ruleComparisonOperatorString
             {
 
-            					newCompositeNode(grammarAccess.getComparisonAccess().getOperatorComparisonOperatorParserRuleCall_2_0());
+            					newCompositeNode(grammarAccess.getComparisonAccess().getOperatorComparisonOperatorStringEnumRuleCall_2_0());
             				
             pushFollow(FOLLOW_29);
-            lv_operator_3_0=ruleComparisonOperator();
+            lv_operator_3_0=ruleComparisonOperatorString();
 
             state._fsp--;
 
@@ -3525,7 +3637,7 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
             						current,
             						"operator",
             						lv_operator_3_0,
-            						"uk.ac.kcl.inf.NlToSql.ComparisonOperator");
+            						"uk.ac.kcl.inf.NlToSql.ComparisonOperatorString");
             					afterParserOrEnumRuleCall();
             				
 
@@ -3534,11 +3646,11 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalNlToSql.g:1447:3: ( (lv_rightHandSide_4_0= ruleValue ) )
-            // InternalNlToSql.g:1448:4: (lv_rightHandSide_4_0= ruleValue )
+            // InternalNlToSql.g:1477:3: ( (lv_rightHandSide_4_0= ruleValue ) )
+            // InternalNlToSql.g:1478:4: (lv_rightHandSide_4_0= ruleValue )
             {
-            // InternalNlToSql.g:1448:4: (lv_rightHandSide_4_0= ruleValue )
-            // InternalNlToSql.g:1449:5: lv_rightHandSide_4_0= ruleValue
+            // InternalNlToSql.g:1478:4: (lv_rightHandSide_4_0= ruleValue )
+            // InternalNlToSql.g:1479:5: lv_rightHandSide_4_0= ruleValue
             {
 
             					newCompositeNode(grammarAccess.getComparisonAccess().getRightHandSideValueParserRuleCall_3_0());
@@ -3587,556 +3699,8 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleComparison"
 
 
-    // $ANTLR start "entryRuleComparisonOperator"
-    // InternalNlToSql.g:1470:1: entryRuleComparisonOperator returns [String current=null] : iv_ruleComparisonOperator= ruleComparisonOperator EOF ;
-    public final String entryRuleComparisonOperator() throws RecognitionException {
-        String current = null;
-
-        AntlrDatatypeRuleToken iv_ruleComparisonOperator = null;
-
-
-        try {
-            // InternalNlToSql.g:1470:58: (iv_ruleComparisonOperator= ruleComparisonOperator EOF )
-            // InternalNlToSql.g:1471:2: iv_ruleComparisonOperator= ruleComparisonOperator EOF
-            {
-             newCompositeNode(grammarAccess.getComparisonOperatorRule()); 
-            pushFollow(FOLLOW_1);
-            iv_ruleComparisonOperator=ruleComparisonOperator();
-
-            state._fsp--;
-
-             current =iv_ruleComparisonOperator.getText(); 
-            match(input,EOF,FOLLOW_2); 
-
-            }
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "entryRuleComparisonOperator"
-
-
-    // $ANTLR start "ruleComparisonOperator"
-    // InternalNlToSql.g:1477:1: ruleComparisonOperator returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_ComparisonOperatorSigns_0= ruleComparisonOperatorSigns | this_ComparisonOperatorString_1= ruleComparisonOperatorString ) ;
-    public final AntlrDatatypeRuleToken ruleComparisonOperator() throws RecognitionException {
-        AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
-
-        AntlrDatatypeRuleToken this_ComparisonOperatorSigns_0 = null;
-
-        AntlrDatatypeRuleToken this_ComparisonOperatorString_1 = null;
-
-
-
-        	enterRule();
-
-        try {
-            // InternalNlToSql.g:1483:2: ( (this_ComparisonOperatorSigns_0= ruleComparisonOperatorSigns | this_ComparisonOperatorString_1= ruleComparisonOperatorString ) )
-            // InternalNlToSql.g:1484:2: (this_ComparisonOperatorSigns_0= ruleComparisonOperatorSigns | this_ComparisonOperatorString_1= ruleComparisonOperatorString )
-            {
-            // InternalNlToSql.g:1484:2: (this_ComparisonOperatorSigns_0= ruleComparisonOperatorSigns | this_ComparisonOperatorString_1= ruleComparisonOperatorString )
-            int alt18=2;
-            int LA18_0 = input.LA(1);
-
-            if ( (LA18_0==43||(LA18_0>=53 && LA18_0<=56)) ) {
-                alt18=1;
-            }
-            else if ( (LA18_0==46||LA18_0==49||LA18_0==51) ) {
-                alt18=2;
-            }
-            else {
-                NoViableAltException nvae =
-                    new NoViableAltException("", 18, 0, input);
-
-                throw nvae;
-            }
-            switch (alt18) {
-                case 1 :
-                    // InternalNlToSql.g:1485:3: this_ComparisonOperatorSigns_0= ruleComparisonOperatorSigns
-                    {
-
-                    			newCompositeNode(grammarAccess.getComparisonOperatorAccess().getComparisonOperatorSignsParserRuleCall_0());
-                    		
-                    pushFollow(FOLLOW_2);
-                    this_ComparisonOperatorSigns_0=ruleComparisonOperatorSigns();
-
-                    state._fsp--;
-
-
-                    			current.merge(this_ComparisonOperatorSigns_0);
-                    		
-
-                    			afterParserOrEnumRuleCall();
-                    		
-
-                    }
-                    break;
-                case 2 :
-                    // InternalNlToSql.g:1496:3: this_ComparisonOperatorString_1= ruleComparisonOperatorString
-                    {
-
-                    			newCompositeNode(grammarAccess.getComparisonOperatorAccess().getComparisonOperatorStringParserRuleCall_1());
-                    		
-                    pushFollow(FOLLOW_2);
-                    this_ComparisonOperatorString_1=ruleComparisonOperatorString();
-
-                    state._fsp--;
-
-
-                    			current.merge(this_ComparisonOperatorString_1);
-                    		
-
-                    			afterParserOrEnumRuleCall();
-                    		
-
-                    }
-                    break;
-
-            }
-
-
-            }
-
-
-            	leaveRule();
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "ruleComparisonOperator"
-
-
-    // $ANTLR start "entryRuleComparisonOperatorString"
-    // InternalNlToSql.g:1510:1: entryRuleComparisonOperatorString returns [String current=null] : iv_ruleComparisonOperatorString= ruleComparisonOperatorString EOF ;
-    public final String entryRuleComparisonOperatorString() throws RecognitionException {
-        String current = null;
-
-        AntlrDatatypeRuleToken iv_ruleComparisonOperatorString = null;
-
-
-        try {
-            // InternalNlToSql.g:1510:64: (iv_ruleComparisonOperatorString= ruleComparisonOperatorString EOF )
-            // InternalNlToSql.g:1511:2: iv_ruleComparisonOperatorString= ruleComparisonOperatorString EOF
-            {
-             newCompositeNode(grammarAccess.getComparisonOperatorStringRule()); 
-            pushFollow(FOLLOW_1);
-            iv_ruleComparisonOperatorString=ruleComparisonOperatorString();
-
-            state._fsp--;
-
-             current =iv_ruleComparisonOperatorString.getText(); 
-            match(input,EOF,FOLLOW_2); 
-
-            }
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "entryRuleComparisonOperatorString"
-
-
-    // $ANTLR start "ruleComparisonOperatorString"
-    // InternalNlToSql.g:1517:1: ruleComparisonOperatorString returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : ( (kw= 'is' kw= 'equal' kw= 'to' ) | (kw= 'is' kw= 'not' kw= 'equal' kw= 'to' ) | (kw= 'less' kw= 'than' ) | (kw= 'greater' kw= 'than' ) | (kw= 'less' kw= 'than' kw= 'or' kw= 'equal' kw= 'to' ) | (kw= 'greater' kw= 'than' kw= 'or' kw= 'equal' kw= 'to' ) ) ;
-    public final AntlrDatatypeRuleToken ruleComparisonOperatorString() throws RecognitionException {
-        AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
-
-        Token kw=null;
-
-
-        	enterRule();
-
-        try {
-            // InternalNlToSql.g:1523:2: ( ( (kw= 'is' kw= 'equal' kw= 'to' ) | (kw= 'is' kw= 'not' kw= 'equal' kw= 'to' ) | (kw= 'less' kw= 'than' ) | (kw= 'greater' kw= 'than' ) | (kw= 'less' kw= 'than' kw= 'or' kw= 'equal' kw= 'to' ) | (kw= 'greater' kw= 'than' kw= 'or' kw= 'equal' kw= 'to' ) ) )
-            // InternalNlToSql.g:1524:2: ( (kw= 'is' kw= 'equal' kw= 'to' ) | (kw= 'is' kw= 'not' kw= 'equal' kw= 'to' ) | (kw= 'less' kw= 'than' ) | (kw= 'greater' kw= 'than' ) | (kw= 'less' kw= 'than' kw= 'or' kw= 'equal' kw= 'to' ) | (kw= 'greater' kw= 'than' kw= 'or' kw= 'equal' kw= 'to' ) )
-            {
-            // InternalNlToSql.g:1524:2: ( (kw= 'is' kw= 'equal' kw= 'to' ) | (kw= 'is' kw= 'not' kw= 'equal' kw= 'to' ) | (kw= 'less' kw= 'than' ) | (kw= 'greater' kw= 'than' ) | (kw= 'less' kw= 'than' kw= 'or' kw= 'equal' kw= 'to' ) | (kw= 'greater' kw= 'than' kw= 'or' kw= 'equal' kw= 'to' ) )
-            int alt19=6;
-            alt19 = dfa19.predict(input);
-            switch (alt19) {
-                case 1 :
-                    // InternalNlToSql.g:1525:3: (kw= 'is' kw= 'equal' kw= 'to' )
-                    {
-                    // InternalNlToSql.g:1525:3: (kw= 'is' kw= 'equal' kw= 'to' )
-                    // InternalNlToSql.g:1526:4: kw= 'is' kw= 'equal' kw= 'to'
-                    {
-                    kw=(Token)match(input,46,FOLLOW_41); 
-
-                    				current.merge(kw);
-                    				newLeafNode(kw, grammarAccess.getComparisonOperatorStringAccess().getIsKeyword_0_0());
-                    			
-                    kw=(Token)match(input,47,FOLLOW_31); 
-
-                    				current.merge(kw);
-                    				newLeafNode(kw, grammarAccess.getComparisonOperatorStringAccess().getEqualKeyword_0_1());
-                    			
-                    kw=(Token)match(input,37,FOLLOW_2); 
-
-                    				current.merge(kw);
-                    				newLeafNode(kw, grammarAccess.getComparisonOperatorStringAccess().getToKeyword_0_2());
-                    			
-
-                    }
-
-
-                    }
-                    break;
-                case 2 :
-                    // InternalNlToSql.g:1543:3: (kw= 'is' kw= 'not' kw= 'equal' kw= 'to' )
-                    {
-                    // InternalNlToSql.g:1543:3: (kw= 'is' kw= 'not' kw= 'equal' kw= 'to' )
-                    // InternalNlToSql.g:1544:4: kw= 'is' kw= 'not' kw= 'equal' kw= 'to'
-                    {
-                    kw=(Token)match(input,46,FOLLOW_42); 
-
-                    				current.merge(kw);
-                    				newLeafNode(kw, grammarAccess.getComparisonOperatorStringAccess().getIsKeyword_1_0());
-                    			
-                    kw=(Token)match(input,48,FOLLOW_41); 
-
-                    				current.merge(kw);
-                    				newLeafNode(kw, grammarAccess.getComparisonOperatorStringAccess().getNotKeyword_1_1());
-                    			
-                    kw=(Token)match(input,47,FOLLOW_31); 
-
-                    				current.merge(kw);
-                    				newLeafNode(kw, grammarAccess.getComparisonOperatorStringAccess().getEqualKeyword_1_2());
-                    			
-                    kw=(Token)match(input,37,FOLLOW_2); 
-
-                    				current.merge(kw);
-                    				newLeafNode(kw, grammarAccess.getComparisonOperatorStringAccess().getToKeyword_1_3());
-                    			
-
-                    }
-
-
-                    }
-                    break;
-                case 3 :
-                    // InternalNlToSql.g:1566:3: (kw= 'less' kw= 'than' )
-                    {
-                    // InternalNlToSql.g:1566:3: (kw= 'less' kw= 'than' )
-                    // InternalNlToSql.g:1567:4: kw= 'less' kw= 'than'
-                    {
-                    kw=(Token)match(input,49,FOLLOW_43); 
-
-                    				current.merge(kw);
-                    				newLeafNode(kw, grammarAccess.getComparisonOperatorStringAccess().getLessKeyword_2_0());
-                    			
-                    kw=(Token)match(input,50,FOLLOW_2); 
-
-                    				current.merge(kw);
-                    				newLeafNode(kw, grammarAccess.getComparisonOperatorStringAccess().getThanKeyword_2_1());
-                    			
-
-                    }
-
-
-                    }
-                    break;
-                case 4 :
-                    // InternalNlToSql.g:1579:3: (kw= 'greater' kw= 'than' )
-                    {
-                    // InternalNlToSql.g:1579:3: (kw= 'greater' kw= 'than' )
-                    // InternalNlToSql.g:1580:4: kw= 'greater' kw= 'than'
-                    {
-                    kw=(Token)match(input,51,FOLLOW_43); 
-
-                    				current.merge(kw);
-                    				newLeafNode(kw, grammarAccess.getComparisonOperatorStringAccess().getGreaterKeyword_3_0());
-                    			
-                    kw=(Token)match(input,50,FOLLOW_2); 
-
-                    				current.merge(kw);
-                    				newLeafNode(kw, grammarAccess.getComparisonOperatorStringAccess().getThanKeyword_3_1());
-                    			
-
-                    }
-
-
-                    }
-                    break;
-                case 5 :
-                    // InternalNlToSql.g:1592:3: (kw= 'less' kw= 'than' kw= 'or' kw= 'equal' kw= 'to' )
-                    {
-                    // InternalNlToSql.g:1592:3: (kw= 'less' kw= 'than' kw= 'or' kw= 'equal' kw= 'to' )
-                    // InternalNlToSql.g:1593:4: kw= 'less' kw= 'than' kw= 'or' kw= 'equal' kw= 'to'
-                    {
-                    kw=(Token)match(input,49,FOLLOW_43); 
-
-                    				current.merge(kw);
-                    				newLeafNode(kw, grammarAccess.getComparisonOperatorStringAccess().getLessKeyword_4_0());
-                    			
-                    kw=(Token)match(input,50,FOLLOW_44); 
-
-                    				current.merge(kw);
-                    				newLeafNode(kw, grammarAccess.getComparisonOperatorStringAccess().getThanKeyword_4_1());
-                    			
-                    kw=(Token)match(input,52,FOLLOW_41); 
-
-                    				current.merge(kw);
-                    				newLeafNode(kw, grammarAccess.getComparisonOperatorStringAccess().getOrKeyword_4_2());
-                    			
-                    kw=(Token)match(input,47,FOLLOW_31); 
-
-                    				current.merge(kw);
-                    				newLeafNode(kw, grammarAccess.getComparisonOperatorStringAccess().getEqualKeyword_4_3());
-                    			
-                    kw=(Token)match(input,37,FOLLOW_2); 
-
-                    				current.merge(kw);
-                    				newLeafNode(kw, grammarAccess.getComparisonOperatorStringAccess().getToKeyword_4_4());
-                    			
-
-                    }
-
-
-                    }
-                    break;
-                case 6 :
-                    // InternalNlToSql.g:1620:3: (kw= 'greater' kw= 'than' kw= 'or' kw= 'equal' kw= 'to' )
-                    {
-                    // InternalNlToSql.g:1620:3: (kw= 'greater' kw= 'than' kw= 'or' kw= 'equal' kw= 'to' )
-                    // InternalNlToSql.g:1621:4: kw= 'greater' kw= 'than' kw= 'or' kw= 'equal' kw= 'to'
-                    {
-                    kw=(Token)match(input,51,FOLLOW_43); 
-
-                    				current.merge(kw);
-                    				newLeafNode(kw, grammarAccess.getComparisonOperatorStringAccess().getGreaterKeyword_5_0());
-                    			
-                    kw=(Token)match(input,50,FOLLOW_44); 
-
-                    				current.merge(kw);
-                    				newLeafNode(kw, grammarAccess.getComparisonOperatorStringAccess().getThanKeyword_5_1());
-                    			
-                    kw=(Token)match(input,52,FOLLOW_41); 
-
-                    				current.merge(kw);
-                    				newLeafNode(kw, grammarAccess.getComparisonOperatorStringAccess().getOrKeyword_5_2());
-                    			
-                    kw=(Token)match(input,47,FOLLOW_31); 
-
-                    				current.merge(kw);
-                    				newLeafNode(kw, grammarAccess.getComparisonOperatorStringAccess().getEqualKeyword_5_3());
-                    			
-                    kw=(Token)match(input,37,FOLLOW_2); 
-
-                    				current.merge(kw);
-                    				newLeafNode(kw, grammarAccess.getComparisonOperatorStringAccess().getToKeyword_5_4());
-                    			
-
-                    }
-
-
-                    }
-                    break;
-
-            }
-
-
-            }
-
-
-            	leaveRule();
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "ruleComparisonOperatorString"
-
-
-    // $ANTLR start "entryRuleComparisonOperatorSigns"
-    // InternalNlToSql.g:1651:1: entryRuleComparisonOperatorSigns returns [String current=null] : iv_ruleComparisonOperatorSigns= ruleComparisonOperatorSigns EOF ;
-    public final String entryRuleComparisonOperatorSigns() throws RecognitionException {
-        String current = null;
-
-        AntlrDatatypeRuleToken iv_ruleComparisonOperatorSigns = null;
-
-
-        try {
-            // InternalNlToSql.g:1651:63: (iv_ruleComparisonOperatorSigns= ruleComparisonOperatorSigns EOF )
-            // InternalNlToSql.g:1652:2: iv_ruleComparisonOperatorSigns= ruleComparisonOperatorSigns EOF
-            {
-             newCompositeNode(grammarAccess.getComparisonOperatorSignsRule()); 
-            pushFollow(FOLLOW_1);
-            iv_ruleComparisonOperatorSigns=ruleComparisonOperatorSigns();
-
-            state._fsp--;
-
-             current =iv_ruleComparisonOperatorSigns.getText(); 
-            match(input,EOF,FOLLOW_2); 
-
-            }
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "entryRuleComparisonOperatorSigns"
-
-
-    // $ANTLR start "ruleComparisonOperatorSigns"
-    // InternalNlToSql.g:1658:1: ruleComparisonOperatorSigns returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= '=' | kw= '<=' | kw= '>=' | kw= '>' | kw= '<' ) ;
-    public final AntlrDatatypeRuleToken ruleComparisonOperatorSigns() throws RecognitionException {
-        AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
-
-        Token kw=null;
-
-
-        	enterRule();
-
-        try {
-            // InternalNlToSql.g:1664:2: ( (kw= '=' | kw= '<=' | kw= '>=' | kw= '>' | kw= '<' ) )
-            // InternalNlToSql.g:1665:2: (kw= '=' | kw= '<=' | kw= '>=' | kw= '>' | kw= '<' )
-            {
-            // InternalNlToSql.g:1665:2: (kw= '=' | kw= '<=' | kw= '>=' | kw= '>' | kw= '<' )
-            int alt20=5;
-            switch ( input.LA(1) ) {
-            case 43:
-                {
-                alt20=1;
-                }
-                break;
-            case 53:
-                {
-                alt20=2;
-                }
-                break;
-            case 54:
-                {
-                alt20=3;
-                }
-                break;
-            case 55:
-                {
-                alt20=4;
-                }
-                break;
-            case 56:
-                {
-                alt20=5;
-                }
-                break;
-            default:
-                NoViableAltException nvae =
-                    new NoViableAltException("", 20, 0, input);
-
-                throw nvae;
-            }
-
-            switch (alt20) {
-                case 1 :
-                    // InternalNlToSql.g:1666:3: kw= '='
-                    {
-                    kw=(Token)match(input,43,FOLLOW_2); 
-
-                    			current.merge(kw);
-                    			newLeafNode(kw, grammarAccess.getComparisonOperatorSignsAccess().getEqualsSignKeyword_0());
-                    		
-
-                    }
-                    break;
-                case 2 :
-                    // InternalNlToSql.g:1672:3: kw= '<='
-                    {
-                    kw=(Token)match(input,53,FOLLOW_2); 
-
-                    			current.merge(kw);
-                    			newLeafNode(kw, grammarAccess.getComparisonOperatorSignsAccess().getLessThanSignEqualsSignKeyword_1());
-                    		
-
-                    }
-                    break;
-                case 3 :
-                    // InternalNlToSql.g:1678:3: kw= '>='
-                    {
-                    kw=(Token)match(input,54,FOLLOW_2); 
-
-                    			current.merge(kw);
-                    			newLeafNode(kw, grammarAccess.getComparisonOperatorSignsAccess().getGreaterThanSignEqualsSignKeyword_2());
-                    		
-
-                    }
-                    break;
-                case 4 :
-                    // InternalNlToSql.g:1684:3: kw= '>'
-                    {
-                    kw=(Token)match(input,55,FOLLOW_2); 
-
-                    			current.merge(kw);
-                    			newLeafNode(kw, grammarAccess.getComparisonOperatorSignsAccess().getGreaterThanSignKeyword_3());
-                    		
-
-                    }
-                    break;
-                case 5 :
-                    // InternalNlToSql.g:1690:3: kw= '<'
-                    {
-                    kw=(Token)match(input,56,FOLLOW_2); 
-
-                    			current.merge(kw);
-                    			newLeafNode(kw, grammarAccess.getComparisonOperatorSignsAccess().getLessThanSignKeyword_4());
-                    		
-
-                    }
-                    break;
-
-            }
-
-
-            }
-
-
-            	leaveRule();
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "ruleComparisonOperatorSigns"
-
-
     // $ANTLR start "entryRuleValue"
-    // InternalNlToSql.g:1699:1: entryRuleValue returns [String current=null] : iv_ruleValue= ruleValue EOF ;
+    // InternalNlToSql.g:1500:1: entryRuleValue returns [String current=null] : iv_ruleValue= ruleValue EOF ;
     public final String entryRuleValue() throws RecognitionException {
         String current = null;
 
@@ -4144,8 +3708,8 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalNlToSql.g:1699:45: (iv_ruleValue= ruleValue EOF )
-            // InternalNlToSql.g:1700:2: iv_ruleValue= ruleValue EOF
+            // InternalNlToSql.g:1500:45: (iv_ruleValue= ruleValue EOF )
+            // InternalNlToSql.g:1501:2: iv_ruleValue= ruleValue EOF
             {
              newCompositeNode(grammarAccess.getValueRule()); 
             pushFollow(FOLLOW_1);
@@ -4172,7 +3736,7 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleValue"
-    // InternalNlToSql.g:1706:1: ruleValue returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_INT_0= RULE_INT | this_STRING_1= RULE_STRING ) ;
+    // InternalNlToSql.g:1507:1: ruleValue returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_INT_0= RULE_INT | this_STRING_1= RULE_STRING ) ;
     public final AntlrDatatypeRuleToken ruleValue() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -4183,28 +3747,28 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalNlToSql.g:1712:2: ( (this_INT_0= RULE_INT | this_STRING_1= RULE_STRING ) )
-            // InternalNlToSql.g:1713:2: (this_INT_0= RULE_INT | this_STRING_1= RULE_STRING )
+            // InternalNlToSql.g:1513:2: ( (this_INT_0= RULE_INT | this_STRING_1= RULE_STRING ) )
+            // InternalNlToSql.g:1514:2: (this_INT_0= RULE_INT | this_STRING_1= RULE_STRING )
             {
-            // InternalNlToSql.g:1713:2: (this_INT_0= RULE_INT | this_STRING_1= RULE_STRING )
-            int alt21=2;
-            int LA21_0 = input.LA(1);
+            // InternalNlToSql.g:1514:2: (this_INT_0= RULE_INT | this_STRING_1= RULE_STRING )
+            int alt19=2;
+            int LA19_0 = input.LA(1);
 
-            if ( (LA21_0==RULE_INT) ) {
-                alt21=1;
+            if ( (LA19_0==RULE_INT) ) {
+                alt19=1;
             }
-            else if ( (LA21_0==RULE_STRING) ) {
-                alt21=2;
+            else if ( (LA19_0==RULE_STRING) ) {
+                alt19=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 21, 0, input);
+                    new NoViableAltException("", 19, 0, input);
 
                 throw nvae;
             }
-            switch (alt21) {
+            switch (alt19) {
                 case 1 :
-                    // InternalNlToSql.g:1714:3: this_INT_0= RULE_INT
+                    // InternalNlToSql.g:1515:3: this_INT_0= RULE_INT
                     {
                     this_INT_0=(Token)match(input,RULE_INT,FOLLOW_2); 
 
@@ -4217,7 +3781,7 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalNlToSql.g:1722:3: this_STRING_1= RULE_STRING
+                    // InternalNlToSql.g:1523:3: this_STRING_1= RULE_STRING
                     {
                     this_STRING_1=(Token)match(input,RULE_STRING,FOLLOW_2); 
 
@@ -4252,7 +3816,7 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDatatype"
-    // InternalNlToSql.g:1733:1: ruleDatatype returns [Enumerator current=null] : ( (enumLiteral_0= 'integer' ) | (enumLiteral_1= 'string' ) | (enumLiteral_2= 'date' ) ) ;
+    // InternalNlToSql.g:1534:1: ruleDatatype returns [Enumerator current=null] : ( (enumLiteral_0= 'integer' ) | (enumLiteral_1= 'string' ) | (enumLiteral_2= 'date' ) ) ;
     public final Enumerator ruleDatatype() throws RecognitionException {
         Enumerator current = null;
 
@@ -4264,42 +3828,42 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalNlToSql.g:1739:2: ( ( (enumLiteral_0= 'integer' ) | (enumLiteral_1= 'string' ) | (enumLiteral_2= 'date' ) ) )
-            // InternalNlToSql.g:1740:2: ( (enumLiteral_0= 'integer' ) | (enumLiteral_1= 'string' ) | (enumLiteral_2= 'date' ) )
+            // InternalNlToSql.g:1540:2: ( ( (enumLiteral_0= 'integer' ) | (enumLiteral_1= 'string' ) | (enumLiteral_2= 'date' ) ) )
+            // InternalNlToSql.g:1541:2: ( (enumLiteral_0= 'integer' ) | (enumLiteral_1= 'string' ) | (enumLiteral_2= 'date' ) )
             {
-            // InternalNlToSql.g:1740:2: ( (enumLiteral_0= 'integer' ) | (enumLiteral_1= 'string' ) | (enumLiteral_2= 'date' ) )
-            int alt22=3;
+            // InternalNlToSql.g:1541:2: ( (enumLiteral_0= 'integer' ) | (enumLiteral_1= 'string' ) | (enumLiteral_2= 'date' ) )
+            int alt20=3;
             switch ( input.LA(1) ) {
-            case 57:
+            case 48:
                 {
-                alt22=1;
+                alt20=1;
                 }
                 break;
-            case 58:
+            case 49:
                 {
-                alt22=2;
+                alt20=2;
                 }
                 break;
-            case 59:
+            case 50:
                 {
-                alt22=3;
+                alt20=3;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 22, 0, input);
+                    new NoViableAltException("", 20, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt22) {
+            switch (alt20) {
                 case 1 :
-                    // InternalNlToSql.g:1741:3: (enumLiteral_0= 'integer' )
+                    // InternalNlToSql.g:1542:3: (enumLiteral_0= 'integer' )
                     {
-                    // InternalNlToSql.g:1741:3: (enumLiteral_0= 'integer' )
-                    // InternalNlToSql.g:1742:4: enumLiteral_0= 'integer'
+                    // InternalNlToSql.g:1542:3: (enumLiteral_0= 'integer' )
+                    // InternalNlToSql.g:1543:4: enumLiteral_0= 'integer'
                     {
-                    enumLiteral_0=(Token)match(input,57,FOLLOW_2); 
+                    enumLiteral_0=(Token)match(input,48,FOLLOW_2); 
 
                     				current = grammarAccess.getDatatypeAccess().getIntegerEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_0, grammarAccess.getDatatypeAccess().getIntegerEnumLiteralDeclaration_0());
@@ -4311,12 +3875,12 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalNlToSql.g:1749:3: (enumLiteral_1= 'string' )
+                    // InternalNlToSql.g:1550:3: (enumLiteral_1= 'string' )
                     {
-                    // InternalNlToSql.g:1749:3: (enumLiteral_1= 'string' )
-                    // InternalNlToSql.g:1750:4: enumLiteral_1= 'string'
+                    // InternalNlToSql.g:1550:3: (enumLiteral_1= 'string' )
+                    // InternalNlToSql.g:1551:4: enumLiteral_1= 'string'
                     {
-                    enumLiteral_1=(Token)match(input,58,FOLLOW_2); 
+                    enumLiteral_1=(Token)match(input,49,FOLLOW_2); 
 
                     				current = grammarAccess.getDatatypeAccess().getStringEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_1, grammarAccess.getDatatypeAccess().getStringEnumLiteralDeclaration_1());
@@ -4328,12 +3892,12 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalNlToSql.g:1757:3: (enumLiteral_2= 'date' )
+                    // InternalNlToSql.g:1558:3: (enumLiteral_2= 'date' )
                     {
-                    // InternalNlToSql.g:1757:3: (enumLiteral_2= 'date' )
-                    // InternalNlToSql.g:1758:4: enumLiteral_2= 'date'
+                    // InternalNlToSql.g:1558:3: (enumLiteral_2= 'date' )
+                    // InternalNlToSql.g:1559:4: enumLiteral_2= 'date'
                     {
-                    enumLiteral_2=(Token)match(input,59,FOLLOW_2); 
+                    enumLiteral_2=(Token)match(input,50,FOLLOW_2); 
 
                     				current = grammarAccess.getDatatypeAccess().getDateEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_2, grammarAccess.getDatatypeAccess().getDateEnumLiteralDeclaration_2());
@@ -4366,48 +3930,112 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleDatatype"
 
 
-    // $ANTLR start "ruleLogicOperator"
-    // InternalNlToSql.g:1768:1: ruleLogicOperator returns [Enumerator current=null] : ( (enumLiteral_0= 'and' ) | (enumLiteral_1= 'or' ) ) ;
-    public final Enumerator ruleLogicOperator() throws RecognitionException {
+    // $ANTLR start "ruleComparisonOperatorString"
+    // InternalNlToSql.g:1569:1: ruleComparisonOperatorString returns [Enumerator current=null] : ( (enumLiteral_0= 'is equal to' ) | (enumLiteral_1= 'is not equal to' ) | (enumLiteral_2= 'less than' ) | (enumLiteral_3= 'greater than' ) | (enumLiteral_4= 'less than or equal to' ) | (enumLiteral_5= 'greater than or equal to' ) | (enumLiteral_6= '=' ) | (enumLiteral_7= '<>' ) | (enumLiteral_8= '<' ) | (enumLiteral_9= '>' ) | (enumLiteral_10= '<=' ) | (enumLiteral_11= '>=' ) ) ;
+    public final Enumerator ruleComparisonOperatorString() throws RecognitionException {
         Enumerator current = null;
 
         Token enumLiteral_0=null;
         Token enumLiteral_1=null;
+        Token enumLiteral_2=null;
+        Token enumLiteral_3=null;
+        Token enumLiteral_4=null;
+        Token enumLiteral_5=null;
+        Token enumLiteral_6=null;
+        Token enumLiteral_7=null;
+        Token enumLiteral_8=null;
+        Token enumLiteral_9=null;
+        Token enumLiteral_10=null;
+        Token enumLiteral_11=null;
 
 
         	enterRule();
 
         try {
-            // InternalNlToSql.g:1774:2: ( ( (enumLiteral_0= 'and' ) | (enumLiteral_1= 'or' ) ) )
-            // InternalNlToSql.g:1775:2: ( (enumLiteral_0= 'and' ) | (enumLiteral_1= 'or' ) )
+            // InternalNlToSql.g:1575:2: ( ( (enumLiteral_0= 'is equal to' ) | (enumLiteral_1= 'is not equal to' ) | (enumLiteral_2= 'less than' ) | (enumLiteral_3= 'greater than' ) | (enumLiteral_4= 'less than or equal to' ) | (enumLiteral_5= 'greater than or equal to' ) | (enumLiteral_6= '=' ) | (enumLiteral_7= '<>' ) | (enumLiteral_8= '<' ) | (enumLiteral_9= '>' ) | (enumLiteral_10= '<=' ) | (enumLiteral_11= '>=' ) ) )
+            // InternalNlToSql.g:1576:2: ( (enumLiteral_0= 'is equal to' ) | (enumLiteral_1= 'is not equal to' ) | (enumLiteral_2= 'less than' ) | (enumLiteral_3= 'greater than' ) | (enumLiteral_4= 'less than or equal to' ) | (enumLiteral_5= 'greater than or equal to' ) | (enumLiteral_6= '=' ) | (enumLiteral_7= '<>' ) | (enumLiteral_8= '<' ) | (enumLiteral_9= '>' ) | (enumLiteral_10= '<=' ) | (enumLiteral_11= '>=' ) )
             {
-            // InternalNlToSql.g:1775:2: ( (enumLiteral_0= 'and' ) | (enumLiteral_1= 'or' ) )
-            int alt23=2;
-            int LA23_0 = input.LA(1);
-
-            if ( (LA23_0==60) ) {
-                alt23=1;
-            }
-            else if ( (LA23_0==52) ) {
-                alt23=2;
-            }
-            else {
+            // InternalNlToSql.g:1576:2: ( (enumLiteral_0= 'is equal to' ) | (enumLiteral_1= 'is not equal to' ) | (enumLiteral_2= 'less than' ) | (enumLiteral_3= 'greater than' ) | (enumLiteral_4= 'less than or equal to' ) | (enumLiteral_5= 'greater than or equal to' ) | (enumLiteral_6= '=' ) | (enumLiteral_7= '<>' ) | (enumLiteral_8= '<' ) | (enumLiteral_9= '>' ) | (enumLiteral_10= '<=' ) | (enumLiteral_11= '>=' ) )
+            int alt21=12;
+            switch ( input.LA(1) ) {
+            case 51:
+                {
+                alt21=1;
+                }
+                break;
+            case 52:
+                {
+                alt21=2;
+                }
+                break;
+            case 53:
+                {
+                alt21=3;
+                }
+                break;
+            case 54:
+                {
+                alt21=4;
+                }
+                break;
+            case 55:
+                {
+                alt21=5;
+                }
+                break;
+            case 56:
+                {
+                alt21=6;
+                }
+                break;
+            case 43:
+                {
+                alt21=7;
+                }
+                break;
+            case 57:
+                {
+                alt21=8;
+                }
+                break;
+            case 58:
+                {
+                alt21=9;
+                }
+                break;
+            case 59:
+                {
+                alt21=10;
+                }
+                break;
+            case 60:
+                {
+                alt21=11;
+                }
+                break;
+            case 61:
+                {
+                alt21=12;
+                }
+                break;
+            default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 23, 0, input);
+                    new NoViableAltException("", 21, 0, input);
 
                 throw nvae;
             }
-            switch (alt23) {
-                case 1 :
-                    // InternalNlToSql.g:1776:3: (enumLiteral_0= 'and' )
-                    {
-                    // InternalNlToSql.g:1776:3: (enumLiteral_0= 'and' )
-                    // InternalNlToSql.g:1777:4: enumLiteral_0= 'and'
-                    {
-                    enumLiteral_0=(Token)match(input,60,FOLLOW_2); 
 
-                    				current = grammarAccess.getLogicOperatorAccess().getAndEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
-                    				newLeafNode(enumLiteral_0, grammarAccess.getLogicOperatorAccess().getAndEnumLiteralDeclaration_0());
+            switch (alt21) {
+                case 1 :
+                    // InternalNlToSql.g:1577:3: (enumLiteral_0= 'is equal to' )
+                    {
+                    // InternalNlToSql.g:1577:3: (enumLiteral_0= 'is equal to' )
+                    // InternalNlToSql.g:1578:4: enumLiteral_0= 'is equal to'
+                    {
+                    enumLiteral_0=(Token)match(input,51,FOLLOW_2); 
+
+                    				current = grammarAccess.getComparisonOperatorStringAccess().getEQUAL_TOEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_0, grammarAccess.getComparisonOperatorStringAccess().getEQUAL_TOEnumLiteralDeclaration_0());
                     			
 
                     }
@@ -4416,15 +4044,185 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalNlToSql.g:1784:3: (enumLiteral_1= 'or' )
+                    // InternalNlToSql.g:1585:3: (enumLiteral_1= 'is not equal to' )
                     {
-                    // InternalNlToSql.g:1784:3: (enumLiteral_1= 'or' )
-                    // InternalNlToSql.g:1785:4: enumLiteral_1= 'or'
+                    // InternalNlToSql.g:1585:3: (enumLiteral_1= 'is not equal to' )
+                    // InternalNlToSql.g:1586:4: enumLiteral_1= 'is not equal to'
                     {
                     enumLiteral_1=(Token)match(input,52,FOLLOW_2); 
 
-                    				current = grammarAccess.getLogicOperatorAccess().getOrEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
-                    				newLeafNode(enumLiteral_1, grammarAccess.getLogicOperatorAccess().getOrEnumLiteralDeclaration_1());
+                    				current = grammarAccess.getComparisonOperatorStringAccess().getNOT_EQUAL_TOEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_1, grammarAccess.getComparisonOperatorStringAccess().getNOT_EQUAL_TOEnumLiteralDeclaration_1());
+                    			
+
+                    }
+
+
+                    }
+                    break;
+                case 3 :
+                    // InternalNlToSql.g:1593:3: (enumLiteral_2= 'less than' )
+                    {
+                    // InternalNlToSql.g:1593:3: (enumLiteral_2= 'less than' )
+                    // InternalNlToSql.g:1594:4: enumLiteral_2= 'less than'
+                    {
+                    enumLiteral_2=(Token)match(input,53,FOLLOW_2); 
+
+                    				current = grammarAccess.getComparisonOperatorStringAccess().getLESS_THANEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_2, grammarAccess.getComparisonOperatorStringAccess().getLESS_THANEnumLiteralDeclaration_2());
+                    			
+
+                    }
+
+
+                    }
+                    break;
+                case 4 :
+                    // InternalNlToSql.g:1601:3: (enumLiteral_3= 'greater than' )
+                    {
+                    // InternalNlToSql.g:1601:3: (enumLiteral_3= 'greater than' )
+                    // InternalNlToSql.g:1602:4: enumLiteral_3= 'greater than'
+                    {
+                    enumLiteral_3=(Token)match(input,54,FOLLOW_2); 
+
+                    				current = grammarAccess.getComparisonOperatorStringAccess().getGREATER_THANEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_3, grammarAccess.getComparisonOperatorStringAccess().getGREATER_THANEnumLiteralDeclaration_3());
+                    			
+
+                    }
+
+
+                    }
+                    break;
+                case 5 :
+                    // InternalNlToSql.g:1609:3: (enumLiteral_4= 'less than or equal to' )
+                    {
+                    // InternalNlToSql.g:1609:3: (enumLiteral_4= 'less than or equal to' )
+                    // InternalNlToSql.g:1610:4: enumLiteral_4= 'less than or equal to'
+                    {
+                    enumLiteral_4=(Token)match(input,55,FOLLOW_2); 
+
+                    				current = grammarAccess.getComparisonOperatorStringAccess().getLESS_THAN_OR_EQUAL_TOEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_4, grammarAccess.getComparisonOperatorStringAccess().getLESS_THAN_OR_EQUAL_TOEnumLiteralDeclaration_4());
+                    			
+
+                    }
+
+
+                    }
+                    break;
+                case 6 :
+                    // InternalNlToSql.g:1617:3: (enumLiteral_5= 'greater than or equal to' )
+                    {
+                    // InternalNlToSql.g:1617:3: (enumLiteral_5= 'greater than or equal to' )
+                    // InternalNlToSql.g:1618:4: enumLiteral_5= 'greater than or equal to'
+                    {
+                    enumLiteral_5=(Token)match(input,56,FOLLOW_2); 
+
+                    				current = grammarAccess.getComparisonOperatorStringAccess().getGREATER_THEN_OR_EQUAL_TOEnumLiteralDeclaration_5().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_5, grammarAccess.getComparisonOperatorStringAccess().getGREATER_THEN_OR_EQUAL_TOEnumLiteralDeclaration_5());
+                    			
+
+                    }
+
+
+                    }
+                    break;
+                case 7 :
+                    // InternalNlToSql.g:1625:3: (enumLiteral_6= '=' )
+                    {
+                    // InternalNlToSql.g:1625:3: (enumLiteral_6= '=' )
+                    // InternalNlToSql.g:1626:4: enumLiteral_6= '='
+                    {
+                    enumLiteral_6=(Token)match(input,43,FOLLOW_2); 
+
+                    				current = grammarAccess.getComparisonOperatorStringAccess().getEQUAL_TO_SIGNEnumLiteralDeclaration_6().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_6, grammarAccess.getComparisonOperatorStringAccess().getEQUAL_TO_SIGNEnumLiteralDeclaration_6());
+                    			
+
+                    }
+
+
+                    }
+                    break;
+                case 8 :
+                    // InternalNlToSql.g:1633:3: (enumLiteral_7= '<>' )
+                    {
+                    // InternalNlToSql.g:1633:3: (enumLiteral_7= '<>' )
+                    // InternalNlToSql.g:1634:4: enumLiteral_7= '<>'
+                    {
+                    enumLiteral_7=(Token)match(input,57,FOLLOW_2); 
+
+                    				current = grammarAccess.getComparisonOperatorStringAccess().getNOT_EQUAL_TO_SIGNEnumLiteralDeclaration_7().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_7, grammarAccess.getComparisonOperatorStringAccess().getNOT_EQUAL_TO_SIGNEnumLiteralDeclaration_7());
+                    			
+
+                    }
+
+
+                    }
+                    break;
+                case 9 :
+                    // InternalNlToSql.g:1641:3: (enumLiteral_8= '<' )
+                    {
+                    // InternalNlToSql.g:1641:3: (enumLiteral_8= '<' )
+                    // InternalNlToSql.g:1642:4: enumLiteral_8= '<'
+                    {
+                    enumLiteral_8=(Token)match(input,58,FOLLOW_2); 
+
+                    				current = grammarAccess.getComparisonOperatorStringAccess().getLESS_THAN_SIGNEnumLiteralDeclaration_8().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_8, grammarAccess.getComparisonOperatorStringAccess().getLESS_THAN_SIGNEnumLiteralDeclaration_8());
+                    			
+
+                    }
+
+
+                    }
+                    break;
+                case 10 :
+                    // InternalNlToSql.g:1649:3: (enumLiteral_9= '>' )
+                    {
+                    // InternalNlToSql.g:1649:3: (enumLiteral_9= '>' )
+                    // InternalNlToSql.g:1650:4: enumLiteral_9= '>'
+                    {
+                    enumLiteral_9=(Token)match(input,59,FOLLOW_2); 
+
+                    				current = grammarAccess.getComparisonOperatorStringAccess().getGREATER_THAN_SIGNEnumLiteralDeclaration_9().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_9, grammarAccess.getComparisonOperatorStringAccess().getGREATER_THAN_SIGNEnumLiteralDeclaration_9());
+                    			
+
+                    }
+
+
+                    }
+                    break;
+                case 11 :
+                    // InternalNlToSql.g:1657:3: (enumLiteral_10= '<=' )
+                    {
+                    // InternalNlToSql.g:1657:3: (enumLiteral_10= '<=' )
+                    // InternalNlToSql.g:1658:4: enumLiteral_10= '<='
+                    {
+                    enumLiteral_10=(Token)match(input,60,FOLLOW_2); 
+
+                    				current = grammarAccess.getComparisonOperatorStringAccess().getLESS_THAN_OR_EQUAL_TO_SIGNEnumLiteralDeclaration_10().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_10, grammarAccess.getComparisonOperatorStringAccess().getLESS_THAN_OR_EQUAL_TO_SIGNEnumLiteralDeclaration_10());
+                    			
+
+                    }
+
+
+                    }
+                    break;
+                case 12 :
+                    // InternalNlToSql.g:1665:3: (enumLiteral_11= '>=' )
+                    {
+                    // InternalNlToSql.g:1665:3: (enumLiteral_11= '>=' )
+                    // InternalNlToSql.g:1666:4: enumLiteral_11= '>='
+                    {
+                    enumLiteral_11=(Token)match(input,61,FOLLOW_2); 
+
+                    				current = grammarAccess.getComparisonOperatorStringAccess().getGREATER_THEN_OR_EQUAL_TO_SIGNEnumLiteralDeclaration_11().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_11, grammarAccess.getComparisonOperatorStringAccess().getGREATER_THEN_OR_EQUAL_TO_SIGNEnumLiteralDeclaration_11());
                     			
 
                     }
@@ -4451,58 +4249,11 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleLogicOperator"
+    // $ANTLR end "ruleComparisonOperatorString"
 
     // Delegated rules
 
 
-    protected DFA19 dfa19 = new DFA19(this);
-    static final String dfa_1s = "\14\uffff";
-    static final String dfa_2s = "\6\uffff\1\10\1\12\4\uffff";
-    static final String dfa_3s = "\1\56\1\57\2\62\2\uffff\2\5\4\uffff";
-    static final String dfa_4s = "\1\63\1\60\2\62\2\uffff\2\64\4\uffff";
-    static final String dfa_5s = "\4\uffff\1\2\1\1\2\uffff\1\3\1\5\1\4\1\6";
-    static final String dfa_6s = "\14\uffff}>";
-    static final String[] dfa_7s = {
-            "\1\1\2\uffff\1\2\1\uffff\1\3",
-            "\1\5\1\4",
-            "\1\6",
-            "\1\7",
-            "",
-            "",
-            "\2\10\55\uffff\1\11",
-            "\2\12\55\uffff\1\13",
-            "",
-            "",
-            "",
-            ""
-    };
-
-    static final short[] dfa_1 = DFA.unpackEncodedString(dfa_1s);
-    static final short[] dfa_2 = DFA.unpackEncodedString(dfa_2s);
-    static final char[] dfa_3 = DFA.unpackEncodedStringToUnsignedChars(dfa_3s);
-    static final char[] dfa_4 = DFA.unpackEncodedStringToUnsignedChars(dfa_4s);
-    static final short[] dfa_5 = DFA.unpackEncodedString(dfa_5s);
-    static final short[] dfa_6 = DFA.unpackEncodedString(dfa_6s);
-    static final short[][] dfa_7 = unpackEncodedStringArray(dfa_7s);
-
-    class DFA19 extends DFA {
-
-        public DFA19(BaseRecognizer recognizer) {
-            this.recognizer = recognizer;
-            this.decisionNumber = 19;
-            this.eot = dfa_1;
-            this.eof = dfa_2;
-            this.min = dfa_3;
-            this.max = dfa_4;
-            this.accept = dfa_5;
-            this.special = dfa_6;
-            this.transition = dfa_7;
-        }
-        public String getDescription() {
-            return "1524:2: ( (kw= 'is' kw= 'equal' kw= 'to' ) | (kw= 'is' kw= 'not' kw= 'equal' kw= 'to' ) | (kw= 'less' kw= 'than' ) | (kw= 'greater' kw= 'than' ) | (kw= 'less' kw= 'than' kw= 'or' kw= 'equal' kw= 'to' ) | (kw= 'greater' kw= 'than' kw= 'or' kw= 'equal' kw= 'to' ) )";
-        }
-    }
  
 
     public static final BitSet FOLLOW_1 = new BitSet(new long[]{0x0000000000000000L});
@@ -4517,14 +4268,14 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000020002L});
     public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000040000L});
     public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000080000L});
-    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0E00000000000000L});
+    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0007000000000000L});
     public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000000000012L});
     public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000000200000L});
     public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000000400000L});
     public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000001200000L});
     public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000000800000L});
     public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000000006000002L});
-    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0000200000200010L});
+    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0000800000200010L});
     public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0000000004000002L});
     public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0000000008000000L});
     public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0000000010000000L});
@@ -4543,11 +4294,7 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_36 = new BitSet(new long[]{0x0000000002000000L});
     public static final BitSet FOLLOW_37 = new BitSet(new long[]{0x0000080000000000L});
     public static final BitSet FOLLOW_38 = new BitSet(new long[]{0x0000100000000002L});
-    public static final BitSet FOLLOW_39 = new BitSet(new long[]{0x1010000000000002L});
-    public static final BitSet FOLLOW_40 = new BitSet(new long[]{0x01EA480000000000L});
-    public static final BitSet FOLLOW_41 = new BitSet(new long[]{0x0000800000000000L});
-    public static final BitSet FOLLOW_42 = new BitSet(new long[]{0x0001000000000000L});
-    public static final BitSet FOLLOW_43 = new BitSet(new long[]{0x0004000000000000L});
-    public static final BitSet FOLLOW_44 = new BitSet(new long[]{0x0010000000000000L});
+    public static final BitSet FOLLOW_39 = new BitSet(new long[]{0x0000600000000002L});
+    public static final BitSet FOLLOW_40 = new BitSet(new long[]{0x3FF8080000000000L});
 
 }

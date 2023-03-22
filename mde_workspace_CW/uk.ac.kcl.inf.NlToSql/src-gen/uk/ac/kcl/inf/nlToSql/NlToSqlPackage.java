@@ -662,40 +662,13 @@ public interface NlToSqlPackage extends EPackage
   int LOGIC_EXPRESSIONS = 17;
 
   /**
-   * The feature id for the '<em><b>Left Hand Side</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LOGIC_EXPRESSIONS__LEFT_HAND_SIDE = 0;
-
-  /**
-   * The feature id for the '<em><b>Operator</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LOGIC_EXPRESSIONS__OPERATOR = 1;
-
-  /**
-   * The feature id for the '<em><b>Right Hand Side</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LOGIC_EXPRESSIONS__RIGHT_HAND_SIDE = 2;
-
-  /**
    * The number of structural features of the '<em>Logic Expressions</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int LOGIC_EXPRESSIONS_FEATURE_COUNT = 3;
+  int LOGIC_EXPRESSIONS_FEATURE_COUNT = 0;
 
   /**
    * The meta object id for the '{@link uk.ac.kcl.inf.nlToSql.impl.ComparisonImpl <em>Comparison</em>}' class.
@@ -714,7 +687,7 @@ public interface NlToSqlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int COMPARISON__LEFT_HAND_SIDE = LOGIC_EXPRESSIONS__LEFT_HAND_SIDE;
+  int COMPARISON__LEFT_HAND_SIDE = LOGIC_EXPRESSIONS_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Operator</b></em>' attribute.
@@ -723,7 +696,7 @@ public interface NlToSqlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int COMPARISON__OPERATOR = LOGIC_EXPRESSIONS__OPERATOR;
+  int COMPARISON__OPERATOR = LOGIC_EXPRESSIONS_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Right Hand Side</b></em>' attribute.
@@ -732,34 +705,7 @@ public interface NlToSqlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int COMPARISON__RIGHT_HAND_SIDE = LOGIC_EXPRESSIONS__RIGHT_HAND_SIDE;
-
-  /**
-   * The feature id for the '<em><b>Left</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int COMPARISON__LEFT = LOGIC_EXPRESSIONS_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Logic Operator</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int COMPARISON__LOGIC_OPERATOR = LOGIC_EXPRESSIONS_FEATURE_COUNT + 1;
-
-  /**
-   * The feature id for the '<em><b>Right</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int COMPARISON__RIGHT = LOGIC_EXPRESSIONS_FEATURE_COUNT + 2;
+  int COMPARISON__RIGHT_HAND_SIDE = LOGIC_EXPRESSIONS_FEATURE_COUNT + 2;
 
   /**
    * The number of structural features of the '<em>Comparison</em>' class.
@@ -771,6 +717,52 @@ public interface NlToSqlPackage extends EPackage
   int COMPARISON_FEATURE_COUNT = LOGIC_EXPRESSIONS_FEATURE_COUNT + 3;
 
   /**
+   * The meta object id for the '{@link uk.ac.kcl.inf.nlToSql.impl.ConditionImpl <em>Condition</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see uk.ac.kcl.inf.nlToSql.impl.ConditionImpl
+   * @see uk.ac.kcl.inf.nlToSql.impl.NlToSqlPackageImpl#getCondition()
+   * @generated
+   */
+  int CONDITION = 19;
+
+  /**
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONDITION__LEFT = LOGIC_EXPRESSIONS_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Logic Operator</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONDITION__LOGIC_OPERATOR = LOGIC_EXPRESSIONS_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Right</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONDITION__RIGHT = LOGIC_EXPRESSIONS_FEATURE_COUNT + 2;
+
+  /**
+   * The number of structural features of the '<em>Condition</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONDITION_FEATURE_COUNT = LOGIC_EXPRESSIONS_FEATURE_COUNT + 3;
+
+  /**
    * The meta object id for the '{@link uk.ac.kcl.inf.nlToSql.Datatype <em>Datatype</em>}' enum.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -778,17 +770,17 @@ public interface NlToSqlPackage extends EPackage
    * @see uk.ac.kcl.inf.nlToSql.impl.NlToSqlPackageImpl#getDatatype()
    * @generated
    */
-  int DATATYPE = 19;
+  int DATATYPE = 20;
 
   /**
-   * The meta object id for the '{@link uk.ac.kcl.inf.nlToSql.LogicOperator <em>Logic Operator</em>}' enum.
+   * The meta object id for the '{@link uk.ac.kcl.inf.nlToSql.ComparisonOperatorString <em>Comparison Operator String</em>}' enum.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see uk.ac.kcl.inf.nlToSql.LogicOperator
-   * @see uk.ac.kcl.inf.nlToSql.impl.NlToSqlPackageImpl#getLogicOperator()
+   * @see uk.ac.kcl.inf.nlToSql.ComparisonOperatorString
+   * @see uk.ac.kcl.inf.nlToSql.impl.NlToSqlPackageImpl#getComparisonOperatorString()
    * @generated
    */
-  int LOGIC_OPERATOR = 20;
+  int COMPARISON_OPERATOR_STRING = 21;
 
 
   /**
@@ -1291,39 +1283,6 @@ public interface NlToSqlPackage extends EPackage
   EClass getLogicExpressions();
 
   /**
-   * Returns the meta object for the reference '{@link uk.ac.kcl.inf.nlToSql.LogicExpressions#getLeftHandSide <em>Left Hand Side</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Left Hand Side</em>'.
-   * @see uk.ac.kcl.inf.nlToSql.LogicExpressions#getLeftHandSide()
-   * @see #getLogicExpressions()
-   * @generated
-   */
-  EReference getLogicExpressions_LeftHandSide();
-
-  /**
-   * Returns the meta object for the attribute '{@link uk.ac.kcl.inf.nlToSql.LogicExpressions#getOperator <em>Operator</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Operator</em>'.
-   * @see uk.ac.kcl.inf.nlToSql.LogicExpressions#getOperator()
-   * @see #getLogicExpressions()
-   * @generated
-   */
-  EAttribute getLogicExpressions_Operator();
-
-  /**
-   * Returns the meta object for the attribute '{@link uk.ac.kcl.inf.nlToSql.LogicExpressions#getRightHandSide <em>Right Hand Side</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Right Hand Side</em>'.
-   * @see uk.ac.kcl.inf.nlToSql.LogicExpressions#getRightHandSide()
-   * @see #getLogicExpressions()
-   * @generated
-   */
-  EAttribute getLogicExpressions_RightHandSide();
-
-  /**
    * Returns the meta object for class '{@link uk.ac.kcl.inf.nlToSql.Comparison <em>Comparison</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1334,37 +1293,80 @@ public interface NlToSqlPackage extends EPackage
   EClass getComparison();
 
   /**
-   * Returns the meta object for the containment reference '{@link uk.ac.kcl.inf.nlToSql.Comparison#getLeft <em>Left</em>}'.
+   * Returns the meta object for the reference '{@link uk.ac.kcl.inf.nlToSql.Comparison#getLeftHandSide <em>Left Hand Side</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Left Hand Side</em>'.
+   * @see uk.ac.kcl.inf.nlToSql.Comparison#getLeftHandSide()
+   * @see #getComparison()
+   * @generated
+   */
+  EReference getComparison_LeftHandSide();
+
+  /**
+   * Returns the meta object for the attribute '{@link uk.ac.kcl.inf.nlToSql.Comparison#getOperator <em>Operator</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Operator</em>'.
+   * @see uk.ac.kcl.inf.nlToSql.Comparison#getOperator()
+   * @see #getComparison()
+   * @generated
+   */
+  EAttribute getComparison_Operator();
+
+  /**
+   * Returns the meta object for the attribute '{@link uk.ac.kcl.inf.nlToSql.Comparison#getRightHandSide <em>Right Hand Side</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Right Hand Side</em>'.
+   * @see uk.ac.kcl.inf.nlToSql.Comparison#getRightHandSide()
+   * @see #getComparison()
+   * @generated
+   */
+  EAttribute getComparison_RightHandSide();
+
+  /**
+   * Returns the meta object for class '{@link uk.ac.kcl.inf.nlToSql.Condition <em>Condition</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Condition</em>'.
+   * @see uk.ac.kcl.inf.nlToSql.Condition
+   * @generated
+   */
+  EClass getCondition();
+
+  /**
+   * Returns the meta object for the containment reference '{@link uk.ac.kcl.inf.nlToSql.Condition#getLeft <em>Left</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Left</em>'.
-   * @see uk.ac.kcl.inf.nlToSql.Comparison#getLeft()
-   * @see #getComparison()
+   * @see uk.ac.kcl.inf.nlToSql.Condition#getLeft()
+   * @see #getCondition()
    * @generated
    */
-  EReference getComparison_Left();
+  EReference getCondition_Left();
 
   /**
-   * Returns the meta object for the attribute '{@link uk.ac.kcl.inf.nlToSql.Comparison#getLogicOperator <em>Logic Operator</em>}'.
+   * Returns the meta object for the attribute list '{@link uk.ac.kcl.inf.nlToSql.Condition#getLogicOperator <em>Logic Operator</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Logic Operator</em>'.
-   * @see uk.ac.kcl.inf.nlToSql.Comparison#getLogicOperator()
-   * @see #getComparison()
+   * @return the meta object for the attribute list '<em>Logic Operator</em>'.
+   * @see uk.ac.kcl.inf.nlToSql.Condition#getLogicOperator()
+   * @see #getCondition()
    * @generated
    */
-  EAttribute getComparison_LogicOperator();
+  EAttribute getCondition_LogicOperator();
 
   /**
-   * Returns the meta object for the containment reference list '{@link uk.ac.kcl.inf.nlToSql.Comparison#getRight <em>Right</em>}'.
+   * Returns the meta object for the containment reference list '{@link uk.ac.kcl.inf.nlToSql.Condition#getRight <em>Right</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference list '<em>Right</em>'.
-   * @see uk.ac.kcl.inf.nlToSql.Comparison#getRight()
-   * @see #getComparison()
+   * @see uk.ac.kcl.inf.nlToSql.Condition#getRight()
+   * @see #getCondition()
    * @generated
    */
-  EReference getComparison_Right();
+  EReference getCondition_Right();
 
   /**
    * Returns the meta object for enum '{@link uk.ac.kcl.inf.nlToSql.Datatype <em>Datatype</em>}'.
@@ -1377,14 +1379,14 @@ public interface NlToSqlPackage extends EPackage
   EEnum getDatatype();
 
   /**
-   * Returns the meta object for enum '{@link uk.ac.kcl.inf.nlToSql.LogicOperator <em>Logic Operator</em>}'.
+   * Returns the meta object for enum '{@link uk.ac.kcl.inf.nlToSql.ComparisonOperatorString <em>Comparison Operator String</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for enum '<em>Logic Operator</em>'.
-   * @see uk.ac.kcl.inf.nlToSql.LogicOperator
+   * @return the meta object for enum '<em>Comparison Operator String</em>'.
+   * @see uk.ac.kcl.inf.nlToSql.ComparisonOperatorString
    * @generated
    */
-  EEnum getLogicOperator();
+  EEnum getComparisonOperatorString();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -1822,30 +1824,6 @@ public interface NlToSqlPackage extends EPackage
     EClass LOGIC_EXPRESSIONS = eINSTANCE.getLogicExpressions();
 
     /**
-     * The meta object literal for the '<em><b>Left Hand Side</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference LOGIC_EXPRESSIONS__LEFT_HAND_SIDE = eINSTANCE.getLogicExpressions_LeftHandSide();
-
-    /**
-     * The meta object literal for the '<em><b>Operator</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute LOGIC_EXPRESSIONS__OPERATOR = eINSTANCE.getLogicExpressions_Operator();
-
-    /**
-     * The meta object literal for the '<em><b>Right Hand Side</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute LOGIC_EXPRESSIONS__RIGHT_HAND_SIDE = eINSTANCE.getLogicExpressions_RightHandSide();
-
-    /**
      * The meta object literal for the '{@link uk.ac.kcl.inf.nlToSql.impl.ComparisonImpl <em>Comparison</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1856,20 +1834,54 @@ public interface NlToSqlPackage extends EPackage
     EClass COMPARISON = eINSTANCE.getComparison();
 
     /**
+     * The meta object literal for the '<em><b>Left Hand Side</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference COMPARISON__LEFT_HAND_SIDE = eINSTANCE.getComparison_LeftHandSide();
+
+    /**
+     * The meta object literal for the '<em><b>Operator</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute COMPARISON__OPERATOR = eINSTANCE.getComparison_Operator();
+
+    /**
+     * The meta object literal for the '<em><b>Right Hand Side</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute COMPARISON__RIGHT_HAND_SIDE = eINSTANCE.getComparison_RightHandSide();
+
+    /**
+     * The meta object literal for the '{@link uk.ac.kcl.inf.nlToSql.impl.ConditionImpl <em>Condition</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see uk.ac.kcl.inf.nlToSql.impl.ConditionImpl
+     * @see uk.ac.kcl.inf.nlToSql.impl.NlToSqlPackageImpl#getCondition()
+     * @generated
+     */
+    EClass CONDITION = eINSTANCE.getCondition();
+
+    /**
      * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference COMPARISON__LEFT = eINSTANCE.getComparison_Left();
+    EReference CONDITION__LEFT = eINSTANCE.getCondition_Left();
 
     /**
-     * The meta object literal for the '<em><b>Logic Operator</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Logic Operator</b></em>' attribute list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute COMPARISON__LOGIC_OPERATOR = eINSTANCE.getComparison_LogicOperator();
+    EAttribute CONDITION__LOGIC_OPERATOR = eINSTANCE.getCondition_LogicOperator();
 
     /**
      * The meta object literal for the '<em><b>Right</b></em>' containment reference list feature.
@@ -1877,7 +1889,7 @@ public interface NlToSqlPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference COMPARISON__RIGHT = eINSTANCE.getComparison_Right();
+    EReference CONDITION__RIGHT = eINSTANCE.getCondition_Right();
 
     /**
      * The meta object literal for the '{@link uk.ac.kcl.inf.nlToSql.Datatype <em>Datatype</em>}' enum.
@@ -1890,14 +1902,14 @@ public interface NlToSqlPackage extends EPackage
     EEnum DATATYPE = eINSTANCE.getDatatype();
 
     /**
-     * The meta object literal for the '{@link uk.ac.kcl.inf.nlToSql.LogicOperator <em>Logic Operator</em>}' enum.
+     * The meta object literal for the '{@link uk.ac.kcl.inf.nlToSql.ComparisonOperatorString <em>Comparison Operator String</em>}' enum.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see uk.ac.kcl.inf.nlToSql.LogicOperator
-     * @see uk.ac.kcl.inf.nlToSql.impl.NlToSqlPackageImpl#getLogicOperator()
+     * @see uk.ac.kcl.inf.nlToSql.ComparisonOperatorString
+     * @see uk.ac.kcl.inf.nlToSql.impl.NlToSqlPackageImpl#getComparisonOperatorString()
      * @generated
      */
-    EEnum LOGIC_OPERATOR = eINSTANCE.getLogicOperator();
+    EEnum COMPARISON_OPERATOR_STRING = eINSTANCE.getComparisonOperatorString();
 
   }
 

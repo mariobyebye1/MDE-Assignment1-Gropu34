@@ -19,11 +19,11 @@ import uk.ac.kcl.inf.nlToSql.Column;
 import uk.ac.kcl.inf.nlToSql.ColumnList;
 import uk.ac.kcl.inf.nlToSql.ColumnReference;
 import uk.ac.kcl.inf.nlToSql.Comparison;
+import uk.ac.kcl.inf.nlToSql.Condition;
 import uk.ac.kcl.inf.nlToSql.CreateTableStatement;
 import uk.ac.kcl.inf.nlToSql.DeleteStatement;
 import uk.ac.kcl.inf.nlToSql.InserValues;
 import uk.ac.kcl.inf.nlToSql.InsertStatement;
-import uk.ac.kcl.inf.nlToSql.LogicExpressions;
 import uk.ac.kcl.inf.nlToSql.NlToSqlPackage;
 import uk.ac.kcl.inf.nlToSql.SelectColumnsList;
 import uk.ac.kcl.inf.nlToSql.SelectStatement;
@@ -62,7 +62,10 @@ public class NlToSqlSemanticSequencer extends AbstractDelegatingSemanticSequence
 				sequence_ColumnReference(context, (ColumnReference) semanticObject); 
 				return; 
 			case NlToSqlPackage.COMPARISON:
-				sequence_Condition(context, (Comparison) semanticObject); 
+				sequence_Comparison(context, (Comparison) semanticObject); 
+				return; 
+			case NlToSqlPackage.CONDITION:
+				sequence_Condition(context, (Condition) semanticObject); 
 				return; 
 			case NlToSqlPackage.CREATE_TABLE_STATEMENT:
 				sequence_CreateTableStatement(context, (CreateTableStatement) semanticObject); 
@@ -75,9 +78,6 @@ public class NlToSqlSemanticSequencer extends AbstractDelegatingSemanticSequence
 				return; 
 			case NlToSqlPackage.INSERT_STATEMENT:
 				sequence_InsertStatement(context, (InsertStatement) semanticObject); 
-				return; 
-			case NlToSqlPackage.LOGIC_EXPRESSIONS:
-				sequence_Comparison(context, (LogicExpressions) semanticObject); 
 				return; 
 			case NlToSqlPackage.SELECT_COLUMNS_LIST:
 				sequence_SelectColumnsList(context, (SelectColumnsList) semanticObject); 
@@ -166,25 +166,25 @@ public class NlToSqlSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Contexts:
-	 *     Condition returns LogicExpressions
-	 *     Condition.Comparison_1_0 returns LogicExpressions
-	 *     Comparison returns LogicExpressions
+	 *     Condition returns Comparison
+	 *     Condition.Condition_1_0 returns Comparison
+	 *     Comparison returns Comparison
 	 *
 	 * Constraint:
-	 *     (leftHandSide=[Column|ID] operator=ComparisonOperator rightHandSide=Value)
+	 *     (leftHandSide=[Column|ID] operator=ComparisonOperatorString rightHandSide=Value)
 	 */
-	protected void sequence_Comparison(ISerializationContext context, LogicExpressions semanticObject) {
+	protected void sequence_Comparison(ISerializationContext context, Comparison semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, NlToSqlPackage.Literals.LOGIC_EXPRESSIONS__LEFT_HAND_SIDE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, NlToSqlPackage.Literals.LOGIC_EXPRESSIONS__LEFT_HAND_SIDE));
-			if (transientValues.isValueTransient(semanticObject, NlToSqlPackage.Literals.LOGIC_EXPRESSIONS__OPERATOR) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, NlToSqlPackage.Literals.LOGIC_EXPRESSIONS__OPERATOR));
-			if (transientValues.isValueTransient(semanticObject, NlToSqlPackage.Literals.LOGIC_EXPRESSIONS__RIGHT_HAND_SIDE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, NlToSqlPackage.Literals.LOGIC_EXPRESSIONS__RIGHT_HAND_SIDE));
+			if (transientValues.isValueTransient(semanticObject, NlToSqlPackage.Literals.COMPARISON__LEFT_HAND_SIDE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, NlToSqlPackage.Literals.COMPARISON__LEFT_HAND_SIDE));
+			if (transientValues.isValueTransient(semanticObject, NlToSqlPackage.Literals.COMPARISON__OPERATOR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, NlToSqlPackage.Literals.COMPARISON__OPERATOR));
+			if (transientValues.isValueTransient(semanticObject, NlToSqlPackage.Literals.COMPARISON__RIGHT_HAND_SIDE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, NlToSqlPackage.Literals.COMPARISON__RIGHT_HAND_SIDE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getComparisonAccess().getLeftHandSideColumnIDTerminalRuleCall_1_0_1(), semanticObject.eGet(NlToSqlPackage.Literals.LOGIC_EXPRESSIONS__LEFT_HAND_SIDE, false));
-		feeder.accept(grammarAccess.getComparisonAccess().getOperatorComparisonOperatorParserRuleCall_2_0(), semanticObject.getOperator());
+		feeder.accept(grammarAccess.getComparisonAccess().getLeftHandSideColumnIDTerminalRuleCall_1_0_1(), semanticObject.eGet(NlToSqlPackage.Literals.COMPARISON__LEFT_HAND_SIDE, false));
+		feeder.accept(grammarAccess.getComparisonAccess().getOperatorComparisonOperatorStringEnumRuleCall_2_0(), semanticObject.getOperator());
 		feeder.accept(grammarAccess.getComparisonAccess().getRightHandSideValueParserRuleCall_3_0(), semanticObject.getRightHandSide());
 		feeder.finish();
 	}
@@ -192,13 +192,13 @@ public class NlToSqlSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Contexts:
-	 *     Condition returns Comparison
-	 *     Condition.Comparison_1_0 returns Comparison
+	 *     Condition returns Condition
+	 *     Condition.Condition_1_0 returns Condition
 	 *
 	 * Constraint:
-	 *     (left=Condition_Comparison_1_0 logicOperator=LogicOperator right+=Comparison)
+	 *     (left=Condition_Condition_1_0 logicOperator+=LogicOperator right+=Comparison)
 	 */
-	protected void sequence_Condition(ISerializationContext context, Comparison semanticObject) {
+	protected void sequence_Condition(ISerializationContext context, Condition semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

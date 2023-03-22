@@ -11,9 +11,19 @@
       <genEnumLiterals ecoreEnumLiteral="NlToSql.ecore#//Datatype/string"/>
       <genEnumLiterals ecoreEnumLiteral="NlToSql.ecore#//Datatype/date"/>
     </genEnums>
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="NlToSql.ecore#//LogicOperator">
-      <genEnumLiterals ecoreEnumLiteral="NlToSql.ecore#//LogicOperator/and"/>
-      <genEnumLiterals ecoreEnumLiteral="NlToSql.ecore#//LogicOperator/or"/>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="NlToSql.ecore#//ComparisonOperatorString">
+      <genEnumLiterals ecoreEnumLiteral="NlToSql.ecore#//ComparisonOperatorString/EQUAL_TO"/>
+      <genEnumLiterals ecoreEnumLiteral="NlToSql.ecore#//ComparisonOperatorString/NOT_EQUAL_TO"/>
+      <genEnumLiterals ecoreEnumLiteral="NlToSql.ecore#//ComparisonOperatorString/LESS_THAN"/>
+      <genEnumLiterals ecoreEnumLiteral="NlToSql.ecore#//ComparisonOperatorString/GREATER_THAN"/>
+      <genEnumLiterals ecoreEnumLiteral="NlToSql.ecore#//ComparisonOperatorString/LESS_THAN_OR_EQUAL_TO"/>
+      <genEnumLiterals ecoreEnumLiteral="NlToSql.ecore#//ComparisonOperatorString/GREATER_THEN_OR_EQUAL_TO"/>
+      <genEnumLiterals ecoreEnumLiteral="NlToSql.ecore#//ComparisonOperatorString/EQUAL_TO_SIGN"/>
+      <genEnumLiterals ecoreEnumLiteral="NlToSql.ecore#//ComparisonOperatorString/NOT_EQUAL_TO_SIGN"/>
+      <genEnumLiterals ecoreEnumLiteral="NlToSql.ecore#//ComparisonOperatorString/LESS_THAN_SIGN"/>
+      <genEnumLiterals ecoreEnumLiteral="NlToSql.ecore#//ComparisonOperatorString/GREATER_THAN_SIGN"/>
+      <genEnumLiterals ecoreEnumLiteral="NlToSql.ecore#//ComparisonOperatorString/LESS_THAN_OR_EQUAL_TO_SIGN"/>
+      <genEnumLiterals ecoreEnumLiteral="NlToSql.ecore#//ComparisonOperatorString/GREATER_THEN_OR_EQUAL_TO_SIGN"/>
     </genEnums>
     <genClasses ecoreClass="NlToSql.ecore#//AccountingSpeech">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference NlToSql.ecore#//AccountingSpeech/statements"/>
@@ -77,15 +87,16 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference NlToSql.ecore#//ColumnReference/column"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference NlToSql.ecore#//ColumnReference/table"/>
     </genClasses>
-    <genClasses ecoreClass="NlToSql.ecore#//LogicExpressions">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference NlToSql.ecore#//LogicExpressions/leftHandSide"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NlToSql.ecore#//LogicExpressions/operator"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NlToSql.ecore#//LogicExpressions/rightHandSide"/>
-    </genClasses>
+    <genClasses ecoreClass="NlToSql.ecore#//LogicExpressions"/>
     <genClasses ecoreClass="NlToSql.ecore#//Comparison">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference NlToSql.ecore#//Comparison/left"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NlToSql.ecore#//Comparison/logicOperator"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference NlToSql.ecore#//Comparison/right"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference NlToSql.ecore#//Comparison/leftHandSide"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NlToSql.ecore#//Comparison/operator"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NlToSql.ecore#//Comparison/rightHandSide"/>
+    </genClasses>
+    <genClasses ecoreClass="NlToSql.ecore#//Condition">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference NlToSql.ecore#//Condition/left"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NlToSql.ecore#//Condition/logicOperator"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference NlToSql.ecore#//Condition/right"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

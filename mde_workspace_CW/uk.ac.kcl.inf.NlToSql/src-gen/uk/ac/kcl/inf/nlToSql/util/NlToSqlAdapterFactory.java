@@ -171,6 +171,11 @@ public class NlToSqlAdapterFactory extends AdapterFactoryImpl
         return createComparisonAdapter();
       }
       @Override
+      public Adapter caseCondition(Condition object)
+      {
+        return createConditionAdapter();
+      }
+      @Override
       public Adapter defaultCase(EObject object)
       {
         return createEObjectAdapter();
@@ -473,6 +478,21 @@ public class NlToSqlAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createComparisonAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link uk.ac.kcl.inf.nlToSql.Condition <em>Condition</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see uk.ac.kcl.inf.nlToSql.Condition
+   * @generated
+   */
+  public Adapter createConditionAdapter()
   {
     return null;
   }

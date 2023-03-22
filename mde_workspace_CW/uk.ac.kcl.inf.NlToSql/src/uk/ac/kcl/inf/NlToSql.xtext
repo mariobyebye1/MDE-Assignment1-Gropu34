@@ -101,37 +101,32 @@ ColumnReference:
 
 // Define the Condition rule
 Condition returns LogicExpressions:
-	Comparison ({Comparison.left = current} logicOperator=LogicOperator right += Comparison)*
+	Comparison ({Condition.left = current} logicOperator+=LogicOperator right += Comparison)*
 ;
 
 // Define the LogicOperator rule
-enum LogicOperator:
-    and | or
+LogicOperator:
+    "and" | "or"
 ;
 
 // Define the Comparison rule
-Comparison returns LogicExpressions:
-    ('the' | 'a')? leftHandSide=[Column] operator=ComparisonOperator rightHandSide=Value
+Comparison:
+    ('the' | 'a')? leftHandSide=[Column] operator=ComparisonOperatorString rightHandSide=Value
 ;
 
-
-// Define the ComparisonOperator rule
-ComparisonOperator:
-    ComparisonOperatorSigns | ComparisonOperatorString
-;
-
-
-ComparisonOperatorString:
-	'is' 'equal' 'to' 
-	| 'is' 'not' 'equal' 'to' 
-	| 'less' 'than' 
-	| 'greater' 'than' 
-	| 'less' 'than' 'or' 'equal' 'to' 
-	| 'greater' 'than' 'or' 'equal' 'to'
-;
-
-ComparisonOperatorSigns:
-	'=' | '<=' | '>='| '>' | '<'
+enum ComparisonOperatorString:
+	EQUAL_TO = "is equal to" 
+	| NOT_EQUAL_TO = "is not equal to" 
+	| LESS_THAN = "less than" 
+	| GREATER_THAN = "greater than" 
+	| LESS_THAN_OR_EQUAL_TO = "less than or equal to" 
+	| GREATER_THEN_OR_EQUAL_TO = "greater than or equal to"
+	| EQUAL_TO_SIGN = "=" 
+	| NOT_EQUAL_TO_SIGN = "<>" 
+	| LESS_THAN_SIGN = "<" 
+	| GREATER_THAN_SIGN = ">" 
+	| LESS_THAN_OR_EQUAL_TO_SIGN = "<=" 
+	| GREATER_THEN_OR_EQUAL_TO_SIGN = ">="
 ;
 
 

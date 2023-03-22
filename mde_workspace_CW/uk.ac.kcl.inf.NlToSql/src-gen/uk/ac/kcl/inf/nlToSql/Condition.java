@@ -3,7 +3,7 @@
  */
 package uk.ac.kcl.inf.nlToSql;
 
-import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,58 +14,61 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link uk.ac.kcl.inf.nlToSql.Condition#getExpression <em>Expression</em>}</li>
+ *   <li>{@link uk.ac.kcl.inf.nlToSql.Condition#getLeft <em>Left</em>}</li>
  *   <li>{@link uk.ac.kcl.inf.nlToSql.Condition#getLogicOperator <em>Logic Operator</em>}</li>
+ *   <li>{@link uk.ac.kcl.inf.nlToSql.Condition#getRight <em>Right</em>}</li>
  * </ul>
  *
  * @see uk.ac.kcl.inf.nlToSql.NlToSqlPackage#getCondition()
  * @model
  * @generated
  */
-public interface Condition extends EObject
+public interface Condition extends LogicExpressions
 {
   /**
-   * Returns the value of the '<em><b>Expression</b></em>' containment reference.
+   * Returns the value of the '<em><b>Left</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Expression</em>' containment reference.
-   * @see #setExpression(Comparison)
-   * @see uk.ac.kcl.inf.nlToSql.NlToSqlPackage#getCondition_Expression()
+   * @return the value of the '<em>Left</em>' containment reference.
+   * @see #setLeft(LogicExpressions)
+   * @see uk.ac.kcl.inf.nlToSql.NlToSqlPackage#getCondition_Left()
    * @model containment="true"
    * @generated
    */
-  Comparison getExpression();
+  LogicExpressions getLeft();
 
   /**
-   * Sets the value of the '{@link uk.ac.kcl.inf.nlToSql.Condition#getExpression <em>Expression</em>}' containment reference.
+   * Sets the value of the '{@link uk.ac.kcl.inf.nlToSql.Condition#getLeft <em>Left</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Expression</em>' containment reference.
-   * @see #getExpression()
+   * @param value the new value of the '<em>Left</em>' containment reference.
+   * @see #getLeft()
    * @generated
    */
-  void setExpression(Comparison value);
+  void setLeft(LogicExpressions value);
 
   /**
-   * Returns the value of the '<em><b>Logic Operator</b></em>' attribute.
+   * Returns the value of the '<em><b>Logic Operator</b></em>' attribute list.
+   * The list contents are of type {@link java.lang.String}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Logic Operator</em>' attribute.
-   * @see #setLogicOperator(String)
+   * @return the value of the '<em>Logic Operator</em>' attribute list.
    * @see uk.ac.kcl.inf.nlToSql.NlToSqlPackage#getCondition_LogicOperator()
-   * @model
+   * @model unique="false"
    * @generated
    */
-  String getLogicOperator();
+  EList<String> getLogicOperator();
 
   /**
-   * Sets the value of the '{@link uk.ac.kcl.inf.nlToSql.Condition#getLogicOperator <em>Logic Operator</em>}' attribute.
+   * Returns the value of the '<em><b>Right</b></em>' containment reference list.
+   * The list contents are of type {@link uk.ac.kcl.inf.nlToSql.Comparison}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Logic Operator</em>' attribute.
-   * @see #getLogicOperator()
+   * @return the value of the '<em>Right</em>' containment reference list.
+   * @see uk.ac.kcl.inf.nlToSql.NlToSqlPackage#getCondition_Right()
+   * @model containment="true"
    * @generated
    */
-  void setLogicOperator(String value);
+  EList<Comparison> getRight();
 
 } // Condition

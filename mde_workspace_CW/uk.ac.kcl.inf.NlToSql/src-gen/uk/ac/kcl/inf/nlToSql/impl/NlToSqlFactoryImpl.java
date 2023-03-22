@@ -85,6 +85,7 @@ public class NlToSqlFactoryImpl extends EFactoryImpl implements NlToSqlFactory
       case NlToSqlPackage.COLUMN_REFERENCE: return createColumnReference();
       case NlToSqlPackage.LOGIC_EXPRESSIONS: return createLogicExpressions();
       case NlToSqlPackage.COMPARISON: return createComparison();
+      case NlToSqlPackage.CONDITION: return createCondition();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -102,8 +103,8 @@ public class NlToSqlFactoryImpl extends EFactoryImpl implements NlToSqlFactory
     {
       case NlToSqlPackage.DATATYPE:
         return createDatatypeFromString(eDataType, initialValue);
-      case NlToSqlPackage.LOGIC_OPERATOR:
-        return createLogicOperatorFromString(eDataType, initialValue);
+      case NlToSqlPackage.COMPARISON_OPERATOR_STRING:
+        return createComparisonOperatorStringFromString(eDataType, initialValue);
       default:
         throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
     }
@@ -121,8 +122,8 @@ public class NlToSqlFactoryImpl extends EFactoryImpl implements NlToSqlFactory
     {
       case NlToSqlPackage.DATATYPE:
         return convertDatatypeToString(eDataType, instanceValue);
-      case NlToSqlPackage.LOGIC_OPERATOR:
-        return convertLogicOperatorToString(eDataType, instanceValue);
+      case NlToSqlPackage.COMPARISON_OPERATOR_STRING:
+        return convertComparisonOperatorStringToString(eDataType, instanceValue);
       default:
         throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
     }
@@ -361,6 +362,18 @@ public class NlToSqlFactoryImpl extends EFactoryImpl implements NlToSqlFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
+  public Condition createCondition()
+  {
+    ConditionImpl condition = new ConditionImpl();
+    return condition;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public Datatype createDatatypeFromString(EDataType eDataType, String initialValue)
   {
     Datatype result = Datatype.get(initialValue);
@@ -383,9 +396,9 @@ public class NlToSqlFactoryImpl extends EFactoryImpl implements NlToSqlFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public LogicOperator createLogicOperatorFromString(EDataType eDataType, String initialValue)
+  public ComparisonOperatorString createComparisonOperatorStringFromString(EDataType eDataType, String initialValue)
   {
-    LogicOperator result = LogicOperator.get(initialValue);
+    ComparisonOperatorString result = ComparisonOperatorString.get(initialValue);
     if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
     return result;
   }
@@ -395,7 +408,7 @@ public class NlToSqlFactoryImpl extends EFactoryImpl implements NlToSqlFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public String convertLogicOperatorToString(EDataType eDataType, Object instanceValue)
+  public String convertComparisonOperatorStringToString(EDataType eDataType, Object instanceValue)
   {
     return instanceValue == null ? null : instanceValue.toString();
   }

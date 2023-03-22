@@ -12,17 +12,23 @@ import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
+import org.eclipse.xtext.xbase.lib.IntegerRange;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.ListExtensions;
 import org.eclipse.xtext.xbase.lib.StringExtensions;
 import uk.ac.kcl.inf.nlToSql.AccountingSpeech;
 import uk.ac.kcl.inf.nlToSql.Column;
+import uk.ac.kcl.inf.nlToSql.ColumnReference;
+import uk.ac.kcl.inf.nlToSql.Comparison;
+import uk.ac.kcl.inf.nlToSql.ComparisonOperatorString;
+import uk.ac.kcl.inf.nlToSql.Condition;
 import uk.ac.kcl.inf.nlToSql.CreateTableStatement;
 import uk.ac.kcl.inf.nlToSql.Datatype;
-import uk.ac.kcl.inf.nlToSql.InsertStatement;
+import uk.ac.kcl.inf.nlToSql.LogicExpressions;
+import uk.ac.kcl.inf.nlToSql.SelectColumnsList;
 import uk.ac.kcl.inf.nlToSql.SelectStatement;
 import uk.ac.kcl.inf.nlToSql.Statement;
-import uk.ac.kcl.inf.nlToSql.UpdateStatement;
+import uk.ac.kcl.inf.nlToSql.Table;
 
 /**
  * Generates code from your model files on save.
@@ -41,21 +47,21 @@ public class NlToSqlGenerator extends AbstractGenerator {
   
   public CharSequence doGenerateClass(final AccountingSpeech program, final String string) {
     StringConcatenation _builder = new StringConcatenation();
-    final Function1<Statement, CharSequence> _function = (Statement it) -> {
+    final Function1<Statement, String> _function = (Statement it) -> {
       return this.generateSQLStatement(it);
     };
-    String _join = IterableExtensions.join(ListExtensions.<Statement, CharSequence>map(program.getStatements(), _function), "\n");
+    String _join = IterableExtensions.join(ListExtensions.<Statement, String>map(program.getStatements(), _function), "\n");
     _builder.append(_join);
     _builder.newLineIfNotEmpty();
     return _builder;
   }
   
-  protected CharSequence _generateSQLStatement(final Statement statement) {
+  protected String _generateSQLStatement(final Statement statement) {
     StringConcatenation _builder = new StringConcatenation();
-    return _builder;
+    return _builder.toString();
   }
   
-  protected CharSequence _generateSQLStatement(final CreateTableStatement statement) {
+  protected String _generateSQLStatement(final CreateTableStatement statement) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("CREATE TABLE ");
     String _firstUpper = StringExtensions.toFirstUpper(statement.getTable().getName());
@@ -76,7 +82,7 @@ public class NlToSqlGenerator extends AbstractGenerator {
       }
     }
     _builder.append(");");
-    return _builder;
+    return _builder.toString();
   }
   
   public CharSequence toSqlString(final Datatype datatype) {
@@ -101,20 +107,138 @@ public class NlToSqlGenerator extends AbstractGenerator {
     return _builder;
   }
   
-  protected CharSequence _generateSQLStatement(final SelectStatement statement) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nThe method or field generate is undefined for the type LogicExpressions");
+  protected String _generateSQLStatement(final SelectStatement statement) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("SELECT");
+    {
+      SelectColumnsList _columns = statement.getColumns();
+      boolean _tripleEquals = (_columns == null);
+      if (_tripleEquals) {
+        _builder.append(" *\n");
+      } else {
+        {
+          EList<ColumnReference> _selectColumn = statement.getColumns().getSelectColumn();
+          for(final ColumnReference column : _selectColumn) {
+            _builder.append(" ");
+            String _firstUpper = StringExtensions.toFirstUpper(column.getColumn().getName());
+            _builder.append(_firstUpper);
+            {
+              boolean _equals = column.equals(IterableExtensions.<ColumnReference>last(statement.getColumns().getSelectColumn()));
+              boolean _not = (!_equals);
+              if (_not) {
+                _builder.append(",");
+              }
+            }
+          }
+        }
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    _builder.append("FROM ");
+    final Function1<Table, String> _function = (Table it) -> {
+      return StringExtensions.toFirstUpper(it.getName());
+    };
+    String _join = IterableExtensions.join(ListExtensions.<Table, String>map(statement.getTables().getSelectTable(), _function), ", ");
+    _builder.append(_join);
+    _builder.newLineIfNotEmpty();
+    {
+      LogicExpressions _condition = statement.getCondition();
+      boolean _tripleNotEquals = (_condition != null);
+      if (_tripleNotEquals) {
+        _builder.append("WHERE ");
+        String _generateConditionExpression = this.generateConditionExpression(statement.getCondition());
+        _builder.append(_generateConditionExpression);
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    return _builder.toString();
   }
   
-  protected CharSequence _generateSQLStatement(final InsertStatement statement) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nThe method or field generate is undefined for the type String");
+  protected String _generateConditionExpression(final LogicExpressions expression) {
+    StringConcatenation _builder = new StringConcatenation();
+    return _builder.toString();
   }
   
-  protected CharSequence _generateSQLStatement(final UpdateStatement statement) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nThe method or field generate is undefined for the type String"
-      + "\nThe method or field generate is undefined for the type LogicExpressions");
+  protected String _generateConditionExpression(final Condition expression) {
+    StringConcatenation _builder = new StringConcatenation();
+    String _generateConditionExpression = this.generateConditionExpression(expression.getLeft());
+    _builder.append(_generateConditionExpression);
+    {
+      int _size = expression.getLogicOperator().size();
+      int _minus = (_size - 1);
+      IntegerRange _upTo = new IntegerRange(0, _minus);
+      for(final Integer logicOperatorIndex : _upTo) {
+        _builder.append(" ");
+        String _get = expression.getLogicOperator().get((logicOperatorIndex).intValue());
+        _builder.append(_get);
+        _builder.append(" ");
+        String _generateConditionExpression_1 = this.generateConditionExpression(expression.getRight().get((logicOperatorIndex).intValue()));
+        _builder.append(_generateConditionExpression_1);
+      }
+    }
+    return _builder.toString();
+  }
+  
+  protected String _generateConditionExpression(final Comparison expression) {
+    StringConcatenation _builder = new StringConcatenation();
+    String _firstUpper = StringExtensions.toFirstUpper(expression.getLeftHandSide().getName());
+    _builder.append(_firstUpper);
+    _builder.append(" ");
+    String _generateComparisonOperatorExpression = this.generateComparisonOperatorExpression(expression.getOperator());
+    _builder.append(_generateComparisonOperatorExpression);
+    _builder.append(" ");
+    String _rightHandSide = expression.getRightHandSide();
+    _builder.append(_rightHandSide);
+    return _builder.toString();
+  }
+  
+  public String generateComparisonOperatorExpression(final ComparisonOperatorString comparison) {
+    StringConcatenation _builder = new StringConcatenation();
+    String _switchResult = null;
+    if (comparison != null) {
+      switch (comparison) {
+        case EQUAL_TO:
+          _switchResult = "=";
+          break;
+        case LESS_THAN:
+          _switchResult = "<";
+          break;
+        case GREATER_THAN:
+          _switchResult = ">";
+          break;
+        case LESS_THAN_OR_EQUAL_TO:
+          _switchResult = "<=";
+          break;
+        case GREATER_THEN_OR_EQUAL_TO:
+          _switchResult = ">=";
+          break;
+        case NOT_EQUAL_TO:
+          _switchResult = "<>";
+          break;
+        case EQUAL_TO_SIGN:
+          _switchResult = "=";
+          break;
+        case GREATER_THAN_SIGN:
+          _switchResult = ">";
+          break;
+        case GREATER_THEN_OR_EQUAL_TO_SIGN:
+          _switchResult = ">=";
+          break;
+        case LESS_THAN_OR_EQUAL_TO_SIGN:
+          _switchResult = "<=";
+          break;
+        case LESS_THAN_SIGN:
+          _switchResult = "<=";
+          break;
+        case NOT_EQUAL_TO_SIGN:
+          _switchResult = "<>";
+          break;
+        default:
+          break;
+      }
+    }
+    _builder.append(_switchResult);
+    return _builder.toString();
   }
   
   public String deriveClassName(final Resource resource) {
@@ -131,20 +255,29 @@ public class NlToSqlGenerator extends AbstractGenerator {
     return resource.getURI().appendFileExtension("sql").lastSegment();
   }
   
-  public CharSequence generateSQLStatement(final Statement statement) {
+  public String generateSQLStatement(final Statement statement) {
     if (statement instanceof CreateTableStatement) {
       return _generateSQLStatement((CreateTableStatement)statement);
-    } else if (statement instanceof InsertStatement) {
-      return _generateSQLStatement((InsertStatement)statement);
     } else if (statement instanceof SelectStatement) {
       return _generateSQLStatement((SelectStatement)statement);
-    } else if (statement instanceof UpdateStatement) {
-      return _generateSQLStatement((UpdateStatement)statement);
     } else if (statement != null) {
       return _generateSQLStatement(statement);
     } else {
       throw new IllegalArgumentException("Unhandled parameter types: " +
         Arrays.<Object>asList(statement).toString());
+    }
+  }
+  
+  public String generateConditionExpression(final LogicExpressions expression) {
+    if (expression instanceof Comparison) {
+      return _generateConditionExpression((Comparison)expression);
+    } else if (expression instanceof Condition) {
+      return _generateConditionExpression((Condition)expression);
+    } else if (expression != null) {
+      return _generateConditionExpression(expression);
+    } else {
+      throw new IllegalArgumentException("Unhandled parameter types: " +
+        Arrays.<Object>asList(expression).toString());
     }
   }
 }

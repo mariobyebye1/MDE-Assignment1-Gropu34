@@ -89,20 +89,32 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="column" eType="#//Column"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="table" eType="#//Table"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="LogicExpressions">
+  <eClassifiers xsi:type="ecore:EClass" name="LogicExpressions"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Comparison" eSuperTypes="#//LogicExpressions">
     <eStructuralFeatures xsi:type="ecore:EReference" name="leftHandSide" eType="#//Column"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" eType="#//ComparisonOperatorString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="rightHandSide" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="LogicOperator">
-    <eLiterals name="and" literal="and"/>
-    <eLiterals name="or" value="1" literal="or"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="ComparisonOperatorString">
+    <eLiterals name="EQUAL_TO" literal="is equal to"/>
+    <eLiterals name="NOT_EQUAL_TO" value="1" literal="is not equal to"/>
+    <eLiterals name="LESS_THAN" value="2" literal="less than"/>
+    <eLiterals name="GREATER_THAN" value="3" literal="greater than"/>
+    <eLiterals name="LESS_THAN_OR_EQUAL_TO" value="4" literal="less than or equal to"/>
+    <eLiterals name="GREATER_THEN_OR_EQUAL_TO" value="5" literal="greater than or equal to"/>
+    <eLiterals name="EQUAL_TO_SIGN" value="6" literal="="/>
+    <eLiterals name="NOT_EQUAL_TO_SIGN" value="7" literal="&lt;>"/>
+    <eLiterals name="LESS_THAN_SIGN" value="8" literal="&lt;"/>
+    <eLiterals name="GREATER_THAN_SIGN" value="9" literal=">"/>
+    <eLiterals name="LESS_THAN_OR_EQUAL_TO_SIGN" value="10" literal="&lt;="/>
+    <eLiterals name="GREATER_THEN_OR_EQUAL_TO_SIGN" value="11" literal=">="/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Comparison" eSuperTypes="#//LogicExpressions">
+  <eClassifiers xsi:type="ecore:EClass" name="Condition" eSuperTypes="#//LogicExpressions">
     <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//LogicExpressions"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="logicOperator" eType="#//LogicOperator"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="logicOperator" unique="false"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="right" upperBound="-1"
-        eType="#//LogicExpressions" containment="true"/>
+        eType="#//Comparison" containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

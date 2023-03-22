@@ -877,41 +877,62 @@ public class NlToSqlGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final RuleCall cComparisonParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Action cComparisonLeftAction_1_0 = (Action)cGroup_1.eContents().get(0);
+		private final Action cConditionLeftAction_1_0 = (Action)cGroup_1.eContents().get(0);
 		private final Assignment cLogicOperatorAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
-		private final RuleCall cLogicOperatorLogicOperatorEnumRuleCall_1_1_0 = (RuleCall)cLogicOperatorAssignment_1_1.eContents().get(0);
+		private final RuleCall cLogicOperatorLogicOperatorParserRuleCall_1_1_0 = (RuleCall)cLogicOperatorAssignment_1_1.eContents().get(0);
 		private final Assignment cRightAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
 		private final RuleCall cRightComparisonParserRuleCall_1_2_0 = (RuleCall)cRightAssignment_1_2.eContents().get(0);
 		
 		//// Define the Condition rule
 		//Condition returns LogicExpressions:
-		//    Comparison ({Comparison.left = current} logicOperator=LogicOperator right += Comparison)*
+		//    Comparison ({Condition.left = current} logicOperator+=LogicOperator right += Comparison)*
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//Comparison ({Comparison.left = current} logicOperator=LogicOperator right += Comparison)*
+		//Comparison ({Condition.left = current} logicOperator+=LogicOperator right += Comparison)*
 		public Group getGroup() { return cGroup; }
 		
 		//Comparison
 		public RuleCall getComparisonParserRuleCall_0() { return cComparisonParserRuleCall_0; }
 		
-		//({Comparison.left = current} logicOperator=LogicOperator right += Comparison)*
+		//({Condition.left = current} logicOperator+=LogicOperator right += Comparison)*
 		public Group getGroup_1() { return cGroup_1; }
 		
-		//{Comparison.left = current}
-		public Action getComparisonLeftAction_1_0() { return cComparisonLeftAction_1_0; }
+		//{Condition.left = current}
+		public Action getConditionLeftAction_1_0() { return cConditionLeftAction_1_0; }
 		
-		//logicOperator=LogicOperator
+		//logicOperator+=LogicOperator
 		public Assignment getLogicOperatorAssignment_1_1() { return cLogicOperatorAssignment_1_1; }
 		
 		//LogicOperator
-		public RuleCall getLogicOperatorLogicOperatorEnumRuleCall_1_1_0() { return cLogicOperatorLogicOperatorEnumRuleCall_1_1_0; }
+		public RuleCall getLogicOperatorLogicOperatorParserRuleCall_1_1_0() { return cLogicOperatorLogicOperatorParserRuleCall_1_1_0; }
 		
 		//right += Comparison
 		public Assignment getRightAssignment_1_2() { return cRightAssignment_1_2; }
 		
 		//Comparison
 		public RuleCall getRightComparisonParserRuleCall_1_2_0() { return cRightComparisonParserRuleCall_1_2_0; }
+	}
+	public class LogicOperatorElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.NlToSql.LogicOperator");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Keyword cAndKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
+		private final Keyword cOrKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
+		
+		//// Define the LogicOperator rule
+		//LogicOperator:
+		//    "and" | "or"
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//"and" | "or"
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//"and"
+		public Keyword getAndKeyword_0() { return cAndKeyword_0; }
+		
+		//"or"
+		public Keyword getOrKeyword_1() { return cOrKeyword_1; }
 	}
 	public class ComparisonElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.NlToSql.Comparison");
@@ -923,17 +944,17 @@ public class NlToSqlGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 		private final CrossReference cLeftHandSideColumnCrossReference_1_0 = (CrossReference)cLeftHandSideAssignment_1.eContents().get(0);
 		private final RuleCall cLeftHandSideColumnIDTerminalRuleCall_1_0_1 = (RuleCall)cLeftHandSideColumnCrossReference_1_0.eContents().get(1);
 		private final Assignment cOperatorAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cOperatorComparisonOperatorParserRuleCall_2_0 = (RuleCall)cOperatorAssignment_2.eContents().get(0);
+		private final RuleCall cOperatorComparisonOperatorStringEnumRuleCall_2_0 = (RuleCall)cOperatorAssignment_2.eContents().get(0);
 		private final Assignment cRightHandSideAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cRightHandSideValueParserRuleCall_3_0 = (RuleCall)cRightHandSideAssignment_3.eContents().get(0);
 		
 		//// Define the Comparison rule
-		//Comparison returns LogicExpressions:
-		//    ('the' | 'a')? leftHandSide=[Column] operator=ComparisonOperator rightHandSide=Value
+		//Comparison:
+		//    ('the' | 'a')? leftHandSide=[Column] operator=ComparisonOperatorString rightHandSide=Value
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//('the' | 'a')? leftHandSide=[Column] operator=ComparisonOperator rightHandSide=Value
+		//('the' | 'a')? leftHandSide=[Column] operator=ComparisonOperatorString rightHandSide=Value
 		public Group getGroup() { return cGroup; }
 		
 		//('the' | 'a')?
@@ -954,200 +975,17 @@ public class NlToSqlGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 		//ID
 		public RuleCall getLeftHandSideColumnIDTerminalRuleCall_1_0_1() { return cLeftHandSideColumnIDTerminalRuleCall_1_0_1; }
 		
-		//operator=ComparisonOperator
+		//operator=ComparisonOperatorString
 		public Assignment getOperatorAssignment_2() { return cOperatorAssignment_2; }
 		
-		//ComparisonOperator
-		public RuleCall getOperatorComparisonOperatorParserRuleCall_2_0() { return cOperatorComparisonOperatorParserRuleCall_2_0; }
+		//ComparisonOperatorString
+		public RuleCall getOperatorComparisonOperatorStringEnumRuleCall_2_0() { return cOperatorComparisonOperatorStringEnumRuleCall_2_0; }
 		
 		//rightHandSide=Value
 		public Assignment getRightHandSideAssignment_3() { return cRightHandSideAssignment_3; }
 		
 		//Value
 		public RuleCall getRightHandSideValueParserRuleCall_3_0() { return cRightHandSideValueParserRuleCall_3_0; }
-	}
-	public class ComparisonOperatorElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.NlToSql.ComparisonOperator");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cComparisonOperatorSignsParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cComparisonOperatorStringParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		
-		//// Define the ComparisonOperator rule
-		//ComparisonOperator:
-		//    ComparisonOperatorSigns | ComparisonOperatorString
-		//;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//ComparisonOperatorSigns | ComparisonOperatorString
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//ComparisonOperatorSigns
-		public RuleCall getComparisonOperatorSignsParserRuleCall_0() { return cComparisonOperatorSignsParserRuleCall_0; }
-		
-		//ComparisonOperatorString
-		public RuleCall getComparisonOperatorStringParserRuleCall_1() { return cComparisonOperatorStringParserRuleCall_1; }
-	}
-	public class ComparisonOperatorStringElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.NlToSql.ComparisonOperatorString");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
-		private final Keyword cIsKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
-		private final Keyword cEqualKeyword_0_1 = (Keyword)cGroup_0.eContents().get(1);
-		private final Keyword cToKeyword_0_2 = (Keyword)cGroup_0.eContents().get(2);
-		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
-		private final Keyword cIsKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
-		private final Keyword cNotKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
-		private final Keyword cEqualKeyword_1_2 = (Keyword)cGroup_1.eContents().get(2);
-		private final Keyword cToKeyword_1_3 = (Keyword)cGroup_1.eContents().get(3);
-		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
-		private final Keyword cLessKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Keyword cThanKeyword_2_1 = (Keyword)cGroup_2.eContents().get(1);
-		private final Group cGroup_3 = (Group)cAlternatives.eContents().get(3);
-		private final Keyword cGreaterKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Keyword cThanKeyword_3_1 = (Keyword)cGroup_3.eContents().get(1);
-		private final Group cGroup_4 = (Group)cAlternatives.eContents().get(4);
-		private final Keyword cLessKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
-		private final Keyword cThanKeyword_4_1 = (Keyword)cGroup_4.eContents().get(1);
-		private final Keyword cOrKeyword_4_2 = (Keyword)cGroup_4.eContents().get(2);
-		private final Keyword cEqualKeyword_4_3 = (Keyword)cGroup_4.eContents().get(3);
-		private final Keyword cToKeyword_4_4 = (Keyword)cGroup_4.eContents().get(4);
-		private final Group cGroup_5 = (Group)cAlternatives.eContents().get(5);
-		private final Keyword cGreaterKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
-		private final Keyword cThanKeyword_5_1 = (Keyword)cGroup_5.eContents().get(1);
-		private final Keyword cOrKeyword_5_2 = (Keyword)cGroup_5.eContents().get(2);
-		private final Keyword cEqualKeyword_5_3 = (Keyword)cGroup_5.eContents().get(3);
-		private final Keyword cToKeyword_5_4 = (Keyword)cGroup_5.eContents().get(4);
-		
-		//ComparisonOperatorString:
-		//    'is' 'equal' 'to'
-		//    | 'is' 'not' 'equal' 'to'
-		//    | 'less' 'than'
-		//    | 'greater' 'than'
-		//    | 'less' 'than' 'or' 'equal' 'to'
-		//    | 'greater' 'than' 'or' 'equal' 'to'
-		//;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//'is' 'equal' 'to'
-		//| 'is' 'not' 'equal' 'to'
-		//| 'less' 'than'
-		//| 'greater' 'than'
-		//| 'less' 'than' 'or' 'equal' 'to'
-		//| 'greater' 'than' 'or' 'equal' 'to'
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//'is' 'equal' 'to'
-		public Group getGroup_0() { return cGroup_0; }
-		
-		//'is'
-		public Keyword getIsKeyword_0_0() { return cIsKeyword_0_0; }
-		
-		//'equal'
-		public Keyword getEqualKeyword_0_1() { return cEqualKeyword_0_1; }
-		
-		//'to'
-		public Keyword getToKeyword_0_2() { return cToKeyword_0_2; }
-		
-		//'is' 'not' 'equal' 'to'
-		public Group getGroup_1() { return cGroup_1; }
-		
-		//'is'
-		public Keyword getIsKeyword_1_0() { return cIsKeyword_1_0; }
-		
-		//'not'
-		public Keyword getNotKeyword_1_1() { return cNotKeyword_1_1; }
-		
-		//'equal'
-		public Keyword getEqualKeyword_1_2() { return cEqualKeyword_1_2; }
-		
-		//'to'
-		public Keyword getToKeyword_1_3() { return cToKeyword_1_3; }
-		
-		//'less' 'than'
-		public Group getGroup_2() { return cGroup_2; }
-		
-		//'less'
-		public Keyword getLessKeyword_2_0() { return cLessKeyword_2_0; }
-		
-		//'than'
-		public Keyword getThanKeyword_2_1() { return cThanKeyword_2_1; }
-		
-		//'greater' 'than'
-		public Group getGroup_3() { return cGroup_3; }
-		
-		//'greater'
-		public Keyword getGreaterKeyword_3_0() { return cGreaterKeyword_3_0; }
-		
-		//'than'
-		public Keyword getThanKeyword_3_1() { return cThanKeyword_3_1; }
-		
-		//'less' 'than' 'or' 'equal' 'to'
-		public Group getGroup_4() { return cGroup_4; }
-		
-		//'less'
-		public Keyword getLessKeyword_4_0() { return cLessKeyword_4_0; }
-		
-		//'than'
-		public Keyword getThanKeyword_4_1() { return cThanKeyword_4_1; }
-		
-		//'or'
-		public Keyword getOrKeyword_4_2() { return cOrKeyword_4_2; }
-		
-		//'equal'
-		public Keyword getEqualKeyword_4_3() { return cEqualKeyword_4_3; }
-		
-		//'to'
-		public Keyword getToKeyword_4_4() { return cToKeyword_4_4; }
-		
-		//'greater' 'than' 'or' 'equal' 'to'
-		public Group getGroup_5() { return cGroup_5; }
-		
-		//'greater'
-		public Keyword getGreaterKeyword_5_0() { return cGreaterKeyword_5_0; }
-		
-		//'than'
-		public Keyword getThanKeyword_5_1() { return cThanKeyword_5_1; }
-		
-		//'or'
-		public Keyword getOrKeyword_5_2() { return cOrKeyword_5_2; }
-		
-		//'equal'
-		public Keyword getEqualKeyword_5_3() { return cEqualKeyword_5_3; }
-		
-		//'to'
-		public Keyword getToKeyword_5_4() { return cToKeyword_5_4; }
-	}
-	public class ComparisonOperatorSignsElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.NlToSql.ComparisonOperatorSigns");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final Keyword cEqualsSignKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
-		private final Keyword cLessThanSignEqualsSignKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
-		private final Keyword cGreaterThanSignEqualsSignKeyword_2 = (Keyword)cAlternatives.eContents().get(2);
-		private final Keyword cGreaterThanSignKeyword_3 = (Keyword)cAlternatives.eContents().get(3);
-		private final Keyword cLessThanSignKeyword_4 = (Keyword)cAlternatives.eContents().get(4);
-		
-		//ComparisonOperatorSigns:
-		//    '=' | '<=' | '>='| '>' | '<'
-		//;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//'=' | '<=' | '>='| '>' | '<'
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//'='
-		public Keyword getEqualsSignKeyword_0() { return cEqualsSignKeyword_0; }
-		
-		//'<='
-		public Keyword getLessThanSignEqualsSignKeyword_1() { return cLessThanSignEqualsSignKeyword_1; }
-		
-		//'>='
-		public Keyword getGreaterThanSignEqualsSignKeyword_2() { return cGreaterThanSignEqualsSignKeyword_2; }
-		
-		//'>'
-		public Keyword getGreaterThanSignKeyword_3() { return cGreaterThanSignKeyword_3; }
-		
-		//'<'
-		public Keyword getLessThanSignKeyword_4() { return cLessThanSignKeyword_4; }
 	}
 	public class ValueElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.NlToSql.Value");
@@ -1205,32 +1043,135 @@ public class NlToSqlGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 		
 		public Keyword getDateDateKeyword_2_0() { return cDateDateKeyword_2_0; }
 	}
-	public class LogicOperatorElements extends AbstractElementFinder.AbstractEnumRuleElementFinder {
-		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.NlToSql.LogicOperator");
+	public class ComparisonOperatorStringElements extends AbstractElementFinder.AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.NlToSql.ComparisonOperatorString");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final EnumLiteralDeclaration cAndEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
-		private final Keyword cAndAndKeyword_0_0 = (Keyword)cAndEnumLiteralDeclaration_0.eContents().get(0);
-		private final EnumLiteralDeclaration cOrEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
-		private final Keyword cOrOrKeyword_1_0 = (Keyword)cOrEnumLiteralDeclaration_1.eContents().get(0);
+		private final EnumLiteralDeclaration cEQUAL_TOEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
+		private final Keyword cEQUAL_TOIsEqualToKeyword_0_0 = (Keyword)cEQUAL_TOEnumLiteralDeclaration_0.eContents().get(0);
+		private final EnumLiteralDeclaration cNOT_EQUAL_TOEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
+		private final Keyword cNOT_EQUAL_TOIsNotEqualToKeyword_1_0 = (Keyword)cNOT_EQUAL_TOEnumLiteralDeclaration_1.eContents().get(0);
+		private final EnumLiteralDeclaration cLESS_THANEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
+		private final Keyword cLESS_THANLessThanKeyword_2_0 = (Keyword)cLESS_THANEnumLiteralDeclaration_2.eContents().get(0);
+		private final EnumLiteralDeclaration cGREATER_THANEnumLiteralDeclaration_3 = (EnumLiteralDeclaration)cAlternatives.eContents().get(3);
+		private final Keyword cGREATER_THANGreaterThanKeyword_3_0 = (Keyword)cGREATER_THANEnumLiteralDeclaration_3.eContents().get(0);
+		private final EnumLiteralDeclaration cLESS_THAN_OR_EQUAL_TOEnumLiteralDeclaration_4 = (EnumLiteralDeclaration)cAlternatives.eContents().get(4);
+		private final Keyword cLESS_THAN_OR_EQUAL_TOLessThanOrEqualToKeyword_4_0 = (Keyword)cLESS_THAN_OR_EQUAL_TOEnumLiteralDeclaration_4.eContents().get(0);
+		private final EnumLiteralDeclaration cGREATER_THEN_OR_EQUAL_TOEnumLiteralDeclaration_5 = (EnumLiteralDeclaration)cAlternatives.eContents().get(5);
+		private final Keyword cGREATER_THEN_OR_EQUAL_TOGreaterThanOrEqualToKeyword_5_0 = (Keyword)cGREATER_THEN_OR_EQUAL_TOEnumLiteralDeclaration_5.eContents().get(0);
+		private final EnumLiteralDeclaration cEQUAL_TO_SIGNEnumLiteralDeclaration_6 = (EnumLiteralDeclaration)cAlternatives.eContents().get(6);
+		private final Keyword cEQUAL_TO_SIGNEqualsSignKeyword_6_0 = (Keyword)cEQUAL_TO_SIGNEnumLiteralDeclaration_6.eContents().get(0);
+		private final EnumLiteralDeclaration cNOT_EQUAL_TO_SIGNEnumLiteralDeclaration_7 = (EnumLiteralDeclaration)cAlternatives.eContents().get(7);
+		private final Keyword cNOT_EQUAL_TO_SIGNLessThanSignGreaterThanSignKeyword_7_0 = (Keyword)cNOT_EQUAL_TO_SIGNEnumLiteralDeclaration_7.eContents().get(0);
+		private final EnumLiteralDeclaration cLESS_THAN_SIGNEnumLiteralDeclaration_8 = (EnumLiteralDeclaration)cAlternatives.eContents().get(8);
+		private final Keyword cLESS_THAN_SIGNLessThanSignKeyword_8_0 = (Keyword)cLESS_THAN_SIGNEnumLiteralDeclaration_8.eContents().get(0);
+		private final EnumLiteralDeclaration cGREATER_THAN_SIGNEnumLiteralDeclaration_9 = (EnumLiteralDeclaration)cAlternatives.eContents().get(9);
+		private final Keyword cGREATER_THAN_SIGNGreaterThanSignKeyword_9_0 = (Keyword)cGREATER_THAN_SIGNEnumLiteralDeclaration_9.eContents().get(0);
+		private final EnumLiteralDeclaration cLESS_THAN_OR_EQUAL_TO_SIGNEnumLiteralDeclaration_10 = (EnumLiteralDeclaration)cAlternatives.eContents().get(10);
+		private final Keyword cLESS_THAN_OR_EQUAL_TO_SIGNLessThanSignEqualsSignKeyword_10_0 = (Keyword)cLESS_THAN_OR_EQUAL_TO_SIGNEnumLiteralDeclaration_10.eContents().get(0);
+		private final EnumLiteralDeclaration cGREATER_THEN_OR_EQUAL_TO_SIGNEnumLiteralDeclaration_11 = (EnumLiteralDeclaration)cAlternatives.eContents().get(11);
+		private final Keyword cGREATER_THEN_OR_EQUAL_TO_SIGNGreaterThanSignEqualsSignKeyword_11_0 = (Keyword)cGREATER_THEN_OR_EQUAL_TO_SIGNEnumLiteralDeclaration_11.eContents().get(0);
 		
-		//// Define the LogicOperator rule
-		//enum LogicOperator:
-		//    and | or
+		//enum ComparisonOperatorString:
+		//    EQUAL_TO = "is equal to"
+		//    | NOT_EQUAL_TO = "is not equal to"
+		//    | LESS_THAN = "less than"
+		//    | GREATER_THAN = "greater than"
+		//    | LESS_THAN_OR_EQUAL_TO = "less than or equal to"
+		//    | GREATER_THEN_OR_EQUAL_TO = "greater than or equal to"
+		//    | EQUAL_TO_SIGN = "="
+		//    | NOT_EQUAL_TO_SIGN = "<>"
+		//    | LESS_THAN_SIGN = "<"
+		//    | GREATER_THAN_SIGN = ">"
+		//    | LESS_THAN_OR_EQUAL_TO_SIGN = "<="
+		//    | GREATER_THEN_OR_EQUAL_TO_SIGN = ">="
 		//;
 		public EnumRule getRule() { return rule; }
 		
-		//and | or
+		//EQUAL_TO = "is equal to"
+		//| NOT_EQUAL_TO = "is not equal to"
+		//| LESS_THAN = "less than"
+		//| GREATER_THAN = "greater than"
+		//| LESS_THAN_OR_EQUAL_TO = "less than or equal to"
+		//| GREATER_THEN_OR_EQUAL_TO = "greater than or equal to"
+		//| EQUAL_TO_SIGN = "="
+		//| NOT_EQUAL_TO_SIGN = "<>"
+		//| LESS_THAN_SIGN = "<"
+		//| GREATER_THAN_SIGN = ">"
+		//| LESS_THAN_OR_EQUAL_TO_SIGN = "<="
+		//| GREATER_THEN_OR_EQUAL_TO_SIGN = ">="
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//and
-		public EnumLiteralDeclaration getAndEnumLiteralDeclaration_0() { return cAndEnumLiteralDeclaration_0; }
+		//EQUAL_TO = "is equal to"
+		public EnumLiteralDeclaration getEQUAL_TOEnumLiteralDeclaration_0() { return cEQUAL_TOEnumLiteralDeclaration_0; }
 		
-		public Keyword getAndAndKeyword_0_0() { return cAndAndKeyword_0_0; }
+		//"is equal to"
+		public Keyword getEQUAL_TOIsEqualToKeyword_0_0() { return cEQUAL_TOIsEqualToKeyword_0_0; }
 		
-		//or
-		public EnumLiteralDeclaration getOrEnumLiteralDeclaration_1() { return cOrEnumLiteralDeclaration_1; }
+		//NOT_EQUAL_TO = "is not equal to"
+		public EnumLiteralDeclaration getNOT_EQUAL_TOEnumLiteralDeclaration_1() { return cNOT_EQUAL_TOEnumLiteralDeclaration_1; }
 		
-		public Keyword getOrOrKeyword_1_0() { return cOrOrKeyword_1_0; }
+		//"is not equal to"
+		public Keyword getNOT_EQUAL_TOIsNotEqualToKeyword_1_0() { return cNOT_EQUAL_TOIsNotEqualToKeyword_1_0; }
+		
+		//LESS_THAN = "less than"
+		public EnumLiteralDeclaration getLESS_THANEnumLiteralDeclaration_2() { return cLESS_THANEnumLiteralDeclaration_2; }
+		
+		//"less than"
+		public Keyword getLESS_THANLessThanKeyword_2_0() { return cLESS_THANLessThanKeyword_2_0; }
+		
+		//GREATER_THAN = "greater than"
+		public EnumLiteralDeclaration getGREATER_THANEnumLiteralDeclaration_3() { return cGREATER_THANEnumLiteralDeclaration_3; }
+		
+		//"greater than"
+		public Keyword getGREATER_THANGreaterThanKeyword_3_0() { return cGREATER_THANGreaterThanKeyword_3_0; }
+		
+		//LESS_THAN_OR_EQUAL_TO = "less than or equal to"
+		public EnumLiteralDeclaration getLESS_THAN_OR_EQUAL_TOEnumLiteralDeclaration_4() { return cLESS_THAN_OR_EQUAL_TOEnumLiteralDeclaration_4; }
+		
+		//"less than or equal to"
+		public Keyword getLESS_THAN_OR_EQUAL_TOLessThanOrEqualToKeyword_4_0() { return cLESS_THAN_OR_EQUAL_TOLessThanOrEqualToKeyword_4_0; }
+		
+		//GREATER_THEN_OR_EQUAL_TO = "greater than or equal to"
+		public EnumLiteralDeclaration getGREATER_THEN_OR_EQUAL_TOEnumLiteralDeclaration_5() { return cGREATER_THEN_OR_EQUAL_TOEnumLiteralDeclaration_5; }
+		
+		//"greater than or equal to"
+		public Keyword getGREATER_THEN_OR_EQUAL_TOGreaterThanOrEqualToKeyword_5_0() { return cGREATER_THEN_OR_EQUAL_TOGreaterThanOrEqualToKeyword_5_0; }
+		
+		//EQUAL_TO_SIGN = "="
+		public EnumLiteralDeclaration getEQUAL_TO_SIGNEnumLiteralDeclaration_6() { return cEQUAL_TO_SIGNEnumLiteralDeclaration_6; }
+		
+		//"="
+		public Keyword getEQUAL_TO_SIGNEqualsSignKeyword_6_0() { return cEQUAL_TO_SIGNEqualsSignKeyword_6_0; }
+		
+		//NOT_EQUAL_TO_SIGN = "<>"
+		public EnumLiteralDeclaration getNOT_EQUAL_TO_SIGNEnumLiteralDeclaration_7() { return cNOT_EQUAL_TO_SIGNEnumLiteralDeclaration_7; }
+		
+		//"<>"
+		public Keyword getNOT_EQUAL_TO_SIGNLessThanSignGreaterThanSignKeyword_7_0() { return cNOT_EQUAL_TO_SIGNLessThanSignGreaterThanSignKeyword_7_0; }
+		
+		//LESS_THAN_SIGN = "<"
+		public EnumLiteralDeclaration getLESS_THAN_SIGNEnumLiteralDeclaration_8() { return cLESS_THAN_SIGNEnumLiteralDeclaration_8; }
+		
+		//"<"
+		public Keyword getLESS_THAN_SIGNLessThanSignKeyword_8_0() { return cLESS_THAN_SIGNLessThanSignKeyword_8_0; }
+		
+		//GREATER_THAN_SIGN = ">"
+		public EnumLiteralDeclaration getGREATER_THAN_SIGNEnumLiteralDeclaration_9() { return cGREATER_THAN_SIGNEnumLiteralDeclaration_9; }
+		
+		//">"
+		public Keyword getGREATER_THAN_SIGNGreaterThanSignKeyword_9_0() { return cGREATER_THAN_SIGNGreaterThanSignKeyword_9_0; }
+		
+		//LESS_THAN_OR_EQUAL_TO_SIGN = "<="
+		public EnumLiteralDeclaration getLESS_THAN_OR_EQUAL_TO_SIGNEnumLiteralDeclaration_10() { return cLESS_THAN_OR_EQUAL_TO_SIGNEnumLiteralDeclaration_10; }
+		
+		//"<="
+		public Keyword getLESS_THAN_OR_EQUAL_TO_SIGNLessThanSignEqualsSignKeyword_10_0() { return cLESS_THAN_OR_EQUAL_TO_SIGNLessThanSignEqualsSignKeyword_10_0; }
+		
+		//GREATER_THEN_OR_EQUAL_TO_SIGN = ">="
+		public EnumLiteralDeclaration getGREATER_THEN_OR_EQUAL_TO_SIGNEnumLiteralDeclaration_11() { return cGREATER_THEN_OR_EQUAL_TO_SIGNEnumLiteralDeclaration_11; }
+		
+		//">="
+		public Keyword getGREATER_THEN_OR_EQUAL_TO_SIGNGreaterThanSignEqualsSignKeyword_11_0() { return cGREATER_THEN_OR_EQUAL_TO_SIGNGreaterThanSignEqualsSignKeyword_11_0; }
 	}
 	
 	private final AccountingSpeechElements pAccountingSpeech;
@@ -1252,11 +1193,9 @@ public class NlToSqlGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 	private final SelectColumnsListElements pSelectColumnsList;
 	private final ColumnReferenceElements pColumnReference;
 	private final ConditionElements pCondition;
-	private final LogicOperatorElements eLogicOperator;
+	private final LogicOperatorElements pLogicOperator;
 	private final ComparisonElements pComparison;
-	private final ComparisonOperatorElements pComparisonOperator;
-	private final ComparisonOperatorStringElements pComparisonOperatorString;
-	private final ComparisonOperatorSignsElements pComparisonOperatorSigns;
+	private final ComparisonOperatorStringElements eComparisonOperatorString;
 	private final ValueElements pValue;
 	
 	private final Grammar grammar;
@@ -1287,11 +1226,9 @@ public class NlToSqlGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 		this.pSelectColumnsList = new SelectColumnsListElements();
 		this.pColumnReference = new ColumnReferenceElements();
 		this.pCondition = new ConditionElements();
-		this.eLogicOperator = new LogicOperatorElements();
+		this.pLogicOperator = new LogicOperatorElements();
 		this.pComparison = new ComparisonElements();
-		this.pComparisonOperator = new ComparisonOperatorElements();
-		this.pComparisonOperatorString = new ComparisonOperatorStringElements();
-		this.pComparisonOperatorSigns = new ComparisonOperatorSignsElements();
+		this.eComparisonOperatorString = new ComparisonOperatorStringElements();
 		this.pValue = new ValueElements();
 	}
 	
@@ -1544,7 +1481,7 @@ public class NlToSqlGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 	
 	//// Define the Condition rule
 	//Condition returns LogicExpressions:
-	//    Comparison ({Comparison.left = current} logicOperator=LogicOperator right += Comparison)*
+	//    Comparison ({Condition.left = current} logicOperator+=LogicOperator right += Comparison)*
 	//;
 	public ConditionElements getConditionAccess() {
 		return pCondition;
@@ -1555,20 +1492,20 @@ public class NlToSqlGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 	}
 	
 	//// Define the LogicOperator rule
-	//enum LogicOperator:
-	//    and | or
+	//LogicOperator:
+	//    "and" | "or"
 	//;
 	public LogicOperatorElements getLogicOperatorAccess() {
-		return eLogicOperator;
+		return pLogicOperator;
 	}
 	
-	public EnumRule getLogicOperatorRule() {
+	public ParserRule getLogicOperatorRule() {
 		return getLogicOperatorAccess().getRule();
 	}
 	
 	//// Define the Comparison rule
-	//Comparison returns LogicExpressions:
-	//    ('the' | 'a')? leftHandSide=[Column] operator=ComparisonOperator rightHandSide=Value
+	//Comparison:
+	//    ('the' | 'a')? leftHandSide=[Column] operator=ComparisonOperatorString rightHandSide=Value
 	//;
 	public ComparisonElements getComparisonAccess() {
 		return pComparison;
@@ -1578,43 +1515,26 @@ public class NlToSqlGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 		return getComparisonAccess().getRule();
 	}
 	
-	//// Define the ComparisonOperator rule
-	//ComparisonOperator:
-	//    ComparisonOperatorSigns | ComparisonOperatorString
-	//;
-	public ComparisonOperatorElements getComparisonOperatorAccess() {
-		return pComparisonOperator;
-	}
-	
-	public ParserRule getComparisonOperatorRule() {
-		return getComparisonOperatorAccess().getRule();
-	}
-	
-	//ComparisonOperatorString:
-	//    'is' 'equal' 'to'
-	//    | 'is' 'not' 'equal' 'to'
-	//    | 'less' 'than'
-	//    | 'greater' 'than'
-	//    | 'less' 'than' 'or' 'equal' 'to'
-	//    | 'greater' 'than' 'or' 'equal' 'to'
+	//enum ComparisonOperatorString:
+	//    EQUAL_TO = "is equal to"
+	//    | NOT_EQUAL_TO = "is not equal to"
+	//    | LESS_THAN = "less than"
+	//    | GREATER_THAN = "greater than"
+	//    | LESS_THAN_OR_EQUAL_TO = "less than or equal to"
+	//    | GREATER_THEN_OR_EQUAL_TO = "greater than or equal to"
+	//    | EQUAL_TO_SIGN = "="
+	//    | NOT_EQUAL_TO_SIGN = "<>"
+	//    | LESS_THAN_SIGN = "<"
+	//    | GREATER_THAN_SIGN = ">"
+	//    | LESS_THAN_OR_EQUAL_TO_SIGN = "<="
+	//    | GREATER_THEN_OR_EQUAL_TO_SIGN = ">="
 	//;
 	public ComparisonOperatorStringElements getComparisonOperatorStringAccess() {
-		return pComparisonOperatorString;
+		return eComparisonOperatorString;
 	}
 	
-	public ParserRule getComparisonOperatorStringRule() {
+	public EnumRule getComparisonOperatorStringRule() {
 		return getComparisonOperatorStringAccess().getRule();
-	}
-	
-	//ComparisonOperatorSigns:
-	//    '=' | '<=' | '>='| '>' | '<'
-	//;
-	public ComparisonOperatorSignsElements getComparisonOperatorSignsAccess() {
-		return pComparisonOperatorSigns;
-	}
-	
-	public ParserRule getComparisonOperatorSignsRule() {
-		return getComparisonOperatorSignsAccess().getRule();
 	}
 	
 	//// Define the Value rule

@@ -3,17 +3,25 @@
  */
 package uk.ac.kcl.inf.nlToSql.impl;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EDataTypeEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 import uk.ac.kcl.inf.nlToSql.Comparison;
 import uk.ac.kcl.inf.nlToSql.Condition;
+import uk.ac.kcl.inf.nlToSql.LogicExpressions;
 import uk.ac.kcl.inf.nlToSql.NlToSqlPackage;
 
 /**
@@ -24,43 +32,44 @@ import uk.ac.kcl.inf.nlToSql.NlToSqlPackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link uk.ac.kcl.inf.nlToSql.impl.ConditionImpl#getExpression <em>Expression</em>}</li>
+ *   <li>{@link uk.ac.kcl.inf.nlToSql.impl.ConditionImpl#getLeft <em>Left</em>}</li>
  *   <li>{@link uk.ac.kcl.inf.nlToSql.impl.ConditionImpl#getLogicOperator <em>Logic Operator</em>}</li>
+ *   <li>{@link uk.ac.kcl.inf.nlToSql.impl.ConditionImpl#getRight <em>Right</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ConditionImpl extends MinimalEObjectImpl.Container implements Condition
+public class ConditionImpl extends LogicExpressionsImpl implements Condition
 {
   /**
-   * The cached value of the '{@link #getExpression() <em>Expression</em>}' containment reference.
+   * The cached value of the '{@link #getLeft() <em>Left</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getExpression()
+   * @see #getLeft()
    * @generated
    * @ordered
    */
-  protected Comparison expression;
+  protected LogicExpressions left;
 
   /**
-   * The default value of the '{@link #getLogicOperator() <em>Logic Operator</em>}' attribute.
+   * The cached value of the '{@link #getLogicOperator() <em>Logic Operator</em>}' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getLogicOperator()
    * @generated
    * @ordered
    */
-  protected static final String LOGIC_OPERATOR_EDEFAULT = null;
+  protected EList<String> logicOperator;
 
   /**
-   * The cached value of the '{@link #getLogicOperator() <em>Logic Operator</em>}' attribute.
+   * The cached value of the '{@link #getRight() <em>Right</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getLogicOperator()
+   * @see #getRight()
    * @generated
    * @ordered
    */
-  protected String logicOperator = LOGIC_OPERATOR_EDEFAULT;
+  protected EList<Comparison> right;
 
   /**
    * <!-- begin-user-doc -->
@@ -89,9 +98,9 @@ public class ConditionImpl extends MinimalEObjectImpl.Container implements Condi
    * @generated
    */
   @Override
-  public Comparison getExpression()
+  public LogicExpressions getLeft()
   {
-    return expression;
+    return left;
   }
 
   /**
@@ -99,13 +108,13 @@ public class ConditionImpl extends MinimalEObjectImpl.Container implements Condi
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetExpression(Comparison newExpression, NotificationChain msgs)
+  public NotificationChain basicSetLeft(LogicExpressions newLeft, NotificationChain msgs)
   {
-    Comparison oldExpression = expression;
-    expression = newExpression;
+    LogicExpressions oldLeft = left;
+    left = newLeft;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, NlToSqlPackage.CONDITION__EXPRESSION, oldExpression, newExpression);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, NlToSqlPackage.CONDITION__LEFT, oldLeft, newLeft);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -117,20 +126,20 @@ public class ConditionImpl extends MinimalEObjectImpl.Container implements Condi
    * @generated
    */
   @Override
-  public void setExpression(Comparison newExpression)
+  public void setLeft(LogicExpressions newLeft)
   {
-    if (newExpression != expression)
+    if (newLeft != left)
     {
       NotificationChain msgs = null;
-      if (expression != null)
-        msgs = ((InternalEObject)expression).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - NlToSqlPackage.CONDITION__EXPRESSION, null, msgs);
-      if (newExpression != null)
-        msgs = ((InternalEObject)newExpression).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - NlToSqlPackage.CONDITION__EXPRESSION, null, msgs);
-      msgs = basicSetExpression(newExpression, msgs);
+      if (left != null)
+        msgs = ((InternalEObject)left).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - NlToSqlPackage.CONDITION__LEFT, null, msgs);
+      if (newLeft != null)
+        msgs = ((InternalEObject)newLeft).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - NlToSqlPackage.CONDITION__LEFT, null, msgs);
+      msgs = basicSetLeft(newLeft, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, NlToSqlPackage.CONDITION__EXPRESSION, newExpression, newExpression));
+      eNotify(new ENotificationImpl(this, Notification.SET, NlToSqlPackage.CONDITION__LEFT, newLeft, newLeft));
   }
 
   /**
@@ -139,8 +148,12 @@ public class ConditionImpl extends MinimalEObjectImpl.Container implements Condi
    * @generated
    */
   @Override
-  public String getLogicOperator()
+  public EList<String> getLogicOperator()
   {
+    if (logicOperator == null)
+    {
+      logicOperator = new EDataTypeEList<String>(String.class, this, NlToSqlPackage.CONDITION__LOGIC_OPERATOR);
+    }
     return logicOperator;
   }
 
@@ -150,12 +163,13 @@ public class ConditionImpl extends MinimalEObjectImpl.Container implements Condi
    * @generated
    */
   @Override
-  public void setLogicOperator(String newLogicOperator)
+  public EList<Comparison> getRight()
   {
-    String oldLogicOperator = logicOperator;
-    logicOperator = newLogicOperator;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, NlToSqlPackage.CONDITION__LOGIC_OPERATOR, oldLogicOperator, logicOperator));
+    if (right == null)
+    {
+      right = new EObjectContainmentEList<Comparison>(Comparison.class, this, NlToSqlPackage.CONDITION__RIGHT);
+    }
+    return right;
   }
 
   /**
@@ -168,8 +182,10 @@ public class ConditionImpl extends MinimalEObjectImpl.Container implements Condi
   {
     switch (featureID)
     {
-      case NlToSqlPackage.CONDITION__EXPRESSION:
-        return basicSetExpression(null, msgs);
+      case NlToSqlPackage.CONDITION__LEFT:
+        return basicSetLeft(null, msgs);
+      case NlToSqlPackage.CONDITION__RIGHT:
+        return ((InternalEList<?>)getRight()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -184,10 +200,12 @@ public class ConditionImpl extends MinimalEObjectImpl.Container implements Condi
   {
     switch (featureID)
     {
-      case NlToSqlPackage.CONDITION__EXPRESSION:
-        return getExpression();
+      case NlToSqlPackage.CONDITION__LEFT:
+        return getLeft();
       case NlToSqlPackage.CONDITION__LOGIC_OPERATOR:
         return getLogicOperator();
+      case NlToSqlPackage.CONDITION__RIGHT:
+        return getRight();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -197,16 +215,22 @@ public class ConditionImpl extends MinimalEObjectImpl.Container implements Condi
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case NlToSqlPackage.CONDITION__EXPRESSION:
-        setExpression((Comparison)newValue);
+      case NlToSqlPackage.CONDITION__LEFT:
+        setLeft((LogicExpressions)newValue);
         return;
       case NlToSqlPackage.CONDITION__LOGIC_OPERATOR:
-        setLogicOperator((String)newValue);
+        getLogicOperator().clear();
+        getLogicOperator().addAll((Collection<? extends String>)newValue);
+        return;
+      case NlToSqlPackage.CONDITION__RIGHT:
+        getRight().clear();
+        getRight().addAll((Collection<? extends Comparison>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -222,11 +246,14 @@ public class ConditionImpl extends MinimalEObjectImpl.Container implements Condi
   {
     switch (featureID)
     {
-      case NlToSqlPackage.CONDITION__EXPRESSION:
-        setExpression((Comparison)null);
+      case NlToSqlPackage.CONDITION__LEFT:
+        setLeft((LogicExpressions)null);
         return;
       case NlToSqlPackage.CONDITION__LOGIC_OPERATOR:
-        setLogicOperator(LOGIC_OPERATOR_EDEFAULT);
+        getLogicOperator().clear();
+        return;
+      case NlToSqlPackage.CONDITION__RIGHT:
+        getRight().clear();
         return;
     }
     super.eUnset(featureID);
@@ -242,10 +269,12 @@ public class ConditionImpl extends MinimalEObjectImpl.Container implements Condi
   {
     switch (featureID)
     {
-      case NlToSqlPackage.CONDITION__EXPRESSION:
-        return expression != null;
+      case NlToSqlPackage.CONDITION__LEFT:
+        return left != null;
       case NlToSqlPackage.CONDITION__LOGIC_OPERATOR:
-        return LOGIC_OPERATOR_EDEFAULT == null ? logicOperator != null : !LOGIC_OPERATOR_EDEFAULT.equals(logicOperator);
+        return logicOperator != null && !logicOperator.isEmpty();
+      case NlToSqlPackage.CONDITION__RIGHT:
+        return right != null && !right.isEmpty();
     }
     return super.eIsSet(featureID);
   }

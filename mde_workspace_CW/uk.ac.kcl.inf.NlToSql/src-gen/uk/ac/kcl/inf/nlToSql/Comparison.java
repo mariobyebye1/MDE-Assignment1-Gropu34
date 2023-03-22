@@ -3,7 +3,6 @@
  */
 package uk.ac.kcl.inf.nlToSql;
 
-import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,9 +13,9 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link uk.ac.kcl.inf.nlToSql.Comparison#getLeft <em>Left</em>}</li>
- *   <li>{@link uk.ac.kcl.inf.nlToSql.Comparison#getLogicOperator <em>Logic Operator</em>}</li>
- *   <li>{@link uk.ac.kcl.inf.nlToSql.Comparison#getRight <em>Right</em>}</li>
+ *   <li>{@link uk.ac.kcl.inf.nlToSql.Comparison#getLeftHandSide <em>Left Hand Side</em>}</li>
+ *   <li>{@link uk.ac.kcl.inf.nlToSql.Comparison#getOperator <em>Operator</em>}</li>
+ *   <li>{@link uk.ac.kcl.inf.nlToSql.Comparison#getRightHandSide <em>Right Hand Side</em>}</li>
  * </ul>
  *
  * @see uk.ac.kcl.inf.nlToSql.NlToSqlPackage#getComparison()
@@ -26,62 +25,72 @@ import org.eclipse.emf.common.util.EList;
 public interface Comparison extends LogicExpressions
 {
   /**
-   * Returns the value of the '<em><b>Left</b></em>' containment reference.
+   * Returns the value of the '<em><b>Left Hand Side</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Left</em>' containment reference.
-   * @see #setLeft(LogicExpressions)
-   * @see uk.ac.kcl.inf.nlToSql.NlToSqlPackage#getComparison_Left()
-   * @model containment="true"
-   * @generated
-   */
-  LogicExpressions getLeft();
-
-  /**
-   * Sets the value of the '{@link uk.ac.kcl.inf.nlToSql.Comparison#getLeft <em>Left</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Left</em>' containment reference.
-   * @see #getLeft()
-   * @generated
-   */
-  void setLeft(LogicExpressions value);
-
-  /**
-   * Returns the value of the '<em><b>Logic Operator</b></em>' attribute.
-   * The literals are from the enumeration {@link uk.ac.kcl.inf.nlToSql.LogicOperator}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Logic Operator</em>' attribute.
-   * @see uk.ac.kcl.inf.nlToSql.LogicOperator
-   * @see #setLogicOperator(LogicOperator)
-   * @see uk.ac.kcl.inf.nlToSql.NlToSqlPackage#getComparison_LogicOperator()
+   * @return the value of the '<em>Left Hand Side</em>' reference.
+   * @see #setLeftHandSide(Column)
+   * @see uk.ac.kcl.inf.nlToSql.NlToSqlPackage#getComparison_LeftHandSide()
    * @model
    * @generated
    */
-  LogicOperator getLogicOperator();
+  Column getLeftHandSide();
 
   /**
-   * Sets the value of the '{@link uk.ac.kcl.inf.nlToSql.Comparison#getLogicOperator <em>Logic Operator</em>}' attribute.
+   * Sets the value of the '{@link uk.ac.kcl.inf.nlToSql.Comparison#getLeftHandSide <em>Left Hand Side</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Logic Operator</em>' attribute.
-   * @see uk.ac.kcl.inf.nlToSql.LogicOperator
-   * @see #getLogicOperator()
+   * @param value the new value of the '<em>Left Hand Side</em>' reference.
+   * @see #getLeftHandSide()
    * @generated
    */
-  void setLogicOperator(LogicOperator value);
+  void setLeftHandSide(Column value);
 
   /**
-   * Returns the value of the '<em><b>Right</b></em>' containment reference list.
-   * The list contents are of type {@link uk.ac.kcl.inf.nlToSql.LogicExpressions}.
+   * Returns the value of the '<em><b>Operator</b></em>' attribute.
+   * The literals are from the enumeration {@link uk.ac.kcl.inf.nlToSql.ComparisonOperatorString}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Right</em>' containment reference list.
-   * @see uk.ac.kcl.inf.nlToSql.NlToSqlPackage#getComparison_Right()
-   * @model containment="true"
+   * @return the value of the '<em>Operator</em>' attribute.
+   * @see uk.ac.kcl.inf.nlToSql.ComparisonOperatorString
+   * @see #setOperator(ComparisonOperatorString)
+   * @see uk.ac.kcl.inf.nlToSql.NlToSqlPackage#getComparison_Operator()
+   * @model
    * @generated
    */
-  EList<LogicExpressions> getRight();
+  ComparisonOperatorString getOperator();
+
+  /**
+   * Sets the value of the '{@link uk.ac.kcl.inf.nlToSql.Comparison#getOperator <em>Operator</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Operator</em>' attribute.
+   * @see uk.ac.kcl.inf.nlToSql.ComparisonOperatorString
+   * @see #getOperator()
+   * @generated
+   */
+  void setOperator(ComparisonOperatorString value);
+
+  /**
+   * Returns the value of the '<em><b>Right Hand Side</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Right Hand Side</em>' attribute.
+   * @see #setRightHandSide(String)
+   * @see uk.ac.kcl.inf.nlToSql.NlToSqlPackage#getComparison_RightHandSide()
+   * @model
+   * @generated
+   */
+  String getRightHandSide();
+
+  /**
+   * Sets the value of the '{@link uk.ac.kcl.inf.nlToSql.Comparison#getRightHandSide <em>Right Hand Side</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Right Hand Side</em>' attribute.
+   * @see #getRightHandSide()
+   * @generated
+   */
+  void setRightHandSide(String value);
 
 } // Comparison

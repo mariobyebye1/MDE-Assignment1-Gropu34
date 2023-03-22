@@ -16,13 +16,14 @@ import uk.ac.kcl.inf.nlToSql.Column;
 import uk.ac.kcl.inf.nlToSql.ColumnList;
 import uk.ac.kcl.inf.nlToSql.ColumnReference;
 import uk.ac.kcl.inf.nlToSql.Comparison;
+import uk.ac.kcl.inf.nlToSql.ComparisonOperatorString;
+import uk.ac.kcl.inf.nlToSql.Condition;
 import uk.ac.kcl.inf.nlToSql.CreateTableStatement;
 import uk.ac.kcl.inf.nlToSql.Datatype;
 import uk.ac.kcl.inf.nlToSql.DeleteStatement;
 import uk.ac.kcl.inf.nlToSql.InserValues;
 import uk.ac.kcl.inf.nlToSql.InsertStatement;
 import uk.ac.kcl.inf.nlToSql.LogicExpressions;
-import uk.ac.kcl.inf.nlToSql.LogicOperator;
 import uk.ac.kcl.inf.nlToSql.NlToSqlFactory;
 import uk.ac.kcl.inf.nlToSql.NlToSqlPackage;
 import uk.ac.kcl.inf.nlToSql.SelectColumnsList;
@@ -181,6 +182,13 @@ public class NlToSqlPackageImpl extends EPackageImpl implements NlToSqlPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass conditionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EEnum datatypeEEnum = null;
 
   /**
@@ -188,7 +196,7 @@ public class NlToSqlPackageImpl extends EPackageImpl implements NlToSqlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EEnum logicOperatorEEnum = null;
+  private EEnum comparisonOperatorStringEEnum = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -776,39 +784,6 @@ public class NlToSqlPackageImpl extends EPackageImpl implements NlToSqlPackage
    * @generated
    */
   @Override
-  public EReference getLogicExpressions_LeftHandSide()
-  {
-    return (EReference)logicExpressionsEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getLogicExpressions_Operator()
-  {
-    return (EAttribute)logicExpressionsEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getLogicExpressions_RightHandSide()
-  {
-    return (EAttribute)logicExpressionsEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public EClass getComparison()
   {
     return comparisonEClass;
@@ -820,7 +795,7 @@ public class NlToSqlPackageImpl extends EPackageImpl implements NlToSqlPackage
    * @generated
    */
   @Override
-  public EReference getComparison_Left()
+  public EReference getComparison_LeftHandSide()
   {
     return (EReference)comparisonEClass.getEStructuralFeatures().get(0);
   }
@@ -831,7 +806,7 @@ public class NlToSqlPackageImpl extends EPackageImpl implements NlToSqlPackage
    * @generated
    */
   @Override
-  public EAttribute getComparison_LogicOperator()
+  public EAttribute getComparison_Operator()
   {
     return (EAttribute)comparisonEClass.getEStructuralFeatures().get(1);
   }
@@ -842,9 +817,53 @@ public class NlToSqlPackageImpl extends EPackageImpl implements NlToSqlPackage
    * @generated
    */
   @Override
-  public EReference getComparison_Right()
+  public EAttribute getComparison_RightHandSide()
   {
-    return (EReference)comparisonEClass.getEStructuralFeatures().get(2);
+    return (EAttribute)comparisonEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getCondition()
+  {
+    return conditionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getCondition_Left()
+  {
+    return (EReference)conditionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getCondition_LogicOperator()
+  {
+    return (EAttribute)conditionEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getCondition_Right()
+  {
+    return (EReference)conditionEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -864,9 +883,9 @@ public class NlToSqlPackageImpl extends EPackageImpl implements NlToSqlPackage
    * @generated
    */
   @Override
-  public EEnum getLogicOperator()
+  public EEnum getComparisonOperatorString()
   {
-    return logicOperatorEEnum;
+    return comparisonOperatorStringEEnum;
   }
 
   /**
@@ -964,18 +983,20 @@ public class NlToSqlPackageImpl extends EPackageImpl implements NlToSqlPackage
     createEReference(columnReferenceEClass, COLUMN_REFERENCE__TABLE);
 
     logicExpressionsEClass = createEClass(LOGIC_EXPRESSIONS);
-    createEReference(logicExpressionsEClass, LOGIC_EXPRESSIONS__LEFT_HAND_SIDE);
-    createEAttribute(logicExpressionsEClass, LOGIC_EXPRESSIONS__OPERATOR);
-    createEAttribute(logicExpressionsEClass, LOGIC_EXPRESSIONS__RIGHT_HAND_SIDE);
 
     comparisonEClass = createEClass(COMPARISON);
-    createEReference(comparisonEClass, COMPARISON__LEFT);
-    createEAttribute(comparisonEClass, COMPARISON__LOGIC_OPERATOR);
-    createEReference(comparisonEClass, COMPARISON__RIGHT);
+    createEReference(comparisonEClass, COMPARISON__LEFT_HAND_SIDE);
+    createEAttribute(comparisonEClass, COMPARISON__OPERATOR);
+    createEAttribute(comparisonEClass, COMPARISON__RIGHT_HAND_SIDE);
+
+    conditionEClass = createEClass(CONDITION);
+    createEReference(conditionEClass, CONDITION__LEFT);
+    createEAttribute(conditionEClass, CONDITION__LOGIC_OPERATOR);
+    createEReference(conditionEClass, CONDITION__RIGHT);
 
     // Create enums
     datatypeEEnum = createEEnum(DATATYPE);
-    logicOperatorEEnum = createEEnum(LOGIC_OPERATOR);
+    comparisonOperatorStringEEnum = createEEnum(COMPARISON_OPERATOR_STRING);
   }
 
   /**
@@ -1014,6 +1035,7 @@ public class NlToSqlPackageImpl extends EPackageImpl implements NlToSqlPackage
     deleteStatementEClass.getESuperTypes().add(this.getStatement());
     selectTableEClass.getESuperTypes().add(this.getDeleteStatement());
     comparisonEClass.getESuperTypes().add(this.getLogicExpressions());
+    conditionEClass.getESuperTypes().add(this.getLogicExpressions());
 
     // Initialize classes and features; add operations and parameters
     initEClass(accountingSpeechEClass, AccountingSpeech.class, "AccountingSpeech", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1080,14 +1102,16 @@ public class NlToSqlPackageImpl extends EPackageImpl implements NlToSqlPackage
     initEReference(getColumnReference_Table(), this.getTable(), null, "table", null, 0, 1, ColumnReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(logicExpressionsEClass, LogicExpressions.class, "LogicExpressions", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getLogicExpressions_LeftHandSide(), this.getColumn(), null, "leftHandSide", null, 0, 1, LogicExpressions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getLogicExpressions_Operator(), ecorePackage.getEString(), "operator", null, 0, 1, LogicExpressions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getLogicExpressions_RightHandSide(), ecorePackage.getEString(), "rightHandSide", null, 0, 1, LogicExpressions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(comparisonEClass, Comparison.class, "Comparison", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getComparison_Left(), this.getLogicExpressions(), null, "left", null, 0, 1, Comparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getComparison_LogicOperator(), this.getLogicOperator(), "logicOperator", null, 0, 1, Comparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getComparison_Right(), this.getLogicExpressions(), null, "right", null, 0, -1, Comparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getComparison_LeftHandSide(), this.getColumn(), null, "leftHandSide", null, 0, 1, Comparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getComparison_Operator(), this.getComparisonOperatorString(), "operator", null, 0, 1, Comparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getComparison_RightHandSide(), ecorePackage.getEString(), "rightHandSide", null, 0, 1, Comparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(conditionEClass, Condition.class, "Condition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getCondition_Left(), this.getLogicExpressions(), null, "left", null, 0, 1, Condition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getCondition_LogicOperator(), ecorePackage.getEString(), "logicOperator", null, 0, -1, Condition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCondition_Right(), this.getComparison(), null, "right", null, 0, -1, Condition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Initialize enums and add enum literals
     initEEnum(datatypeEEnum, Datatype.class, "Datatype");
@@ -1095,9 +1119,19 @@ public class NlToSqlPackageImpl extends EPackageImpl implements NlToSqlPackage
     addEEnumLiteral(datatypeEEnum, Datatype.STRING);
     addEEnumLiteral(datatypeEEnum, Datatype.DATE);
 
-    initEEnum(logicOperatorEEnum, LogicOperator.class, "LogicOperator");
-    addEEnumLiteral(logicOperatorEEnum, LogicOperator.AND);
-    addEEnumLiteral(logicOperatorEEnum, LogicOperator.OR);
+    initEEnum(comparisonOperatorStringEEnum, ComparisonOperatorString.class, "ComparisonOperatorString");
+    addEEnumLiteral(comparisonOperatorStringEEnum, ComparisonOperatorString.EQUAL_TO);
+    addEEnumLiteral(comparisonOperatorStringEEnum, ComparisonOperatorString.NOT_EQUAL_TO);
+    addEEnumLiteral(comparisonOperatorStringEEnum, ComparisonOperatorString.LESS_THAN);
+    addEEnumLiteral(comparisonOperatorStringEEnum, ComparisonOperatorString.GREATER_THAN);
+    addEEnumLiteral(comparisonOperatorStringEEnum, ComparisonOperatorString.LESS_THAN_OR_EQUAL_TO);
+    addEEnumLiteral(comparisonOperatorStringEEnum, ComparisonOperatorString.GREATER_THEN_OR_EQUAL_TO);
+    addEEnumLiteral(comparisonOperatorStringEEnum, ComparisonOperatorString.EQUAL_TO_SIGN);
+    addEEnumLiteral(comparisonOperatorStringEEnum, ComparisonOperatorString.NOT_EQUAL_TO_SIGN);
+    addEEnumLiteral(comparisonOperatorStringEEnum, ComparisonOperatorString.LESS_THAN_SIGN);
+    addEEnumLiteral(comparisonOperatorStringEEnum, ComparisonOperatorString.GREATER_THAN_SIGN);
+    addEEnumLiteral(comparisonOperatorStringEEnum, ComparisonOperatorString.LESS_THAN_OR_EQUAL_TO_SIGN);
+    addEEnumLiteral(comparisonOperatorStringEEnum, ComparisonOperatorString.GREATER_THEN_OR_EQUAL_TO_SIGN);
 
     // Create resource
     createResource(eNS_URI);
