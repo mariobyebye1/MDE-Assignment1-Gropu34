@@ -3,7 +3,9 @@
  */
 package uk.ac.kcl.inf.generator;
 
+import com.google.common.collect.Iterables;
 import java.util.Arrays;
+import java.util.List;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -56,10 +58,21 @@ public class NlToSqlGenerator extends AbstractGenerator {
     final Function1<Statement, CharSequence> _function = (Statement it) -> {
       return this.generateSQLStatement(it);
     };
-    String _join = IterableExtensions.join(ListExtensions.<Statement, CharSequence>map(program.getStatements(), _function), "\n");
+    String _join = IterableExtensions.join(ListExtensions.<Statement, CharSequence>map(this.sort(program.getStatements()), _function), "\n");
     _builder.append(_join);
     _builder.newLineIfNotEmpty();
     return _builder;
+  }
+  
+  private List<Statement> sort(final EList<Statement> statements) {
+    List<Statement> _xblockexpression = null;
+    {
+      final List<Statement> createTableStatements = IterableExtensions.<Statement>toList(IterableExtensions.<Statement>reject(statements, CreateTableStatement.class));
+      final List<CreateTableStatement> newList = IterableExtensions.<CreateTableStatement>toList(Iterables.<CreateTableStatement>filter(statements, CreateTableStatement.class));
+      createTableStatements.addAll(newList);
+      _xblockexpression = ListExtensions.<Statement>reverse(createTableStatements);
+    }
+    return _xblockexpression;
   }
   
   protected String _generateSQLStatement(final Statement statement) {

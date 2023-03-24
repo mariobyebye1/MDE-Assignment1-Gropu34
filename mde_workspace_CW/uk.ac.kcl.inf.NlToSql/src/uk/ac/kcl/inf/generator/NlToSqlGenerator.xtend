@@ -19,6 +19,7 @@ import uk.ac.kcl.inf.nlToSql.UpdateStatement
 import uk.ac.kcl.inf.nlToSql.Comparison
 import uk.ac.kcl.inf.nlToSql.ComparisonOperatorString
 import uk.ac.kcl.inf.nlToSql.DeleteStatement
+import org.eclipse.emf.common.util.EList
 
 /**
  * Generates code from your model files on save.
@@ -35,8 +36,16 @@ class NlToSqlGenerator extends AbstractGenerator {
 	}
 	
 	def doGenerateClass(AccountingSpeech program, String string) '''
-		«program.statements.map[generateSQLStatement].join('\n')»
+	«program.statements.sort.map[generateSQLStatement].join('\n')»
 	'''
+
+	private def sort(EList<Statement> statements){
+		val createTableStatements= statements.reject(CreateTableStatement).toList
+		val newList = statements.filter(CreateTableStatement).toList
+		createTableStatements.addAll(newList)
+		createTableStatements.reverse
+	}
+
 
 	dispatch def String generateSQLStatement(Statement statement) ''''''
 	
