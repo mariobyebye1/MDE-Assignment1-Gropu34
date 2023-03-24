@@ -61,7 +61,10 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference NlToSql.ecore#//UpdateStatement/condition"/>
     </genClasses>
     <genClasses ecoreClass="NlToSql.ecore#//DeleteStatement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference NlToSql.ecore#//DeleteStatement/tableToDelete"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference NlToSql.ecore#//DeleteStatement/condition"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference NlToSql.ecore#//DeleteStatement/tables"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference NlToSql.ecore#//DeleteStatement/tableToEmpty"/>
     </genClasses>
     <genClasses ecoreClass="NlToSql.ecore#//SelectUpdateList">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference NlToSql.ecore#//SelectUpdateList/updateItem"/>
@@ -77,7 +80,6 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference NlToSql.ecore#//SelectTablesList/selectTable"/>
     </genClasses>
     <genClasses ecoreClass="NlToSql.ecore#//SelectTable">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference NlToSql.ecore#//SelectTable/condition"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference NlToSql.ecore#//SelectTable/table"/>
     </genClasses>
     <genClasses ecoreClass="NlToSql.ecore#//SelectColumnsList">

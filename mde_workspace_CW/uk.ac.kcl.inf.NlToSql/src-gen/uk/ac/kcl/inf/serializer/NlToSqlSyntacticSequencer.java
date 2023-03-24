@@ -11,7 +11,6 @@ import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.AbstractElementAlias;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.AlternativeAlias;
-import org.eclipse.xtext.serializer.analysis.GrammarAlias.GroupAlias;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.TokenAlias;
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynNavigable;
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynTransition;
@@ -23,13 +22,11 @@ public class NlToSqlSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected NlToSqlGrammarAccess grammarAccess;
 	protected AbstractElementAlias match_Comparison___AKeyword_0_1_or_TheKeyword_0_0__q;
-	protected AbstractElementAlias match_DeleteStatement___DeleteKeyword_2_0_RecordsKeyword_2_1_FromKeyword_2_2_TheKeyword_2_3_TableKeyword_2_4___or___EmptyKeyword_1_0_TheKeyword_1_1_TableKeyword_1_2__;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (NlToSqlGrammarAccess) access;
 		match_Comparison___AKeyword_0_1_or_TheKeyword_0_0__q = new AlternativeAlias(false, true, new TokenAlias(false, false, grammarAccess.getComparisonAccess().getAKeyword_0_1()), new TokenAlias(false, false, grammarAccess.getComparisonAccess().getTheKeyword_0_0()));
-		match_DeleteStatement___DeleteKeyword_2_0_RecordsKeyword_2_1_FromKeyword_2_2_TheKeyword_2_3_TableKeyword_2_4___or___EmptyKeyword_1_0_TheKeyword_1_1_TableKeyword_1_2__ = new AlternativeAlias(false, false, new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getDeleteStatementAccess().getDeleteKeyword_2_0()), new TokenAlias(false, false, grammarAccess.getDeleteStatementAccess().getRecordsKeyword_2_1()), new TokenAlias(false, false, grammarAccess.getDeleteStatementAccess().getFromKeyword_2_2()), new TokenAlias(false, false, grammarAccess.getDeleteStatementAccess().getTheKeyword_2_3()), new TokenAlias(false, false, grammarAccess.getDeleteStatementAccess().getTableKeyword_2_4())), new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getDeleteStatementAccess().getEmptyKeyword_1_0()), new TokenAlias(false, false, grammarAccess.getDeleteStatementAccess().getTheKeyword_1_1()), new TokenAlias(false, false, grammarAccess.getDeleteStatementAccess().getTableKeyword_1_2())));
 	}
 	
 	@Override
@@ -46,8 +43,6 @@ public class NlToSqlSyntacticSequencer extends AbstractSyntacticSequencer {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
 			if (match_Comparison___AKeyword_0_1_or_TheKeyword_0_0__q.equals(syntax))
 				emit_Comparison___AKeyword_0_1_or_TheKeyword_0_0__q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_DeleteStatement___DeleteKeyword_2_0_RecordsKeyword_2_1_FromKeyword_2_2_TheKeyword_2_3_TableKeyword_2_4___or___EmptyKeyword_1_0_TheKeyword_1_1_TableKeyword_1_2__.equals(syntax))
-				emit_DeleteStatement___DeleteKeyword_2_0_RecordsKeyword_2_1_FromKeyword_2_2_TheKeyword_2_3_TableKeyword_2_4___or___EmptyKeyword_1_0_TheKeyword_1_1_TableKeyword_1_2__(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
@@ -60,17 +55,6 @@ public class NlToSqlSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) (ambiguity) leftHandSide=[Column|ID]
 	 */
 	protected void emit_Comparison___AKeyword_0_1_or_TheKeyword_0_0__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     ('Empty' 'the' 'table') | ('Delete' 'records' 'from' 'the' 'table')
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     (rule start) (ambiguity) table=[Table|ID]
-	 */
-	protected void emit_DeleteStatement___DeleteKeyword_2_0_RecordsKeyword_2_1_FromKeyword_2_2_TheKeyword_2_3_TableKeyword_2_4___or___EmptyKeyword_1_0_TheKeyword_1_1_TableKeyword_1_2__(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

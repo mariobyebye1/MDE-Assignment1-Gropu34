@@ -13,7 +13,10 @@ package uk.ac.kcl.inf.nlToSql;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link uk.ac.kcl.inf.nlToSql.DeleteStatement#getTableToDelete <em>Table To Delete</em>}</li>
+ *   <li>{@link uk.ac.kcl.inf.nlToSql.DeleteStatement#getCondition <em>Condition</em>}</li>
  *   <li>{@link uk.ac.kcl.inf.nlToSql.DeleteStatement#getTables <em>Tables</em>}</li>
+ *   <li>{@link uk.ac.kcl.inf.nlToSql.DeleteStatement#getTableToEmpty <em>Table To Empty</em>}</li>
  * </ul>
  *
  * @see uk.ac.kcl.inf.nlToSql.NlToSqlPackage#getDeleteStatement()
@@ -22,6 +25,50 @@ package uk.ac.kcl.inf.nlToSql;
  */
 public interface DeleteStatement extends Statement
 {
+  /**
+   * Returns the value of the '<em><b>Table To Delete</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Table To Delete</em>' containment reference.
+   * @see #setTableToDelete(SelectTable)
+   * @see uk.ac.kcl.inf.nlToSql.NlToSqlPackage#getDeleteStatement_TableToDelete()
+   * @model containment="true"
+   * @generated
+   */
+  SelectTable getTableToDelete();
+
+  /**
+   * Sets the value of the '{@link uk.ac.kcl.inf.nlToSql.DeleteStatement#getTableToDelete <em>Table To Delete</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Table To Delete</em>' containment reference.
+   * @see #getTableToDelete()
+   * @generated
+   */
+  void setTableToDelete(SelectTable value);
+
+  /**
+   * Returns the value of the '<em><b>Condition</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Condition</em>' containment reference.
+   * @see #setCondition(LogicExpressions)
+   * @see uk.ac.kcl.inf.nlToSql.NlToSqlPackage#getDeleteStatement_Condition()
+   * @model containment="true"
+   * @generated
+   */
+  LogicExpressions getCondition();
+
+  /**
+   * Sets the value of the '{@link uk.ac.kcl.inf.nlToSql.DeleteStatement#getCondition <em>Condition</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Condition</em>' containment reference.
+   * @see #getCondition()
+   * @generated
+   */
+  void setCondition(LogicExpressions value);
+
   /**
    * Returns the value of the '<em><b>Tables</b></em>' containment reference.
    * <!-- begin-user-doc -->
@@ -43,5 +90,27 @@ public interface DeleteStatement extends Statement
    * @generated
    */
   void setTables(SelectTablesList value);
+
+  /**
+   * Returns the value of the '<em><b>Table To Empty</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Table To Empty</em>' containment reference.
+   * @see #setTableToEmpty(SelectTable)
+   * @see uk.ac.kcl.inf.nlToSql.NlToSqlPackage#getDeleteStatement_TableToEmpty()
+   * @model containment="true"
+   * @generated
+   */
+  SelectTable getTableToEmpty();
+
+  /**
+   * Sets the value of the '{@link uk.ac.kcl.inf.nlToSql.DeleteStatement#getTableToEmpty <em>Table To Empty</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Table To Empty</em>' containment reference.
+   * @see #getTableToEmpty()
+   * @generated
+   */
+  void setTableToEmpty(SelectTable value);
 
 } // DeleteStatement

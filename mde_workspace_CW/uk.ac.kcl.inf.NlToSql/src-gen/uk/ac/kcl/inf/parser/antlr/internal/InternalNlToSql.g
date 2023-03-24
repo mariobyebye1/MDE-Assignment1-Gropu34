@@ -821,20 +821,85 @@ ruleDeleteStatement returns [EObject current=null]
 			{
 				newLeafNode(otherlv_0, grammarAccess.getDeleteStatementAccess().getDeleteKeyword_0_0());
 			}
-			otherlv_1='the'
+			otherlv_1='records'
 			{
-				newLeafNode(otherlv_1, grammarAccess.getDeleteStatementAccess().getTheKeyword_0_1());
+				newLeafNode(otherlv_1, grammarAccess.getDeleteStatementAccess().getRecordsKeyword_0_1());
 			}
-			otherlv_2='table'
+			otherlv_2='from'
 			{
-				newLeafNode(otherlv_2, grammarAccess.getDeleteStatementAccess().getTableKeyword_0_2());
+				newLeafNode(otherlv_2, grammarAccess.getDeleteStatementAccess().getFromKeyword_0_2());
+			}
+			otherlv_3='the'
+			{
+				newLeafNode(otherlv_3, grammarAccess.getDeleteStatementAccess().getTheKeyword_0_3());
+			}
+			otherlv_4='table'
+			{
+				newLeafNode(otherlv_4, grammarAccess.getDeleteStatementAccess().getTableKeyword_0_4());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getDeleteStatementAccess().getTablesSelectTablesListParserRuleCall_0_3_0());
+						newCompositeNode(grammarAccess.getDeleteStatementAccess().getTableToDeleteSelectTableParserRuleCall_0_5_0());
 					}
-					lv_tables_3_0=ruleSelectTablesList
+					lv_tableToDelete_5_0=ruleSelectTable
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getDeleteStatementRule());
+						}
+						set(
+							$current,
+							"tableToDelete",
+							lv_tableToDelete_5_0,
+							"uk.ac.kcl.inf.NlToSql.SelectTable");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			otherlv_6='where'
+			{
+				newLeafNode(otherlv_6, grammarAccess.getDeleteStatementAccess().getWhereKeyword_0_6());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getDeleteStatementAccess().getConditionConditionParserRuleCall_0_7_0());
+					}
+					lv_condition_7_0=ruleCondition
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getDeleteStatementRule());
+						}
+						set(
+							$current,
+							"condition",
+							lv_condition_7_0,
+							"uk.ac.kcl.inf.NlToSql.Condition");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)
+		    |
+		(
+			otherlv_8='Delete'
+			{
+				newLeafNode(otherlv_8, grammarAccess.getDeleteStatementAccess().getDeleteKeyword_1_0());
+			}
+			otherlv_9='the'
+			{
+				newLeafNode(otherlv_9, grammarAccess.getDeleteStatementAccess().getTheKeyword_1_1());
+			}
+			otherlv_10='tables'
+			{
+				newLeafNode(otherlv_10, grammarAccess.getDeleteStatementAccess().getTablesKeyword_1_2());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getDeleteStatementAccess().getTablesSelectTablesListParserRuleCall_1_3_0());
+					}
+					lv_tables_11_0=ruleSelectTablesList
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getDeleteStatementRule());
@@ -842,7 +907,7 @@ ruleDeleteStatement returns [EObject current=null]
 						set(
 							$current,
 							"tables",
-							lv_tables_3_0,
+							lv_tables_11_0,
 							"uk.ac.kcl.inf.NlToSql.SelectTablesList");
 						afterParserOrEnumRuleCall();
 					}
@@ -851,76 +916,33 @@ ruleDeleteStatement returns [EObject current=null]
 		)
 		    |
 		(
-			otherlv_4='Empty'
+			otherlv_12='Empty'
 			{
-				newLeafNode(otherlv_4, grammarAccess.getDeleteStatementAccess().getEmptyKeyword_1_0());
+				newLeafNode(otherlv_12, grammarAccess.getDeleteStatementAccess().getEmptyKeyword_2_0());
 			}
-			otherlv_5='the'
+			otherlv_13='the'
 			{
-				newLeafNode(otherlv_5, grammarAccess.getDeleteStatementAccess().getTheKeyword_1_1());
+				newLeafNode(otherlv_13, grammarAccess.getDeleteStatementAccess().getTheKeyword_2_1());
 			}
-			otherlv_6='table'
+			otherlv_14='table'
 			{
-				newLeafNode(otherlv_6, grammarAccess.getDeleteStatementAccess().getTableKeyword_1_2());
-			}
-			{
-				newCompositeNode(grammarAccess.getDeleteStatementAccess().getSelectTableParserRuleCall_1_3());
-			}
-			this_SelectTable_7=ruleSelectTable
-			{
-				$current = $this_SelectTable_7.current;
-				afterParserOrEnumRuleCall();
-			}
-		)
-		    |
-		(
-			otherlv_8='Delete'
-			{
-				newLeafNode(otherlv_8, grammarAccess.getDeleteStatementAccess().getDeleteKeyword_2_0());
-			}
-			otherlv_9='records'
-			{
-				newLeafNode(otherlv_9, grammarAccess.getDeleteStatementAccess().getRecordsKeyword_2_1());
-			}
-			otherlv_10='from'
-			{
-				newLeafNode(otherlv_10, grammarAccess.getDeleteStatementAccess().getFromKeyword_2_2());
-			}
-			otherlv_11='the'
-			{
-				newLeafNode(otherlv_11, grammarAccess.getDeleteStatementAccess().getTheKeyword_2_3());
-			}
-			otherlv_12='table'
-			{
-				newLeafNode(otherlv_12, grammarAccess.getDeleteStatementAccess().getTableKeyword_2_4());
-			}
-			{
-				newCompositeNode(grammarAccess.getDeleteStatementAccess().getSelectTableParserRuleCall_2_5());
-			}
-			this_SelectTable_13=ruleSelectTable
-			{
-				$current = $this_SelectTable_13.current;
-				afterParserOrEnumRuleCall();
-			}
-			otherlv_14='where'
-			{
-				newLeafNode(otherlv_14, grammarAccess.getDeleteStatementAccess().getWhereKeyword_2_6());
+				newLeafNode(otherlv_14, grammarAccess.getDeleteStatementAccess().getTableKeyword_2_2());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getDeleteStatementAccess().getConditionConditionParserRuleCall_2_7_0());
+						newCompositeNode(grammarAccess.getDeleteStatementAccess().getTableToEmptySelectTableParserRuleCall_2_3_0());
 					}
-					lv_condition_15_0=ruleCondition
+					lv_tableToEmpty_15_0=ruleSelectTable
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getDeleteStatementRule());
 						}
 						set(
 							$current,
-							"condition",
-							lv_condition_15_0,
-							"uk.ac.kcl.inf.NlToSql.Condition");
+							"tableToEmpty",
+							lv_tableToEmpty_15_0,
+							"uk.ac.kcl.inf.NlToSql.SelectTable");
 						afterParserOrEnumRuleCall();
 					}
 				)

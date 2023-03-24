@@ -86,16 +86,8 @@ public class NlToSqlSemanticSequencer extends AbstractDelegatingSemanticSequence
 				sequence_SelectStatement(context, (SelectStatement) semanticObject); 
 				return; 
 			case NlToSqlPackage.SELECT_TABLE:
-				if (rule == grammarAccess.getStatementRule()
-						|| rule == grammarAccess.getDeleteStatementRule()) {
-					sequence_DeleteStatement_SelectTable(context, (SelectTable) semanticObject); 
-					return; 
-				}
-				else if (rule == grammarAccess.getSelectTableRule()) {
-					sequence_SelectTable(context, (SelectTable) semanticObject); 
-					return; 
-				}
-				else break;
+				sequence_SelectTable(context, (SelectTable) semanticObject); 
+				return; 
 			case NlToSqlPackage.SELECT_TABLES_LIST:
 				sequence_SelectTablesList(context, (SelectTablesList) semanticObject); 
 				return; 
@@ -222,28 +214,9 @@ public class NlToSqlSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *     DeleteStatement returns DeleteStatement
 	 *
 	 * Constraint:
-	 *     tables=SelectTablesList
+	 *     ((tableToDelete=SelectTable condition=Condition) | tables=SelectTablesList | tableToEmpty=SelectTable)
 	 */
 	protected void sequence_DeleteStatement(ISerializationContext context, DeleteStatement semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, NlToSqlPackage.Literals.DELETE_STATEMENT__TABLES) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, NlToSqlPackage.Literals.DELETE_STATEMENT__TABLES));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getDeleteStatementAccess().getTablesSelectTablesListParserRuleCall_0_3_0(), semanticObject.getTables());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Statement returns SelectTable
-	 *     DeleteStatement returns SelectTable
-	 *
-	 * Constraint:
-	 *     (table=[Table|ID] condition=Condition?)
-	 */
-	protected void sequence_DeleteStatement_SelectTable(ISerializationContext context, SelectTable semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

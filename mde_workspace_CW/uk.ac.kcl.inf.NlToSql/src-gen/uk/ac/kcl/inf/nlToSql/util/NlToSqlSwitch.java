@@ -180,8 +180,6 @@ public class NlToSqlSwitch<T> extends Switch<T>
       {
         SelectTable selectTable = (SelectTable)theEObject;
         T result = caseSelectTable(selectTable);
-        if (result == null) result = caseDeleteStatement(selectTable);
-        if (result == null) result = caseStatement(selectTable);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }

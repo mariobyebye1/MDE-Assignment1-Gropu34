@@ -18,6 +18,7 @@ import uk.ac.kcl.inf.nlToSql.Statement
 import uk.ac.kcl.inf.nlToSql.UpdateStatement
 import uk.ac.kcl.inf.nlToSql.Comparison
 import uk.ac.kcl.inf.nlToSql.ComparisonOperatorString
+import uk.ac.kcl.inf.nlToSql.DeleteStatement
 
 /**
  * Generates code from your model files on save.
@@ -46,6 +47,31 @@ class NlToSqlGenerator extends AbstractGenerator {
         «ENDFOR»
     );'''
 
+	dispatch def String generateSQLStatement(SelectStatement statement) '''
+	SELECT«IF statement.columns === null»«" *\n"»«ELSE»«FOR column : statement.columns.selectColumn» «column.column.name.toFirstUpper»«IF !column.equals(statement.columns.selectColumn.last)»,«ENDIF»«ENDFOR»«ENDIF»
+	FROM «statement.tables.selectTable.map[name.toFirstUpper].join(', ')»
+	«IF statement.condition !== null»WHERE «statement.condition.generateConditionExpression»«ENDIF»
+	«IF statement.group === null»;«ELSE»GROUP BY «statement.group.selectColumn.map[column.name.toFirstUpper].join(', ')»;«ENDIF»
+	'''
+	
+	dispatch def generateSQLStatement(InsertStatement statement) '''
+	INSERT INTO «statement.table.table.name.toFirstUpper» («FOR column : statement.columns.selectColumn»«column.column.name.toFirstUpper»«IF !column.equals(statement.columns.selectColumn.last)», «ENDIF»«ENDFOR»)
+	VALUES («FOR value : statement.values.valueList»«value»«IF !value.equals(statement.values.valueList.last)», «ENDIF»«ENDFOR»)
+	;
+	'''
+	
+	dispatch def generateSQLStatement(UpdateStatement statement) '''
+	UPDATE «statement.table.table.name.toFirstUpper»
+	SET «FOR update : statement.updates.updateItem»«update.column.column.name.toFirstUpper» = «update.value»«IF !update.equals(statement.updates.updateItem.last)», «ENDIF»«ENDFOR»
+	«IF statement.condition !== null»WHERE «statement.condition.generateConditionExpression»«ENDIF»
+	;
+	'''
+	
+	dispatch def generateSQLStatement(DeleteStatement statement) '''
+	«IF statement.tableToEmpty !== null»DELETE FROM «statement.tableToEmpty.table.name.toFirstUpper»«ELSE»«IF statement.tables !== null»DROP TABLE «statement.tables.selectTable.map[name.toFirstUpper].join(",")»«ELSE»DELETE FROM «statement.tableToDelete.table.name.toFirstUpper»
+	WHERE «statement.condition.generateConditionExpression»«ENDIF»«ENDIF»
+	;
+	'''
 
 	def toSqlString(Datatype datatype) '''
     «switch datatype {
@@ -54,12 +80,6 @@ class NlToSqlGenerator extends AbstractGenerator {
         case Datatype.DATE: "DATE"
     }»'''
 
-	dispatch def String generateSQLStatement(SelectStatement statement) '''
-	SELECT«IF statement.columns === null»«" *\n"»«ELSE»«FOR column : statement.columns.selectColumn» «column.column.name.toFirstUpper»«IF !column.equals(statement.columns.selectColumn.last)»,«ENDIF»«ENDFOR»«ENDIF»
-	FROM «statement.tables.selectTable.map[name.toFirstUpper].join(', ')»
-	«IF statement.condition !== null»WHERE «statement.condition.generateConditionExpression»«ENDIF»
-	'''
-	
 	dispatch def String generateConditionExpression(LogicExpressions expression) ''''''
 	dispatch def String generateConditionExpression(Condition expression) '''
 	«expression.left.generateConditionExpression»«FOR logicOperatorIndex: (0..expression.logicOperator.size-1)» «expression.logicOperator.get(logicOperatorIndex)» «expression.right.get(logicOperatorIndex).generateConditionExpression»«ENDFOR»'''
@@ -78,29 +98,8 @@ class NlToSqlGenerator extends AbstractGenerator {
 			case GREATER_THEN_OR_EQUAL_TO_SIGN: ">="
 			case LESS_THAN_OR_EQUAL_TO_SIGN: "<="
 			case LESS_THAN_SIGN:"<="
-			case NOT_EQUAL_TO_SIGN:"<>"
-
-	        
+			case NOT_EQUAL_TO_SIGN:"<>"	        
 	    }»'''
-	
-	
-//	dispatch def generateSQLStatement(InsertStatement statement) '''
-//	INSERT INTO «statement.table.table.name.toFirstUpper»
-//		(«FOR column : statement.columns.selectColumn»«column.column.name.toFirstUpper»«IF !column.equals(statement.columns.selectColumn.last)», «ENDIF»«ENDFOR»)
-//		VALUES
-//		(«FOR value : statement.values.valueList»«value.generate»«IF !value.equals(statement.values.valueList.last)», «ENDIF»«ENDFOR»)
-//	;
-//	'''
-//	
-//	dispatch def generateSQLStatement(UpdateStatement statement) '''
-//	UPDATE «statement.table.table.name.toFirstUpper»
-//	SET «FOR update : statement.updates.updateItem»
-//		«update.column.column.name.toFirstUpper» = «update.value.generate»
-//		«IF !update.equals(statement.updates.updateItem.last)», «ENDIF»
-//	«ENDFOR»
-//	«IF statement.condition != null»WHERE «statement.condition.generate»«ENDIF»
-//	;
-//	'''
 
 	def deriveClassName(Resource resource) {
 		val originalFileName = resource.URI.lastSegment

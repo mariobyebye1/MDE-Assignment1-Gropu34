@@ -402,13 +402,40 @@ public interface NlToSqlPackage extends EPackage
   int DELETE_STATEMENT = 9;
 
   /**
+   * The feature id for the '<em><b>Table To Delete</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DELETE_STATEMENT__TABLE_TO_DELETE = STATEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Condition</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DELETE_STATEMENT__CONDITION = STATEMENT_FEATURE_COUNT + 1;
+
+  /**
    * The feature id for the '<em><b>Tables</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DELETE_STATEMENT__TABLES = STATEMENT_FEATURE_COUNT + 0;
+  int DELETE_STATEMENT__TABLES = STATEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The feature id for the '<em><b>Table To Empty</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DELETE_STATEMENT__TABLE_TO_EMPTY = STATEMENT_FEATURE_COUNT + 3;
 
   /**
    * The number of structural features of the '<em>Delete Statement</em>' class.
@@ -417,7 +444,7 @@ public interface NlToSqlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DELETE_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 1;
+  int DELETE_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 4;
 
   /**
    * The meta object id for the '{@link uk.ac.kcl.inf.nlToSql.impl.SelectUpdateListImpl <em>Select Update List</em>}' class.
@@ -551,31 +578,13 @@ public interface NlToSqlPackage extends EPackage
   int SELECT_TABLE = 14;
 
   /**
-   * The feature id for the '<em><b>Tables</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SELECT_TABLE__TABLES = DELETE_STATEMENT__TABLES;
-
-  /**
-   * The feature id for the '<em><b>Condition</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SELECT_TABLE__CONDITION = DELETE_STATEMENT_FEATURE_COUNT + 0;
-
-  /**
    * The feature id for the '<em><b>Table</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SELECT_TABLE__TABLE = DELETE_STATEMENT_FEATURE_COUNT + 1;
+  int SELECT_TABLE__TABLE = 0;
 
   /**
    * The number of structural features of the '<em>Select Table</em>' class.
@@ -584,7 +593,7 @@ public interface NlToSqlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SELECT_TABLE_FEATURE_COUNT = DELETE_STATEMENT_FEATURE_COUNT + 2;
+  int SELECT_TABLE_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link uk.ac.kcl.inf.nlToSql.impl.SelectColumnsListImpl <em>Select Columns List</em>}' class.
@@ -1082,6 +1091,28 @@ public interface NlToSqlPackage extends EPackage
   EClass getDeleteStatement();
 
   /**
+   * Returns the meta object for the containment reference '{@link uk.ac.kcl.inf.nlToSql.DeleteStatement#getTableToDelete <em>Table To Delete</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Table To Delete</em>'.
+   * @see uk.ac.kcl.inf.nlToSql.DeleteStatement#getTableToDelete()
+   * @see #getDeleteStatement()
+   * @generated
+   */
+  EReference getDeleteStatement_TableToDelete();
+
+  /**
+   * Returns the meta object for the containment reference '{@link uk.ac.kcl.inf.nlToSql.DeleteStatement#getCondition <em>Condition</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Condition</em>'.
+   * @see uk.ac.kcl.inf.nlToSql.DeleteStatement#getCondition()
+   * @see #getDeleteStatement()
+   * @generated
+   */
+  EReference getDeleteStatement_Condition();
+
+  /**
    * Returns the meta object for the containment reference '{@link uk.ac.kcl.inf.nlToSql.DeleteStatement#getTables <em>Tables</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1091,6 +1122,17 @@ public interface NlToSqlPackage extends EPackage
    * @generated
    */
   EReference getDeleteStatement_Tables();
+
+  /**
+   * Returns the meta object for the containment reference '{@link uk.ac.kcl.inf.nlToSql.DeleteStatement#getTableToEmpty <em>Table To Empty</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Table To Empty</em>'.
+   * @see uk.ac.kcl.inf.nlToSql.DeleteStatement#getTableToEmpty()
+   * @see #getDeleteStatement()
+   * @generated
+   */
+  EReference getDeleteStatement_TableToEmpty();
 
   /**
    * Returns the meta object for class '{@link uk.ac.kcl.inf.nlToSql.SelectUpdateList <em>Select Update List</em>}'.
@@ -1196,17 +1238,6 @@ public interface NlToSqlPackage extends EPackage
    * @generated
    */
   EClass getSelectTable();
-
-  /**
-   * Returns the meta object for the containment reference '{@link uk.ac.kcl.inf.nlToSql.SelectTable#getCondition <em>Condition</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Condition</em>'.
-   * @see uk.ac.kcl.inf.nlToSql.SelectTable#getCondition()
-   * @see #getSelectTable()
-   * @generated
-   */
-  EReference getSelectTable_Condition();
 
   /**
    * Returns the meta object for the reference '{@link uk.ac.kcl.inf.nlToSql.SelectTable#getTable <em>Table</em>}'.
@@ -1656,12 +1687,36 @@ public interface NlToSqlPackage extends EPackage
     EClass DELETE_STATEMENT = eINSTANCE.getDeleteStatement();
 
     /**
+     * The meta object literal for the '<em><b>Table To Delete</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DELETE_STATEMENT__TABLE_TO_DELETE = eINSTANCE.getDeleteStatement_TableToDelete();
+
+    /**
+     * The meta object literal for the '<em><b>Condition</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DELETE_STATEMENT__CONDITION = eINSTANCE.getDeleteStatement_Condition();
+
+    /**
      * The meta object literal for the '<em><b>Tables</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EReference DELETE_STATEMENT__TABLES = eINSTANCE.getDeleteStatement_Tables();
+
+    /**
+     * The meta object literal for the '<em><b>Table To Empty</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DELETE_STATEMENT__TABLE_TO_EMPTY = eINSTANCE.getDeleteStatement_TableToEmpty();
 
     /**
      * The meta object literal for the '{@link uk.ac.kcl.inf.nlToSql.impl.SelectUpdateListImpl <em>Select Update List</em>}' class.
@@ -1752,14 +1807,6 @@ public interface NlToSqlPackage extends EPackage
      * @generated
      */
     EClass SELECT_TABLE = eINSTANCE.getSelectTable();
-
-    /**
-     * The meta object literal for the '<em><b>Condition</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference SELECT_TABLE__CONDITION = eINSTANCE.getSelectTable_Condition();
 
     /**
      * The meta object literal for the '<em><b>Table</b></em>' reference feature.

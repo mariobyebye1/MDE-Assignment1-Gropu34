@@ -12,7 +12,9 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import uk.ac.kcl.inf.nlToSql.DeleteStatement;
+import uk.ac.kcl.inf.nlToSql.LogicExpressions;
 import uk.ac.kcl.inf.nlToSql.NlToSqlPackage;
+import uk.ac.kcl.inf.nlToSql.SelectTable;
 import uk.ac.kcl.inf.nlToSql.SelectTablesList;
 
 /**
@@ -23,13 +25,36 @@ import uk.ac.kcl.inf.nlToSql.SelectTablesList;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link uk.ac.kcl.inf.nlToSql.impl.DeleteStatementImpl#getTableToDelete <em>Table To Delete</em>}</li>
+ *   <li>{@link uk.ac.kcl.inf.nlToSql.impl.DeleteStatementImpl#getCondition <em>Condition</em>}</li>
  *   <li>{@link uk.ac.kcl.inf.nlToSql.impl.DeleteStatementImpl#getTables <em>Tables</em>}</li>
+ *   <li>{@link uk.ac.kcl.inf.nlToSql.impl.DeleteStatementImpl#getTableToEmpty <em>Table To Empty</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class DeleteStatementImpl extends StatementImpl implements DeleteStatement
 {
+  /**
+   * The cached value of the '{@link #getTableToDelete() <em>Table To Delete</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getTableToDelete()
+   * @generated
+   * @ordered
+   */
+  protected SelectTable tableToDelete;
+
+  /**
+   * The cached value of the '{@link #getCondition() <em>Condition</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getCondition()
+   * @generated
+   * @ordered
+   */
+  protected LogicExpressions condition;
+
   /**
    * The cached value of the '{@link #getTables() <em>Tables</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -39,6 +64,16 @@ public class DeleteStatementImpl extends StatementImpl implements DeleteStatemen
    * @ordered
    */
   protected SelectTablesList tables;
+
+  /**
+   * The cached value of the '{@link #getTableToEmpty() <em>Table To Empty</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getTableToEmpty()
+   * @generated
+   * @ordered
+   */
+  protected SelectTable tableToEmpty;
 
   /**
    * <!-- begin-user-doc -->
@@ -59,6 +94,106 @@ public class DeleteStatementImpl extends StatementImpl implements DeleteStatemen
   protected EClass eStaticClass()
   {
     return NlToSqlPackage.Literals.DELETE_STATEMENT;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SelectTable getTableToDelete()
+  {
+    return tableToDelete;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetTableToDelete(SelectTable newTableToDelete, NotificationChain msgs)
+  {
+    SelectTable oldTableToDelete = tableToDelete;
+    tableToDelete = newTableToDelete;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, NlToSqlPackage.DELETE_STATEMENT__TABLE_TO_DELETE, oldTableToDelete, newTableToDelete);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setTableToDelete(SelectTable newTableToDelete)
+  {
+    if (newTableToDelete != tableToDelete)
+    {
+      NotificationChain msgs = null;
+      if (tableToDelete != null)
+        msgs = ((InternalEObject)tableToDelete).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - NlToSqlPackage.DELETE_STATEMENT__TABLE_TO_DELETE, null, msgs);
+      if (newTableToDelete != null)
+        msgs = ((InternalEObject)newTableToDelete).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - NlToSqlPackage.DELETE_STATEMENT__TABLE_TO_DELETE, null, msgs);
+      msgs = basicSetTableToDelete(newTableToDelete, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, NlToSqlPackage.DELETE_STATEMENT__TABLE_TO_DELETE, newTableToDelete, newTableToDelete));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public LogicExpressions getCondition()
+  {
+    return condition;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetCondition(LogicExpressions newCondition, NotificationChain msgs)
+  {
+    LogicExpressions oldCondition = condition;
+    condition = newCondition;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, NlToSqlPackage.DELETE_STATEMENT__CONDITION, oldCondition, newCondition);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setCondition(LogicExpressions newCondition)
+  {
+    if (newCondition != condition)
+    {
+      NotificationChain msgs = null;
+      if (condition != null)
+        msgs = ((InternalEObject)condition).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - NlToSqlPackage.DELETE_STATEMENT__CONDITION, null, msgs);
+      if (newCondition != null)
+        msgs = ((InternalEObject)newCondition).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - NlToSqlPackage.DELETE_STATEMENT__CONDITION, null, msgs);
+      msgs = basicSetCondition(newCondition, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, NlToSqlPackage.DELETE_STATEMENT__CONDITION, newCondition, newCondition));
   }
 
   /**
@@ -117,12 +252,68 @@ public class DeleteStatementImpl extends StatementImpl implements DeleteStatemen
    * @generated
    */
   @Override
+  public SelectTable getTableToEmpty()
+  {
+    return tableToEmpty;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetTableToEmpty(SelectTable newTableToEmpty, NotificationChain msgs)
+  {
+    SelectTable oldTableToEmpty = tableToEmpty;
+    tableToEmpty = newTableToEmpty;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, NlToSqlPackage.DELETE_STATEMENT__TABLE_TO_EMPTY, oldTableToEmpty, newTableToEmpty);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setTableToEmpty(SelectTable newTableToEmpty)
+  {
+    if (newTableToEmpty != tableToEmpty)
+    {
+      NotificationChain msgs = null;
+      if (tableToEmpty != null)
+        msgs = ((InternalEObject)tableToEmpty).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - NlToSqlPackage.DELETE_STATEMENT__TABLE_TO_EMPTY, null, msgs);
+      if (newTableToEmpty != null)
+        msgs = ((InternalEObject)newTableToEmpty).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - NlToSqlPackage.DELETE_STATEMENT__TABLE_TO_EMPTY, null, msgs);
+      msgs = basicSetTableToEmpty(newTableToEmpty, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, NlToSqlPackage.DELETE_STATEMENT__TABLE_TO_EMPTY, newTableToEmpty, newTableToEmpty));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
     switch (featureID)
     {
+      case NlToSqlPackage.DELETE_STATEMENT__TABLE_TO_DELETE:
+        return basicSetTableToDelete(null, msgs);
+      case NlToSqlPackage.DELETE_STATEMENT__CONDITION:
+        return basicSetCondition(null, msgs);
       case NlToSqlPackage.DELETE_STATEMENT__TABLES:
         return basicSetTables(null, msgs);
+      case NlToSqlPackage.DELETE_STATEMENT__TABLE_TO_EMPTY:
+        return basicSetTableToEmpty(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -137,8 +328,14 @@ public class DeleteStatementImpl extends StatementImpl implements DeleteStatemen
   {
     switch (featureID)
     {
+      case NlToSqlPackage.DELETE_STATEMENT__TABLE_TO_DELETE:
+        return getTableToDelete();
+      case NlToSqlPackage.DELETE_STATEMENT__CONDITION:
+        return getCondition();
       case NlToSqlPackage.DELETE_STATEMENT__TABLES:
         return getTables();
+      case NlToSqlPackage.DELETE_STATEMENT__TABLE_TO_EMPTY:
+        return getTableToEmpty();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -153,8 +350,17 @@ public class DeleteStatementImpl extends StatementImpl implements DeleteStatemen
   {
     switch (featureID)
     {
+      case NlToSqlPackage.DELETE_STATEMENT__TABLE_TO_DELETE:
+        setTableToDelete((SelectTable)newValue);
+        return;
+      case NlToSqlPackage.DELETE_STATEMENT__CONDITION:
+        setCondition((LogicExpressions)newValue);
+        return;
       case NlToSqlPackage.DELETE_STATEMENT__TABLES:
         setTables((SelectTablesList)newValue);
+        return;
+      case NlToSqlPackage.DELETE_STATEMENT__TABLE_TO_EMPTY:
+        setTableToEmpty((SelectTable)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -170,8 +376,17 @@ public class DeleteStatementImpl extends StatementImpl implements DeleteStatemen
   {
     switch (featureID)
     {
+      case NlToSqlPackage.DELETE_STATEMENT__TABLE_TO_DELETE:
+        setTableToDelete((SelectTable)null);
+        return;
+      case NlToSqlPackage.DELETE_STATEMENT__CONDITION:
+        setCondition((LogicExpressions)null);
+        return;
       case NlToSqlPackage.DELETE_STATEMENT__TABLES:
         setTables((SelectTablesList)null);
+        return;
+      case NlToSqlPackage.DELETE_STATEMENT__TABLE_TO_EMPTY:
+        setTableToEmpty((SelectTable)null);
         return;
     }
     super.eUnset(featureID);
@@ -187,8 +402,14 @@ public class DeleteStatementImpl extends StatementImpl implements DeleteStatemen
   {
     switch (featureID)
     {
+      case NlToSqlPackage.DELETE_STATEMENT__TABLE_TO_DELETE:
+        return tableToDelete != null;
+      case NlToSqlPackage.DELETE_STATEMENT__CONDITION:
+        return condition != null;
       case NlToSqlPackage.DELETE_STATEMENT__TABLES:
         return tables != null;
+      case NlToSqlPackage.DELETE_STATEMENT__TABLE_TO_EMPTY:
+        return tableToEmpty != null;
     }
     return super.eIsSet(featureID);
   }

@@ -2,46 +2,47 @@
 ')'=35
 ','=17
 '.'=11
-'<'=58
-'<='=60
-'<>'=57
-'='=43
-'>'=59
-'>='=61
+'<'=59
+'<='=61
+'<>'=58
+'='=44
+'>'=60
+'>='=62
 'Create'=12
 'Delete'=39
-'Empty'=40
+'Empty'=43
 'From'=20
 'Insert'=29
 'Update'=36
-'a'=47
+'a'=48
 'all'=24
-'and'=45
+'and'=46
 'by'=28
 'called'=14
 'columns'=16
 'columns:'=23
-'date'=50
+'date'=51
 'for'=31
-'from'=42
-'greater than or equal to'=56
-'greater than'=54
+'from'=41
+'greater than or equal to'=57
+'greater than'=55
 'group'=26
-'in'=44
+'in'=45
 'insert'=32
-'integer'=48
+'integer'=49
 'into'=30
-'is equal to'=51
-'is not equal to'=52
-'less than or equal to'=55
-'less than'=53
+'is equal to'=52
+'is not equal to'=53
+'less than or equal to'=56
+'less than'=54
 'of'=18
-'or'=46
-'records'=41
+'or'=47
+'records'=40
 'set'=38
 'show'=22
-'string'=49
+'string'=50
 'table'=13
+'tables'=42
 'the'=21
 'them'=27
 'to'=37
@@ -107,3 +108,4 @@ T__58=58
 T__59=59
 T__60=60
 T__61=61
+T__62=62

@@ -60,10 +60,10 @@ UpdateStatement:
 
 // Define the DeleteStatement rule
 DeleteStatement:
-	('Delete' 'the' 'table' tables = SelectTablesList) |
-	('Empty' 'the' 'table' SelectTable) |
-    ('Delete' 'records' 'from' 'the' 'table' SelectTable
-    'where' condition=Condition)
+	(('Delete' 'records' 'from' 'the' 'table' tableToDelete = SelectTable
+    'where' condition=Condition)|
+	('Delete' 'the' 'tables' tables = SelectTablesList) |
+	('Empty' 'the' 'table' tableToEmpty = SelectTable))
 ;
 
 

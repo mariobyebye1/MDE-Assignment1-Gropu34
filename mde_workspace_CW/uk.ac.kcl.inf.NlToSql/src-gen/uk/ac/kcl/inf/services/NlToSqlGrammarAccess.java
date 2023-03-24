@@ -523,104 +523,112 @@ public class NlToSqlGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
 		private final Keyword cDeleteKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
-		private final Keyword cTheKeyword_0_1 = (Keyword)cGroup_0.eContents().get(1);
-		private final Keyword cTableKeyword_0_2 = (Keyword)cGroup_0.eContents().get(2);
-		private final Assignment cTablesAssignment_0_3 = (Assignment)cGroup_0.eContents().get(3);
-		private final RuleCall cTablesSelectTablesListParserRuleCall_0_3_0 = (RuleCall)cTablesAssignment_0_3.eContents().get(0);
+		private final Keyword cRecordsKeyword_0_1 = (Keyword)cGroup_0.eContents().get(1);
+		private final Keyword cFromKeyword_0_2 = (Keyword)cGroup_0.eContents().get(2);
+		private final Keyword cTheKeyword_0_3 = (Keyword)cGroup_0.eContents().get(3);
+		private final Keyword cTableKeyword_0_4 = (Keyword)cGroup_0.eContents().get(4);
+		private final Assignment cTableToDeleteAssignment_0_5 = (Assignment)cGroup_0.eContents().get(5);
+		private final RuleCall cTableToDeleteSelectTableParserRuleCall_0_5_0 = (RuleCall)cTableToDeleteAssignment_0_5.eContents().get(0);
+		private final Keyword cWhereKeyword_0_6 = (Keyword)cGroup_0.eContents().get(6);
+		private final Assignment cConditionAssignment_0_7 = (Assignment)cGroup_0.eContents().get(7);
+		private final RuleCall cConditionConditionParserRuleCall_0_7_0 = (RuleCall)cConditionAssignment_0_7.eContents().get(0);
 		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
-		private final Keyword cEmptyKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final Keyword cDeleteKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
 		private final Keyword cTheKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
-		private final Keyword cTableKeyword_1_2 = (Keyword)cGroup_1.eContents().get(2);
-		private final RuleCall cSelectTableParserRuleCall_1_3 = (RuleCall)cGroup_1.eContents().get(3);
+		private final Keyword cTablesKeyword_1_2 = (Keyword)cGroup_1.eContents().get(2);
+		private final Assignment cTablesAssignment_1_3 = (Assignment)cGroup_1.eContents().get(3);
+		private final RuleCall cTablesSelectTablesListParserRuleCall_1_3_0 = (RuleCall)cTablesAssignment_1_3.eContents().get(0);
 		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
-		private final Keyword cDeleteKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Keyword cRecordsKeyword_2_1 = (Keyword)cGroup_2.eContents().get(1);
-		private final Keyword cFromKeyword_2_2 = (Keyword)cGroup_2.eContents().get(2);
-		private final Keyword cTheKeyword_2_3 = (Keyword)cGroup_2.eContents().get(3);
-		private final Keyword cTableKeyword_2_4 = (Keyword)cGroup_2.eContents().get(4);
-		private final RuleCall cSelectTableParserRuleCall_2_5 = (RuleCall)cGroup_2.eContents().get(5);
-		private final Keyword cWhereKeyword_2_6 = (Keyword)cGroup_2.eContents().get(6);
-		private final Assignment cConditionAssignment_2_7 = (Assignment)cGroup_2.eContents().get(7);
-		private final RuleCall cConditionConditionParserRuleCall_2_7_0 = (RuleCall)cConditionAssignment_2_7.eContents().get(0);
+		private final Keyword cEmptyKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Keyword cTheKeyword_2_1 = (Keyword)cGroup_2.eContents().get(1);
+		private final Keyword cTableKeyword_2_2 = (Keyword)cGroup_2.eContents().get(2);
+		private final Assignment cTableToEmptyAssignment_2_3 = (Assignment)cGroup_2.eContents().get(3);
+		private final RuleCall cTableToEmptySelectTableParserRuleCall_2_3_0 = (RuleCall)cTableToEmptyAssignment_2_3.eContents().get(0);
 		
 		//// Define the DeleteStatement rule
 		//DeleteStatement:
-		//    ('Delete' 'the' 'table' tables = SelectTablesList) |
-		//    ('Empty' 'the' 'table' SelectTable) |
-		//    ('Delete' 'records' 'from' 'the' 'table' SelectTable
-		//    'where' condition=Condition)
+		//    (('Delete' 'records' 'from' 'the' 'table' tableToDelete = SelectTable
+		//    'where' condition=Condition)|
+		//    ('Delete' 'the' 'tables' tables = SelectTablesList) |
+		//    ('Empty' 'the' 'table' tableToEmpty = SelectTable))
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//('Delete' 'the' 'table' tables = SelectTablesList) |
-		//('Empty' 'the' 'table' SelectTable) |
-		//('Delete' 'records' 'from' 'the' 'table' SelectTable
-		//'where' condition=Condition)
+		//(('Delete' 'records' 'from' 'the' 'table' tableToDelete = SelectTable
+		//'where' condition=Condition)|
+		//('Delete' 'the' 'tables' tables = SelectTablesList) |
+		//('Empty' 'the' 'table' tableToEmpty = SelectTable))
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//('Delete' 'the' 'table' tables = SelectTablesList)
+		//('Delete' 'records' 'from' 'the' 'table' tableToDelete = SelectTable
+		//    'where' condition=Condition)
 		public Group getGroup_0() { return cGroup_0; }
 		
 		//'Delete'
 		public Keyword getDeleteKeyword_0_0() { return cDeleteKeyword_0_0; }
 		
+		//'records'
+		public Keyword getRecordsKeyword_0_1() { return cRecordsKeyword_0_1; }
+		
+		//'from'
+		public Keyword getFromKeyword_0_2() { return cFromKeyword_0_2; }
+		
 		//'the'
-		public Keyword getTheKeyword_0_1() { return cTheKeyword_0_1; }
+		public Keyword getTheKeyword_0_3() { return cTheKeyword_0_3; }
 		
 		//'table'
-		public Keyword getTableKeyword_0_2() { return cTableKeyword_0_2; }
+		public Keyword getTableKeyword_0_4() { return cTableKeyword_0_4; }
 		
-		//tables = SelectTablesList
-		public Assignment getTablesAssignment_0_3() { return cTablesAssignment_0_3; }
+		//tableToDelete = SelectTable
+		public Assignment getTableToDeleteAssignment_0_5() { return cTableToDeleteAssignment_0_5; }
 		
-		//SelectTablesList
-		public RuleCall getTablesSelectTablesListParserRuleCall_0_3_0() { return cTablesSelectTablesListParserRuleCall_0_3_0; }
+		//SelectTable
+		public RuleCall getTableToDeleteSelectTableParserRuleCall_0_5_0() { return cTableToDeleteSelectTableParserRuleCall_0_5_0; }
 		
-		//('Empty' 'the' 'table' SelectTable)
+		//'where'
+		public Keyword getWhereKeyword_0_6() { return cWhereKeyword_0_6; }
+		
+		//condition=Condition
+		public Assignment getConditionAssignment_0_7() { return cConditionAssignment_0_7; }
+		
+		//Condition
+		public RuleCall getConditionConditionParserRuleCall_0_7_0() { return cConditionConditionParserRuleCall_0_7_0; }
+		
+		//('Delete' 'the' 'tables' tables = SelectTablesList)
 		public Group getGroup_1() { return cGroup_1; }
 		
-		//'Empty'
-		public Keyword getEmptyKeyword_1_0() { return cEmptyKeyword_1_0; }
+		//'Delete'
+		public Keyword getDeleteKeyword_1_0() { return cDeleteKeyword_1_0; }
 		
 		//'the'
 		public Keyword getTheKeyword_1_1() { return cTheKeyword_1_1; }
 		
-		//'table'
-		public Keyword getTableKeyword_1_2() { return cTableKeyword_1_2; }
+		//'tables'
+		public Keyword getTablesKeyword_1_2() { return cTablesKeyword_1_2; }
 		
-		//SelectTable
-		public RuleCall getSelectTableParserRuleCall_1_3() { return cSelectTableParserRuleCall_1_3; }
+		//tables = SelectTablesList
+		public Assignment getTablesAssignment_1_3() { return cTablesAssignment_1_3; }
 		
-		//('Delete' 'records' 'from' 'the' 'table' SelectTable
-		//'where' condition=Condition)
+		//SelectTablesList
+		public RuleCall getTablesSelectTablesListParserRuleCall_1_3_0() { return cTablesSelectTablesListParserRuleCall_1_3_0; }
+		
+		//('Empty' 'the' 'table' tableToEmpty = SelectTable)
 		public Group getGroup_2() { return cGroup_2; }
 		
-		//'Delete'
-		public Keyword getDeleteKeyword_2_0() { return cDeleteKeyword_2_0; }
-		
-		//'records'
-		public Keyword getRecordsKeyword_2_1() { return cRecordsKeyword_2_1; }
-		
-		//'from'
-		public Keyword getFromKeyword_2_2() { return cFromKeyword_2_2; }
+		//'Empty'
+		public Keyword getEmptyKeyword_2_0() { return cEmptyKeyword_2_0; }
 		
 		//'the'
-		public Keyword getTheKeyword_2_3() { return cTheKeyword_2_3; }
+		public Keyword getTheKeyword_2_1() { return cTheKeyword_2_1; }
 		
 		//'table'
-		public Keyword getTableKeyword_2_4() { return cTableKeyword_2_4; }
+		public Keyword getTableKeyword_2_2() { return cTableKeyword_2_2; }
+		
+		//tableToEmpty = SelectTable
+		public Assignment getTableToEmptyAssignment_2_3() { return cTableToEmptyAssignment_2_3; }
 		
 		//SelectTable
-		public RuleCall getSelectTableParserRuleCall_2_5() { return cSelectTableParserRuleCall_2_5; }
-		
-		//'where'
-		public Keyword getWhereKeyword_2_6() { return cWhereKeyword_2_6; }
-		
-		//condition=Condition
-		public Assignment getConditionAssignment_2_7() { return cConditionAssignment_2_7; }
-		
-		//Condition
-		public RuleCall getConditionConditionParserRuleCall_2_7_0() { return cConditionConditionParserRuleCall_2_7_0; }
+		public RuleCall getTableToEmptySelectTableParserRuleCall_2_3_0() { return cTableToEmptySelectTableParserRuleCall_2_3_0; }
 	}
 	public class SelectUpdateListElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.NlToSql.SelectUpdateList");
@@ -1387,10 +1395,10 @@ public class NlToSqlGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 	
 	//// Define the DeleteStatement rule
 	//DeleteStatement:
-	//    ('Delete' 'the' 'table' tables = SelectTablesList) |
-	//    ('Empty' 'the' 'table' SelectTable) |
-	//    ('Delete' 'records' 'from' 'the' 'table' SelectTable
-	//    'where' condition=Condition)
+	//    (('Delete' 'records' 'from' 'the' 'table' tableToDelete = SelectTable
+	//    'where' condition=Condition)|
+	//    ('Delete' 'the' 'tables' tables = SelectTablesList) |
+	//    ('Empty' 'the' 'table' tableToEmpty = SelectTable))
 	//;
 	public DeleteStatementElements getDeleteStatementAccess() {
 		return pDeleteStatement;

@@ -24,11 +24,17 @@ import uk.ac.kcl.inf.nlToSql.ComparisonOperatorString;
 import uk.ac.kcl.inf.nlToSql.Condition;
 import uk.ac.kcl.inf.nlToSql.CreateTableStatement;
 import uk.ac.kcl.inf.nlToSql.Datatype;
+import uk.ac.kcl.inf.nlToSql.DeleteStatement;
+import uk.ac.kcl.inf.nlToSql.InsertStatement;
 import uk.ac.kcl.inf.nlToSql.LogicExpressions;
 import uk.ac.kcl.inf.nlToSql.SelectColumnsList;
 import uk.ac.kcl.inf.nlToSql.SelectStatement;
+import uk.ac.kcl.inf.nlToSql.SelectTable;
+import uk.ac.kcl.inf.nlToSql.SelectTablesList;
 import uk.ac.kcl.inf.nlToSql.Statement;
 import uk.ac.kcl.inf.nlToSql.Table;
+import uk.ac.kcl.inf.nlToSql.UpdateItem;
+import uk.ac.kcl.inf.nlToSql.UpdateStatement;
 
 /**
  * Generates code from your model files on save.
@@ -47,10 +53,10 @@ public class NlToSqlGenerator extends AbstractGenerator {
   
   public CharSequence doGenerateClass(final AccountingSpeech program, final String string) {
     StringConcatenation _builder = new StringConcatenation();
-    final Function1<Statement, String> _function = (Statement it) -> {
+    final Function1<Statement, CharSequence> _function = (Statement it) -> {
       return this.generateSQLStatement(it);
     };
-    String _join = IterableExtensions.join(ListExtensions.<Statement, String>map(program.getStatements(), _function), "\n");
+    String _join = IterableExtensions.join(ListExtensions.<Statement, CharSequence>map(program.getStatements(), _function), "\n");
     _builder.append(_join);
     _builder.newLineIfNotEmpty();
     return _builder;
@@ -83,28 +89,6 @@ public class NlToSqlGenerator extends AbstractGenerator {
     }
     _builder.append(");");
     return _builder.toString();
-  }
-  
-  public CharSequence toSqlString(final Datatype datatype) {
-    StringConcatenation _builder = new StringConcatenation();
-    String _switchResult = null;
-    if (datatype != null) {
-      switch (datatype) {
-        case INTEGER:
-          _switchResult = "INT";
-          break;
-        case STRING:
-          _switchResult = "VARCHAR(255)";
-          break;
-        case DATE:
-          _switchResult = "DATE";
-          break;
-        default:
-          break;
-      }
-    }
-    _builder.append(_switchResult);
-    return _builder;
   }
   
   protected String _generateSQLStatement(final SelectStatement statement) {
@@ -151,7 +135,166 @@ public class NlToSqlGenerator extends AbstractGenerator {
       }
     }
     _builder.newLineIfNotEmpty();
+    {
+      SelectColumnsList _group = statement.getGroup();
+      boolean _tripleEquals_1 = (_group == null);
+      if (_tripleEquals_1) {
+        _builder.append(";");
+      } else {
+        _builder.append("GROUP BY ");
+        final Function1<ColumnReference, String> _function_1 = (ColumnReference it) -> {
+          return StringExtensions.toFirstUpper(it.getColumn().getName());
+        };
+        String _join_1 = IterableExtensions.join(ListExtensions.<ColumnReference, String>map(statement.getGroup().getSelectColumn(), _function_1), ", ");
+        _builder.append(_join_1);
+        _builder.append(";");
+      }
+    }
+    _builder.newLineIfNotEmpty();
     return _builder.toString();
+  }
+  
+  protected CharSequence _generateSQLStatement(final InsertStatement statement) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("INSERT INTO ");
+    String _firstUpper = StringExtensions.toFirstUpper(statement.getTable().getTable().getName());
+    _builder.append(_firstUpper);
+    _builder.append(" (");
+    {
+      EList<ColumnReference> _selectColumn = statement.getColumns().getSelectColumn();
+      for(final ColumnReference column : _selectColumn) {
+        String _firstUpper_1 = StringExtensions.toFirstUpper(column.getColumn().getName());
+        _builder.append(_firstUpper_1);
+        {
+          boolean _equals = column.equals(IterableExtensions.<ColumnReference>last(statement.getColumns().getSelectColumn()));
+          boolean _not = (!_equals);
+          if (_not) {
+            _builder.append(", ");
+          }
+        }
+      }
+    }
+    _builder.append(")");
+    _builder.newLineIfNotEmpty();
+    _builder.append("VALUES (");
+    {
+      EList<String> _valueList = statement.getValues().getValueList();
+      for(final String value : _valueList) {
+        _builder.append(value);
+        {
+          boolean _equals_1 = value.equals(IterableExtensions.<String>last(statement.getValues().getValueList()));
+          boolean _not_1 = (!_equals_1);
+          if (_not_1) {
+            _builder.append(", ");
+          }
+        }
+      }
+    }
+    _builder.append(")");
+    _builder.newLineIfNotEmpty();
+    _builder.append(";");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  protected CharSequence _generateSQLStatement(final UpdateStatement statement) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("UPDATE ");
+    String _firstUpper = StringExtensions.toFirstUpper(statement.getTable().getTable().getName());
+    _builder.append(_firstUpper);
+    _builder.newLineIfNotEmpty();
+    _builder.append("SET ");
+    {
+      EList<UpdateItem> _updateItem = statement.getUpdates().getUpdateItem();
+      for(final UpdateItem update : _updateItem) {
+        String _firstUpper_1 = StringExtensions.toFirstUpper(update.getColumn().getColumn().getName());
+        _builder.append(_firstUpper_1);
+        _builder.append(" = ");
+        String _value = update.getValue();
+        _builder.append(_value);
+        {
+          boolean _equals = update.equals(IterableExtensions.<UpdateItem>last(statement.getUpdates().getUpdateItem()));
+          boolean _not = (!_equals);
+          if (_not) {
+            _builder.append(", ");
+          }
+        }
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    {
+      LogicExpressions _condition = statement.getCondition();
+      boolean _tripleNotEquals = (_condition != null);
+      if (_tripleNotEquals) {
+        _builder.append("WHERE ");
+        String _generateConditionExpression = this.generateConditionExpression(statement.getCondition());
+        _builder.append(_generateConditionExpression);
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    _builder.append(";");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  protected CharSequence _generateSQLStatement(final DeleteStatement statement) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      SelectTable _tableToEmpty = statement.getTableToEmpty();
+      boolean _tripleNotEquals = (_tableToEmpty != null);
+      if (_tripleNotEquals) {
+        _builder.append("DELETE FROM ");
+        String _firstUpper = StringExtensions.toFirstUpper(statement.getTableToEmpty().getTable().getName());
+        _builder.append(_firstUpper);
+      } else {
+        {
+          SelectTablesList _tables = statement.getTables();
+          boolean _tripleNotEquals_1 = (_tables != null);
+          if (_tripleNotEquals_1) {
+            _builder.append("DROP TABLE ");
+            final Function1<Table, String> _function = (Table it) -> {
+              return StringExtensions.toFirstUpper(it.getName());
+            };
+            String _join = IterableExtensions.join(ListExtensions.<Table, String>map(statement.getTables().getSelectTable(), _function), ",");
+            _builder.append(_join);
+          } else {
+            _builder.append("DELETE FROM ");
+            String _firstUpper_1 = StringExtensions.toFirstUpper(statement.getTableToDelete().getTable().getName());
+            _builder.append(_firstUpper_1);
+            _builder.newLineIfNotEmpty();
+            _builder.append("WHERE ");
+            String _generateConditionExpression = this.generateConditionExpression(statement.getCondition());
+            _builder.append(_generateConditionExpression);
+          }
+        }
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    _builder.append(";");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  public CharSequence toSqlString(final Datatype datatype) {
+    StringConcatenation _builder = new StringConcatenation();
+    String _switchResult = null;
+    if (datatype != null) {
+      switch (datatype) {
+        case INTEGER:
+          _switchResult = "INT";
+          break;
+        case STRING:
+          _switchResult = "VARCHAR(255)";
+          break;
+        case DATE:
+          _switchResult = "DATE";
+          break;
+        default:
+          break;
+      }
+    }
+    _builder.append(_switchResult);
+    return _builder;
   }
   
   protected String _generateConditionExpression(final LogicExpressions expression) {
@@ -255,11 +398,17 @@ public class NlToSqlGenerator extends AbstractGenerator {
     return resource.getURI().appendFileExtension("sql").lastSegment();
   }
   
-  public String generateSQLStatement(final Statement statement) {
+  public CharSequence generateSQLStatement(final Statement statement) {
     if (statement instanceof CreateTableStatement) {
       return _generateSQLStatement((CreateTableStatement)statement);
+    } else if (statement instanceof DeleteStatement) {
+      return _generateSQLStatement((DeleteStatement)statement);
+    } else if (statement instanceof InsertStatement) {
+      return _generateSQLStatement((InsertStatement)statement);
     } else if (statement instanceof SelectStatement) {
       return _generateSQLStatement((SelectStatement)statement);
+    } else if (statement instanceof UpdateStatement) {
+      return _generateSQLStatement((UpdateStatement)statement);
     } else if (statement != null) {
       return _generateSQLStatement(statement);
     } else {
