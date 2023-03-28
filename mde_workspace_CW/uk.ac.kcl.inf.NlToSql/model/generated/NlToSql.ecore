@@ -103,7 +103,7 @@
     <eLiterals name="EQUAL_TO" literal="is equal to"/>
     <eLiterals name="NOT_EQUAL_TO" value="1" literal="is not equal to"/>
     <eLiterals name="LESS_THAN" value="2" literal="less than"/>
-    <eLiterals name="GREATER_THAN" value="3" literal="greater than"/>
+    <eLiterals name="GREATER_THAN" value="3" literal="is greater than"/>
     <eLiterals name="LESS_THAN_OR_EQUAL_TO" value="4" literal="less than or equal to"/>
     <eLiterals name="GREATER_THEN_OR_EQUAL_TO" value="5" literal="greater than or equal to"/>
     <eLiterals name="EQUAL_TO_SIGN" value="6" literal="="/>

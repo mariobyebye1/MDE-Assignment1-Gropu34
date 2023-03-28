@@ -25,13 +25,13 @@
 'for'=31
 'from'=41
 'greater than or equal to'=57
-'greater than'=55
 'group'=26
 'in'=45
 'insert'=32
 'integer'=49
 'into'=30
 'is equal to'=52
+'is greater than'=55
 'is not equal to'=53
 'less than or equal to'=56
 'less than'=54

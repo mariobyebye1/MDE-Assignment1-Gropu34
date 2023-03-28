@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'.'", "'Create'", "'table'", "'called'", "'with'", "'columns'", "','", "'of'", "'type'", "'From'", "'the'", "'show'", "'columns:'", "'all'", "'where'", "'group'", "'them'", "'by'", "'Insert'", "'into'", "'for'", "'insert'", "'values'", "'('", "')'", "'Update'", "'to'", "'set'", "'Delete'", "'records'", "'from'", "'tables'", "'Empty'", "'='", "'in'", "'and'", "'or'", "'a'", "'integer'", "'string'", "'date'", "'is equal to'", "'is not equal to'", "'less than'", "'greater than'", "'less than or equal to'", "'greater than or equal to'", "'<>'", "'<'", "'>'", "'<='", "'>='"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'.'", "'Create'", "'table'", "'called'", "'with'", "'columns'", "','", "'of'", "'type'", "'From'", "'the'", "'show'", "'columns:'", "'all'", "'where'", "'group'", "'them'", "'by'", "'Insert'", "'into'", "'for'", "'insert'", "'values'", "'('", "')'", "'Update'", "'to'", "'set'", "'Delete'", "'records'", "'from'", "'tables'", "'Empty'", "'='", "'in'", "'and'", "'or'", "'a'", "'integer'", "'string'", "'date'", "'is equal to'", "'is not equal to'", "'less than'", "'is greater than'", "'less than or equal to'", "'greater than or equal to'", "'<>'", "'<'", "'>'", "'<='", "'>='"
     };
     public static final int T__50=50;
     public static final int T__19=19;
@@ -3970,7 +3970,7 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleComparisonOperatorString"
-    // InternalNlToSql.g:1591:1: ruleComparisonOperatorString returns [Enumerator current=null] : ( (enumLiteral_0= 'is equal to' ) | (enumLiteral_1= 'is not equal to' ) | (enumLiteral_2= 'less than' ) | (enumLiteral_3= 'greater than' ) | (enumLiteral_4= 'less than or equal to' ) | (enumLiteral_5= 'greater than or equal to' ) | (enumLiteral_6= '=' ) | (enumLiteral_7= '<>' ) | (enumLiteral_8= '<' ) | (enumLiteral_9= '>' ) | (enumLiteral_10= '<=' ) | (enumLiteral_11= '>=' ) ) ;
+    // InternalNlToSql.g:1591:1: ruleComparisonOperatorString returns [Enumerator current=null] : ( (enumLiteral_0= 'is equal to' ) | (enumLiteral_1= 'is not equal to' ) | (enumLiteral_2= 'less than' ) | (enumLiteral_3= 'is greater than' ) | (enumLiteral_4= 'less than or equal to' ) | (enumLiteral_5= 'greater than or equal to' ) | (enumLiteral_6= '=' ) | (enumLiteral_7= '<>' ) | (enumLiteral_8= '<' ) | (enumLiteral_9= '>' ) | (enumLiteral_10= '<=' ) | (enumLiteral_11= '>=' ) ) ;
     public final Enumerator ruleComparisonOperatorString() throws RecognitionException {
         Enumerator current = null;
 
@@ -3991,10 +3991,10 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalNlToSql.g:1597:2: ( ( (enumLiteral_0= 'is equal to' ) | (enumLiteral_1= 'is not equal to' ) | (enumLiteral_2= 'less than' ) | (enumLiteral_3= 'greater than' ) | (enumLiteral_4= 'less than or equal to' ) | (enumLiteral_5= 'greater than or equal to' ) | (enumLiteral_6= '=' ) | (enumLiteral_7= '<>' ) | (enumLiteral_8= '<' ) | (enumLiteral_9= '>' ) | (enumLiteral_10= '<=' ) | (enumLiteral_11= '>=' ) ) )
-            // InternalNlToSql.g:1598:2: ( (enumLiteral_0= 'is equal to' ) | (enumLiteral_1= 'is not equal to' ) | (enumLiteral_2= 'less than' ) | (enumLiteral_3= 'greater than' ) | (enumLiteral_4= 'less than or equal to' ) | (enumLiteral_5= 'greater than or equal to' ) | (enumLiteral_6= '=' ) | (enumLiteral_7= '<>' ) | (enumLiteral_8= '<' ) | (enumLiteral_9= '>' ) | (enumLiteral_10= '<=' ) | (enumLiteral_11= '>=' ) )
+            // InternalNlToSql.g:1597:2: ( ( (enumLiteral_0= 'is equal to' ) | (enumLiteral_1= 'is not equal to' ) | (enumLiteral_2= 'less than' ) | (enumLiteral_3= 'is greater than' ) | (enumLiteral_4= 'less than or equal to' ) | (enumLiteral_5= 'greater than or equal to' ) | (enumLiteral_6= '=' ) | (enumLiteral_7= '<>' ) | (enumLiteral_8= '<' ) | (enumLiteral_9= '>' ) | (enumLiteral_10= '<=' ) | (enumLiteral_11= '>=' ) ) )
+            // InternalNlToSql.g:1598:2: ( (enumLiteral_0= 'is equal to' ) | (enumLiteral_1= 'is not equal to' ) | (enumLiteral_2= 'less than' ) | (enumLiteral_3= 'is greater than' ) | (enumLiteral_4= 'less than or equal to' ) | (enumLiteral_5= 'greater than or equal to' ) | (enumLiteral_6= '=' ) | (enumLiteral_7= '<>' ) | (enumLiteral_8= '<' ) | (enumLiteral_9= '>' ) | (enumLiteral_10= '<=' ) | (enumLiteral_11= '>=' ) )
             {
-            // InternalNlToSql.g:1598:2: ( (enumLiteral_0= 'is equal to' ) | (enumLiteral_1= 'is not equal to' ) | (enumLiteral_2= 'less than' ) | (enumLiteral_3= 'greater than' ) | (enumLiteral_4= 'less than or equal to' ) | (enumLiteral_5= 'greater than or equal to' ) | (enumLiteral_6= '=' ) | (enumLiteral_7= '<>' ) | (enumLiteral_8= '<' ) | (enumLiteral_9= '>' ) | (enumLiteral_10= '<=' ) | (enumLiteral_11= '>=' ) )
+            // InternalNlToSql.g:1598:2: ( (enumLiteral_0= 'is equal to' ) | (enumLiteral_1= 'is not equal to' ) | (enumLiteral_2= 'less than' ) | (enumLiteral_3= 'is greater than' ) | (enumLiteral_4= 'less than or equal to' ) | (enumLiteral_5= 'greater than or equal to' ) | (enumLiteral_6= '=' ) | (enumLiteral_7= '<>' ) | (enumLiteral_8= '<' ) | (enumLiteral_9= '>' ) | (enumLiteral_10= '<=' ) | (enumLiteral_11= '>=' ) )
             int alt21=12;
             switch ( input.LA(1) ) {
             case 52:
@@ -4117,10 +4117,10 @@ public class InternalNlToSqlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalNlToSql.g:1623:3: (enumLiteral_3= 'greater than' )
+                    // InternalNlToSql.g:1623:3: (enumLiteral_3= 'is greater than' )
                     {
-                    // InternalNlToSql.g:1623:3: (enumLiteral_3= 'greater than' )
-                    // InternalNlToSql.g:1624:4: enumLiteral_3= 'greater than'
+                    // InternalNlToSql.g:1623:3: (enumLiteral_3= 'is greater than' )
+                    // InternalNlToSql.g:1624:4: enumLiteral_3= 'is greater than'
                     {
                     enumLiteral_3=(Token)match(input,55,FOLLOW_2); 
 

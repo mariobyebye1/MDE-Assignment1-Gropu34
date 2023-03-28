@@ -1061,7 +1061,7 @@ public class NlToSqlGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 		private final EnumLiteralDeclaration cLESS_THANEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
 		private final Keyword cLESS_THANLessThanKeyword_2_0 = (Keyword)cLESS_THANEnumLiteralDeclaration_2.eContents().get(0);
 		private final EnumLiteralDeclaration cGREATER_THANEnumLiteralDeclaration_3 = (EnumLiteralDeclaration)cAlternatives.eContents().get(3);
-		private final Keyword cGREATER_THANGreaterThanKeyword_3_0 = (Keyword)cGREATER_THANEnumLiteralDeclaration_3.eContents().get(0);
+		private final Keyword cGREATER_THANIsGreaterThanKeyword_3_0 = (Keyword)cGREATER_THANEnumLiteralDeclaration_3.eContents().get(0);
 		private final EnumLiteralDeclaration cLESS_THAN_OR_EQUAL_TOEnumLiteralDeclaration_4 = (EnumLiteralDeclaration)cAlternatives.eContents().get(4);
 		private final Keyword cLESS_THAN_OR_EQUAL_TOLessThanOrEqualToKeyword_4_0 = (Keyword)cLESS_THAN_OR_EQUAL_TOEnumLiteralDeclaration_4.eContents().get(0);
 		private final EnumLiteralDeclaration cGREATER_THEN_OR_EQUAL_TOEnumLiteralDeclaration_5 = (EnumLiteralDeclaration)cAlternatives.eContents().get(5);
@@ -1083,7 +1083,7 @@ public class NlToSqlGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 		//    EQUAL_TO = "is equal to"
 		//    | NOT_EQUAL_TO = "is not equal to"
 		//    | LESS_THAN = "less than"
-		//    | GREATER_THAN = "greater than"
+		//    | GREATER_THAN = "is greater than"
 		//    | LESS_THAN_OR_EQUAL_TO = "less than or equal to"
 		//    | GREATER_THEN_OR_EQUAL_TO = "greater than or equal to"
 		//    | EQUAL_TO_SIGN = "="
@@ -1098,7 +1098,7 @@ public class NlToSqlGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 		//EQUAL_TO = "is equal to"
 		//| NOT_EQUAL_TO = "is not equal to"
 		//| LESS_THAN = "less than"
-		//| GREATER_THAN = "greater than"
+		//| GREATER_THAN = "is greater than"
 		//| LESS_THAN_OR_EQUAL_TO = "less than or equal to"
 		//| GREATER_THEN_OR_EQUAL_TO = "greater than or equal to"
 		//| EQUAL_TO_SIGN = "="
@@ -1127,11 +1127,11 @@ public class NlToSqlGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 		//"less than"
 		public Keyword getLESS_THANLessThanKeyword_2_0() { return cLESS_THANLessThanKeyword_2_0; }
 		
-		//GREATER_THAN = "greater than"
+		//GREATER_THAN = "is greater than"
 		public EnumLiteralDeclaration getGREATER_THANEnumLiteralDeclaration_3() { return cGREATER_THANEnumLiteralDeclaration_3; }
 		
-		//"greater than"
-		public Keyword getGREATER_THANGreaterThanKeyword_3_0() { return cGREATER_THANGreaterThanKeyword_3_0; }
+		//"is greater than"
+		public Keyword getGREATER_THANIsGreaterThanKeyword_3_0() { return cGREATER_THANIsGreaterThanKeyword_3_0; }
 		
 		//LESS_THAN_OR_EQUAL_TO = "less than or equal to"
 		public EnumLiteralDeclaration getLESS_THAN_OR_EQUAL_TOEnumLiteralDeclaration_4() { return cLESS_THAN_OR_EQUAL_TOEnumLiteralDeclaration_4; }
@@ -1527,7 +1527,7 @@ public class NlToSqlGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 	//    EQUAL_TO = "is equal to"
 	//    | NOT_EQUAL_TO = "is not equal to"
 	//    | LESS_THAN = "less than"
-	//    | GREATER_THAN = "greater than"
+	//    | GREATER_THAN = "is greater than"
 	//    | LESS_THAN_OR_EQUAL_TO = "less than or equal to"
 	//    | GREATER_THEN_OR_EQUAL_TO = "greater than or equal to"
 	//    | EQUAL_TO_SIGN = "="

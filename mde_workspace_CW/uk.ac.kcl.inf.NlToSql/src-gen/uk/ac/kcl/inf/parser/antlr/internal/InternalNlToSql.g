@@ -1621,7 +1621,7 @@ ruleComparisonOperatorString returns [Enumerator current=null]
 		)
 		    |
 		(
-			enumLiteral_3='greater than'
+			enumLiteral_3='is greater than'
 			{
 				$current = grammarAccess.getComparisonOperatorStringAccess().getGREATER_THANEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
 				newLeafNode(enumLiteral_3, grammarAccess.getComparisonOperatorStringAccess().getGREATER_THANEnumLiteralDeclaration_3());
