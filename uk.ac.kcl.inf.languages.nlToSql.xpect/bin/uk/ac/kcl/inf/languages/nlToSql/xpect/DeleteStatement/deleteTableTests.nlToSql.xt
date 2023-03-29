@@ -1,0 +1,9 @@
+/* XPECT_SETUP uk.ac.kcl.inf.languages.nlToSql.xpect.DeleteStatement.XpectTestsDeleteStatement   END_SETUP*/
+
+Create table called Car with columns CarID of type integer, Plate of type string, DateOfPurchase of type date.
+
+Delete  the tables Car.
+
+Delete records from the table Car where CarID = 1.
+
+Empty the table Car.

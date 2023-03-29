@@ -1,0 +1,9 @@
+/* XPECT_SETUP uk.ac.kcl.inf.languages.nlToSql.xpect.InsertStatement.XpectTestsInsertStatement   END_SETUP*/
+
+Create table called Car with columns CarID of type integer, Plate of type string, DateOfPurchase of type date.
+
+Insert into the table Car for the columns Plate,CarID insert the values ("JCZ12RE",12).
+
+// XPECT errors --> "Number of columns not the same as the number of Values to be entered" at ""JCZ12RE",123,13"
+
+Insert into the table Car for the columns Plate,CarID insert the values ("JCZ12RE",123,13).

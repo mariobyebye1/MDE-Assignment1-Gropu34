@@ -1,0 +1,35 @@
+/* XPECT_SETUP  uk.ac.kcl.inf.languages.nlToSql.xpect.CreateTablesTestsCodeGenerated.XPectCreateTablesTestsGenerated  END_SETUP*/
+
+
+/*
+XPECT generated ---
+CREATE TABLE Accounts(
+    AccountID INT,
+    Premium INT,
+    TransactionDate DATE,
+);
+CREATE TABLE Broker(
+    BrokerID INT,
+    BrokerName VARCHAR(255),
+    Comission VARCHAR(255),
+);
+UPDATE Accounts
+SET AccountID = 12
+WHERE BrokerName = "James" and Premium <= 200
+;
+---
+ */
+
+Create table called Broker with columns BrokerID of type integer,
+BrokerName of type string, Comission of type string.
+
+Create table called Accounts with columns AccountID of type integer
+,Premium of type integer, TransactionDate of type date.
+
+
+Update the table Accounts to set AccountID = 12 
+where BrokerName = "James" and Premium is less than or equal to 200.
+
+
+
+

@@ -1,0 +1,43 @@
+/* XPECT_SETUP  uk.ac.kcl.inf.languages.nlToSql.xpect.CreateTablesTestsCodeGenerated.XPectCreateTablesTestsGenerated  END_SETUP*/
+
+
+/*
+XPECT generated ---
+CREATE TABLE Accounts(
+    AccountID INT,
+    Premium INT,
+    TransactionDate DATE,
+);
+CREATE TABLE Broker(
+    BrokerID INT,
+    BrokerName VARCHAR(255),
+    Comission VARCHAR(255),
+);
+DELETE FROM Accounts
+;
+
+DROP TABLE Accounts,Broker
+;
+
+DELETE FROM Accounts
+WHERE AccountID = 12 and Premium <= 120
+;
+---
+ */
+
+Create table called Broker with columns BrokerID of type integer,
+BrokerName of type string, Comission of type string.
+
+Create table called Accounts with columns AccountID of type integer
+,Premium of type integer, TransactionDate of type date.
+
+
+Delete records from the table Accounts where AccountID is equal to 12 and Premium < 120.
+
+Delete the tables Accounts, Broker.
+
+Empty the table Accounts.
+
+
+
+

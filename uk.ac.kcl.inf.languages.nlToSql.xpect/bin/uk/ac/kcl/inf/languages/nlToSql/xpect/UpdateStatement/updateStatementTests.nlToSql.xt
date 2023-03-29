@@ -1,0 +1,8 @@
+/* XPECT_SETUP uk.ac.kcl.inf.languages.nlToSql.xpect.UpdateStatement.XpectTestsUpdateStatement   END_SETUP*/
+
+Create table called Car with columns CarID of type integer, Plate of type string, DateOfPurchase of type date.
+
+Update the table Car to set Plate = "URZ123".
+
+Update the table Car to set Plate = "URZ123" where CarID < 01 and Plate is not equal to "LZ12ER".
+

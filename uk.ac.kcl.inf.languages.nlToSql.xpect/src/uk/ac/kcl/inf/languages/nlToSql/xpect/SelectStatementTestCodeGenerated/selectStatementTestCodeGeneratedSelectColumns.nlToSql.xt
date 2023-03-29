@@ -1,0 +1,37 @@
+/* XPECT_SETUP  uk.ac.kcl.inf.languages.nlToSql.xpect.CreateTablesTestsCodeGenerated.XPectCreateTablesTestsGenerated  END_SETUP*/
+
+
+/*
+XPECT generated ---
+CREATE TABLE Accounts(
+    AccountID INT,
+    Plate VARCHAR(255),
+    TransactionDate DATE,
+);
+CREATE TABLE Broker(
+    BrokerID INT,
+    BrokerName VARCHAR(255),
+    Comission VARCHAR(255),
+);
+SELECT BrokerID, AccountID, TransactionDate
+FROM Accounts, Broker
+WHERE AccountID >= 32 and BrokerID <= 12
+GROUP BY TransactionDate;
+---
+ */
+
+From the table Accounts,Broker show the columns: BrokerID,AccountID,TransactionDate 
+where AccountID greater than or equal to 32 and BrokerID < 12 
+group them by TransactionDate.
+
+Create table called Broker with columns BrokerID of type integer,
+BrokerName of type string, Comission of type string.
+
+Create table called Accounts with columns AccountID of type integer
+, Plate of type string, TransactionDate of type date.
+
+
+
+
+
+

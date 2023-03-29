@@ -1,0 +1,32 @@
+/* XPECT_SETUP  uk.ac.kcl.inf.languages.nlToSql.xpect.CreateTablesTestsCodeGenerated.XPectCreateTablesTestsGenerated  END_SETUP*/
+
+
+/*
+XPECT generated ---
+CREATE TABLE Accounts(
+    AccountID INT,
+    Plate VARCHAR(255),
+    TransactionDate DATE,
+);
+CREATE TABLE Broker(
+    BrokerID INT,
+    BrokerName VARCHAR(255),
+    Comission VARCHAR(255),
+);
+INSERT INTO Accounts (AccountID, Plate)
+VALUES (12, "Jimmy")
+;
+---
+ */
+
+Create table called Broker with columns BrokerID of type integer,
+BrokerName of type string, Comission of type string.
+
+Create table called Accounts with columns AccountID of type integer
+, Plate of type string, TransactionDate of type date.
+
+Insert into the table Accounts for the columns AccountID,Plate insert the values (12,"Jimmy").
+
+
+
+

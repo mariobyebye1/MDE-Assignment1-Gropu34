@@ -1,0 +1,16 @@
+/* XPECT_SETUP  uk.ac.kcl.inf.languages.nlToSql.xpect.SelectStatement.XPectSelectStatementTests END_SETUP*/
+
+Create table called Accounts with columns CarID of type integer
+, Plate of type string, Name of type integer.
+
+Create table called Broker with columns BrokerID of type integer,
+BrokerName of type string, Comission of type string.
+
+// XPECT errors --> "Column BrokerID is not part of tables Accounts" at "BrokerID,Name"
+
+From the table Accounts show the columns: BrokerID,Name where CarID = 12 and Name = "Joe".
+
+
+
+// XPECT errors --> "Column BrokerName is not part of tables Accounts" at "BrokerName"
+From the table Accounts show the columns: Name,CarID where CarID = 12 and Name = "Joe" group them by BrokerName.

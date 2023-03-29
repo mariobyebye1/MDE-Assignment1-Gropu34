@@ -1,0 +1,24 @@
+
+Create table called Broker with columns BrokerID of type integer,
+BrokerName of type string, Comission of type string.
+
+Create table called Accounts with columns AccountID of type integer
+,Premium of type integer, TransactionDate of type date.
+
+From the table Accounts , Broker show all columns.
+From the table Accounts , Broker show the columns: AccountID, BrokerName 
+where BrokerName = "James" and AccountID is equal to 13.
+
+Insert into the table Accounts for the columns AccountID , Premium 
+insert the values (13,3000).
+
+Update the table Accounts to set AccountID = 12 , TransactionDate = "12/13/2002"
+where Premium > 1200.
+
+
+Delete records from the table Accounts where AccountID is equal to 12 and Premium < 120.
+
+Empty the table Accounts.
+
+Delete the tables Accounts, Broker.
+
