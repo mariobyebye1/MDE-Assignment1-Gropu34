@@ -1,5 +1,5 @@
-# Accounting Speech Natural Language to SQL DSML
-This repository consists of an Xtext generated Domain Specific Modelling Language which is aimed at employees in financial institutions which are unfamiliar with SQL and do not have any experience in programming. The aim of the language is to provide an easy to use text based interface which will remove all the complexities and unknown jargon used in the SQL languge and instead abstract to a more human friendly syntax and semantics. Since this is an abstraction dedicated to a specific part of the whole SQL language, we have decided to focus our attention at the basic commands that a user who is new to SQL can learn.
+# Natural Language to SQL DSML
+This repository consists of an Xtext generated Domain Specific Modelling Language which is aimed at individuals who are unfamiliar with SQL and do not have any experience in programming. The aim of the language is to provide an easy to use text based interface which will remove all the complexities and unknown jargon used in the SQL languge and instead abstract to a more human friendly syntax and semantics. Since this is an abstraction dedicated to a specific part of the whole SQL language, we have decided to focus our attention at the basic commands that a user who is new to SQL can learn.
 
 # Grammar guidance
 
